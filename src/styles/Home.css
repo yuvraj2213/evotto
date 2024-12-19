@@ -1,0 +1,28 @@
+.hero-section {
+  background-color: yellowgreen;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  font-family: "Poppins", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.services {
+  background-color: #17BEBB;
+  padding: 2rem;
+  text-align: center;
+  font-family: "Poppins", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.service-card {
+  background-color: #FAD8D6;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  display: inline-block;
+}

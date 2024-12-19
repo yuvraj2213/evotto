@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  font-family: "Poppins", serif;
+  font-weight: 800;
+  font-style: normal;
+  background-color: #f4f4f9;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
