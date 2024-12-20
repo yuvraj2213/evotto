@@ -30,9 +30,6 @@ const Navbar = () => {
         <li>
           <Link to="/contact">Contact Us</Link>
         </li>
-        <button className="ham-btn" onClick={()=>setShowMenu(!showMenu)}>
-        <GiHamburgerMenu />
-      </button>
       </ul>
 
       <div className="hamburger-menu">
