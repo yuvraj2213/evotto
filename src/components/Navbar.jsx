@@ -19,7 +19,7 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/rental">Automobile Rental</Link>
+          <Link to="/rental">Rental</Link>
         </li>
         <li>
           <Link to="/cars">Second-Hand Cars</Link>
@@ -30,10 +30,13 @@ const Navbar = () => {
         <li>
           <Link to="/contact">Contact Us</Link>
         </li>
+        <button className="ham-btn" onClick={()=>setShowMenu(!showMenu)}>
+        <GiHamburgerMenu />
+        </button>
       </ul>
 
       <div className="hamburger-menu">
-      <button className="ham-btn" onClick={()=>setShowMenu(!showMenu)}>
+      <button className={showMenu?'ham-btn-hidden':'ham-btn'} onClick={()=>setShowMenu(!showMenu)}>
         <GiHamburgerMenu />
       </button>
       </div>
