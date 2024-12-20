@@ -19,19 +19,7 @@ const Services = () => {
 
   return (
     <>
-      <h2>Our Services</h2>
-      {/* <div className="service-card">
-        <h3>Automobile Rental</h3>
-        <p>Rent vehicles for personal or business use effortlessly.</p>
-      </div>
-      <div className="service-card">
-        <h3>Second-Hand Cars</h3>
-        <p>Explore and buy verified, affordable pre-owned cars.</p>
-      </div>
-      <div className="service-card">
-        <h3>Vehicle Servicing</h3>
-        <p>Schedule services, repairs, or maintenance with trusted vendors.</p>
-      </div> */}
+      <h2 className="service-header">Our Services</h2>
       <div className="service-cards">
         {services.map((service, index) => {
           return (
