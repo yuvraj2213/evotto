@@ -25,30 +25,62 @@
   color: #ff9f00;
 }
 
-@media (max-width: 768px) {
+.hamburger-menu {
+  display: none;
+}
+
+.menu-nav-links{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  position: absolute;
+  top: 100%; /* Position it below the hamburger button */ /* Center it horizontally with 80% width */
+  width: 80%;
+  z-index: 999; /* Ensures the menu is on top of other content */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-nav-links a{
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.menu-nav-links{
+  background-color: black;
+}
+
+@media (max-width: 770px) {
   .nav-links {
     display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
   }
 
-  .navbar.active .nav-links {
-    display: flex;
-  }
-
-  .menu-toggle {
+  .hamburger-menu {
     display: block;
   }
 
-  .logo-img {
-    display: flex;
-    align-items: center;
+  .menu-nav-links {
+    display: flex; /* This makes the menu links visible when hamburger is clicked */
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: black; /* Optional: adds a background color */
+    padding: 1rem;
   }
 
-  .logo {
-    margin-left: 10px;
-    font-size: 1.5rem;
+  .menu-nav-links a {
+    padding: 1rem;
+    text-align: center;
+    transition: color 0.3s;
+  }
+
+  .menu-nav-links a:hover {
+    color: #ff9f00;
   }
 }
