@@ -5,6 +5,7 @@ import HeroSection from '../components/HeroSection';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Services from '../components/Services';
+import Chatbox from '../components/Chatbox';
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <section className="services">
         <Services/>
       </section>
+      <Chatbox/>
     </div>
     <Footer/>
     </>
