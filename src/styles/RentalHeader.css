@@ -60,7 +60,7 @@
     position: absolute;
     top: 110px;
     right: 16px;
-    width: 50%;
+    width: 70%; /* Adjust width to be more appropriate for smaller screens */
     justify-content: center; /* Align items in the center */
   }
 }
@@ -69,12 +69,13 @@
   .search-box {
     position: absolute;
     top: 110px;
-    right: 16px;
-    width: 85%;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    width: 85%; /* Adjust width for smaller screen sizes */
     justify-content: center; /* Align items in the center */
   }
 
-  .rental-header-main{
+  .rental-header-main {
     display: flex;
     align-items: center;
     justify-content: center;
