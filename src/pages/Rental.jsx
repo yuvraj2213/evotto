@@ -6,6 +6,7 @@ import TripPlanner from "../components/TripPlanner";
 
 import "../App.css";
 import "../styles/Rental.css"
+import CarCard from "../components/CarCard";
 
 const Rental = () => {
   return (
@@ -16,6 +17,10 @@ const Rental = () => {
       </section>
       <div className="trip-planner-main">
         <TripPlanner />
+      </div>
+
+      <div className="car-card-main">
+        <CarCard/>
       </div>
 
       <Footer />
