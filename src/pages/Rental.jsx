@@ -1,12 +1,16 @@
 import React from 'react'
-import Navbar from '../components/Navbar';
+import UserNavbar from '../components/UserNavbar';
 import Footer from '../components/Footer';
 import '../App.css'
+import RentalHeader from '../components/RentalHeader';
 
 const Rental = () => {
   return (
     <>
-      <Navbar/>
+      <UserNavbar/>
+      <RentalHeader/>
+
+
       <Footer/>
     </>
   )
