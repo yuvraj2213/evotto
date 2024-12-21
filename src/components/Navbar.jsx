@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
-
-  const [showMenu,setShowMenu]=useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <nav className="navbar">
@@ -14,34 +13,36 @@ const Navbar = () => {
         <div className="logo">Evotto</div>
       </div>
 
-      <ul className={showMenu?'menu-nav-links':'nav-links'}>
-        <li>
+      <ul className={showMenu ? "menu-nav-links" : "nav-links"}>
+        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/">Home</Link>
         </li>
-        <li>
+        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/rental">Rental</Link>
         </li>
-        <li>
+        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/cars">Second-Hand Cars</Link>
         </li>
-        <li>
-          <Link to="/service">Vehicle Servicing</Link>
+        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
+          <Link to="/service"> Servicing</Link>
         </li>
-        <li>
+        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/contact">Contact Us</Link>
         </li>
-        <button className="ham-btn" onClick={()=>setShowMenu(!showMenu)}>
-        <GiHamburgerMenu />
-        </button>
+        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
+          <Link to="/login">Login</Link>
+        </li>
+
+          <li>
+            <button className="ham-btn" onClick={() => setShowMenu(!showMenu)}>
+              <GiHamburgerMenu />
+            </button>
+          </li>
+
       </ul>
 
-      <div className="hamburger-menu">
-      <button className={showMenu?'ham-btn-hidden':'ham-btn'} onClick={()=>setShowMenu(!showMenu)}>
-        <GiHamburgerMenu />
-      </button>
-      </div>
     </nav>
   );
 };
 
-export default Navbar; 
+export default Navbar;

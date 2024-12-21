@@ -82,4 +82,8 @@
     max-width: 80%; 
     margin-bottom: 20px; 
   }
+
+  .hero-image{
+    width:400px;
+  }
 }
