@@ -1,31 +1,33 @@
 .search-box {
   display: flex;
   align-items: center;
-  width: 100%; /* Full width of the navbar */
-  max-width: none; /* Remove any fixed width limit */
-  border-radius: 25px;
+  width: 40%;
+  position: absolute;
+  top: 90px;
+  right: 35px;
+  max-width: none; 
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   background-color: white;
 }
 
 .search-input {
-  flex: 3; /* 75% of the space */
   border: none;
   outline: none;
   padding: 15px 20px;
   font-size: 18px;
+  width: 75%;
   height: 50px;
   box-sizing: border-box;
 }
 
 .search-btn {
-  flex: 1; /* 12.5% of the space */
   background-color: #2E5077;
   color: white;
   border: none;
   font-size: 20px;
   height: 50px;
+  width: 12.5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,12 +36,12 @@
 }
 
 .filter-btn {
-  flex: 1; /* 12.5% of the space */
   background-color: #4DA1A9;
   color: white;
   font-size: 27px;
   border: none;
   height: 50px;
+  width: 12.5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,4 +52,24 @@
 /* Button hover effects */
 .search-btn:hover, .filter-btn:hover {
   background-color: #45a049;
+}
+
+@media (max-width: 900px) {
+  .search-box {
+    position: absolute;
+    top: 110px;
+    right: 16px;
+    width: 50%;
+    justify-content: center; /* Align items in the center */
+  }
+}
+
+@media (max-width: 530px) {
+  .search-box {
+    position: absolute;
+    top: 110px;
+    right: 16px;
+    width: 85%;
+    justify-content: center; /* Align items in the center */
+  }
 }
