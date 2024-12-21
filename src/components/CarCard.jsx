@@ -70,55 +70,67 @@ const cars = [
   },
 ];
 
-const CarCard = () => {
+const CarCard = ({ priceRange, searchQuery }) => {
   const [favorites, setFavorites] = useState([]);
 
   const toggleFavorite = (carName) => {
     if (favorites.includes(carName)) {
-      // Remove from favorites
       setFavorites(favorites.filter((name) => name !== carName));
     } else {
-      // Add to favorites
       setFavorites([...favorites, carName]);
     }
   };
 
+  const filteredCars = cars.filter((car) => {
+    // const isInPriceRange =
+    //   parseInt(car.price.replace(/[^\d]/g, "")) >= priceRange.minPrice &&
+    //   parseInt(car.price.replace(/[^\d]/g, "")) <= priceRange.maxPrice;
+
+    const matchesSearchQuery = car.name.toLowerCase().startsWith(searchQuery);
+
+    return matchesSearchQuery;
+  });
+
   return (
     <div className="car-container">
-      <h2>Popular Vehicles</h2>
+      {searchQuery===''?<h2>Popular Vehicles</h2>:<h2>Your Search Results</h2>}
       <div className="car-cards">
-        {cars.map((car) => (
-          <div className="car-card" key={car.name}>
-            <div className="card-header">
-              <span className="car-name">{car.name}</span>
-              <span
-                className="fav-heart"
-                onClick={() => toggleFavorite(car.name)}
-                style={{
-                  position: "absolute",
-                  top: "2px",
-                  right: "16px",
-                  fontSize: "24px",
-                  cursor: "pointer",
-                  color: favorites.includes(car.name) ? "red" : "gray",
-                }}
-              >
-                &#9829;
-              </span>
-            </div>
-
-            <div className="car-img">
-              <img src={car.image} alt={car.name} />
-            </div>
-            <div className="car-info">
-              <div className="price-container">
-                <p>Weekday Price : {car.price}</p>
-                <p>Weekend Price : {car.weekendPrice}</p>
+        {filteredCars.length > 0 ? (
+          filteredCars.map((car) => (
+            <div className="car-card" key={car.name}>
+              <div className="card-header">
+                <span className="car-name">{car.name}</span>
+                <span
+                  className="fav-heart"
+                  onClick={() => toggleFavorite(car.name)}
+                  style={{
+                    position: "absolute",
+                    top: "2px",
+                    right: "16px",
+                    fontSize: "24px",
+                    cursor: "pointer",
+                    color: favorites.includes(car.name) ? "red" : "gray",
+                  }}
+                >
+                  &#9829;
+                </span>
               </div>
-              <button className="rentnow-btn">Rent Now</button>
+
+              <div className="car-img">
+                <img src={car.image} alt={car.name} />
+              </div>
+              <div className="car-info">
+                <div className="price-container">
+                  <p>Weekday Price : {car.price}</p>
+                  <p>Weekend Price : {car.weekendPrice}</p>
+                </div>
+                <button className="rentnow-btn">Rent Now</button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p className="no-search-match">No vehicles found matching your search criteria.</p>
+        )}
       </div>
     </div>
   );

@@ -112,9 +112,10 @@
   transform: scale(1.05);
 }
 
-/* Media Queries for Responsiveness */
+.no-search-match{
+  color:white;
+}
 
-/* For tablets and small screens */
 @media (max-width: 768px) {
   .car-card {
     width: calc(45% - 20px); /* Two cards per row */
