@@ -48,7 +48,27 @@
   border-radius: 7px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 800px){
+
+  .trip-planner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .trip-section {
+    width: 80%;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #235789;
+    color: aliceblue;
+  }
+
+ }
+
+@media (max-width: 500px) {
   body {
     margin-left: 20px;
     margin-right: 20px;

@@ -1,6 +1,7 @@
 .search-box {
   display: flex;
   align-items: center;
+  z-index: 10;
   width: 40%;
   position: absolute;
   top: 90px;
