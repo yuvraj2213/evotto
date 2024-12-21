@@ -21,6 +21,27 @@
   border-radius: 50px;
 }
 
+.social-links{
+  margin-top: 100px;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.social{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  gap: 15px;
+}
+
+.social span{
+  color: whitesmoke;
+  font-size: larger;
+}
+
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2rem;
@@ -32,6 +53,15 @@
 
   .hero img {
     width: 80vw !important ; /* Adjusted for smaller screens */
+  }
+
+  .social {
+    width: 80vw; /* Adjust width for smaller screens */
+    gap: 10px; /* Reduce gap for better spacing */
+  }
+
+  .social span {
+    font-size: medium; /* Reduce font size on smaller screens */
   }
 }
 
@@ -72,6 +102,17 @@
 
 .service-cards{
   display: flex;
+}
+
+@media screen and (max-width: 480px) {
+  .social {
+    width: 90vw; /* Further reduce width for very small screens */
+    gap: 8px; /* Further reduce gap */
+  }
+
+  .social span {
+    font-size: small; /* Further reduce font size */
+  }
 }
 
 @media (max-width: 1160px){

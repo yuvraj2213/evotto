@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Services from '../components/Services';
 import Chatbox from '../components/Chatbox';
+import SocialLinks from '../components/SocialLinks';
 
 const Home = () => {
   return (
@@ -17,6 +18,9 @@ const Home = () => {
       </header>
       <section className="services">
         <Services/>
+      </section>
+      <section className='social-links'>
+      <SocialLinks/>
       </section>
       <Chatbox/>
     </div>
