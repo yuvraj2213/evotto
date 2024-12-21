@@ -89,20 +89,24 @@ const CarCard = () => {
       <div className="car-cards">
         {cars.map((car) => (
           <div className="car-card" key={car.name}>
-            <h3>{car.name}</h3>
-            <span
-              onClick={() => toggleFavorite(car.name)}
-              style={{
-                position: "absolute",
-                top: "10px",
-                right: "10px",
-                fontSize: "24px",
-                cursor: "pointer",
-                color: favorites.includes(car.name) ? "red" : "gray",
-              }}
-            >
-              &#9829;
-            </span>
+            <div className="card-header">
+              <span className="car-name">{car.name}</span>
+              <span
+                className="fav-heart"
+                onClick={() => toggleFavorite(car.name)}
+                style={{
+                  position: "absolute",
+                  top: "2px",
+                  right: "16px",
+                  fontSize: "24px",
+                  cursor: "pointer",
+                  color: favorites.includes(car.name) ? "red" : "gray",
+                }}
+              >
+                &#9829;
+              </span>
+            </div>
+
             <div className="car-img">
               <img src={car.image} alt={car.name} />
             </div>
