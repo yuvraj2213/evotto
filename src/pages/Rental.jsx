@@ -5,17 +5,18 @@ import RentalHeader from "../components/RentalHeader";
 import TripPlanner from "../components/TripPlanner";
 
 import "../App.css";
-import "../styles/Rental.css";
+import "../styles/Rental.css"
 
 const Rental = () => {
   return (
     <>
       <UserNavbar />
-
-      <RentalHeader />
-      <section className="trip-planner-main">
-        <TripPlanner />
+      <section className="rental-header-main">
+        <RentalHeader />
       </section>
+      <div className="trip-planner-main">
+        <TripPlanner />
+      </div>
 
       <Footer />
     </>
