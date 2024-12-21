@@ -1,0 +1,76 @@
+.trip-planner {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .trip-section {
+    width: 45%;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #235789;
+    color: aliceblue;
+
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .section-icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    margin-right: 5px;
+  }
+  
+  .section-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .field label {
+    margin-bottom: 5px;
+  }
+
+.input-style{
+    border: none;
+    height: 25px;
+    border-radius: 7px;
+}
+
+@media (max-width: 800px) {
+  body {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .trip-planner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .trip-section {
+    width: 90%;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #235789;
+    color: aliceblue;
+
+  }
+  
+}

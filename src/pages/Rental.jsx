@@ -1,19 +1,25 @@
-import React from 'react'
-import UserNavbar from '../components/UserNavbar';
-import Footer from '../components/Footer';
-import '../App.css'
-import RentalHeader from '../components/RentalHeader';
+import React from "react";
+import UserNavbar from "../components/UserNavbar";
+import Footer from "../components/Footer";
+import RentalHeader from "../components/RentalHeader";
+import TripPlanner from "../components/TripPlanner";
+
+import "../App.css";
+import "../styles/Rental.css";
 
 const Rental = () => {
   return (
     <>
-      <UserNavbar/>
-      <RentalHeader/>
+      <UserNavbar />
 
+      <RentalHeader />
+      <section className="trip-planner-main">
+        <TripPlanner />
+      </section>
 
-      <Footer/>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Rental
+export default Rental;
