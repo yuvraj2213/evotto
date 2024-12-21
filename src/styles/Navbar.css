@@ -60,6 +60,15 @@
 
   .ham-btn {
     display: block;
+    font-size: 20px;
+    color: black;
+    background-color: white;
+    border: none;
+    transition: transform 0.3s ease;
+  }
+
+  .ham-btn:hover {
+    transform: scale(1.2);
   }
 
   .menu-nav-links {
