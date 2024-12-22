@@ -122,6 +122,11 @@
   display: flex;
 }
 
+.service-card-link{
+  text-decoration: none;
+  color: black;
+}
+
 @media screen and (max-width: 480px) {
   .social {
     width: 90vw;
