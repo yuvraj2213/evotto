@@ -120,10 +120,10 @@ const CarCard = ({ priceRange, searchQuery }) => {
                 <img src={car.image} alt={car.name} />
               </div>
               <div className="car-info">
-                <div className="price-container">
+                {/* <div className="price-container">
                   <p>Weekday Price : {car.price}</p>
                   <p>Weekend Price : {car.weekendPrice}</p>
-                </div>
+                </div> */}
                 <button className="rentnow-btn">Rent Now</button>
               </div>
             </div>

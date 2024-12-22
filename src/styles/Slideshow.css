@@ -147,6 +147,7 @@
 
 @media (max-width: 430px) {
   .slideshow-container {
+    
     height: 380px;
     width:93%;
     margin-top: 50px;
