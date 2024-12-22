@@ -25,7 +25,7 @@ const Chatbox = () => {
         {
           sender: 'bot',
           text: 'Email us:',
-          link: 'mailto:support@example.com',  // Use mailto: protocol for Gmail
+          link: 'mailto:evotto.info@gmail.com',  
           icon: <SiGmail style={{color:'red'}}/>
         }
       ]);
