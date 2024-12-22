@@ -13,7 +13,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; 
 }
 
 .slider {
@@ -152,6 +152,7 @@
     width:93%;
     margin-top: 50px;
     margin-bottom: 50px;
+    background-image: url("");
   }
 
   .slide {
