@@ -14,7 +14,7 @@ import Slideshow from "../components/Slideshow";
 const Home = () => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <div className="home">
         <header className="hero-section">
           <HeroSection />

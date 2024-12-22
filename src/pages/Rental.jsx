@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserNavbar from "../components/UserNavbar";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import RentalHeader from "../components/RentalHeader";
 import TripPlanner from "../components/TripPlanner";
@@ -18,7 +18,7 @@ const Rental = () => {
 
   return (
     <>
-      <UserNavbar />
+      <Navbar />
       <section className="rental-header-main">
         <RentalHeader handleSearchChange={handleSearchChange} />
       </section>

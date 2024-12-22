@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -33,7 +34,7 @@ const Navbar = () => {
           <Link to="/contact">Feedback</Link>
         </li>
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
-          <Link to="/login">Login</Link>
+          <Link to="/profile"><CgProfile style={{ fontSize: "30px" }}/></Link>
         </li>
 
           <li>
