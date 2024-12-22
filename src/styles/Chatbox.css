@@ -10,6 +10,11 @@
   z-index: 9999;
 }
 
+.message a{
+  text-decoration: none;
+  color: #EF3E36;
+}
+
 @media (max-width: 768px) {
   .chatbox-container {
     width: 230px;

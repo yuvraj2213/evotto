@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FaWhatsapp } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 import '../styles/Chatbox.css';
 
 const Chatbox = () => {
@@ -13,7 +15,19 @@ const Chatbox = () => {
       setMessages([
         ...messages,
         { sender: 'user', text: input },
-        { sender: 'bot', text: 'Thank you for your message!' },
+        { sender: 'bot', text: 'Share your queries with us:' },
+        {
+          sender: 'bot',
+          text: 'WhatsApp:',
+          link: 'https://wa.me/7077829595',
+          icon: <FaWhatsapp style={{color:'green'}}/>
+        },
+        {
+          sender: 'bot',
+          text: 'Email us:',
+          link: 'mailto:support@example.com',  // Use mailto: protocol for Gmail
+          icon: <SiGmail style={{color:'red'}}/>
+        }
       ]);
       setInput('');
     }
@@ -30,6 +44,13 @@ const Chatbox = () => {
             {messages.map((msg, index) => (
               <div key={index} className={`message ${msg.sender}`}>
                 <p>{msg.text}</p>
+                {msg.link && (
+                  <p>
+                    <a href={msg.link} target="_blank" rel="noopener noreferrer" className="whatsapp-link">
+                      {msg.icon} Click here to contact
+                    </a>
+                  </p>
+                )}
               </div>
             ))}
           </div>
