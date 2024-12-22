@@ -7,15 +7,22 @@ import SecondHand from "./pages/SecondHand";
 import Servicing from "./pages/Servicing";
 import Contact from "./pages/Contact";
 import SplashScreen from "./components/SplashScreen";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 3000); 
-    return () => clearTimeout(timer);
+
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      setShowSplash(true);
+      const timer = setTimeout(() => {
+        setShowSplash(false);
+      }, 3000); 
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
@@ -24,6 +31,7 @@ const App = () => {
         <SplashScreen />
       ) : (
         <Router>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/rental" element={<Rental />} />
