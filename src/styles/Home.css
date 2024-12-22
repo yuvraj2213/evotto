@@ -52,6 +52,14 @@
   transform: scale(1.2);
 }
 
+
+.slideshow{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2rem;
