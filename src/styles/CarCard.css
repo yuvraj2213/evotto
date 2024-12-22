@@ -19,7 +19,7 @@
 
 .car-card {
   position: relative;
-  width: calc(25% - 20px); /* Four cards per row on larger screens */
+  width: calc(25% - 0px); 
   margin-bottom: 20px;
   padding: 10px;
   text-align: center;
@@ -43,7 +43,7 @@
 
 .car-img {
   width: 100%;
-  height: 170px;
+  height: 160px;
   overflow: hidden;
 }
 
@@ -139,7 +139,6 @@
   }
 }
 
-/* For mobile screens */
 @media (max-width: 480px) {
   .car-card {
     width: calc(100% - 40px); /* Single card per row */
@@ -147,7 +146,16 @@
   }
 
   .car-img {
-    height: 100px;
+    height: auto; /* Allow the height to adjust dynamically based on the image's aspect ratio */
+    display: flex; /* Center the image inside the container */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .car-img img {
+    width: 100%; /* Make the image fit the container's width */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the full image is displayed */
   }
 
   .car-info {
