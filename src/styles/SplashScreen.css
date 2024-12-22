@@ -1,6 +1,3 @@
-/* SplashScreen.css */
-
-/* Default splash screen styles */
 .splash-screen {
     position: fixed;
     top: 0;
@@ -27,7 +24,6 @@
     height: auto;
   }
   
-  /* Logo fade-in animation */
   @keyframes fadeIn {
     0% {
       transform: scale(0.8);
@@ -39,7 +35,6 @@
     }
   }
   
-  /* Background slide left with ease-in-out */
   @keyframes slideLeftEaseInOut {
     0% {
       transform: translateX(0);
@@ -54,7 +49,6 @@
     }
   }
   
-  /* Hide splash screen for non-mobile devices */
   @media (min-width: 769px) {
     .splash-screen {
       display: none;
