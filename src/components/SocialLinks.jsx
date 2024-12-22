@@ -7,9 +7,9 @@ const SocialLinks = () => {
     <>
         <div className="social">
             <span>Find us on</span>
-            <p><SocialIcon url="https://twitter.com/" /></p>
-            <p><SocialIcon url="https://linkedin.com/in/" /></p>
-            <p><SocialIcon url="https://instagram.com/in/" /></p>
+            <p><SocialIcon url="https://x.com/Evottoofficial" /></p>
+            <p><SocialIcon url="https://www.linkedin.com/company/evotto-official" /></p>
+            <p><SocialIcon url="https://www.instagram.com/evottoofficial?igsh=YXFrazNiZG40eXpl" /></p>
         </div>
     </>
   )

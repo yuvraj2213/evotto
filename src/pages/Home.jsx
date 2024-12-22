@@ -1,12 +1,15 @@
 import React from 'react';
 import '../styles/Home.css';
 import '../App.css'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import HeroSection from '../components/HeroSection';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Services from '../components/Services';
 import Chatbox from '../components/Chatbox';
 import SocialLinks from '../components/SocialLinks';
+
 
 const Home = () => {
   return (

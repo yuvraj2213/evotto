@@ -13,7 +13,7 @@ const Rental = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value.toLowerCase()); // Convert to lowercase for case-insensitive search
+    setSearchQuery(e.target.value.toLowerCase());
   };
 
   return (
