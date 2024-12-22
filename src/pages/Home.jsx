@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import Services from '../components/Services';
 import Chatbox from '../components/Chatbox';
 import SocialLinks from '../components/SocialLinks';
+import Slideshow from '../components/Slideshow';
 
 
 const Home = () => {
@@ -19,6 +20,9 @@ const Home = () => {
       <header className="hero-section">
         <HeroSection/>
       </header>
+      <section className="slideshow">
+        <Slideshow/>
+      </section>
       <section className="services">
         <Services/>
       </section>
