@@ -53,14 +53,15 @@
     padding: 10px 15px;
     font-size: 16px;
     color: white;
-    background-color: #007bff;
+    background-color: #F25F5C;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.6s ease;
   }
   
   .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #E9806E;
   }
   
   .thank-you {
