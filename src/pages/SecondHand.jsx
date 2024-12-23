@@ -3,23 +3,44 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/SecondHand.css";
 import CarSellingForm from "../components/CarSellingForm";
+import CarBuying from "../components/CarBuying";
 
 const SecondHand = () => {
   const [isSell, setIsSell] = useState(false);
+  const [isBuy, setIsBuy] = useState(false);
   const carSellingFormRef = useRef(null);
+  const carBuyingFormRef = useRef(null);
 
-  // Scroll to the CarSellingForm after it is rendered and make sure the header is at the top
   useEffect(() => {
     if (isSell && carSellingFormRef.current) {
       carSellingFormRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "start", // Ensures the top of the element aligns with the top of the viewport
+        block: "start",
       });
     }
-  }, [isSell]); // Trigger only when 'isSell' changes
+  }, [isSell]);
+
+  useEffect(() => {
+    if (isBuy && carBuyingFormRef.current) {
+      carBuyingFormRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [isBuy]);
 
   const handleSellClick = () => {
     setIsSell(!isSell);
+    setIsBuy(false);
+  };
+
+  const handleBuyClick = () => {
+    setIsBuy(!isBuy);
+    setIsSell(false);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value.toLowerCase());
   };
 
   return (
@@ -30,17 +51,24 @@ const SecondHand = () => {
           <h2>I WANT TO</h2>
         </div>
         <div className="buttons">
-          <button className="buy-btn">BUY</button>
+          <button className="buy-btn" onClick={handleBuyClick}>
+            BUY
+          </button>
           <button className="sell-btn" onClick={handleSellClick}>
             SELL
           </button>
         </div>
       </div>
 
-      {/* Render CarSellingForm and scroll to it when 'isSell' is true */}
       {isSell && (
         <div ref={carSellingFormRef}>
           <CarSellingForm />
+        </div>
+      )}
+
+      {isBuy && (
+        <div ref={carBuyingFormRef}>
+          <CarBuying />
         </div>
       )}
 

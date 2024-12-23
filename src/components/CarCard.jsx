@@ -70,7 +70,7 @@ const cars = [
   },
 ];
 
-const CarCard = ({ priceRange, searchQuery }) => {
+const CarCard = ({ searchQuery }) => {
   const [favorites, setFavorites] = useState([]);
 
   const toggleFavorite = (carName) => {
@@ -82,9 +82,6 @@ const CarCard = ({ priceRange, searchQuery }) => {
   };
 
   const filteredCars = cars.filter((car) => {
-    // const isInPriceRange =
-    //   parseInt(car.price.replace(/[^\d]/g, "")) >= priceRange.minPrice &&
-    //   parseInt(car.price.replace(/[^\d]/g, "")) <= priceRange.maxPrice;
 
     const matchesSearchQuery = car.name.toLowerCase().startsWith(searchQuery);
 
@@ -120,10 +117,6 @@ const CarCard = ({ priceRange, searchQuery }) => {
                 <img src={car.image} alt={car.name} />
               </div>
               <div className="car-info">
-                {/* <div className="price-container">
-                  <p>Weekday Price : {car.price}</p>
-                  <p>Weekend Price : {car.weekendPrice}</p>
-                </div> */}
                 <button className="rentnow-btn">Rent Now</button>
               </div>
             </div>

@@ -126,5 +126,6 @@ textarea {
 
   .form-container h2{
     font-size: 19px;
+    background-size: contain;
   }
 }
