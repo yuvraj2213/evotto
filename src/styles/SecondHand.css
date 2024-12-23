@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0072BB;
+  background-color: #F0544F;
   padding: 5px 35px 5px 35px;
   width: 200px;
 }
@@ -68,7 +68,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #e9ce2c;
     padding: 5px 20px 5px 20px;
     width: 200px;
   }
@@ -79,7 +78,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #e9ce2c;
     padding: 0px 10px 0px 10px;
     width: 200px;
   }
