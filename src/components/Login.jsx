@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import "../styles/Signup.css";
+import "../styles/Login.css";
 import { Link } from "react-router-dom";
 
-const Signup = ({check , setCheck}) => {
+const Login = ({check, setCheck}) => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
-    password: "",
-    confirmPassword: "",
+    password: ""
   });
 
   const handleChange = (e) => {
@@ -17,27 +15,13 @@ const Signup = ({check , setCheck}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
   };
 
   return (
     <div className="signup-container">
-      <h1>Sign Up</h1>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit} className="signup-form">
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
+
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
@@ -60,28 +44,17 @@ const Signup = ({check , setCheck}) => {
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
         <div className="user-check">
           <button onClick={()=>setCheck(!check)}>
-            Already a user?
+            New here?
           </button>
         </div>
         <button type="submit" className="signup-button">
-          Sign Up
+          Login
         </button>
       </form>
     </div>
   );
 };
 
-export default Signup;
+export default Login;
