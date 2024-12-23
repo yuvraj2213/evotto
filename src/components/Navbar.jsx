@@ -45,6 +45,9 @@ const Navbar = () => {
           <Link to="/service"> Servicing</Link>
         </li>
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
+          <Link to="/drivers"> Drivers</Link>
+        </li>
+        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/contact">Contact Us</Link>
         </li>
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
