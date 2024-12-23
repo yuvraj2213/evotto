@@ -31,7 +31,7 @@
   
   .form-group label {
     font-size: 14px;
-    color: #333;
+    color: black !important;
     margin-bottom: 5px;
   }
   
