@@ -1,40 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import '../styles/Chatbox.css';
+import "../styles/Chatbox.css";
 
 const Chatbox = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Hello! How can I help you today?' }
+    { sender: "bot", text: "Hello! How can I help you today?" },
   ]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
+
+  const chatboxRef = useRef(null);
+
+  useEffect(() => {
+
+    const handleClickOutside = (event) => {
+      if (chatboxRef.current && !chatboxRef.current.contains(event.target)) {
+        setIsOpen(false); // Close the chatbox
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+   
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []); 
 
   const handleSend = () => {
     if (input.trim()) {
       setMessages([
         ...messages,
-        { sender: 'user', text: input },
-        { sender: 'bot', text: 'Share your queries with us:' },
+        { sender: "user", text: input },
+        { sender: "bot", text: "Share your queries with us:" },
         {
-          sender: 'bot',
-          text: 'WhatsApp:',
-          link: 'https://wa.me/7077829595',
-          icon: <FaWhatsapp style={{color:'green'}}/>
+          sender: "bot",
+          text: "WhatsApp:",
+          link: "https://wa.me/7077829595",
+          icon: <FaWhatsapp style={{ color: "green" }} />,
         },
         {
-          sender: 'bot',
-          text: 'Email us:',
-          link: 'mailto:evotto.info@gmail.com',  
-          icon: <SiGmail style={{color:'red'}}/>
-        }
+          sender: "bot",
+          text: "Email us:",
+          link: "mailto:evotto.info@gmail.com",
+          icon: <SiGmail style={{ color: "red" }} />,
+        },
       ]);
-      setInput('');
+      setInput("");
     }
   };
 
   return (
-    <div className={`chatbox-container ${isOpen ? 'open' : ''}`}>
+    <div
+      className={`chatbox-container ${isOpen ? "open" : ""}`}
+      ref={chatboxRef}
+    >
       <div className="chatbox-header" onClick={() => setIsOpen(!isOpen)}>
         <span>Chat with us</span>
       </div>
@@ -46,7 +67,12 @@ const Chatbox = () => {
                 <p>{msg.text}</p>
                 {msg.link && (
                   <p>
-                    <a href={msg.link} target="_blank" rel="noopener noreferrer" className="whatsapp-link">
+                    <a
+                      href={msg.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="whatsapp-link"
+                    >
                       {msg.icon} Click here to contact
                     </a>
                   </p>
