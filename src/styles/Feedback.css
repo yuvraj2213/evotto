@@ -1,8 +1,11 @@
+/* Base styles */
 .feedback-container {
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
   background-image: url("/images/form11.webp");
+  background-size: cover;
+  background-position: center;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -67,4 +70,96 @@
 .thank-you {
   font-size: 18px;
   color: #333;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  /* For tablets and smaller screens */
+  .feedback-container {
+    padding: 15px;
+  }
+
+  .feedback-container h1 {
+    font-size: 22px;
+  }
+
+  .feedback-container p {
+    font-size: 14px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .submit-btn {
+    font-size: 15px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* For small tablets and mobile screens */
+  .feedback-container {
+    padding: 10px;
+  }
+
+  .feedback-container h1 {
+    font-size: 20px;
+  }
+
+  .feedback-container p {
+    font-size: 13px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-container {
+    width: 70%;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .feedback-container h1 {
+    font-size: 18px;
+  }
+
+  .feedback-container p {
+    font-size: 12px;
+  }
+
+  .form-group label {
+    font-size: 11px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 11px;
+    padding: 5px;
+  }
+
+  .submit-btn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
 }
