@@ -10,6 +10,7 @@ import Feedback from "./pages/Feedback";
 
 import SplashScreen from "./components/SplashScreen";
 import ScrollToTop from "./components/ScrollToTop";
+import Profile from "./pages/Profile";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="/service" element={<Servicing />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/feedback" element={<Feedback />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </Router>
       )}
