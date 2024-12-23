@@ -8,11 +8,11 @@
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 16px;
-  color: white;
 }
 
 .form-container h2 {
   text-align: center;
+  color: whitesmoke;
 }
 
 .car-selling-form {
@@ -20,16 +20,19 @@
   flex-direction: column;
   width: 100%;
   gap: 15px;
+  color: whitesmoke;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 .form-group label {
   font-weight: bold;
   margin-bottom: 5px;
+  color: aliceblue !important;
 }
 
 .form-group input,
