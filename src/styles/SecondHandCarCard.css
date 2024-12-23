@@ -1,0 +1,178 @@
+.car-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+  
+  .car-container h2 {
+    color: white;
+    text-align: center;
+  }
+  
+  .car-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .car-card {
+    position: relative;
+    width: calc(25% - 0px); 
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    background-image: url("/images/blue5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .car-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-header{
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .car-img {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+  }
+  
+  .car-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .car-info {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .car-name{
+      font-weight: bolder;
+      margin-bottom: 10px;
+  }
+  
+  .price-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: small;
+    border: none;
+    background-color: #e8d6cb;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  
+  .heart-icon {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s, border 0.2s;
+  }
+  
+  .heart-icon.unfilled {
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 2px;
+  }
+  
+  .heart-icon.filled {
+    color: red;
+    border: none;
+  }
+  
+  .heart-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  .rentnow-btn {
+    border: none;
+    background-color: #e71d36;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .rentnow-btn:hover {
+    background-color: #ee7674;
+    transform: scale(1.05);
+  }
+  
+  .no-search-match{
+    color:white;
+  }
+  
+  @media (max-width: 768px) {
+    .car-card {
+      width: calc(45% - 20px); 
+      margin-bottom: 15px;
+    }
+  
+    .price-container {
+      font-size: 12px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .rentnow-btn {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .heart-icon {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .car-card {
+      width: calc(100% - 40px);
+      margin-bottom: 10px;
+    }
+  
+    .car-img {
+      height: auto; 
+      display: flex; 
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .car-img img {
+      width: 100%; 
+      height: auto; 
+      object-fit: contain; 
+    }
+  
+    .car-info {
+      font-size: 12px;
+    }
+  
+    .rentnow-btn {
+      font-size: 10px;
+      padding: 6px;
+    }
+  
+    .heart-icon {
+      font-size: 18px;
+    }
+  
+    .price-container {
+      font-size: 11px;
+    }
+  }
+  
