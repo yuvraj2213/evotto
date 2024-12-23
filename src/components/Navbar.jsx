@@ -31,7 +31,7 @@ const Navbar = () => {
           <Link to="/contact">Contact Us</Link>
         </li>
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
-          <Link to="/contact">Feedback</Link>
+          <Link to="/feedback">Feedback</Link>
         </li>
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/profile"><CgProfile style={{ fontSize: "30px" }}/></Link>

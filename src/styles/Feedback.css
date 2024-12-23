@@ -1,0 +1,70 @@
+.feedback-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-image: url('/images/form11.webp');
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .feedback-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .feedback-container p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-group {
+    text-align: left;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+  }
+  
+  .submit-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .thank-you {
+    font-size: 18px;
+    color: #333;
+  }
+  

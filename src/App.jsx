@@ -6,6 +6,8 @@ import Rental from "./pages/Rental";
 import SecondHand from "./pages/SecondHand";
 import Servicing from "./pages/Servicing";
 import Contact from "./pages/Contact";
+import Feedback from "./pages/Feedback";
+
 import SplashScreen from "./components/SplashScreen";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -38,6 +40,7 @@ const App = () => {
             <Route path="/cars" element={<SecondHand />} />
             <Route path="/service" element={<Servicing />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/feedback" element={<Feedback />} />
           </Routes>
         </Router>
       )}
