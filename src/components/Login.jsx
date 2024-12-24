@@ -46,7 +46,7 @@ const Login = ({check, setCheck}) => {
         </div>
         <div className="user-check">
           <button onClick={()=>setCheck(!check)}>
-            New here?
+            New here
           </button>
         </div>
         <button type="submit" className="signup-button">

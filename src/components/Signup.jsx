@@ -50,6 +50,18 @@ const Signup = ({check , setCheck}) => {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="phone">Phone:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="123-456-7890"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -73,7 +85,7 @@ const Signup = ({check , setCheck}) => {
         </div>
         <div className="user-check">
           <button onClick={()=>setCheck(!check)}>
-            Already a user?
+            Already a user
           </button>
         </div>
         <button type="submit" className="signup-button">
