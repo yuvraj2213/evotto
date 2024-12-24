@@ -1,0 +1,10 @@
+.error_div {
+  background-image: url("/images/404_1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80vw;
+  height: 90vh;
+  border-radius: 50px;
+  margin: auto auto;
+}

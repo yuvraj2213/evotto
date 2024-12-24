@@ -11,6 +11,7 @@ import Feedback from "./pages/Feedback";
 import SplashScreen from "./components/SplashScreen";
 import ScrollToTop from "./components/ScrollToTop";
 import Profile from "./pages/Profile";
+import Error from "./pages/Error";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<Error/>}/>
           </Routes>
         </Router>
       )}
