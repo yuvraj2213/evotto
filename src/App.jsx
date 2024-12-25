@@ -44,6 +44,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/profile" element={<Profile />} />
+            {/* <Route path="/logout" element={<Logout />} /> */}
             <Route path="*" element={<Error/>}/>
           </Routes>
         </Router>

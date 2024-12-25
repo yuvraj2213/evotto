@@ -3,9 +3,12 @@ import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
+import { useAuth } from "../store/auth";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+
+  const { LogoutUser, isLoggedIn } = useAuth();
 
   useEffect(() => {
     // Function to close the menu on scroll
@@ -53,6 +56,13 @@ const Navbar = () => {
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/feedback">Feedback</Link>
         </li>
+
+        {isLoggedIn ? (
+          <li className={showMenu ? "menu-nav-item" : "nav-item"} onClick={LogoutUser} style={{cursor:"pointer"}}>
+            Logout
+          </li>
+        ) : null}
+
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/profile">
             <CgProfile style={{ fontSize: "30px" }} />
