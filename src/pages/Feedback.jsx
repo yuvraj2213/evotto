@@ -49,13 +49,16 @@ const FeedbackPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:2213/api/form/feedback`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `https://evotto-backend.onrender.com/api/form/feedback`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -81,7 +84,7 @@ const FeedbackPage = () => {
 
   return (
     <>
-    <Toaster/>
+      <Toaster />
       <Navbar />
 
       <div className="feedback-container">
