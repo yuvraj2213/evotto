@@ -1,77 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/CarCard.css";
-
-const cars = [
-  {
-    name: "R15 V4",
-    image: "/images/vehicleList/r15v4.webp",
-    price: "₹1209/day",
-    weekendPrice: "₹1497/day",
-  },
-  {
-    name: "Dominar 400",
-    image: "/images/vehicleList/dominar400.webp",
-    price: "₹1369/day",
-    weekendPrice: "₹1579/day",
-  },
-  {
-    name: "Activa 4G",
-    image: "/images/vehicleList/activa4g.png",
-    price: "₹767/day",
-    weekendPrice: "₹839/day",
-  },
-  {
-    name: "Zoom Scooty",
-    image: "/images/vehicleList/zoom.avif",
-    price: "₹809/day",
-    weekendPrice: "₹879/day",
-  },
-  {
-    name: "Pulsar NS160",
-    image: "/images/vehicleList/pulsarns160.jpg",
-    price: "₹1199/day",
-    weekendPrice: "₹1399/day",
-  },
-  {
-    name: "Dominar 250",
-    image: "/images/vehicleList/dominar250.webp",
-    price: "₹1109/day",
-    weekendPrice: "₹1309/day",
-  },
-  {
-    name: "Bullet 350",
-    image: "/images/vehicleList/bullet350.webp",
-    price: "₹1409/day",
-    weekendPrice: "₹1609/day",
-  },
-  {
-    name: "GT 650",
-    image: "/images/vehicleList/gt650.webp",
-    price: "₹2499/day",
-    weekendPrice: "₹2799/day",
-  },
-  {
-    name: "Swift",
-    image: "/images/vehicleList/swift.png",
-    price: "₹1909/day",
-    weekendPrice: "₹2119/day",
-  },
-  {
-    name: "Amaze",
-    image: "/images/vehicleList/amaze.webp",
-    price: "₹1809/day",
-    weekendPrice: "₹2009/day",
-  },
-  {
-    name: "Thar",
-    image: "/images/vehicleList/thar.webp",
-    price: "₹2599/day",
-    weekendPrice: "₹2899/day",
-  },
-];
 
 const CarCard = ({ searchQuery }) => {
   const [favorites, setFavorites] = useState([]);
+  const [cars,setCars]=useState([])
+
+  const fetchCars = async () => {
+    try {
+      const response = await fetch(
+        `https://evotto-backend.onrender.com/data/rentalVehicles`,
+        {
+          method: "GET",
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setCars(data)
+      }
+    } catch (error) {
+      console.error("Error fetching cars data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCars();
+  }, []);
 
   const toggleFavorite = (carName) => {
     if (favorites.includes(carName)) {
@@ -82,7 +36,6 @@ const CarCard = ({ searchQuery }) => {
   };
 
   const filteredCars = cars.filter((car) => {
-
     const matchesSearchQuery = car.name.toLowerCase().startsWith(searchQuery);
 
     return matchesSearchQuery;
@@ -90,7 +43,11 @@ const CarCard = ({ searchQuery }) => {
 
   return (
     <div className="car-container">
-      {searchQuery===''?<h2>Popular Vehicles</h2>:<h2>Your Search Results</h2>}
+      {searchQuery === "" ? (
+        <h2>Popular Vehicles</h2>
+      ) : (
+        <h2>Your Search Results</h2>
+      )}
       <div className="car-cards">
         {filteredCars.length > 0 ? (
           filteredCars.map((car) => (
@@ -122,7 +79,9 @@ const CarCard = ({ searchQuery }) => {
             </div>
           ))
         ) : (
-          <p className="no-search-match">No vehicles found matching your search criteria.</p>
+          <p className="no-search-match">
+            No vehicles found matching your search criteria.
+          </p>
         )}
       </div>
     </div>

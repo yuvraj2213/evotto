@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const SecondHandCarCard = ({searchQuery}) => {
+const SecondHandCarCard = ({ searchQuery }) => {
   const [favorites, setFavorites] = useState([]);
-  const cars = [
-    {
-      name: "Swift",
-      image: "/images/vehicleList/swift.png",
-    },
-    {
-      name: "Amaze",
-      image: "/images/vehicleList/amaze.webp",
-    },
-    {
-      name: "Thar",
-      image: "/images/vehicleList/thar.webp",
-    },
-  ];
+  const [cars, setCars] = useState([]);
+
+  const fetchCars = async () => {
+    try {
+      const response = await fetch(
+        `https://evotto-backend.onrender.com/api/data/secondHandCars`,
+        {
+          method: "GET",
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setCars(data);
+      }
+    } catch (error) {
+      console.error("Error fetching cars data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCars();
+  }, []);
 
   const toggleFavorite = (carName) => {
     if (favorites.includes(carName)) {

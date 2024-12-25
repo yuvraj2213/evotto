@@ -49,7 +49,7 @@ const FeedbackPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:2213/api/form/feedback`, {
+      const response = await fetch(`https://evotto-backend.onrender.com/form/feedback`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

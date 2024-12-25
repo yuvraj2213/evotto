@@ -4,7 +4,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
-  const [isLoggedIn, setIsLoggedIn] = useState(!!token); // State for isLoggedIn
+  const [isLoggedIn, setIsLoggedIn] = useState(!!token);
   const [user, setUser] = useState("");
 
   const storeTokenInLS = (serverToken) => {
@@ -20,14 +20,22 @@ export const AuthProvider = ({ children }) => {
   // Update isLoggedIn whenever the token changes
   useEffect(() => {
     setIsLoggedIn(!!token);
-    userAuthentication();
+    if (token) {
+      userAuthentication();
+    } else {
+      setUser(null);
+    }
   }, [token]);
 
   // Get current logged in user data
 
   const userAuthentication = async () => {
+    if (!token) {
+      console.log("No token found. User not authenticated.");
+      return; // Don't attempt to fetch if no token is available
+    }
     try {
-      const response = await fetch("http://localhost:2213/api/auth/user", {
+      const response = await fetch("https://evotto-backend.onrender.com/api/auth/user", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -43,7 +51,6 @@ export const AuthProvider = ({ children }) => {
       console.log("error at fetching ", e);
     }
   };
-
 
   return (
     <AuthContext.Provider
