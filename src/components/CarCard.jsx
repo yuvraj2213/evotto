@@ -8,7 +8,7 @@ const CarCard = ({ searchQuery }) => {
   const fetchCars = async () => {
     try {
       const response = await fetch(
-        `https://evotto-backend.onrender.com/data/rentalVehicles`,
+        `http://localhost:2213/api/data/rentalVehicles`,
         {
           method: "GET",
         }

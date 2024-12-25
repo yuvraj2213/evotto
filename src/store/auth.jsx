@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
       return; // Don't attempt to fetch if no token is available
     }
     try {
-      const response = await fetch("https://evotto-backend.onrender.com/api/auth/user", {
+      const response = await fetch("http://localhost:2213/api/auth/user", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
