@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.admin-navbar {
+    background-color: #98D9C2;
+    width: 150px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+}
+
+.admin-navbar .heading{
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.admin-navbar ul {
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+}
+
+.admin-navbar ul li {
+    margin-top: 10px;
+    color: brown;
+}
+
+.admin-navbar ul li a {
+    text-decoration: none;
+    color: chocolate;
+}
+
+.admin-navbar ul li a:hover {
+    text-decoration: none;
+    color: yellow;
+    transition: color 0.4s ease-in-out;
+}

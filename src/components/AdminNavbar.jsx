@@ -1,0 +1,24 @@
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import '../styles/AdminNavbar.css'
+
+const AdminNavbar = () => {
+  return (
+    <>
+        <div className="admin-navbar">
+            <ul>
+                <li className='heading'>Admin Panel</li>
+                <li>
+                    <NavLink to="/admin/users">Users</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/admin/feedbacks">Feedbacks</NavLink>
+                </li>
+            </ul>
+        </div>
+    </>
+
+  )
+}
+
+export default AdminNavbar

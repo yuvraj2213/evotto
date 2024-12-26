@@ -12,6 +12,10 @@ import SplashScreen from "./components/SplashScreen";
 import ScrollToTop from "./components/ScrollToTop";
 import Profile from "./pages/Profile";
 import Error from "./pages/Error";
+import Admin from "./pages/Admin";
+import AdminUsers from "./pages/AdminUsers";
+import AdminFeedbacks from "./pages/AdminFeedbacks";
+import AdminUpdate from "./pages/AdminUpdate";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -44,8 +48,12 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/profile" element={<Profile />} />
-            {/* <Route path="/logout" element={<Logout />} /> */}
             <Route path="*" element={<Error/>}/>
+            <Route path="/admin" element={<Admin/>}>
+              <Route path="users" element={<AdminUsers/>}/>
+              <Route path="feedbacks" element={<AdminFeedbacks/>}/>
+              <Route path="users/:id/edit" element={<AdminUpdate/>}/>
+            </Route>
           </Routes>
         </Router>
       )}

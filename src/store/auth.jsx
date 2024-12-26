@@ -6,6 +6,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [isLoggedIn, setIsLoggedIn] = useState(!!token);
   const [user, setUser] = useState("");
+  const authorizationToken=`Bearer ${token}`
 
   const storeTokenInLS = (serverToken) => {
     localStorage.setItem("token", serverToken);
@@ -35,10 +36,10 @@ export const AuthProvider = ({ children }) => {
       return; // Don't attempt to fetch if no token is available
     }
     try {
-      const response = await fetch("https://evotto-backend.onrender.com/api/auth/user", {
+      const response = await fetch("http://localhost:2213/api/auth/user", {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: authorizationToken,
         },
       });
 
@@ -54,7 +55,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ storeTokenInLS, LogoutUser, isLoggedIn, user }}
+      value={{ storeTokenInLS, LogoutUser, isLoggedIn, user , authorizationToken}}
     >
       {children}
     </AuthContext.Provider>
