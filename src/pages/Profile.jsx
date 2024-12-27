@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import SocialLinks from "../components/SocialLinks";
 import Footer from "../components/Footer";
 import Login from "../components/Login";
+import UserProfile from "./UserProfile";
 import { useAuth } from "../store/auth";
 
 const Profile = () => {
@@ -14,11 +15,9 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      {console.log("Is Logged In:", isLoggedIn)}
 
-      {/* Show greeting if user is logged in */}
       {isLoggedIn ? (
-        <h1>Hy {user?.userData?.name || "User"}</h1>
+        <UserProfile/>
       ) : (
         // Show Login or Signup only if user is not logged in
         <>

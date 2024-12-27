@@ -16,6 +16,7 @@ import Admin from "./pages/Admin";
 import AdminUsers from "./pages/AdminUsers";
 import AdminFeedbacks from "./pages/AdminFeedbacks";
 import AdminUpdate from "./pages/AdminUpdate";
+import AdminSlideshow from "./pages/AdminSlideshow";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -51,8 +52,9 @@ const App = () => {
             <Route path="*" element={<Error/>}/>
             <Route path="/admin" element={<Admin/>}>
               <Route path="users" element={<AdminUsers/>}/>
-              <Route path="feedbacks" element={<AdminFeedbacks/>}/>
               <Route path="users/:id/edit" element={<AdminUpdate/>}/>
+              <Route path="feedbacks" element={<AdminFeedbacks/>}/>
+              <Route path="slideshow" element={<AdminSlideshow/>}/>
             </Route>
           </Routes>
         </Router>

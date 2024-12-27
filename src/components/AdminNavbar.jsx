@@ -14,6 +14,9 @@ const AdminNavbar = () => {
                 <li>
                     <NavLink to="/admin/feedbacks">Feedbacks</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/admin/slideshow">Slideshow</NavLink>
+                </li>
             </ul>
         </div>
     </>

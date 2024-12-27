@@ -1,14 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Slideshow.css';
 
-const images = [
-  '/images/Slideshow/img1.jpg',
-  '/images/Slideshow/img2.jpg',
-  '/images/Slideshow/img3.jpg'
-];
-
 const Slideshow = () => {
+  const [images, setImages] = useState([]); 
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await fetch('http://localhost:2213/api/data/slideshow'); 
+        if (!response.ok) {
+          throw new Error('Failed to fetch slideshow images');
+        }
+        const data = await response.json();
+        console.log(data)
+        if (data) {
+          setImages(data); // Ensure that images exist in the response
+        } else {
+          console.error('No images found in API response');
+        }
+      } catch (error) {
+        console.error('Error fetching slideshow images:', error);
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -20,11 +37,14 @@ const Slideshow = () => {
     );
   };
 
-  // Automatically move to the next slide every 3 seconds
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000); // 3000 ms = 3 seconds
-    return () => clearInterval(interval); // Clear interval on component unmount
-  }, []);
+    const interval = setInterval(nextSlide, 3000); 
+    return () => clearInterval(interval); 
+  }, [images]);
+
+  if (images.length === 0) {
+    return <div>Loading slideshow...</div>;
+  }
 
   return (
     <div className="slideshow-container">
@@ -40,8 +60,8 @@ const Slideshow = () => {
           return (
             <img
               key={index}
-              src={image}
-              alt={`Slide ${index}`}
+              src={image.url}
+              alt={image.altText || `Slide ${index}`}
               className={`slide ${
                 isCurrent ? 'current' : isLeft ? 'left' : isRight ? 'right' : 'hidden'
               }`}

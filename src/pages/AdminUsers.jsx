@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { useAuth } from "../store/auth";
 import "../styles/AdminUsers.css";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const AdminUsers = () => {
   const { authorizationToken } = useAuth();
@@ -38,6 +39,7 @@ const AdminUsers = () => {
     });
 
     if(response.ok){
+      toast.success('User Deleted Successfully')
       getAllUsersData();
     }
 
@@ -51,6 +53,7 @@ const AdminUsers = () => {
 
   return (
     <>
+    <Toaster/>
       <section className="admin-users-section">
         <div className="container">
           <h1>Admin Users Data</h1>

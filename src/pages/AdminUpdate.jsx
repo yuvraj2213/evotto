@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const AdminUpdate = () => {
 
@@ -45,7 +45,7 @@ const AdminUpdate = () => {
     e.preventDefault();
 
     try{
-        const response=await fetch(`http://localhost:2213/api/admin//users/update/${params.id}`,{
+        const response=await fetch(`http://localhost:2213/api/admin/users/update/${params.id}`,{
             method:'PATCH',
             headers:{
                 "Content-Type":"application/json",
@@ -73,6 +73,8 @@ const AdminUpdate = () => {
   },[])
 
   return (
+    <>
+    <Toaster/>
     <div
       style={{
         maxWidth: "400px",
@@ -151,6 +153,7 @@ const AdminUpdate = () => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 

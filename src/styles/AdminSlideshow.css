@@ -1,0 +1,44 @@
+.admin-slideshow {
+    width:150px
+}
+
+.admin-ss-block{
+    display:flex;
+    flex-direction: column;
+}
+
+.admin-table-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    border: 1px solid coral;
+}
+
+.admin-upload-img-btn{
+    border:none;
+    padding: 12px;
+    background-color: #E53D00;
+    cursor: pointer;
+    color: white;
+    border-radius: 20px;
+}
+
+.admin-upload-img-btn:hover{
+    border:none;
+    padding: 15px;
+    background-color: #FAA916;
+    cursor: pointer;
+}
+
+.admin-upload-select{
+    background-color: #ABEBD2;
+}
+
+.admin-upload{
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
