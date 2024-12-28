@@ -29,7 +29,7 @@ const Profile = () => {
         </>
       )}
 
-      {user.userDetails.isAdmin ? (
+      {user.userData.isAdmin ? (
         <Link to="/admin">
           <button>Open Admin Panel</button>
         </Link>
