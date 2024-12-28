@@ -10,6 +10,7 @@ const Slideshow = () => {
     const fetchImages = async () => {
       try {
         const response = await fetch(`${baseURL}/api/data/slideshow`,); 
+        console.log(response)
         if (!response.ok) {
           throw new Error('Failed to fetch slideshow images');
         }
