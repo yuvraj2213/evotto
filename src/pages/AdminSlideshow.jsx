@@ -12,7 +12,7 @@ const AdminSlideshow = () => {
   // Fetch images for slideshow
   const fetchImages = async () => {
     try {
-      const response = await fetch("https://evotto-backend.onrender.com/api/data/slideshow", {
+      const response = await fetch("https://evotto-backend-yol8.onrender.com/api/data/slideshow", {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
