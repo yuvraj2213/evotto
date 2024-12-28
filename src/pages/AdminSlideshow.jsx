@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
 import "../styles/AdminSlideshow.css";
 import toast, { Toaster } from "react-hot-toast";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 const AdminSlideshow = () => {
   const { authorizationToken } = useAuth();
@@ -12,7 +13,7 @@ const AdminSlideshow = () => {
   // Fetch images for slideshow
   const fetchImages = async () => {
     try {
-      const response = await fetch("https://evotto-backend-yol8.onrender.com/api/data/slideshow", {
+      const response = await fetch(`${baseURL}/api/data/slideshow`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,

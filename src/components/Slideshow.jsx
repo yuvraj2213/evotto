@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Slideshow.css';
+const baseURL = process.env.REACT_APP_BASE_URL ;
 
 const Slideshow = () => {
   const [images, setImages] = useState([]); 
@@ -8,7 +9,7 @@ const Slideshow = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('https://evotto-backend-yol8.onrender.com/api/data/slideshow'); 
+        const response = await fetch(`${baseURL}/api/data/slideshow`,); 
         if (!response.ok) {
           throw new Error('Failed to fetch slideshow images');
         }

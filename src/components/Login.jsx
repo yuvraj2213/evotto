@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../store/auth";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 const Login = ({ check, setCheck }) => {
   const navigate = useNavigate();
@@ -25,7 +26,8 @@ const Login = ({ check, setCheck }) => {
     console.log("Form Data Sent to Backend:", formData);
 
     try {
-      const response = await fetch(`https://evotto-backend-yol8.onrender.com/api/auth/login`, {
+      const response = await fetch(
+        `${baseURL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

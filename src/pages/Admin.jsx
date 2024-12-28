@@ -5,6 +5,7 @@ import "../styles/Admin.css";
 import Footer from "../components/Footer";
 import { useAuth } from "../store/auth";
 
+
 const Admin = () => {
   const { user, isLoading } = useAuth();
   const location = useLocation(); // Track current route

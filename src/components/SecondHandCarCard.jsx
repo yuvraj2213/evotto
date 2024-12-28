@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 const SecondHandCarCard = ({ searchQuery }) => {
   const [favorites, setFavorites] = useState([]);
@@ -7,7 +8,7 @@ const SecondHandCarCard = ({ searchQuery }) => {
   const fetchCars = async () => {
     try {
       const response = await fetch(
-        `https://evotto-backend-yol8.onrender.com/data/secondHandCars`,
+        `${baseURL}/data/secondHandCars`,
         {
           method: "GET",
         }

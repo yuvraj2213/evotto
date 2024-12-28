@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import toast, { Toaster } from "react-hot-toast";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 const AdminUpdate = () => {
 
@@ -17,7 +18,7 @@ const AdminUpdate = () => {
 
   const getUserData = async () => {
     try {
-      const response = await fetch(`https://evotto-backend-yol8.onrender.com/api/admin/users/${params.id}`, {
+      const response = await fetch(`${baseURL}/api/admin/users/${params.id}`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,

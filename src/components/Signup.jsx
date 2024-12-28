@@ -2,6 +2,7 @@ import React, { useState , useContext} from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 import "../styles/Signup.css";
 
@@ -33,7 +34,7 @@ const Signup = ({ check, setCheck }) => {
     }
 
     try {
-      const response = await fetch(`https://evotto-backend-yol8.onrender.com/api/auth/register`, {
+      const response = await fetch(`${baseURL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

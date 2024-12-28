@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 export const AuthContext = createContext();
 
@@ -40,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     }
     try {
       setIsLoading(true)
-      const response = await fetch("https://evotto-backend-yol8.onrender.com/api/auth/user", {
+      const response = await fetch(`${baseURL}/api/auth/user`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,

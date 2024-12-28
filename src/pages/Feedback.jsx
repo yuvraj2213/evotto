@@ -4,6 +4,7 @@ import SocialLinks from "../components/SocialLinks";
 import Footer from "../components/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../store/auth";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 import "../styles/Feedback.css";
 import "../App.css";
@@ -50,7 +51,7 @@ const FeedbackPage = () => {
 
     try {
       const response = await fetch(
-        `https://evotto-backend-yol8.onrender.com/api/form/feedback`,
+        `${baseURL}/api/form/feedback`,
         {
           method: "POST",
           headers: {

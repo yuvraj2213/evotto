@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/CarCard.css";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from 'react-hot-toast';
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 const CarCard = ({ searchQuery, pickUpLocation, pickUpDate, pickUpTime, dropOffLocation, dropOffDuration }) => {
   const [favorites, setFavorites] = useState([]);
@@ -10,7 +11,7 @@ const CarCard = ({ searchQuery, pickUpLocation, pickUpDate, pickUpTime, dropOffL
   const fetchCars = async () => {
     try {
       const response = await fetch(
-        `https://evotto-backend-yol8.onrender.com/api/data/rentalVehicles`,
+        `${baseURL}/api/data/rentalVehicles`,
         {
           method: "GET",
         }
@@ -48,7 +49,7 @@ const CarCard = ({ searchQuery, pickUpLocation, pickUpDate, pickUpTime, dropOffL
   `.trim();
   
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/7261007718?text=${encodedMessage}`;
+    const whatsappURL = `https://wa.me/7077829595?text=${encodedMessage}`;
     window.open(whatsappURL, "_blank");
   };
   

@@ -5,6 +5,7 @@ import { useAuth } from "../store/auth";
 import "../styles/AdminUsers.css";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 const AdminUsers = () => {
   const { authorizationToken } = useAuth();
@@ -13,7 +14,7 @@ const AdminUsers = () => {
 
   const getAllUsersData = async () => {
     try {
-      const response = await fetch("https://evotto-backend-yol8.onrender.com/api/admin/users", {
+      const response = await fetch(`${baseURL}/api/admin/users`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -31,7 +32,7 @@ const AdminUsers = () => {
   const deleteUser=async(id)=>{
     console.log(id)
 
-    const response = await fetch(`https://evotto-backend-yol8.onrender.com/api/admin/users/delete/${id}`, {
+    const response = await fetch(`${baseURL}/api/admin/users/delete/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: authorizationToken,

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
 import { useParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 const AdminFeedbacks = () => {
   const { authorizationToken } = useAuth();
@@ -11,7 +12,7 @@ const AdminFeedbacks = () => {
   const params=useParams()
 
   const getFeedbacks = async () => {
-    const response = await fetch(`https://evotto-backend-yol8.onrender.com/api/admin/feedbacks`, {
+    const response = await fetch(`${baseURL}/api/admin/feedbacks`, {
       method: "GET",
       headers: {
         Authorization: authorizationToken,
@@ -24,7 +25,7 @@ const AdminFeedbacks = () => {
 
   const deleteFeedback=async(id)=>{
     console.log(id)
-    const response=await fetch(`https://evotto-backend-yol8.onrender.com/api/admin/feedbacks/delete/${id}`,{
+    const response=await fetch(`${baseURL}/api/admin/feedbacks/delete/${id}`,{
       method:"DELETE",
       headers:{
         Authorization:authorizationToken,
