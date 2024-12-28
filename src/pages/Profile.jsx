@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import Login from "../components/Login";
 import UserProfile from "./UserProfile";
 import { useAuth } from "../store/auth";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const [check, setCheck] = useState(false);
@@ -30,7 +31,7 @@ const Profile = () => {
       )}
 
       <Link to="/admin">
-        <button>Open Admin Panel</button>
+        <button style={{border:'none',backgroundColor:'red',padding:'15px',color:'white'}}>Open Admin Panel</button>
       </Link>
 
       <section className="social-links">
