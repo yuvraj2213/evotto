@@ -50,7 +50,7 @@ const FeedbackPage = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:2213/api/form/feedback`,
+        `https://evotto-backend.onrender.com/api/form/feedback`,
         {
           method: "POST",
           headers: {

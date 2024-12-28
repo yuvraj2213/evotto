@@ -10,7 +10,7 @@ const CarCard = ({ searchQuery, pickUpLocation, pickUpDate, pickUpTime, dropOffL
   const fetchCars = async () => {
     try {
       const response = await fetch(
-        `http://localhost:2213/api/data/rentalVehicles`,
+        `api/data/rentalVehicles`,
         {
           method: "GET",
         }

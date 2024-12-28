@@ -16,7 +16,7 @@ const RentalBooking = () => {
   const getVehicle = async () => {
     try {
       const response = await fetch(
-        `http://localhost:2213/api/data/vehicle/${vehicleId}`,
+        `https://evotto-backend.onrender.com/api/data/vehicle/${vehicleId}`,
         { method: "GET" }
       );
       const data = await response.json();

@@ -8,7 +8,7 @@ const Slideshow = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('http://localhost:2213/api/data/slideshow'); 
+        const response = await fetch('https://evotto-backend.onrender.com/api/data/slideshow'); 
         if (!response.ok) {
           throw new Error('Failed to fetch slideshow images');
         }

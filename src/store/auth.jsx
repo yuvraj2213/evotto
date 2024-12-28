@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     }
     try {
       setIsLoading(true)
-      const response = await fetch("http://localhost:2213/api/auth/user", {
+      const response = await fetch("https://evotto-backend.onrender.com/api/auth/user", {
         method: "GET",
         headers: {
           Authorization: authorizationToken,

@@ -7,7 +7,7 @@ const SecondHandCarCard = ({ searchQuery }) => {
   const fetchCars = async () => {
     try {
       const response = await fetch(
-        `http://localhost:2213/data/secondHandCars`,
+        `https://evotto-backend.onrender.com/data/secondHandCars`,
         {
           method: "GET",
         }

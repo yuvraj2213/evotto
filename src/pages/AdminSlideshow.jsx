@@ -12,7 +12,7 @@ const AdminSlideshow = () => {
   // Fetch images for slideshow
   const fetchImages = async () => {
     try {
-      const response = await fetch("http://localhost:2213/api/data/slideshow", {
+      const response = await fetch("https://evotto-backend.onrender.com/api/data/slideshow", {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -40,7 +40,7 @@ const AdminSlideshow = () => {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:2213/api/admin/slideshow/delete/${id}`,
+        `https://evotto-backend.onrender.com/api/admin/slideshow/delete/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -79,7 +79,7 @@ const AdminSlideshow = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:2213/api/admin/slideshow/upload",
+        "https://evotto-backend.onrender.com/api/admin/slideshow/upload",
         {
           method: "POST",
           headers: {
