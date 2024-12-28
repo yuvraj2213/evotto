@@ -29,11 +29,9 @@ const Profile = () => {
         </>
       )}
 
-      {user.userData.isAdmin ? (
-        <Link to="/admin">
-          <button>Open Admin Panel</button>
-        </Link>
-      ) : null}
+      <Link to="/admin">
+        <button>Open Admin Panel</button>
+      </Link>
 
       <section className="social-links">
         <SocialLinks />
