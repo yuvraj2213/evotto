@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Slideshow.css';
-const baseURL = process.env.REACT_APP_BASE_URL ;
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 const Slideshow = () => {
   const [images, setImages] = useState([]); 
