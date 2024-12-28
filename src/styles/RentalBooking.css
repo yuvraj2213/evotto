@@ -1,0 +1,18 @@
+.rental-booking-main{
+    width: 80vw;
+    margin: 70px auto;
+    border: 2px solid firebrick;
+    display: flex;
+
+}
+
+.rental-vehicle-img{
+    width: 60%;
+    height: 300px;
+    background-color:orange;
+}
+
+.rental-vehicle-info{
+    width: 40%;
+    background-color: forestgreen;
+}

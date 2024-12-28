@@ -8,6 +8,7 @@
 .admin-content {
     flex-grow: 1; /* Takes remaining space */
     padding: 20px; /* Add some padding around the content */
-    background-color: #f9f9f9; /* Optional content background */
+    background-color: black;
+    color: #EF3E36;
     overflow: auto; /* Handle overflow for large tables */
 }

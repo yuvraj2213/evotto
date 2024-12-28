@@ -31,6 +31,8 @@ const AdminFeedbacks = () => {
       },
     })
 
+    console.log(response)
+
     if(response.ok){
       toast.success('Feedback Deleted Successfully')
       getFeedbacks()
@@ -58,15 +60,27 @@ const AdminFeedbacks = () => {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Feedback</th>
+                <th>Date</th>
+                <th>Time</th>
               </tr>
             </thead>
             <tbody>
               {feedback.map((curr, index) => {
+                const createdAt = new Date(curr.createdAt);
+
+                const day = createdAt.getDate();
+                const month = createdAt.getMonth() + 1;  
+                const year = createdAt.getFullYear();
+                const hours = createdAt.getHours();
+                const minutes = createdAt.getMinutes();
+                const seconds = createdAt.getSeconds();
                 return (
                   <tr key={index}>
                     <td>{curr.name}</td>
                     <td>{curr.email}</td>
                     <td>{curr.feedback}</td>
+                    <td>{`${day}/${month}/${year}`}</td>
+                    <td>{`${hours}:${minutes}:${seconds}`}</td>
                     <td>
                       <button
                         className="admin-del-btn"

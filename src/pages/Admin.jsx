@@ -10,7 +10,7 @@ const Admin = () => {
 
   useEffect(() => {
     if (user?.userData?.isAdmin) {
-      document.body.style.backgroundColor = "lightblue";
+      document.body.style.backgroundColor = "black";
       document.body.style.backgroundImage = "none";
     }
 

@@ -4,7 +4,7 @@
 }
 
 .admin-navbar {
-    background-color: #98D9C2;
+    background-color: #FEA82F;
     width: 150px;
     height: 100vh;
     display: flex;
@@ -26,12 +26,12 @@
 
 .admin-navbar ul li {
     margin-top: 10px;
-    color: brown;
+    color: white;
 }
 
 .admin-navbar ul li a {
     text-decoration: none;
-    color: chocolate;
+    color: white;
 }
 
 .admin-navbar ul li a:hover {
