@@ -11,7 +11,7 @@ const AdminFeedbacks = () => {
   const params=useParams()
 
   const getFeedbacks = async () => {
-    const response = await fetch(`https://evotto-backend.onrender.com/api/admin/feedbacks`, {
+    const response = await fetch(`https://evotto-backend-yol8.onrender.com/api/admin/feedbacks`, {
       method: "GET",
       headers: {
         Authorization: authorizationToken,
@@ -24,7 +24,7 @@ const AdminFeedbacks = () => {
 
   const deleteFeedback=async(id)=>{
     console.log(id)
-    const response=await fetch(`https://evotto-backend.onrender.com/api/admin/feedbacks/delete/${id}`,{
+    const response=await fetch(`https://evotto-backend-yol8.onrender.com/api/admin/feedbacks/delete/${id}`,{
       method:"DELETE",
       headers:{
         Authorization:authorizationToken,

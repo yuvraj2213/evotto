@@ -33,7 +33,7 @@ const Signup = ({ check, setCheck }) => {
     }
 
     try {
-      const response = await fetch(`https://evotto-backend.onrender.com/api/auth/register`, {
+      const response = await fetch(`https://evotto-backend-yol8.onrender.com/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

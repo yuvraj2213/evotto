@@ -17,7 +17,7 @@ const AdminUpdate = () => {
 
   const getUserData = async () => {
     try {
-      const response = await fetch(`https://evotto-backend.onrender.com/api/admin/users/${params.id}`, {
+      const response = await fetch(`https://evotto-backend-yol8.onrender.com/api/admin/users/${params.id}`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -45,7 +45,7 @@ const AdminUpdate = () => {
     e.preventDefault();
 
     try{
-        const response=await fetch(`https://evotto-backend.onrender.com/api/admin/users/update/${params.id}`,{
+        const response=await fetch(`https://evotto-backend-yol8.onrender.com/api/admin/users/update/${params.id}`,{
             method:'PATCH',
             headers:{
                 "Content-Type":"application/json",

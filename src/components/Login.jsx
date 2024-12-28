@@ -25,7 +25,7 @@ const Login = ({ check, setCheck }) => {
     console.log("Form Data Sent to Backend:", formData);
 
     try {
-      const response = await fetch(`http://localhost:2213/api/auth/login`, {
+      const response = await fetch(`https://evotto-backend-yol8.onrender.com/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

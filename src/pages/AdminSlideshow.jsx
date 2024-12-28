@@ -40,7 +40,7 @@ const AdminSlideshow = () => {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `https://evotto-backend.onrender.com/api/admin/slideshow/delete/${id}`,
+        `https://evotto-backend-yol8.onrender.com/api/admin/slideshow/delete/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -79,7 +79,7 @@ const AdminSlideshow = () => {
 
     try {
       const response = await fetch(
-        "https://evotto-backend.onrender.com/api/admin/slideshow/upload",
+        "https://evotto-backend-yol8.onrender.com/api/admin/slideshow/upload",
         {
           method: "POST",
           headers: {
