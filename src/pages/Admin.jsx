@@ -7,25 +7,29 @@ import { useAuth } from "../store/auth";
 
 const Admin = () => {
   const { user, isLoading } = useAuth();
-  const location = useLocation(); // Hook to track location changes
+  const location = useLocation(); // Track current route
 
   useEffect(() => {
-    // Set background for admin page
-    if (user?.userData?.isAdmin) {
-      document.body.style.backgroundColor = "black";
-      document.body.style.backgroundImage = "none";
-    } else {
-      document.body.style.backgroundImage = '/images/background2.jpg'; // Default background
-    }
-
-    // Cleanup on component unmount or when location changes
-    return () => {
-      if (!user?.userData?.isAdmin) {
+    const setBackgroundForRoute = () => {
+      if (location.pathname.startsWith("/admin") && user?.userData?.isAdmin) {
+        // Set background for admin page
+        document.body.style.backgroundColor = "black";
+        document.body.style.backgroundImage = "none";
+      } else {
+        // Restore background for other pages
         document.body.style.backgroundColor = "";
-        document.body.style.backgroundImage = '/images/background2.jpg'; // Restore image
+        document.body.style.backgroundImage = '/images/background2.jpg';
       }
     };
-  }, [user, location]); // Trigger effect when `user` or `location` changes
+
+    setBackgroundForRoute(); // Apply the correct background on route change
+
+    // Optional cleanup to ensure no lingering side effects
+    return () => {
+      document.body.style.backgroundColor = "";
+      document.body.style.backgroundImage = '/images/background2.jpg';
+    };
+  }, [location, user]); // Trigger effect when route or user changes
 
   if (isLoading) {
     return <h1>Loading...</h1>;
