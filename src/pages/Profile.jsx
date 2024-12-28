@@ -17,7 +17,7 @@ const Profile = () => {
       <Navbar />
 
       {isLoggedIn ? (
-        <UserProfile/>
+        <UserProfile />
       ) : (
         // Show Login or Signup only if user is not logged in
         <>
@@ -28,6 +28,12 @@ const Profile = () => {
           )}
         </>
       )}
+
+      {user.userDetails.isAdmin ? (
+        <Link to="/admin">
+          <button>Open Admin Panel</button>
+        </Link>
+      ) : null}
 
       <section className="social-links">
         <SocialLinks />
