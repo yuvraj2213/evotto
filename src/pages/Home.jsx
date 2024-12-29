@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <>
       <Navbar/>
-      {console.log(process.env.REACT_APP_BASE_URL)}
+
       <div className="home">
         <header className="hero-section">
           <HeroSection />
