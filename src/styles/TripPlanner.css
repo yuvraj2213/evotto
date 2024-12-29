@@ -1,9 +1,14 @@
 .trip-planner {
   display: flex;
+  flex-direction: column;
   width: 80vw;
   align-items: center;
   justify-content: center;
   gap: 40px;
+}
+
+.trip-planner h2{
+  color: whitesmoke;
 }
 
 .trip-planner-form{

@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import "../styles/SecondHand.css";
 import CarSellingForm from "../components/CarSellingForm";
 import CarBuying from "../components/CarBuying";
+import SocialLinks from "../components/SocialLinks";
 
 const SecondHand = () => {
   const [isSell, setIsSell] = useState(false);
@@ -11,23 +12,23 @@ const SecondHand = () => {
   const carSellingFormRef = useRef(null);
   const carBuyingFormRef = useRef(null);
 
-  useEffect(() => {
-    if (isSell && carSellingFormRef.current) {
-      carSellingFormRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, [isSell]);
+  // useEffect(() => {
+  //   if (isSell && carSellingFormRef.current) {
+  //     carSellingFormRef.current.scrollIntoView({
+  //       behavior: "smooth",
+  //       block: "start",
+  //     });
+  //   }
+  // }, [isSell]);
 
-  useEffect(() => {
-    if (isBuy && carBuyingFormRef.current) {
-      carBuyingFormRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, [isBuy]);
+  // useEffect(() => {
+  //   if (isBuy && carBuyingFormRef.current) {
+  //     carBuyingFormRef.current.scrollIntoView({
+  //       behavior: "smooth",
+  //       block: "start",
+  //     });
+  //   }
+  // }, [isBuy]);
 
   const handleSellClick = () => {
     setIsSell(!isSell);
@@ -46,7 +47,14 @@ const SecondHand = () => {
   return (
     <div className="page-container">
       <Navbar />
-      <div className="content">
+      <div className="comingsoon-heading">
+        <h2>Second Hand Cars Section Will Be Available Soon</h2>
+        <h3>Stay Tuned</h3>
+      </div>
+
+      <div className="second-hand-comingsoon"></div>
+
+      {/* <div className="content">
         <div className="header">
           <h2>I WANT TO</h2>
         </div>
@@ -70,7 +78,11 @@ const SecondHand = () => {
         <div ref={carBuyingFormRef}>
           <CarBuying />
         </div>
-      )}
+      )} */}
+
+      <section className="social-links">
+        <SocialLinks />
+      </section>
 
       <Footer />
     </div>

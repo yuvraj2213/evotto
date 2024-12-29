@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SocialLinks from "../components/SocialLinks";
 import { useLocation } from "react-router-dom";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
 
 import "../styles/RentalBooking.css";
 
@@ -17,7 +16,7 @@ const RentalBooking = () => {
   const getVehicle = async () => {
     try {
       const response = await fetch(
-        `${baseURL}/api/data/vehicle/${vehicleId}`,
+        `https://evotto-backend.onrender.com/api/data/vehicle/${vehicleId}`,
         { method: "GET" }
       );
       const data = await response.json();
@@ -35,6 +34,7 @@ const RentalBooking = () => {
   }, [vehicleId]);
 
   if (!vehicle) {
+    // Show a loading message or placeholder while vehicle data is being fetched
     return <div>Loading...</div>;
   }
 
