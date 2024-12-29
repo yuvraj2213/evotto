@@ -10,27 +10,24 @@ const Admin = () => {
   const { user, isLoading } = useAuth();
   const location = useLocation(); // Track current route
 
-  useEffect(() => {
-    const setBackgroundForRoute = () => {
-      if (location.pathname.startsWith("/admin") && user?.userData?.isAdmin) {
-        // Set background for admin page
-        document.body.style.backgroundColor = "black";
-        document.body.style.backgroundImage = "none";
-      } else {
-        // Restore background for other pages
-        document.body.style.backgroundColor = "";
-        document.body.style.backgroundImage = '/images/background2.jpg';
-      }
-    };
+  // useEffect(() => {
+  //   const setBackgroundForRoute = () => {
+  //     if (location.pathname.startsWith("/admin") && user?.userData?.isAdmin) {
+  //       // Set background for admin page
+  //       document.body.style.backgroundColor = "black";
+  //       document.body.style.backgroundImage = "none";
+  //     } else {
+  //       // Restore background for other pages
+  //       document.body.style.backgroundColor = "";
+  //       document.body.style.backgroundImage = '/images/background2.jpg';
+  //     }
+  //   };
 
-    setBackgroundForRoute(); // Apply the correct background on route change
-
-    // Optional cleanup to ensure no lingering side effects
-    return () => {
-      document.body.style.backgroundColor = "";
-      document.body.style.backgroundImage = '/images/background2.jpg';
-    };
-  }, [location, user]); // Trigger effect when route or user changes
+  //   return () => {
+  //     document.body.style.backgroundColor = "";
+  //     document.body.style.backgroundImage = '/images/background2.jpg';
+  //   };
+  // }, [location, user]); // Trigger effect when route or user changes
 
   if (isLoading) {
     return <h1>Loading...</h1>;

@@ -35,26 +35,25 @@ const Login = ({ check, setCheck }) => {
         body: JSON.stringify(formData),
       });
 
-      // Check the response status and handle the response data correctly
+
       if (!response.ok) {
-        // Extract and log the error message from the response body
+    
         const errorData = await response.json();
-        console.log("Error Data:", errorData); // Log the error response for debugging
+        console.log("Error Data:", errorData); 
         toast.error(errorData.message || "Login failed!");
         return;
       }
 
-      // If response is OK, parse the response data
       const data = await response.json();
-      console.log("Response Data:", data); // Log the response data
+      console.log("Response Data:", data);
 
       toast.success("Login Successful!");
-      storeTokenInLS(data.token); // Store token in localStorage
+      storeTokenInLS(data.token); 
 
       setFormData({ email: "", password: "" });
-      navigate("/"); // Redirect to home page
+      navigate("/"); 
     } catch (error) {
-      console.error("Error:", error); // Log error for debugging
+      console.error("Error:", error);
       toast.error("Something went wrong!");
     }
   };

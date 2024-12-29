@@ -7,20 +7,22 @@ import Login from "../components/Login";
 import UserProfile from "./UserProfile";
 import { useAuth } from "../store/auth";
 import { Link } from "react-router-dom";
+import '../styles/Profile.css'
 
 const Profile = () => {
   const [check, setCheck] = useState(false);
 
   const { user, isLoggedIn } = useAuth();
+  const User = user?.userData;
 
   return (
     <>
       <Navbar />
+      {console.log("User", User)}
 
       {isLoggedIn ? (
         <UserProfile />
       ) : (
-        // Show Login or Signup only if user is not logged in
         <>
           {check ? (
             <Signup check={check} setCheck={setCheck} />
@@ -30,9 +32,15 @@ const Profile = () => {
         </>
       )}
 
-      <Link to="/admin">
-        <button style={{border:'none',backgroundColor:'red',padding:'15px',color:'white'}}>Open Admin Panel</button>
-      </Link>
+      {User && User.isAdmin && (
+        <div className="profile-admin-btn">
+          <Link to="/admin">
+            <button>
+              Open Admin Panel
+            </button>
+          </Link>
+        </div>
+      )}
 
       <section className="social-links">
         <SocialLinks />
