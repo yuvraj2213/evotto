@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/TripPlanner.css"; 
+import "../styles/TripPlanner.css";
 
 const TripPlanner = ({
   pickUpLocation,
@@ -13,25 +13,35 @@ const TripPlanner = ({
   dropOffDuration,
   setDropOffDuration,
 }) => {
- 
-  const handleLocationChange = (location, isPickUp) => {
-    if (isPickUp) {
-      setPickUpLocation(location);
-    } else {
-      setDropOffLocation(location);
-    }
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
+  const getFormattedDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
   };
 
-  const handleDateChange = (date, isPickUp) => {
-    if (isPickUp) {
-      setPickUpDate(date);
-    }
+  const getFormattedTime = (date) => {
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    return `${hours}:${minutes}`;
   };
 
-  const handleTimeChange = (time, isPickUp) => {
-    if (isPickUp) {
-      setPickUpTime(time);
-    }
+  const minDate = getFormattedDate(currentDateTime);
+  const minTime = pickUpDate === minDate ? getFormattedTime(currentDateTime) : "00:00";
+
+  const handleLocationChange = (location) => {
+    setPickUpLocation(location);
+    setDropOffLocation(location);
+  };
+
+  const handleDateChange = (date) => {
+    setPickUpDate(date);
+  };
+
+  const handleTimeChange = (time) => {
+    setPickUpTime(time);
   };
 
   const handleDurationChange = (duration) => {
@@ -66,7 +76,7 @@ const TripPlanner = ({
                 id="pickUpLocation"
                 className="input-style"
                 value={pickUpLocation}
-                onChange={(e) => handleLocationChange(e.target.value, true)}
+                onChange={(e) => handleLocationChange(e.target.value)}
                 required
               >
                 <option value="">Select your location</option>
@@ -82,7 +92,8 @@ const TripPlanner = ({
                 className="input-style"
                 id="pickUpDate"
                 value={pickUpDate}
-                onChange={(e) => handleDateChange(e.target.value, true)}
+                min={minDate}
+                onChange={(e) => handleDateChange(e.target.value)}
                 required
               />
             </div>
@@ -93,7 +104,8 @@ const TripPlanner = ({
                 className="input-style"
                 id="pickUpTime"
                 value={pickUpTime}
-                onChange={(e) => handleTimeChange(e.target.value, true)}
+                min={minTime}
+                onChange={(e) => handleTimeChange(e.target.value)}
                 required
               />
             </div>
@@ -108,18 +120,13 @@ const TripPlanner = ({
           <div className="section-content">
             <div className="field">
               <label htmlFor="dropOffLocation">Location</label>
-              <select
-                id="dropOffLocation"
+              <input
+                type="text"
                 className="input-style"
+                id="dropOffLocation"
                 value={dropOffLocation}
-                onChange={(e) => handleLocationChange(e.target.value, false)}
-                required
-              >
-                <option value="">Select your location</option>
-                <option value="ITER">ITER</option>
-                <option value="KIIT">KIIT</option>
-                <option value="CUTTACK">CUTTACK</option>
-              </select>
+                readOnly // Prevent changes to drop-off location
+              />
             </div>
             <div className="field">
               <label htmlFor="dropOffDuration">Duration</label>
