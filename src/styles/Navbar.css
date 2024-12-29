@@ -28,7 +28,7 @@
   transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover , .nav-links li:hover{
   color: #ff9f00;
 }
 
@@ -98,7 +98,7 @@
     z-index: 1000;
   }
 
-  .menu-nav-links a:hover {
+  .menu-nav-links a:hover, .menu-nav-links li:hover {
     color: #ff9f00;
   }
 }
