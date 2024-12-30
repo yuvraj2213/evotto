@@ -4,7 +4,7 @@ import SocialLinks from "../components/SocialLinks";
 import Footer from "../components/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../store/auth";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 import "../styles/Feedback.css";
 import "../App.css";

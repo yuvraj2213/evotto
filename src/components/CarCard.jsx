@@ -3,7 +3,7 @@ import "../styles/CarCard.css";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 const baseURL =
-  process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const CarCard = ({
   searchQuery,

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
 import "../styles/AdminSlideshow.css";
 import toast, { Toaster } from "react-hot-toast";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminSlideshow = () => {
   const { authorizationToken } = useAuth();
@@ -41,7 +41,7 @@ const AdminSlideshow = () => {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `https://evotto-backend-yol8.onrender.com/api/admin/slideshow/delete/${id}`,
+        `https://evotto-backend.vercel.app/api/admin/slideshow/delete/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -80,7 +80,7 @@ const AdminSlideshow = () => {
 
     try {
       const response = await fetch(
-        "https://evotto-backend-yol8.onrender.com/api/admin/slideshow/upload",
+        "https://evotto-backend.vercel.app/api/admin/slideshow/upload",
         {
           method: "POST",
           headers: {

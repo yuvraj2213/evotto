@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
 import { useParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminFeedbacks = () => {
   const { authorizationToken } = useAuth();

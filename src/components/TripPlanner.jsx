@@ -15,6 +15,24 @@ const TripPlanner = ({
 }) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
+  const getLocations = async () => {
+    try {
+      const response = await fetch(`${baseURL}/api/admin/rentalLocation`, {
+        method: "GET",
+        headers: {
+          Authorization: authorizationToken,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setLocation(data);
+      }
+    } catch (error) {
+      console.error("Error fetching locations data:", error);
+    }
+  };
+
   const getFormattedDate = (date) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -29,7 +47,8 @@ const TripPlanner = ({
   };
 
   const minDate = getFormattedDate(currentDateTime);
-  const minTime = pickUpDate === minDate ? getFormattedTime(currentDateTime) : "00:00";
+  const minTime =
+    pickUpDate === minDate ? getFormattedTime(currentDateTime) : "00:00";
 
   const handleLocationChange = (location) => {
     setPickUpLocation(location);

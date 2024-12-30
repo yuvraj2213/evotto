@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import toast, { Toaster } from "react-hot-toast";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminUpdate = () => {
 
@@ -46,7 +46,7 @@ const AdminUpdate = () => {
     e.preventDefault();
 
     try{
-        const response=await fetch(`https://evotto-backend-yol8.onrender.com/api/admin/users/update/${params.id}`,{
+        const response=await fetch(`https://evotto-backend.vercel.app/api/admin/users/update/${params.id}`,{
             method:'PATCH',
             headers:{
                 "Content-Type":"application/json",

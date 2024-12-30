@@ -5,7 +5,7 @@ import { useAuth } from "../store/auth";
 import "../styles/AdminUsers.css";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminUsers = () => {
   const { authorizationToken } = useAuth();

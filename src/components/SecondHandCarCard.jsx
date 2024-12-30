@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend-yol8.onrender.com";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const SecondHandCarCard = ({ searchQuery }) => {
   const [favorites, setFavorites] = useState([]);
