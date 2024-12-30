@@ -152,13 +152,13 @@
     width:93%;
     margin-top: 50px;
     margin-bottom: 50px;
-    background-image: url("");
+    background-image: url("/images/bag3.webp");
   }
 
   .slide {
     position: absolute;
     transition: transform 0.6s ease, opacity 0.6s ease;
-    max-height: 60%;
+    max-height: 65%;
     border-radius: 15px;
     opacity: 0;
   }
