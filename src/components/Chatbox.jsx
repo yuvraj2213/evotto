@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import { FaCommentDots } from "react-icons/fa"; // Import chat icon
 import "../styles/Chatbox.css";
 
 const Chatbox = () => {
@@ -13,20 +14,26 @@ const Chatbox = () => {
   const chatboxRef = useRef(null);
 
   useEffect(() => {
-
     const handleClickOutside = (event) => {
+      // Close chatbox if click is outside
       if (chatboxRef.current && !chatboxRef.current.contains(event.target)) {
-        setIsOpen(false); // Close the chatbox
+        setIsOpen(false);
       }
     };
 
-    document.addEventListener("click", handleClickOutside);
+    const handleScroll = () => {
+      // Close chatbox on scroll
+      setIsOpen(false);
+    };
 
-   
+    document.addEventListener("click", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
       document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []); 
+  }, []);
 
   const handleSend = () => {
     if (input.trim()) {
@@ -56,8 +63,18 @@ const Chatbox = () => {
       className={`chatbox-container ${isOpen ? "open" : ""}`}
       ref={chatboxRef}
     >
-      <div className="chatbox-header" onClick={() => setIsOpen(!isOpen)}>
-        <span>Chat with us</span>
+      <div
+        className="chatbox-header"
+        onClick={(e) => {e.stopPropagation() 
+          setIsOpen(!isOpen)
+        }} // Stop propagation to prevent closing chatbox
+      >
+        <FaCommentDots
+          size={30}
+          className={isOpen ? "chat-icon-hide" : ""}
+          onClick={() => setIsOpen(!isOpen)} // Toggle state on click
+        />
+        {isOpen && <span>Chat with us</span>} {/* Show text when chatbox is open */}
       </div>
       {isOpen && (
         <div className="chatbox-body">

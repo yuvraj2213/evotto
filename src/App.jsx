@@ -18,6 +18,8 @@ import AdminFeedbacks from "./pages/AdminFeedbacks";
 import AdminUpdate from "./pages/AdminUpdate";
 import AdminSlideshow from "./pages/AdminSlideshow";
 import RentalBooking from "./pages/RentalBooking";
+import Driver from "./pages/Driver";
+import Gears from "./pages/Gears";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -47,10 +49,12 @@ const App = () => {
             <Route path="/rental" element={<Rental />} />
             <Route path="/cars" element={<SecondHand />} />
             <Route path="/service" element={<Servicing />} />
+            <Route path="/drivers" element={<Driver/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="rentalBooking" element={<RentalBooking/>}/>
+            <Route path="/gears" element={<Gears/>}/>
             <Route path="*" element={<Error/>}/>
             <Route path="/admin" element={<Admin/>}>
               <Route path="users" element={<AdminUsers/>}/>

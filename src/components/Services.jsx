@@ -6,20 +6,33 @@ const Services = () => {
     {
       title: "Automobile Rental",
       description: "Rent vehicles for personal or business use effortlessly.",
-      link:"/rental"
+      link: "/rental"
     },
     {
       title: "Second-Hand Cars",
       description: "Explore and buy verified, affordable pre-owned cars.",
-      link:"/cars"
+      link: "/cars"
     },
     {
       title: "Vehicle Servicing",
       description:
         "Schedule services, repairs, or maintenance with trusted vendors.",
-      link:"/service"
+      link: "/service"
     },
+    {
+      title: "Drivers",
+      description:
+        "Hire professional drivers for personal or business needs, available on-demand.",
+      link: "/drivers"
+    },
+    {
+      title: "Rental Gears",
+      description:
+        "Rent essential travel and safety gear to complement your journey.",
+      link: "/gears"
+    }
   ];
+  
 
   return (
     <>
@@ -29,7 +42,7 @@ const Services = () => {
           return (
             <div key={index} className="service-card">
               <Link className="service-card-link" to={service.link}>
-              <h3>{service.title}</h3>
+              <h3 style={{color:'yellow'}}>{service.title}</h3>
               <p>{service.description}</p>
               </Link>
             </div>

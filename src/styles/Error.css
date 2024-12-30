@@ -4,7 +4,13 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 80vw;
-  height: 90vh;
+  height: 550px;
   border-radius: 50px;
   margin: auto auto;
+}
+
+@media (max-width: 515px){
+  .error_div{
+    height:300px;
+  }
 }
