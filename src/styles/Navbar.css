@@ -28,7 +28,7 @@
   transition: color 0.3s;
 }
 
-.nav-links a:hover , .nav-links li:hover{
+.nav-links a:hover {
   color: #ff9f00;
 }
 
@@ -40,7 +40,7 @@
   display: none;
 }
 
-@media (max-width: 985px) {
+@media (max-width: 900px) {
   .nav-item {
     display: none;
   }
@@ -98,7 +98,7 @@
     z-index: 1000;
   }
 
-  .menu-nav-links a:hover, .menu-nav-links li:hover {
+  .menu-nav-links a:hover {
     color: #ff9f00;
   }
 }
