@@ -14,23 +14,23 @@ const Chatbox = () => {
   const chatboxRef = useRef(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      // Close chatbox if click is outside
-      if (chatboxRef.current && !chatboxRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
+    // const handleClickOutside = (event) => {
+    //   // Close chatbox if click is outside
+    //   if (chatboxRef.current && !chatboxRef.current.contains(event.target)) {
+    //     setIsOpen(false);
+    //   }
+    // };
 
     const handleScroll = () => {
       // Close chatbox on scroll
       setIsOpen(false);
     };
 
-    document.addEventListener("click", handleClickOutside);
+    // document.addEventListener("click", handleClickOutside);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      // document.removeEventListener("click", handleClickOutside);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
