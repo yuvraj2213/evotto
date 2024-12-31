@@ -107,7 +107,7 @@ const CarCard = ({
     return matchesSearchQuery;
   });
 
-  if (!loading) {
+  if (loading) {
     return (
       <div className="loading-container">
         <div className="spinner"></div>
