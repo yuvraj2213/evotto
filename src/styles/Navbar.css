@@ -116,4 +116,10 @@
     text-align: center;
   }
 
+  .ham-btn svg{
+    width: 17px;
+    height: 17px;
+    font-size: 30px;
+  }
+
 }

@@ -78,7 +78,7 @@ const Navbar = () => {
         <li>
           <button className="ham-btn" onClick={() => setShowMenu(!showMenu)}>
             <GiHamburgerMenu
-              style={{ fontSize: "20px", width: "40px", height: "30px" }}
+              // style={{ fontSize: "20px", width: "40px", height: "30px" }}
             />
           </button>
         </li>
