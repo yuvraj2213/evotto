@@ -1,0 +1,82 @@
+.about-us {
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  background: linear-gradient(to right, #f0f8ff, #e6e6fa);
+  color: #333;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-header h1 {
+  font-size: 2.5rem;
+  color: #222;
+}
+
+.about-header .highlight {
+  color: #e71d36;
+}
+
+.about-header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #555;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card h3 {
+  color: #e71d36;
+}
+
+.feature-card p {
+  color: #555;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.mission {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
