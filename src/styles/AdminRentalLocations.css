@@ -1,0 +1,23 @@
+.admin-delete-btn-locations{
+    background-color: #EF3E36;
+    transition: background-color 0.5s ease-in-out;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.admin-addNewLoc{
+    background-color: #F6AE2D;
+    transition: background-color 0.5s ease-in-out;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.admin-addNewLoc:hover{
+    background-color: #F26419;
+}

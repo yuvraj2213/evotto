@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
 import toast, { Toaster } from "react-hot-toast";
+import '../styles/AdminRentalLocations.css'
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -86,59 +87,61 @@ const AdminRentalLocations = () => {
       <Toaster />
       <div style={{ margin: "20px" }}>
         <h2>Rental Locations</h2>
-        <table
-          border="1"
-          style={{
-            borderCollapse: "collapse",
-            width: "100%",
-            tableLayout: "fixed",
-          }}
-        >
-          <thead>
-            <tr>
-              <th style={{ width: "150px" }}>Location Name</th>
-              <th style={{ width: "350px" }}>Link</th>{" "}
-              {/* Fixed width for the Link column */}
-              <th style={{ width: "90px" }}>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {location.map((loc, index) => (
-              <tr key={loc._id || index}>
-                <td>{loc.name}</td>
-                <td
-                  style={{
-                    width: "150px",
-                    overflow: "hidden",
-                    whiteSpace: "nowrap",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  <a
-                    href={loc.mapLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+        <div className="admin-users">
+          <table
+            border="1"
+            style={{
+              borderCollapse: "collapse",
+              width: "100%",
+              tableLayout: "fixed",
+            }}
+          >
+            <thead>
+              <tr>
+                <th style={{ width: "150px" }}>Location Name</th>
+                <th style={{ width: "350px" }}>Link</th>{" "}
+                {/* Fixed width for the Link column */}
+                <th style={{ width: "90px" }}>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {location.map((loc, index) => (
+                <tr key={loc._id || index}>
+                  <td>{loc.name}</td>
+                  <td
                     style={{
-                      fontSize: "12px",
-                      textDecoration: "none",
-                      color: "white",
-                      display: "block", // Ensures the link takes up the full width of its parent
+                      width: "150px",
+                      overflow: "hidden",
+                      whiteSpace: "nowrap",
+                      textOverflow: "ellipsis",
                     }}
                   >
-                    {loc.mapLink}
-                  </a>
-                </td>
-                <td>
-                  <button onClick={() => handleLocationDelete(loc._id)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                    <a
+                      href={loc.mapLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontSize: "12px",
+                        textDecoration: "none",
+                        color: "white",
+                        display: "block", // Ensures the link takes up the full width of its parent
+                      }}
+                    >
+                      {loc.mapLink}
+                    </a>
+                  </td>
+                  <td>
+                    <button className='admin-delete-btn-locations' onClick={() => handleLocationDelete(loc._id)}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
-        <button
+        <button className="admin-addNewLoc"
           style={{ marginTop: "10px", padding: "10px", cursor: "pointer" }}
           onClick={() => setShowForm(true)}
         >

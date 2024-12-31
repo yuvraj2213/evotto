@@ -12,8 +12,16 @@
     text-align: left;
 }
 
+.admin-users table{
+    background-color: #292F36;
+}
+
+.admin-users table tr{
+    color: #4ECDC4;
+}
+
 .admin-content table th {
-    background-color: #98D9C2;
+    background-color: #EF3E36;
     color: white;
     font-weight: bold;
 }
@@ -22,7 +30,8 @@
     background-color: #EF3E36;
     transition: background-color 0.5s ease-in-out;
     border: none;
-    padding: 5px;
+    padding: 5px 15px;
+    border-radius: 5px;
     color: aliceblue;
     cursor: pointer;
 }
@@ -45,3 +54,18 @@
     background-color: #2A628F;
 
 }
+
+.admin-users .admin-edit-users-btn a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #4CAF50;
+    padding: 5px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .admin-users .admin-edit-users-btn a:hover {
+    background-color: #45a049;
+  }
+  

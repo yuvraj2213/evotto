@@ -5,9 +5,22 @@ import "../styles/Admin.css";
 import Footer from "../components/Footer";
 import { useAuth } from "../store/auth";
 
-
 const Admin = () => {
   const { user, isLoading } = useAuth();
+
+  useEffect(() => {
+    // Add the admin-body class if the user is an admin
+    if (user?.userData?.isAdmin) {
+      document.body.classList.add("admin-body");
+    } else {
+      document.body.classList.remove("admin-body");
+    }
+
+    return () => {
+      // Clean up the class on component unmount
+      document.body.classList.remove("admin-body");
+    };
+  }, [user]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -16,8 +29,6 @@ const Admin = () => {
   if (!user?.userData?.isAdmin) {
     return <Navigate to="/" />;
   }
-
-  console.log("Admin Status:", user?.userData?.isAdmin);
 
   return (
     <>

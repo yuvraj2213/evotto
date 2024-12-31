@@ -1,15 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.admin-navbar {
-    background-color: #FEA82F;
+ .admin-navbar {
+    background-color: #EF3E36;
     width: 150px;
     height: 100vh;
     display: flex;
     flex-direction: column; 
-    justify-content: flex-start; 
+    justify-content: flex-start;
+    padding: 0px 15px;
 }
 
 .admin-navbar .heading{
@@ -38,4 +34,4 @@
     text-decoration: none;
     color: yellow;
     transition: color 0.4s ease-in-out;
-}
+} 

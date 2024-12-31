@@ -76,7 +76,7 @@ const AdminUsers = () => {
                   <td>{curr.name}</td>
                   <td>{curr.email}</td>
                   <td>{curr.phone}</td>
-                  <td><Link to={`/admin/users/${curr._id}/edit`}>Edit</Link></td>
+                  <td className="admin-edit-users-btn"><Link to={`/admin/users/${curr._id}/edit`}>Edit</Link></td>
                   <td>
                     <button className="admin-del-btn" onClick={()=>deleteUser(curr._id)}>Delete</button>
                   </td>
