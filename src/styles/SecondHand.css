@@ -19,10 +19,11 @@
   width: 900px;
   height: 450px;
   margin: auto auto;
-  background-image: url("/images/comingsoon3.webp");
+  background-image: url("/images/comingsoon6.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 55px;
 }
 
 .content {
