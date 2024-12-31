@@ -90,7 +90,7 @@
   justify-content: center;
   align-items: center;
   height: 70px; /* Reduced height */
-  width: 70px; /* Ensures it spans the width of the parent container */
+  width: 90vw; /* Ensures it spans the width of the parent container */
 }
 
 .spinner {
