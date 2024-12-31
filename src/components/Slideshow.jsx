@@ -19,13 +19,13 @@ const Slideshow = () => {
         console.log(data);
         if (data) {
           setImages(data);
+          setLoading(false); // Update loading state to false after fetching images
         } else {
           console.error('No images found in API response');
         }
       } catch (error) {
         console.error('Error fetching slideshow images:', error);
-      } finally {
-        setTimeout(() => setLoading(false), 1000); // Add a delay of 1 second
+        setLoading(false); // Also stop loading if an error occurs
       }
     };
 

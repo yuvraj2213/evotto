@@ -15,6 +15,7 @@ const CarCard = ({
 }) => {
   const [favorites, setFavorites] = useState([]);
   const [cars, setCars] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchCars = async () => {
     try {
@@ -24,7 +25,11 @@ const CarCard = ({
 
       if (response.ok) {
         const data = await response.json();
-        setCars(data);
+
+        if (data) {
+          setCars(data);
+          setLoading(false);
+        }
       }
     } catch (error) {
       console.error("Error fetching cars data:", error);
@@ -100,6 +105,14 @@ const CarCard = ({
       .startsWith(searchQuery.toLowerCase());
     return matchesSearchQuery;
   });
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
 
   return (
     <>
