@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/CarCard.css";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
+import '../styles/Slideshow.css'
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
