@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
+import toast, { Toaster } from "react-hot-toast";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -44,14 +45,35 @@ const AdminRentalLocations = () => {
       if (response.ok) {
         const data = await response.json();
         setLocation((prev) => [...prev, data]);
-        setShowForm(false); 
+        setShowForm(false);
         setNewLocation({ name: "", mapLink: "" });
-        getLocations() 
+        getLocations();
       } else {
         console.error("Failed to add location. Status:", response.status);
       }
     } catch (error) {
       console.error("Error adding location:", error);
+    }
+  };
+
+  const handleLocationDelete = async (id) => {
+    console.log(id);
+    const response = await fetch(
+      `${baseURL}/api/admin/rentalLocation/delete/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: authorizationToken,
+        },
+      }
+    );
+    console.log("console check", response, id);
+
+    if (response.ok) {
+      toast.success("Location Deleted Successfully");
+      getLocations();
+    } else {
+      toast.error("Location Not Deleted");
     }
   };
 
@@ -61,20 +83,37 @@ const AdminRentalLocations = () => {
 
   return (
     <>
+      <Toaster />
       <div style={{ margin: "20px" }}>
         <h2>Rental Locations</h2>
-        <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
+        <table
+          border="1"
+          style={{
+            borderCollapse: "collapse",
+            width: "100%",
+            tableLayout: "fixed",
+          }}
+        >
           <thead>
             <tr>
-              <th>Location Name</th>
-              <th>Link</th>
+              <th style={{ width: "150px" }}>Location Name</th>
+              <th style={{ width: "350px" }}>Link</th>{" "}
+              {/* Fixed width for the Link column */}
+              <th style={{ width: "90px" }}>Delete</th>
             </tr>
           </thead>
           <tbody>
-            {location.map((loc) => (
-              <tr key={loc.id}>
+            {location.map((loc, index) => (
+              <tr key={loc._id || index}>
                 <td>{loc.name}</td>
-                <td>
+                <td
+                  style={{
+                    width: "150px",
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                    textOverflow: "ellipsis",
+                  }}
+                >
                   <a
                     href={loc.mapLink}
                     target="_blank"
@@ -83,15 +122,22 @@ const AdminRentalLocations = () => {
                       fontSize: "12px",
                       textDecoration: "none",
                       color: "white",
+                      display: "block", // Ensures the link takes up the full width of its parent
                     }}
                   >
                     {loc.mapLink}
                   </a>
                 </td>
+                <td>
+                  <button onClick={() => handleLocationDelete(loc._id)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+
         <button
           style={{ marginTop: "10px", padding: "10px", cursor: "pointer" }}
           onClick={() => setShowForm(true)}
@@ -99,7 +145,6 @@ const AdminRentalLocations = () => {
           Add New Location
         </button>
 
-        {/* Pop-up Form */}
         {showForm && (
           <div
             style={{
@@ -124,7 +169,10 @@ const AdminRentalLocations = () => {
                   type="text"
                   value={newLocation.name}
                   onChange={(e) =>
-                    setNewLocation((prev) => ({ ...prev, name: e.target.value }))
+                    setNewLocation((prev) => ({
+                      ...prev,
+                      name: e.target.value,
+                    }))
                   }
                   required
                   style={{ width: "100%", padding: "5px" }}

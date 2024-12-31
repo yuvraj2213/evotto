@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/TripPlanner.css";
 
 const TripPlanner = ({
@@ -14,14 +14,14 @@ const TripPlanner = ({
   setDropOffDuration,
 }) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [location, setLocation] = useState([]);
+  const baseURL =
+    process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
   const getLocations = async () => {
     try {
-      const response = await fetch(`${baseURL}/api/admin/rentalLocation`, {
+      const response = await fetch(`${baseURL}/api/data/rentalLocation`, {
         method: "GET",
-        headers: {
-          Authorization: authorizationToken,
-        },
       });
 
       if (response.ok) {
@@ -80,6 +80,10 @@ const TripPlanner = ({
     alert("Trip details submitted successfully!");
   };
 
+  useEffect(() => {
+    getLocations();
+  });
+
   return (
     <div className="trip-planner">
       <h2>Select Pick-Up and Drop-Off Information below : </h2>
@@ -100,9 +104,11 @@ const TripPlanner = ({
                 required
               >
                 <option value="">Select your location</option>
-                <option value="ITER">ITER</option>
-                <option value="KIIT">KIIT</option>
-                <option value="CUTTACK">CUTTACK</option>
+                {location.map((loc, index) => (
+                  <option key={index} value={loc.name || loc}>
+                    {loc.name || loc}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="field">

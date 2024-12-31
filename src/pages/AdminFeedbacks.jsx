@@ -24,7 +24,6 @@ const AdminFeedbacks = () => {
   };
 
   const deleteFeedback=async(id)=>{
-    console.log(id)
     const response=await fetch(`${baseURL}/api/admin/feedbacks/delete/${id}`,{
       method:"DELETE",
       headers:{
