@@ -58,7 +58,13 @@ const Navbar = () => {
         </li>
 
         {isLoggedIn ? (
-          <li className={showMenu ? "menu-nav-item" : "nav-item"} onClick={LogoutUser} style={{cursor:"pointer"}}>
+          <li
+            className={`logout-button ${
+              showMenu ? "menu-nav-item" : "nav-item"
+            }`}
+            onClick={LogoutUser}
+            style={{ cursor: "pointer" }}
+          >
             Logout
           </li>
         ) : null}
@@ -71,7 +77,9 @@ const Navbar = () => {
 
         <li>
           <button className="ham-btn" onClick={() => setShowMenu(!showMenu)}>
-            <GiHamburgerMenu style={{fontSize:"20px",width:"40px", height:"30px"}}/>
+            <GiHamburgerMenu
+              style={{ fontSize: "20px", width: "40px", height: "30px" }}
+            />
           </button>
         </li>
       </ul>

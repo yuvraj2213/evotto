@@ -40,6 +40,10 @@
   display: none;
 }
 
+.logout-button:hover{
+  color: #ff9f00;
+}
+
 @media (max-width: 900px) {
   .nav-item {
     display: none;
