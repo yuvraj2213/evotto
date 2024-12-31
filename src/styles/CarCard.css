@@ -15,12 +15,12 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  margin-top:35px;
+  margin-top: 35px;
 }
 
 .car-card {
   position: relative;
-  width: calc(25% - 0px); 
+  width: calc(25% - 0px);
   margin-bottom: 20px;
   padding: 10px;
   text-align: center;
@@ -37,9 +37,9 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.card-header{
-    display: flex;
-    flex-direction: column;
+.card-header {
+  display: flex;
+  flex-direction: column;
 }
 
 .car-img {
@@ -59,9 +59,9 @@
   font-size: 14px;
 }
 
-.car-name{
-    font-weight: bolder;
-    margin-bottom: 10px;
+.car-name {
+  font-weight: bolder;
+  margin-bottom: 10px;
 }
 
 .price-container {
@@ -113,13 +113,13 @@
   transform: scale(1.05);
 }
 
-.no-search-match{
-  color:white;
+.no-search-match {
+  color: white;
 }
 
 @media (max-width: 768px) {
   .car-card {
-    width: calc(45% - 20px); 
+    width: calc(45% - 20px);
     margin-bottom: 15px;
   }
 
@@ -147,16 +147,16 @@
   }
 
   .car-img {
-    height: auto; 
-    display: flex; 
+    height: auto;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .car-img img {
-    width: 100%; 
-    height: auto; 
-    object-fit: contain; 
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .car-info {
@@ -175,4 +175,113 @@
   .price-container {
     font-size: 11px;
   }
+}
+
+.rental-terms {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make the Terms Modal responsive */
+.terms-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px; /* Adjusted font size */
+  z-index: 100;
+  padding: 10px; /* Added padding for smaller screens */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 60vw; /* Adjust width for responsiveness */
+  max-width: 600px; /* Limit max width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: auto; /* Allow overflow if content exceeds the modal */
+}
+
+/* Ensure Terms Container is scrollable and has proper height */
+.terms-scroll-container {
+  max-height: 300px; /* Max height remains the same */
+  overflow-y: auto;
+  padding-right: 15px; /* To prevent content from hiding behind scroll bar */
+  font-size: 14px; /* Adjust font size for better readability */
+}
+
+/* Adjust buttons */
+.submit-terms-btn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.submit-terms-btn{
+  margin-left: 15px;
+}
+
+.submit-terms-btn:disabled {
+  background-color: gray;
+}
+.submit-terms-btn:hover {
+  background-color: plum;
+}
+
+
+/* Responsive for tablet (768px and below) */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 80vw; /* Adjust width for tablets */
+    padding: 15px; /* Adjust padding */
+  }
+
+  .terms-scroll-container {
+    max-height: 250px; /* Slightly reduced height for smaller screens */
+  }
+
+  .submit-terms-btn,
+  button {
+    font-size: 14px; /* Smaller font size for smaller screens */
+    padding: 8px 12px; /* Adjust padding for buttons */
+  }
+}
+
+/* Responsive for mobile (480px and below) */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 90vw; /* Adjust width to fit mobile screens */
+    padding: 10px; /* Smaller padding for mobile */
+  }
+
+  .rental-terms span{
+    font-size: 8px;
+  }
+
+  .terms-scroll-container {
+    max-height: 200px; /* Reduce the height further for mobile */
+    font-size: 12px; /* Smaller font size for mobile */
+  }
+
+  .submit-terms-btn,
+  button {
+    font-size: 12px; /* Reduce font size for mobile */
+    padding: 6px 10px; /* Smaller padding for buttons */
+  }
+}
+
+.terms-scroll-container {
+  max-height: 300px; /* Adjust this height according to your design */
+  overflow-y: auto;
+  padding-right: 15px; /* To prevent content from hiding behind the scroll bar */
 }

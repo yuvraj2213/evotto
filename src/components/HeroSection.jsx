@@ -9,7 +9,6 @@ const HeroSection = () => {
         src="/images/banner.webp"
         alt="Hero Banner"
         className="hero-image"
-        // width='1000vw'
       />
     </div>
   );
