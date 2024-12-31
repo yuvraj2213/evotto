@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import Rental from "./pages/Rental";
 import SecondHand from "./pages/SecondHand";
 import Servicing from "./pages/Servicing";
-import Contact from "./pages/Contact";
 import Feedback from "./pages/Feedback";
 
 import SplashScreen from "./components/SplashScreen";
@@ -21,6 +20,7 @@ import RentalBooking from "./pages/RentalBooking";
 import Driver from "./pages/Driver";
 import Gears from "./pages/Gears";
 import AdminRentalLocations from "./pages/AdminRentalLocations";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -51,7 +51,7 @@ const App = () => {
             <Route path="/cars" element={<SecondHand />} />
             <Route path="/service" element={<Servicing />} />
             <Route path="/drivers" element={<Driver/>} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="rentalBooking" element={<RentalBooking/>}/>
