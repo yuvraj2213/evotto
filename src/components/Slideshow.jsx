@@ -3,26 +3,29 @@ import '../styles/Slideshow.css';
 const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const Slideshow = () => {
-  const [images, setImages] = useState([]); 
+  const [images, setImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch(`${baseURL}/api/data/slideshow`,); 
-        console.log(response)
+        const response = await fetch(`${baseURL}/api/data/slideshow`);
+        console.log(response);
         if (!response.ok) {
           throw new Error('Failed to fetch slideshow images');
         }
         const data = await response.json();
-        console.log(data)
+        console.log(data);
         if (data) {
-          setImages(data); // Ensure that images exist in the response
+          setImages(data);
         } else {
           console.error('No images found in API response');
         }
       } catch (error) {
         console.error('Error fetching slideshow images:', error);
+      } finally {
+        setTimeout(() => setLoading(false), 1000); // Add a delay of 1 second
       }
     };
 
@@ -40,12 +43,16 @@ const Slideshow = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000); 
-    return () => clearInterval(interval); 
+    const interval = setInterval(nextSlide, 3000);
+    return () => clearInterval(interval);
   }, [images]);
 
-  if (images.length === 0) {
-    return <div>Loading slideshow...</div>;
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   return (
