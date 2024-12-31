@@ -10,27 +10,20 @@ const Chatbox = () => {
     { sender: "bot", text: "Hello! How can I help you today?" },
   ]);
   const [input, setInput] = useState("");
-
   const chatboxRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
-    // const handleClickOutside = (event) => {
-    //   // Close chatbox if click is outside
-    //   if (chatboxRef.current && !chatboxRef.current.contains(event.target)) {
-    //     setIsOpen(false);
-    //   }
-    // };
-
     const handleScroll = () => {
-      // Close chatbox on scroll
-      setIsOpen(false);
+      // Check if the input field is focused; don't close the chatbox if true
+      if (document.activeElement !== inputRef.current) {
+        setIsOpen(false);
+      }
     };
 
-    // document.addEventListener("click", handleClickOutside);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      // document.removeEventListener("click", handleClickOutside);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
@@ -65,8 +58,9 @@ const Chatbox = () => {
     >
       <div
         className="chatbox-header"
-        onClick={(e) => {e.stopPropagation() 
-          setIsOpen(!isOpen)
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(!isOpen);
         }} // Stop propagation to prevent closing chatbox
       >
         <FaCommentDots
@@ -103,6 +97,7 @@ const Chatbox = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your message"
+              ref={inputRef} // Reference for the input field
             />
             <button onClick={handleSend}>Send</button>
           </div>
