@@ -152,13 +152,15 @@ const AdminRentalLocations = () => {
           <div
             style={{
               position: "fixed",
+              width:"50%",
+              height:"40%",
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              backgroundColor: "#333",
+              backgroundColor: "#86BBD8",
               padding: "20px",
               borderRadius: "10px",
-              color: "white",
+              color: "black",
               boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
               zIndex: 1000,
             }}
