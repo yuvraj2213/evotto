@@ -47,13 +47,14 @@ const Slideshow = () => {
     return () => clearInterval(interval);
   }, [images]);
 
-  if (!loading) {
+  if (loading) {
     return (
       <div className="loading-container">
         <div className="spinner"></div>
       </div>
     );
   }
+  
 
   return (
     <div className="slideshow-container">
