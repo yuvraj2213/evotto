@@ -1,9 +1,7 @@
-
-
 body {
   margin-top: 0px;
-  /* margin-left: 40px;
-  margin-right: 40px; */
+  margin-left: 40px;
+  margin-right: 40px;
   padding: 0px;
   height: 100vh;
   background-image: url('/images/bluebg1.jpg');
@@ -15,6 +13,7 @@ body {
   font-weight: 800;
   font-style: normal;
 }
+
 
 .App {
   display: flex;
@@ -74,6 +73,12 @@ body {
 }
 
 @media (max-width: 480px) {
+
+  body, .container {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .navbar {
     flex-direction: column;
     padding: 1rem;
