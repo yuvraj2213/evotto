@@ -16,3 +16,20 @@
     overflow: auto; /* Handle overflow for large tables */
     padding: 20px;
 }
+
+.back-to-home-btn{
+    background-color: #EF3E36;
+    padding: 10px;
+    max-width: fit-content;
+    color: aliceblue;
+    border-radius: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 13px;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.back-to-home-btn:hover{
+    background-color: #A44200;
+}
