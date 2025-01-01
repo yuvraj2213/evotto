@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "../styles/CarCard.css";
 import { toast, Toaster } from "react-hot-toast";
 import Termsandcond from "./Termsandcond";
+import { useAuth } from "../store/auth";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -18,6 +19,7 @@ const CarCard = ({
   const [cars, setCars] = useState([]);
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
+  const { isLoggedIn } = useAuth();
 
   const fetchCars = async () => {
     try {
@@ -66,8 +68,13 @@ const CarCard = ({
       return;
     }
 
-    // Show the Terms and Conditions modal
-    setShowTermsModal(true);
+    if (!isLoggedIn) {
+      toast("You need to login first", {
+        icon: "⚠️",
+      });
+    } else {
+      setShowTermsModal(true);
+    }
   };
 
   const handleSubmitTerms = (car) => {
@@ -177,6 +184,7 @@ const CarCard = ({
           handleSubmitTerms={handleSubmitTerms}
           isTermsAccepted={isTermsAccepted}
           setIsTermsAccepted={setIsTermsAccepted}
+          setShowTermsModal={setShowTermsModal}
           filteredCars={filteredCars}
         />
       )}

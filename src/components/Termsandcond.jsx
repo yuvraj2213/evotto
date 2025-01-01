@@ -4,7 +4,8 @@ const Termsandcond = ({
   handleSubmitTerms,
   isTermsAccepted,
   setIsTermsAccepted,
-  filteredCars
+  filteredCars,
+  setShowTermsModal
 }) => {
   return (
     <>
