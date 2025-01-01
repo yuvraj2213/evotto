@@ -1,13 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AdminNavbar from "../components/AdminNavbar";
 import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
 import "../styles/Admin.css";
 import Footer from "../components/Footer";
 import { useAuth } from "../store/auth";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import AdminHome from "../components/AdminHome";
 
 const Admin = () => {
   const { user, isLoading } = useAuth();
+  const location = useLocation();
+
+  // Determine if the current path is the home page
+  const isHome = location.pathname === "/admin";
 
   useEffect(() => {
     // Add the admin-body class if the user is an admin
@@ -40,7 +45,8 @@ const Admin = () => {
       <div className="admin-layout">
         <AdminNavbar />
         <div className="admin-content">
-          <Outlet />
+
+          {isHome ? <AdminHome /> : <Outlet />}
         </div>
       </div>
       <Footer />

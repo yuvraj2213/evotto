@@ -9,6 +9,9 @@ const AdminNavbar = () => {
             <ul>
                 <li className='heading'>Admin Panel</li>
                 <li>
+                    <NavLink to="/admin">Admin Home</NavLink>
+                </li>
+                <li>
                     <NavLink to="/admin/users">Users</NavLink>
                 </li>
                 <li>

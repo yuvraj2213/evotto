@@ -1,0 +1,13 @@
+.admin-home-cards .admin-total-users {
+  background-image: url("/images/background3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

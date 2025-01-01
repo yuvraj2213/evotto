@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
 import toast, { Toaster } from "react-hot-toast";
-import '../styles/AdminRentalLocations.css'
+import "../styles/AdminRentalLocations.css";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -25,6 +25,8 @@ const AdminRentalLocations = () => {
       if (response.ok) {
         const data = await response.json();
         setLocation(data);
+      } else {
+        console.error("Failed to fetch locations:", response.status);
       }
     } catch (error) {
       console.error("Error fetching locations data:", error);
@@ -44,37 +46,41 @@ const AdminRentalLocations = () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        setLocation((prev) => [...prev, data]);
-        setShowForm(false);
+        toast.success("Location added successfully!");
         setNewLocation({ name: "", mapLink: "" });
+        setShowForm(false);
         getLocations();
       } else {
-        console.error("Failed to add location. Status:", response.status);
+        console.error("Failed to add location:", response.status);
+        toast.error("Failed to add location");
       }
     } catch (error) {
       console.error("Error adding location:", error);
+      toast.error("Error adding location");
     }
   };
 
   const handleLocationDelete = async (id) => {
-    console.log(id);
-    const response = await fetch(
-      `${baseURL}/api/admin/rentalLocation/delete/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: authorizationToken,
-        },
-      }
-    );
-    console.log("console check", response, id);
+    try {
+      const response = await fetch(
+        `${baseURL}/api/admin/rentalLocation/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
 
-    if (response.ok) {
-      toast.success("Location Deleted Successfully");
-      getLocations();
-    } else {
-      toast.error("Location Not Deleted");
+      if (response.ok) {
+        toast.success("Location deleted successfully");
+        getLocations();
+      } else {
+        toast.error("Failed to delete location");
+      }
+    } catch (error) {
+      console.error("Error deleting location:", error);
+      toast.error("Error deleting location");
     }
   };
 
@@ -88,50 +94,38 @@ const AdminRentalLocations = () => {
       <div style={{ margin: "20px" }}>
         <h2>Rental Locations</h2>
         <div className="admin-users">
-          <table
-            border="1"
-            style={{
-              borderCollapse: "collapse",
-              width: "100%",
-              tableLayout: "fixed",
-            }}
-          >
+          <table>
             <thead>
               <tr>
-                <th style={{ width: "150px" }}>Location Name</th>
-                <th style={{ width: "350px" }}>Link</th>{" "}
-                {/* Fixed width for the Link column */}
-                <th style={{ width: "90px" }}>Delete</th>
+                <th>Name</th>
+                <th>Link</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-              {location.map((loc, index) => (
-                <tr key={loc._id || index}>
-                  <td>{loc.name}</td>
-                  <td
-                    style={{
-                      width: "150px",
-                      overflow: "hidden",
-                      whiteSpace: "nowrap",
-                      textOverflow: "ellipsis",
-                    }}
-                  >
+              {location.map((curr) => (
+                <tr key={curr._id}>
+                  <td>{curr.name}</td>
+                  <td>
                     <a
-                      href={loc.mapLink}
+                      href={curr.mapLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        fontSize: "12px",
-                        textDecoration: "none",
-                        color: "white",
-                        display: "block", // Ensures the link takes up the full width of its parent
+                      title={curr.mapLink}
+                      style={{textDecoration
+                        :'none',color:'#D77A61'
                       }}
                     >
-                      {loc.mapLink}
+                      {curr.mapLink.length > 30
+                        ? `${curr.mapLink.substring(0, 50)}...`
+                        : curr.mapLink}
                     </a>
                   </td>
                   <td>
-                    <button className='admin-delete-btn-locations' onClick={() => handleLocationDelete(loc._id)}>
+                    <button
+                      className="admin-del-btn"
+                      onClick={() => handleLocationDelete(curr._id)}
+                    >
                       Delete
                     </button>
                   </td>
@@ -141,7 +135,8 @@ const AdminRentalLocations = () => {
           </table>
         </div>
 
-        <button className="admin-addNewLoc"
+        <button
+          className="admin-addNewLoc"
           style={{ marginTop: "10px", padding: "10px", cursor: "pointer" }}
           onClick={() => setShowForm(true)}
         >
@@ -152,8 +147,8 @@ const AdminRentalLocations = () => {
           <div
             style={{
               position: "fixed",
-              width:"50%",
-              height:"40%",
+              width: "50%",
+              height: "40%",
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
@@ -229,7 +224,6 @@ const AdminRentalLocations = () => {
           </div>
         )}
 
-        {/* Background Overlay */}
         {showForm && (
           <div
             style={{
