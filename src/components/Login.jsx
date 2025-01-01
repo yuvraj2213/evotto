@@ -13,6 +13,8 @@ const Login = ({ check, setCheck }) => {
     password: "",
   });
 
+  const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
+
   const { storeTokenInLS } = useAuth();
 
   const handleChange = (e) => {
@@ -26,8 +28,7 @@ const Login = ({ check, setCheck }) => {
     console.log("Form Data Sent to Backend:", formData);
 
     try {
-      const response = await fetch(
-        `${baseURL}/api/auth/login`, {
+      const response = await fetch(`${baseURL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,11 +36,9 @@ const Login = ({ check, setCheck }) => {
         body: JSON.stringify(formData),
       });
 
-
       if (!response.ok) {
-    
         const errorData = await response.json();
-        console.log("Error Data:", errorData); 
+        console.log("Error Data:", errorData);
         toast.error(errorData.message || "Login failed!");
         return;
       }
@@ -48,7 +47,7 @@ const Login = ({ check, setCheck }) => {
       console.log("Response Data:", data);
 
       toast.success("Login Successful!");
-      storeTokenInLS(data.token); 
+      storeTokenInLS(data.token);
 
       setFormData({ email: "", password: "" });
       navigate("/"); 
@@ -78,13 +77,20 @@ const Login = ({ check, setCheck }) => {
           <div className="form-group">
             <label htmlFor="password">Password:</label>
             <input
-              type="password"
+              type={passwordVisible ? "text" : "password"} // Toggle password visibility
               id="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               required
             />
+            <button
+              type="button"
+              className="show-password-btn"
+              onClick={() => setPasswordVisible(!passwordVisible)} // Toggle password visibility
+            >
+              {passwordVisible ? "Hide Password" : "Show Password"}
+            </button>
           </div>
           <div className="user-check">
             <button type="button" onClick={() => setCheck(!check)}>
