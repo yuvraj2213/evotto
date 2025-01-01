@@ -12,9 +12,12 @@
     flex-grow: 1; /* Takes remaining space */
     padding: 20px; /* Add some padding around the content */
     background-color: white;
+    overflow-x: auto;
+    overflow-y: auto;
     color: #EF3E36;
     overflow: auto; /* Handle overflow for large tables */
     padding: 20px;
+    max-width: calc(100%-250px);
 }
 
 .back-to-home-btn{
