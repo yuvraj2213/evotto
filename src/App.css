@@ -1,7 +1,9 @@
+
+
 body {
   margin-top: 0px;
-  margin-left: 40px;
-  margin-right: 40px;
+  /* margin-left: 40px;
+  margin-right: 40px; */
   padding: 0px;
   height: 100vh;
   background-image: url('/images/bluebg1.jpg');
@@ -20,12 +22,12 @@ body {
   min-height: 100vh;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   body {
     margin-left: 20px;
     margin-right: 20px;
   }
-}
+} */
 
 @media (max-width: 1200px) {
   .hero-content h1 {
@@ -43,10 +45,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  body {
+  /* body {
     margin-left: 20px;
     margin-right: 20px;
-  }
+  } */
 
   .service-card {
     max-width: 90%;
