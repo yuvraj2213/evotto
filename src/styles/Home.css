@@ -14,7 +14,12 @@
   font-weight: 800;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0px;
+}
+
+.hero-content h1{
+  padding: 0px;
+  margin: 0px;
 }
 
 .hero img {
@@ -24,16 +29,16 @@
   border-radius: 50px;
 }
 
-.social-links{
+.social-links {
   margin-top: 100px;
-  margin-bottom:40px;
+  margin-bottom: 40px;
   display: flex;
 
   align-items: center;
   justify-content: center;
 }
 
-.social{
+.social {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,37 +46,37 @@
   gap: 15px;
 }
 
-.social span{
+.social span {
   color: whitesmoke;
   font-size: larger;
 }
 
 .social p {
-  margin: 0; 
-  transition: transform 0.3s ease; 
+  margin: 0;
+  transition: transform 0.3s ease;
 }
 
 .social p:hover {
   transform: scale(1.2);
 }
 
-
-.slideshow{
+.slideshow {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.service-card h3, .service-card p{
+.service-card h3,
+.service-card p {
   color: aliceblue;
 }
 
-@media (max-width:950px){
+@media (max-width: 950px) {
   .hero img {
-  width: 100vw;
-  border-radius: none;
-}
+    width: 100vw;
+    border-radius: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -80,55 +85,53 @@
   }
 
   .hero-content p {
-    font-size: 1rem; 
+    font-size: 1rem;
   }
 
   .hero img {
-    width: 80vw !important ; 
+    width: 80vw !important ;
   }
 
   .social {
-    width: 80vw; 
-    gap: 10px; 
+    width: 80vw;
+    gap: 10px;
   }
 
   .social span {
-    font-size: medium; 
+    font-size: medium;
   }
 }
 
-@media (max-width:725px){
+@media (max-width: 725px) {
   .hero img {
-  width: 80vw;
-  max-width: 100%;
-  height: 350px;
-  border-radius: 50px;
-}
+    width: 80vw;
+    max-width: 100%;
+    height: 350px;
+    border-radius: 50px;
+  }
 }
 
-@media (max-width:525px){
-
-  .hero{
+@media (max-width: 525px) {
+  .hero {
     padding: 0rem !important;
   }
 
   .hero img {
-  width: 80vw;
-  max-width: 100%;
-  height: 300px;
-  border-radius: 50px;
-}
+    width: 80vw;
+    max-width: 100%;
+    height: 300px;
+    border-radius: 50px;
+  }
 }
 
-@media (max-width:525px){
+@media (max-width: 525px) {
   .hero img {
-  width: 80vw;
-  max-width: 100%;
-  height: 270px;
-  border-radius: 50px;
+    width: 80vw;
+    max-width: 100%;
+    height: 270px;
+    border-radius: 50px;
+  }
 }
-}
-
 
 .services {
   margin-top: 40px;
@@ -144,9 +147,9 @@
   font-weight: 800;
 }
 
-.service-header{
+.service-header {
   color: yellow;
-  background-image: url('/images/bgg3.jpg');
+  background-image: url("/images/bgg3.jpg");
   border: none;
   border-radius: 17px;
   display: inline;
@@ -155,7 +158,7 @@
 }
 
 .service-card {
-  background-image: url('/images/bgg3.jpg');
+  background-image: url("/images/bgg3.jpg");
   height: 100px;
   margin: 1rem auto;
   padding: 1rem;
@@ -165,21 +168,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease-in-out; 
+  transition: transform 0.3s ease-in-out;
 }
 
 .service-card:hover {
-  transform: scale(1.2); 
+  transform: scale(1.2);
 }
 
-
-.service-cards{
+.service-cards {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
 }
 
-.service-card-link{
+.service-card-link {
   text-decoration: none;
   color: black;
 }
@@ -191,27 +193,49 @@
   }
 
   .social span {
-    font-size: small; 
+    font-size: small;
   }
 
-  .hero img{
-    border-radius:0px;
+  .hero img {
+    border-radius: 0px;
     width: 100vw !important;
   }
 
+  .services {
+    border-radius: 0px;
+    background-image: url("/images/servicesbg1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 
-}
-
-@media (max-width: 1160px){
-  .service-cards {
-    flex-direction: column; 
-    align-items: center; 
+  .service-header {
+    color: yellow;
+    background-image: url("/images/gradient1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   .service-card {
-    max-width: 80%; 
-    margin-bottom: 20px; 
+    background-image: url("/images/gradient1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 }
 
+@media (max-width: 1160px) {
+  .service-cards {
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .service-card {
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+}
