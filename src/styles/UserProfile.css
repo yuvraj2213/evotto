@@ -108,6 +108,8 @@
   .profile-container {
     width: 100%;
     margin-top: 40px;
+    background-image: none;
+    overflow-x: hidden;
   }
 
   .profile-card {
