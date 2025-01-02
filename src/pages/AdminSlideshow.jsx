@@ -41,7 +41,7 @@ const AdminSlideshow = () => {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `https://evotto-backend.vercel.app/api/admin/slideshow/delete/${id}`,
+        `${baseURL}/api/admin/slideshow/delete/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -76,11 +76,11 @@ const AdminSlideshow = () => {
 
     const formData = new FormData();
     formData.append("image", selectedFile);
-    formData.append("altText", "Slideshow Image"); // Optionally include altText
+    formData.append("altText", "Slideshow Image"); 
 
     try {
       const response = await fetch(
-        "https://evotto-backend.vercel.app/api/admin/slideshow/upload",
+        `${baseURL}/api/admin/slideshow/upload`,
         {
           method: "POST",
           headers: {
