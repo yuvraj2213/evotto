@@ -1,13 +1,12 @@
-import React from "react";
-import "../styles/UserProfile.css"; // Assuming the CSS will be in this file
+import React, { useEffect } from "react";
+import "../styles/UserProfile.css"; 
 import { useAuth } from "../store/auth";
 
 const UserProfile = () => {
   const { user } = useAuth();
   
-  // Check if user or userData is undefined
   if (!user || !user.userData) {
-    return <div>Loading...</div>; // You can replace this with a loading spinner or message
+    return <div>Loading...</div>; 
   }
 
   const User = user.userData;

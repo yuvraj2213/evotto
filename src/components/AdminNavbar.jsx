@@ -23,6 +23,9 @@ const AdminNavbar = () => {
                 <li>
                     <NavLink to="/admin/rentalLocations">Rental Locations</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/admin/rentalVehicles">Rental Vehicles</NavLink>
+                </li>
             </ul>
         </div>
     </>

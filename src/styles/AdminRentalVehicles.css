@@ -1,0 +1,86 @@
+/* Table styles for Admin Rental Vehicles */
+.admin-rental-vehicles-section table {
+    width: 100%; /* Take full width of the container */
+    border-collapse: collapse; /* Remove extra space between table cells */
+    margin: 0 auto; /* Center table horizontally if needed */
+}
+
+.admin-rental-vehicles-section table th,
+.admin-rental-vehicles-section table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.admin-rental-vehicles-section table {
+    background-color: #292F36;
+}
+
+.admin-rental-vehicles-section table tr {
+    color: #4ECDC4;
+}
+
+.admin-rental-vehicles-section table th {
+    background-color: #EF3E36;
+    color: white;
+    font-weight: bold;
+}
+
+/* Button styles for deleting a vehicle */
+.admin-del-btn {
+    background-color: #EF3E36;
+    transition: background-color 0.5s ease-in-out;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.admin-del-btn:hover {
+    background-color: #FF6B6B;
+}
+
+/* Button styles for editing a vehicle */
+.admin-edit-vehicle-btn a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #4CAF50;
+    padding: 5px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.admin-edit-vehicle-btn a:hover {
+    background-color: #45a049;
+}
+
+/* Image link style */
+.admin-rental-vehicles-section td a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+.admin-rental-vehicles-section td a:hover {
+    color: #2A628F;
+}
+
+/* Additional styles for vehicle availability (Yes/No) */
+.admin-rental-vehicles-section td {
+    text-align: center;
+}
+
+.admin-rental-vehicles-section td:nth-child(5) {
+    font-weight: bold;
+    color: #FFEB3B;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .admin-rental-vehicles-section table th,
+    .admin-rental-vehicles-section table td {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
