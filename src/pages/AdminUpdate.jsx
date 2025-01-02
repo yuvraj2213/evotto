@@ -46,7 +46,7 @@ const AdminUpdate = () => {
     e.preventDefault();
 
     try{
-        const response=await fetch(`https://evotto-backend.vercel.app/api/admin/users/update/${params.id}`,{
+        const response=await fetch(`${baseURL}/api/admin/users/update/${params.id}`,{
             method:'PATCH',
             headers:{
                 "Content-Type":"application/json",

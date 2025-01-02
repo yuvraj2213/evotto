@@ -2,15 +2,20 @@ import React, { useEffect, useState } from "react";
 import AdminNavbar from "../components/AdminNavbar";
 import Footer from "../components/Footer";
 import { useAuth } from "../store/auth";
-import "../styles/AdminRentalVehicles.css"; 
+import "../styles/AdminRentalVehicles.css";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import VehicleUpdateForm from "../components/Admin/VehicleUpdateForm";
 
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+const baseURL =
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminRentalVehicles = () => {
   const { authorizationToken } = useAuth();
-  const [vehicles, setVehicles] = useState([]);
+  const [vehicleId, setVehicleId] = useState();
+  const [showForm, setShowForm] = useState(false);
+
+  const [vehicles,setVehicles]=useState([])
 
   const getAllVehiclesData = async () => {
     try {
@@ -35,12 +40,15 @@ const AdminRentalVehicles = () => {
 
   const deleteVehicle = async (id) => {
     try {
-      const response = await fetch(`${baseURL}/api/admin/rentalVehicles/delete/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: authorizationToken,
-        },
-      });
+      const response = await fetch(
+        `${baseURL}/api/admin/rentalVehicles/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
 
       if (response.ok) {
         toast.success("Vehicle Deleted Successfully");
@@ -54,9 +62,15 @@ const AdminRentalVehicles = () => {
     }
   };
 
+  const handleOnClick=(id)=>{
+    setVehicleId(id)
+    setShowForm(true);
+    console.log(id)
+  }
+
   useEffect(() => {
     getAllVehiclesData();
-  }, []);
+  }, [vehicles]);
 
   return (
     <>
@@ -83,7 +97,11 @@ const AdminRentalVehicles = () => {
                 <tr key={index}>
                   <td>{vehicle.name}</td>
                   <td>
-                    <a href={vehicle.image} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={vehicle.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       View Image
                     </a>
                   </td>
@@ -91,10 +109,25 @@ const AdminRentalVehicles = () => {
                   <td>{vehicle.weekendPrice}</td>
                   <td>{vehicle.isAvailable ? "Yes" : "No"}</td>
                   <td className="admin-edit-vehicle-btn">
-                    <Link style={{textDecoration:'none',color:'white'}} to={`/admin/rentalVehicles/${vehicle._id}/edit`}>Edit</Link>
+                    <button
+                      onClick={() => handleOnClick(vehicle._id)}
+                      style={{
+                        textDecoration: "none",
+                        color: "white",
+                        backgroundColor: "green",
+                        border: "none",
+                        padding: "10px",
+                        borderRadius: "20px",
+                      }}
+                    >
+                      Edit
+                    </button>
                   </td>
                   <td>
-                    <button className="admin-del-btn" onClick={() => deleteVehicle(vehicle._id)}>
+                    <button
+                      className="admin-del-btn"
+                      onClick={() => deleteVehicle(vehicle._id)}
+                    >
                       Delete
                     </button>
                   </td>
@@ -103,6 +136,8 @@ const AdminRentalVehicles = () => {
             </tbody>
           </table>
         </div>
+
+        {showForm && <VehicleUpdateForm setShowForm={setShowForm} vehicleId={vehicleId}/>}
       </section>
       <Footer />
     </>
