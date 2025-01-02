@@ -8,6 +8,7 @@ const baseURL =
 const AdminHome = () => {
   const { authorizationToken } = useAuth();
   const [userCount,setUserCount]=useState(0)
+  const [feedbackCount,setFeedbackCount]=useState(0)
 
   const getUsersCount = async () => {
     try {
@@ -19,7 +20,6 @@ const AdminHome = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log("Total Users:", data.count);
         setUserCount(data.count)
       } else {
         console.error("Failed to fetch user count");
@@ -29,9 +29,29 @@ const AdminHome = () => {
     }
   };
 
+  const getFeedbacksCount = async () => {
+    try {
+      const response = await fetch(`${baseURL}/api/admin/feedbacksCount`, {
+        method: "GET",
+        headers: {
+          Authorization: authorizationToken,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setFeedbackCount(data.count)
+      } else {
+        console.error("Failed to fetch feedback count");
+      }
+    } catch (error) {
+      console.error("Error fetching feedback count:", error);
+    }
+  };
+
   useEffect(() => {
     getUsersCount();
-  },[userCount]);
+    getFeedbacksCount();
+  },[]);
 
   return (
     <>
@@ -41,6 +61,10 @@ const AdminHome = () => {
         <div className="admin-total-users">
             <h2>Total Users :</h2>
             <h2 style={{fontSize:'40px'}}>{userCount}</h2>
+        </div>
+        <div className="admin-total-users">
+            <h2>Total Feedbacks :</h2>
+            <h2 style={{fontSize:'40px'}}>{feedbackCount}</h2>
         </div>
       </div>
     </>
