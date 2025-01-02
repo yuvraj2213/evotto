@@ -80,7 +80,7 @@ const AdminSlideshow = () => {
 
     try {
       const response = await fetch(
-        `${baseURL}/api/admin/slideshow/upload`,
+        `https://evotto-backend.vercel.app/api/admin/slideshow/upload`,
         {
           method: "POST",
           headers: {
