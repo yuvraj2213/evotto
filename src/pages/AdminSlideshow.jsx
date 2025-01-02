@@ -90,6 +90,8 @@ const AdminSlideshow = () => {
         }
       );
 
+      console.log(baseURL)
+
       if (!response.ok) throw new Error("Failed to upload image");
       const data = await response.json();
       toast.success("Image uploaded successfully");
