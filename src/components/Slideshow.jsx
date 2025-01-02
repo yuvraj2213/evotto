@@ -5,7 +5,7 @@ const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel
 const Slideshow = () => {
   const [images, setImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(true); // Added loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -19,13 +19,13 @@ const Slideshow = () => {
         console.log(data);
         if (data) {
           setImages(data);
-          setLoading(false); // Update loading state to false after fetching images
+          setLoading(false); 
         } else {
           console.error('No images found in API response');
         }
       } catch (error) {
         console.error('Error fetching slideshow images:', error);
-        setLoading(false); // Also stop loading if an error occurs
+        setLoading(false); 
       }
     };
 

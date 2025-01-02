@@ -3,6 +3,7 @@ import "../styles/CarCard.css";
 import { toast, Toaster } from "react-hot-toast";
 import Termsandcond from "./Termsandcond";
 import { useAuth } from "../store/auth";
+import CarCardSU from "./ShimmerUi/CarCardSU";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -19,6 +20,7 @@ const CarCard = ({
   const [cars, setCars] = useState([]);
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { isLoggedIn } = useAuth();
 
   const fetchCars = async () => {
@@ -30,6 +32,7 @@ const CarCard = ({
       if (response.ok) {
         const data = await response.json();
         setCars(data);
+        setLoading(false);
       }
     } catch (error) {
       console.error("Error fetching cars data:", error);
@@ -85,7 +88,6 @@ const CarCard = ({
       return;
     }
 
-    // Construct the WhatsApp message
     const message = `
     Hello, I am interested in renting this vehicle:
     *Name:* ${car.name}
@@ -103,7 +105,6 @@ const CarCard = ({
     const whatsappURL = `https://wa.me/7077829595?text=${encodedMessage}`;
     window.open(whatsappURL, "_blank");
 
-    // Close the modal after submitting
     setShowTermsModal(false);
   };
 
@@ -125,6 +126,10 @@ const CarCard = ({
       .startsWith(searchQuery.toLowerCase());
     return matchesSearchQuery;
   });
+
+  if (loading) {
+    return <CarCardSU />;
+  }
 
   return (
     <>

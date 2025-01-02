@@ -1,0 +1,97 @@
+/* Grid layout for shimmer cards */
+.shimmer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default: 3 cards per row */
+  gap: 1rem; /* Spacing between cards */
+  justify-items: center; /* Centers items within each grid cell */
+}
+
+/* Shimmer card styles */
+.shimmer-card {
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fade-in 0.5s ease-in-out;
+  width: 250px; /* Fixed width for consistent sizing */
+}
+
+/* Shimmer placeholder for the image */
+.shimmer-image {
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(
+    to right,
+    #e0e0e0 0%,
+    #f8f8f8 50%,
+    #e0e0e0 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Shimmer placeholder for text */
+.shimmer-text {
+  height: 20px;
+  background: linear-gradient(
+    to right,
+    #e0e0e0 0%,
+    #f8f8f8 50%,
+    #e0e0e0 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.shimmer-text.title {
+  width: 60%;
+}
+
+.shimmer-text.button {
+  width: 40%;
+  height: 30px;
+  border-radius: 15px;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Fade-in animation for shimmer cards */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive styles */
+
+/* For tablets: Two cards per row */
+@media (max-width: 768px) {
+  .shimmer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For phones: One card per row */
+@media (max-width: 480px) {
+  .shimmer-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
