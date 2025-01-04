@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
 import "../styles/AdminSlideshow.css";
 import toast, { Toaster } from "react-hot-toast";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+const baseURL =
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminSlideshow = () => {
   const { authorizationToken } = useAuth();
 
   const [images, setImages] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null); // State to manage selected file
+  const [selectedFile, setSelectedFile] = useState(null);
 
   // Fetch images for slideshow
   const fetchImages = async () => {
@@ -76,27 +77,44 @@ const AdminSlideshow = () => {
 
     const formData = new FormData();
     formData.append("image", selectedFile);
-    formData.append("altText", "Slideshow Image"); 
+    formData.append("altText", "Slideshow Image");
+
+    // try {
+    //   const response = await fetch(
+    //     `${baseURL}/api/admin/slideshow/upload`,
+    //     {
+    //       method: "POST",
+    //       headers: {
+    //         Authorization: authorizationToken,
+    //       },
+    //       body: formData,
+    //     }
+    //   );
+
+    //   if (!response.ok) throw new Error("Failed to upload image");
+    //   const data = await response.json();
+    //   toast.success("Image uploaded successfully");
+    //   setSelectedFile(null); // Clear selected file after successful upload
+    //   fetchImages(); // Refresh the image list
+    // } catch (error) {
+    //   console.error("Error uploading image:", error);
+    //   toast.error("Error uploading image");
+    // }
 
     try {
-      const response = await fetch(
-        `https://evotto-backend.vercel.app/api/admin/slideshow/upload`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: authorizationToken,
-          },
-          body: formData,
-        }
-      );
+      const response = await fetch(`${baseURL}/api/admin/slideshow/upload`, {
+        method: "POST",
+        headers: {
+          Authorization: authorizationToken,
+        },
+        body: formData,
+      });
 
-      console.log(baseURL)
-
-      if (!response.ok) throw new Error("Failed to upload image");
-      const data = await response.json();
-      toast.success("Image uploaded successfully");
-      setSelectedFile(null); // Clear selected file after successful upload
-      fetchImages(); // Refresh the image list
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error response:", errorData);
+        throw new Error("Failed to upload image");
+      }
     } catch (error) {
       console.error("Error uploading image:", error);
       toast.error("Error uploading image");
