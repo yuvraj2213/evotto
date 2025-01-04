@@ -108,6 +108,7 @@ const AdminSlideshow = () => {
           Authorization: authorizationToken,
         },
         body: formData,
+        credentials: "include",
       });
 
       if (!response.ok) {
