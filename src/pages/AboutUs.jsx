@@ -3,6 +3,7 @@ import "../styles/AboutUs.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SocialLinks from "../components/SocialLinks";
+import Achievement from "../components/Achievement";
 
 const AboutUs = () => {
   return (
@@ -59,6 +60,9 @@ const AboutUs = () => {
             one ride at a time!
           </p>
         </div>
+      </section>
+      <section className="achievement-main">
+        <Achievement/>
       </section>
       <section className="social-links">
         <SocialLinks />

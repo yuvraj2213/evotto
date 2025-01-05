@@ -8,8 +8,8 @@ const AdminSlideshow = () => {
   const { authorizationToken } = useAuth();
 
   const [images, setImages] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null); 
-  
+  const [selectedFile, setSelectedFile] = useState(null); // State to manage selected file
+
   // Fetch images for slideshow
   const fetchImages = async () => {
     try {

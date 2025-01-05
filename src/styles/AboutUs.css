@@ -71,6 +71,13 @@
   font-weight: 600;
 }
 
+.achievement-main{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Fade-in animation */
 @keyframes fadeIn {
   from {

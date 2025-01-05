@@ -1,0 +1,37 @@
+.inner-certificate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-certificate h1 {
+  color: brown;
+  background-color: #ffd166;
+  padding: 13px;
+  border-radius: 22px;
+}
+
+.inner-certificate .certificate1 {
+  width: 70vw;
+  height: 350px;
+  background-image: url("/images/Certificate/Cerificate_1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 1180px) {
+  .inner-certificate .certificate1 {
+    background-size: contain; /* Ensures the entire image fits inside */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 1180px){
+    .inner-certificate .certificate1{
+        width: 100vw !important;
+        height: 230px;
+    }
+}
