@@ -67,9 +67,8 @@
   justify-content: center;
 }
 
-.service-card h3,
-.service-card p {
-  color: aliceblue;
+.service-card h3{
+  color: #e71d36;
 }
 
 @media (max-width: 950px) {
@@ -137,7 +136,7 @@
   margin-top: 40px;
   margin-bottom: 40px;
   border-radius: 100px;
-  background-image: url("/images/car1bg.jpg");
+  /* background-image: url("/images/car1bg.jpg"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -147,9 +146,15 @@
   font-weight: 800;
 }
 
+.service-cards{
+  background: linear-gradient(to right, #f0f8ff, #e6e6fa);
+  border-radius:40px;
+}
+
 .service-header {
-  color: yellow;
-  background-image: url("/images/bgg3.jpg");
+  color: #e71d36;
+
+  /* background-image: url("/images/bgg3.jpg"); */
   border: none;
   border-radius: 17px;
   display: inline;
@@ -158,7 +163,8 @@
 }
 
 .service-card {
-  background-image: url("/images/bgg3.jpg");
+  /* background-image: url("/images/bgg3.jpg"); */
+  background-color: #ffffff;
   height: 100px;
   margin: 1rem auto;
   padding: 1rem;
@@ -169,6 +175,14 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease-in-out;
+}
+
+.service-card h3{
+  color: #e71d36;
+}
+
+.service-card p{
+  color: #555;
 }
 
 .service-card:hover {

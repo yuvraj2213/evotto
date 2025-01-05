@@ -6,8 +6,8 @@
 }
 
 .inner-certificate h1 {
-  color: brown;
-  background-color: #ffd166;
+  color: #e71d36;
+  background: linear-gradient(to right, #f0f8ff, #e6e6fa);;
   padding: 13px;
   border-radius: 22px;
 }
@@ -32,6 +32,13 @@
     .inner-certificate .certificate1{
         height: 450px;
         width: 60vw;
+    }
+}
+
+@media (max-width:1040px){
+    .inner-certificate .certificate1{
+        height: 390px;
+        width: 55vw;
     }
 }
 

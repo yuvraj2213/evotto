@@ -42,7 +42,7 @@ const Services = () => {
           return (
             <div key={index} className="service-card">
               <Link className="service-card-link" to={service.link}>
-              <h3 style={{color:'yellow'}}>{service.title}</h3>
+              <h3>{service.title}</h3>
               <p>{service.description}</p>
               </Link>
             </div>
