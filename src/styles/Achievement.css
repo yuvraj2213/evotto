@@ -14,22 +14,28 @@
 
 .inner-certificate .certificate1 {
   width: 70vw;
-  height: 350px;
+  height: 620px;
   background-image: url("/images/Certificate/Cerificate_1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-@media (max-width: 1180px) {
-  .inner-certificate .certificate1 {
-    background-size: contain; /* Ensures the entire image fits inside */
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+
+@media (max-width: 1220px){
+    .inner-certificate .certificate1{
+        height: 550px;
+    }
 }
 
-@media (max-width: 1180px){
+@media (max-width: 1090px){
+    .inner-certificate .certificate1{
+        height: 450px;
+        width: 60vw;
+    }
+}
+
+@media (max-width: 480px){
     .inner-certificate .certificate1{
         width: 100vw !important;
         height: 230px;
