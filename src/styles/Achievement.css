@@ -1,56 +1,67 @@
 .inner-certificate {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.inner-certificate h1 {
-  color: #e71d36;
-  background: linear-gradient(to right, #f0f8ff, #e6e6fa);;
-  padding: 13px;
-  border-radius: 22px;
-}
-
-.inner-certificate .certificate1 {
-  width: 70vw;
-  height: 620px;
-  background-image: url("/images/Certificate/Cerificate_1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-@media (max-width: 1220px){
-    .inner-certificate .certificate1{
-        height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Add padding for better spacing */
+  }
+  
+  .inner-certificate h1 {
+    color: #e71d36;
+    background: linear-gradient(to right, #f0f8ff, #e6e6fa);
+    padding: 13px;
+    border-radius: 22px;
+    text-align: center;
+    font-size: 1.8rem; /* Ensure font scales on smaller screens */
+  }
+  
+  .inner-certificate .certificate1 {
+    width: 90%;
+    max-width: 1000px; /* Prevents it from becoming too large */
+    max-height: 70vh; /* Limits height to fit smaller screens */
+    background-image: url("/images/Certificate/Cerificate_1.jpg");
+    background-size: contain; /* Maintain aspect ratio */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px; /* Optional: Rounded corners for aesthetics */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add depth */
+  }
+  
+  /* Adjustments for medium screens */
+  @media (max-width: 1220px) {
+    .inner-certificate .certificate1 {
+      max-height: 60vh;
     }
-}
-
-@media (max-width: 1090px){
-    .inner-certificate .certificate1{
-        height: 450px;
-        width: 60vw;
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 1090px) {
+    .inner-certificate .certificate1 {
+      max-height: 50vh;
+      width: 80%;
     }
-}
-
-@media (max-width:1040px){
-    .inner-certificate .certificate1{
-        height: 390px;
-        width: 55vw;
+  }
+  
+  /* Adjustments for tablets */
+  @media (max-width: 768px) {
+    .inner-certificate .certificate1 {
+      max-height: 40vh;
+      width: 85%;
     }
-}
-
-@media (max-width: 480px){
-    .inner-certificate .certificate1{
-        width: 100vw !important;
-        height: 300px;
+  }
+  
+  /* Adjustments for mobile screens */
+  @media (max-width: 480px) {
+    .inner-certificate .certificate1 {
+      width: 95%; /* Full width with some margin */
+      max-height: 35vh;
     }
-}
-
-@media (max-width: 420px){
-    .inner-certificate .certificate1{
-        height: 270px;
+  }
+  
+  /* Adjustments for very small screens */
+  @media (max-width: 420px) {
+    .inner-certificate .certificate1 {
+      max-height: 30vh;
     }
-}
+  }
+  

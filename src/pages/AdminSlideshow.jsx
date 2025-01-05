@@ -19,6 +19,8 @@ const AdminSlideshow = () => {
           Authorization: authorizationToken,
         },
       });
+      console.log(process.env.REACT_APP_BASE_URL);
+
       if (!response.ok) {
         throw new Error("Failed to fetch slideshow images");
       }
