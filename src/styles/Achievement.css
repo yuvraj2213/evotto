@@ -38,6 +38,12 @@
 @media (max-width: 480px){
     .inner-certificate .certificate1{
         width: 100vw !important;
-        height: 230px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 420px){
+    .inner-certificate .certificate1{
+        height: 270px;
     }
 }
