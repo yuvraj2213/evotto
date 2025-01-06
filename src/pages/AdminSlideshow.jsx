@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
 import "../styles/AdminSlideshow.css";
 import toast, { Toaster } from "react-hot-toast";
-const baseURL =
-  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminSlideshow = () => {
   const { authorizationToken } = useAuth();
@@ -77,16 +76,19 @@ const AdminSlideshow = () => {
 
     const formData = new FormData();
     formData.append("image", selectedFile);
-    formData.append("altText", "Slideshow Image");
+    formData.append("altText", "Slideshow Image"); 
 
     try {
-      const response = await fetch(`${baseURL}/api/admin/slideshow/upload`, {
-        method: "POST",
-        headers: {
-          Authorization: authorizationToken,
-        },
-        body: formData,
-      });
+      const response = await fetch(
+        `${baseURL}/api/admin/slideshow/upload`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: authorizationToken,
+          },
+          body: formData,
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to upload image");
       const data = await response.json();
@@ -111,7 +113,7 @@ const AdminSlideshow = () => {
             <div>
               <img
                 className="admin-slideshow"
-                src={`${baseURL}${image.url}`}
+                src={image.url}
                 alt={image.altText}
               />
             </div>
