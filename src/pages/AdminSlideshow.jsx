@@ -72,7 +72,7 @@ const AdminSlideshow = () => {
   };
 
   // Handle image upload
-  const uploadSlideshowImage = async (req, res) => {
+  const handleUpload = async (req, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ msg: "No file uploaded" });
