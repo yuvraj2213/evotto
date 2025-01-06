@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
 import "../styles/AdminSlideshow.css";
 import toast, { Toaster } from "react-hot-toast";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+const baseURL =
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminSlideshow = () => {
   const { authorizationToken } = useAuth();
@@ -70,36 +71,25 @@ const AdminSlideshow = () => {
   };
 
   // Handle image upload
-  const handleUpload = async () => {
-    if (!selectedFile) {
-      toast.error("Please select a file to upload");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("image", selectedFile);
-    formData.append("altText", "Slideshow Image"); 
-
+  const uploadSlideshowImage = async (req, res) => {
     try {
-      const response = await fetch(
-        `${baseURL}/api/admin/slideshow/upload`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: authorizationToken,
-          },
-          body: formData,
-        }
-      );
+      if (!req.file) {
+        return res.status(400).json({ msg: "No file uploaded" });
+      }
 
-      if (!response.ok) throw new Error("Failed to upload image");
-      const data = await response.json();
-      toast.success("Image uploaded successfully");
-      setSelectedFile(null); // Clear selected file after successful upload
-      fetchImages(); // Refresh the image list
+      const imageUrl = `/images/Slideshow/${req.file.filename}`;
+      const newImage = new Slideshow({
+        url: imageUrl,
+        altText: req.body.altText || "Slideshow image",
+      });
+
+      await newImage.save();
+      res
+        .status(201)
+        .json({ msg: "Image uploaded successfully", image: newImage });
     } catch (error) {
-      console.error("Error uploading image:", error);
-      toast.error("Error uploading image");
+      console.error(error);
+      res.status(500).json({ msg: "Failed to upload image" });
     }
   };
 
@@ -115,7 +105,7 @@ const AdminSlideshow = () => {
             <div>
               <img
                 className="admin-slideshow"
-                src={image.url}
+                src={`${process.env.REACT_APP_BACKEND_URL}${image.url}`}
                 alt={image.altText}
               />
             </div>

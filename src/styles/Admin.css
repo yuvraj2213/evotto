@@ -17,7 +17,7 @@
     color: #EF3E36;
     overflow: auto; /* Handle overflow for large tables */
     padding: 20px;
-    max-width: calc(100%-250px);
+ */
 }
 
 .back-to-home-btn{
