@@ -1,0 +1,101 @@
+.safety-for-all-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+  max-width: 450px;
+  margin: 20px auto; /* Center align with some margin */
+}
+
+.safety-for-all-container h2 {
+  font-size: 28px; /* Larger headline */
+  font-weight: 700; /* Make the text bold */
+  color: #000; /* Black text */
+  margin-bottom: 15px; /* Increased spacing below the heading */
+}
+
+.safety-for-all-container p {
+  font-size: 18px; /* Larger paragraph font size */
+  font-weight: 400; /* Normal weight */
+  color: #333; /* Slightly lighter black text */
+  line-height: 1.8; /* Increase readability with more line spacing */
+  margin-bottom: 25px; /* Increased spacing below the paragraph */
+  text-align: center;
+}
+
+.know-more-button {
+  background-color: #e71d36;
+  color: white; /* Black text */
+  font-size: 18px; /* Larger text size for the button */
+  font-weight: 600; /* Semi-bold text */
+  border: none; /* Remove border */
+  padding: 12px 24px; /* Increased button size */
+  border-radius: 25px; /* Rounded edges */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center; /* Center align the text */
+}
+
+.safety-image {
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-image: url("/images/safetyforall3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+  width: 430px;
+  height: 410px;
+  padding: 30px; /* Increased spacing around the content */
+  text-align: left; /* Align text to the left */
+  max-width: 450px; /* Slightly wider container */
+  margin: 20px auto; /* Center align with some margin */
+}
+
+.know-more-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.know-more-button:hover {
+  background-color: #e71d99; /* Slightly darker yellow on hover */
+}
+
+@media (max-width: 768px){
+  .safety-for-all-container{
+    width: 80%;
+  }
+}
+
+@media (max-width:430px){
+  .safety-for-all-container {
+    background-color: #fff; /* White background */
+    padding: 30px; /* Increased spacing around the content */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: left; /* Align text to the left */
+    width: 100vw;
+  }
+
+  .safety-for-all-container h2 {
+    font-size: 24px; /* Larger headline */
+    font-weight: 700; /* Make the text bold */
+    color: #000; /* Black text */
+    margin-bottom: 15px; /* Increased spacing below the heading */
+  }
+
+  .safety-for-all-container p {
+    font-size: 14px; /* Larger paragraph font size */
+    font-weight: 400; /* Normal weight */
+    color: #333; /* Slightly lighter black text */
+    line-height: 1.8; /* Increase readability with more line spacing */
+    margin-bottom: 25px; /* Increased spacing below the paragraph */
+  }
+
+  .safety-image{
+    width:100vw;
+  }
+}
