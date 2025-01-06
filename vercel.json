@@ -4,9 +4,6 @@
       "src": "/images/Slideshow/(.*)",
       "dest": "/uploads/Slideshow/$1"
     }
-  ],
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
-    ]
+  ]
   }
   
