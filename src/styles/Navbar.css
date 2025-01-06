@@ -147,7 +147,7 @@
   }
   .dropdown {
     display: flex;
-    background-color: #ff9f00;
+    background-image: url("/images/nav_background3.avif");
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -161,13 +161,13 @@
 @media (max-width: 480px) {
   .dropdown {
     display: flex;
-    background-color: #ff9f00;
+    background-image: url("/images/nav_background3.avif");
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-left: 0px !important;
     position: absolute;
-    top: 30%;
+    top: 32%;
     right: 100px;
   }
 
