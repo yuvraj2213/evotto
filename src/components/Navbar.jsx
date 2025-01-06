@@ -11,22 +11,22 @@ const Navbar = () => {
 
   const { LogoutUser, isLoggedIn } = useAuth();
 
-  useEffect(() => {
-    // Function to close the menu on scroll
-    const handleScroll = () => {
-      if (showMenu) {
-        setShowMenu(false);
-      }
-    };
+  // useEffect(() => {
+  //   // Function to close the menu on scroll
+  //   const handleScroll = () => {
+  //     if (showMenu) {
+  //       setShowMenu(false);
+  //     }
+  //   };
 
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
+  //   // Add scroll event listener
+  //   window.addEventListener("scroll", handleScroll);
 
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [showMenu]);
+  //   // Cleanup event listener on component unmount
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [showMenu]);
 
   // Toggle dropdown for services on mobile
   const toggleDropdown = () => {
