@@ -6,6 +6,7 @@ const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminSlideshow = () => {
+  //check
   const { authorizationToken } = useAuth();
 
   const [images, setImages] = useState([]);
