@@ -34,18 +34,57 @@
 
 .nav-item {
   display: block;
+  position: relative; /* Make it relative for positioning dropdown */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+.nav-item span {
+  padding: 0; /* Remove padding on the span element */
+  margin: 0; /* Remove margin from the span element */
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  list-style: none;
+  top: 100%;
+  right: -65px;
+  background-color: #fff;
+  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.dropdown a {
+  padding: 1rem;
+  color: red;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown a:hover {
+  background-color: #fff;
+}
+
+.nav-item:hover .dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0px !important;
 }
 
 .ham-btn {
   display: none;
 }
 
-.logout-button:hover{
+.logout-button:hover {
   color: #ff9f00;
 }
 
-
-@media (max-width: 1029px) {
+@media (max-width: 760px) {
   .nav-item {
     display: none;
   }
@@ -108,19 +147,30 @@
   }
 }
 
-@media (max-width: 480px){
-  .logo-img{
-    display: flex ;
+@media (max-width: 480px) {
+  .logo-img {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
 
-  .ham-btn svg{
+  .ham-btn svg {
     width: 17px;
     height: 17px;
     font-size: 30px;
   }
 
+  .dropdown {
+  /* display: none; */
+  position: relative;
+  list-style: none;
+  top: 0px;
+  left: 0px;
+  background-color: #fff;
+  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
 }

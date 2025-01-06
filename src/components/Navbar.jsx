@@ -7,6 +7,7 @@ import { useAuth } from "../store/auth";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false); // state for dropdown visibility
 
   const { LogoutUser, isLoggedIn } = useAuth();
 
@@ -25,7 +26,12 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [showMenu]); // Dependency array ensures the effect re-runs when showMenu changes
+  }, [showMenu]);
+
+  // Toggle dropdown for services on mobile
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   return (
     <nav className="navbar">
@@ -38,18 +44,32 @@ const Navbar = () => {
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/">Home</Link>
         </li>
-        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
-          <Link to="/rental">Rental</Link>
+
+        {/* Services Dropdown */}
+        <li
+          className={showMenu ? "menu-nav-item" : "nav-item services"}
+          onClick={toggleDropdown} // Toggle on click for mobile
+        >
+          <Link>Services</Link>
+          {/* Dropdown for mobile */}
+          {showDropdown && (
+            <ul className="dropdown">
+              <li>
+                <Link to="/rental">Rental</Link>
+              </li>
+              <li>
+                <Link to="/cars">Second-Hand Cars</Link>
+              </li>
+              <li>
+                <Link to="/service">Servicing</Link>
+              </li>
+              <li>
+                <Link to="/drivers">Drivers</Link>
+              </li>
+            </ul>
+          )}
         </li>
-        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
-          <Link to="/cars">Second-Hand Cars</Link>
-        </li>
-        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
-          <Link to="/service"> Servicing</Link>
-        </li>
-        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
-          <Link to="/drivers"> Drivers</Link>
-        </li>
+
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/about">About Us</Link>
         </li>
@@ -59,9 +79,7 @@ const Navbar = () => {
 
         {isLoggedIn ? (
           <li
-            className={`logout-button ${
-              showMenu ? "menu-nav-item" : "nav-item"
-            }`}
+            className={`logout-button ${showMenu ? "menu-nav-item" : "nav-item"}`}
             onClick={LogoutUser}
             style={{ cursor: "pointer" }}
           >
@@ -77,9 +95,7 @@ const Navbar = () => {
 
         <li>
           <button className="ham-btn" onClick={() => setShowMenu(!showMenu)}>
-            <GiHamburgerMenu
-              // style={{ fontSize: "20px", width: "40px", height: "30px" }}
-            />
+            <GiHamburgerMenu />
           </button>
         </li>
       </ul>
