@@ -46,7 +46,7 @@
 /* Adjustments for tablets */
 @media (max-width: 450px) {
   .inner-certificate {
-    gap: 8px; /* Reduce spacing between elements */
+    gap: 8px !important; /* Reduce spacing between elements */
   }
   .inner-certificate .certificate1 {
     width: 350px;
@@ -59,7 +59,7 @@
 /* Adjustments for mobile screens */
 @media (max-width: 390px) {
   .inner-certificate {
-    gap: 6px; /* Reduce spacing further */
+    gap: 6px !important; /* Reduce spacing further */
   }
   .inner-certificate .certificate1 {
     width: 340px;
@@ -69,7 +69,7 @@
 /* Adjustments for very small screens */
 @media (max-width: 385px) {
   .inner-certificate {
-    gap: 4px; /* Minimize spacing on very small screens */
+    gap: 4px !important; /* Minimize spacing on very small screens */
   }
   .inner-certificate .certificate1 {
     width: 300px;
