@@ -16,7 +16,7 @@
   }
   
   .inner-certificate .certificate1 {
-    width: 1300px; 
+    width: 800px; 
     height: 80vh; 
     background-image: url("/images/Certificate/Cerificate_1.jpg");
     background-size: contain; /* Maintain aspect ratio */
@@ -26,30 +26,35 @@
   }
   
   /* Adjustments for medium screens */
-  @media (max-width: 1220px) {
+  @media (max-width: 850px) {
     .inner-certificate .certificate1 {
-      
+      width: 600px;
+      height: 60vh;
     }
   }
   
   /* Adjustments for smaller screens */
-  @media (max-width: 1090px) {
+  @media (max-width: 640px) {
     .inner-certificate .certificate1 {
-
+      width: 400px;
+      height: 60vh;
     }
   }
   
   /* Adjustments for tablets */
-  @media (max-width: 768px) {
+  @media (max-width: 450px) {
     .inner-certificate .certificate1 {
-
+      width: 350px;
+    }
+    .inner-certificate h1{
+      font-size: 1.3rem;
     }
   }
   
   /* Adjustments for mobile screens */
-  @media (max-width: 480px) {
+  @media (max-width: 390px) {
     .inner-certificate .certificate1 {
-
+      width: 100%;
     }
   }
   
