@@ -45,6 +45,15 @@
 
 /* Adjustments for tablets */
 @media (max-width: 450px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; /* Ensure the body covers the full height */
+    overflow-x: hidden;
+  }
+
   .inner-certificate {
     gap: 8px !important; /* Reduce spacing between elements */
   }
