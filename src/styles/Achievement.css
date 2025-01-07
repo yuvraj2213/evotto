@@ -8,7 +8,7 @@
   
   .inner-certificate h1 {
     color: #e71d36;
-    background: linear-gradient(to right, #f0f8ff, #e6e6fa);
+    background: #ffffff;
     padding: 13px;
     border-radius: 22px;
     text-align: center;
@@ -16,52 +16,47 @@
   }
   
   .inner-certificate .certificate1 {
-    width: 90%;
-    max-width: 1000px; /* Prevents it from becoming too large */
-    max-height: 70vh; /* Limits height to fit smaller screens */
+    width: 1300px; 
+    height: 80vh; 
     background-image: url("/images/Certificate/Cerificate_1.jpg");
     background-size: contain; /* Maintain aspect ratio */
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 12px; /* Optional: Rounded corners for aesthetics */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add depth */
+    border-radius: 12px;
   }
   
   /* Adjustments for medium screens */
   @media (max-width: 1220px) {
     .inner-certificate .certificate1 {
-      max-height: 60vh;
+      
     }
   }
   
   /* Adjustments for smaller screens */
   @media (max-width: 1090px) {
     .inner-certificate .certificate1 {
-      max-height: 50vh;
-      width: 80%;
+
     }
   }
   
   /* Adjustments for tablets */
   @media (max-width: 768px) {
     .inner-certificate .certificate1 {
-      max-height: 40vh;
-      width: 85%;
+
     }
   }
   
   /* Adjustments for mobile screens */
   @media (max-width: 480px) {
     .inner-certificate .certificate1 {
-      width: 95%; /* Full width with some margin */
-      max-height: 35vh;
+
     }
   }
   
   /* Adjustments for very small screens */
   @media (max-width: 420px) {
     .inner-certificate .certificate1 {
-      max-height: 30vh;
+   
     }
   }
   
