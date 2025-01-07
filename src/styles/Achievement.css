@@ -1,67 +1,77 @@
 .inner-certificate {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px; /* Add padding for better spacing */
-  }
-  
-  .inner-certificate h1 {
-    color: #e71d36;
-    background: #ffffff;
-    padding: 13px;
-    border-radius: 22px;
-    text-align: center;
-    font-size: 1.8rem; /* Ensure font scales on smaller screens */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Add padding for better spacing */
+  gap: 10px; /* Control spacing between children */
+}
+
+.inner-certificate h1 {
+  color: #e71d36;
+  background: #ffffff;
+  padding: 13px;
+  border-radius: 22px;
+  text-align: center;
+  font-size: 1.8rem; /* Ensure font scales on smaller screens */
+  margin: 0; /* Remove any default margin */
+}
+
+.inner-certificate .certificate1 {
+  width: 800px;
+  height: 80vh;
+  background-image: url("/images/Certificate/Cerificate_1.jpg");
+  background-size: contain; /* Maintain aspect ratio */
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+}
+
+/* Adjustments for medium screens */
+@media (max-width: 850px) {
   .inner-certificate .certificate1 {
-    width: 800px; 
-    height: 80vh; 
-    background-image: url("/images/Certificate/Cerificate_1.jpg");
-    background-size: contain; /* Maintain aspect ratio */
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 12px;
+    width: 600px;
+    height: 60vh;
   }
-  
-  /* Adjustments for medium screens */
-  @media (max-width: 850px) {
-    .inner-certificate .certificate1 {
-      width: 600px;
-      height: 60vh;
-    }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 640px) {
+  .inner-certificate .certificate1 {
+    width: 400px;
+    height: 60vh;
   }
-  
-  /* Adjustments for smaller screens */
-  @media (max-width: 640px) {
-    .inner-certificate .certificate1 {
-      width: 400px;
-      height: 60vh;
-    }
+}
+
+/* Adjustments for tablets */
+@media (max-width: 450px) {
+  .inner-certificate {
+    gap: 8px; /* Reduce spacing between elements */
   }
-  
-  /* Adjustments for tablets */
-  @media (max-width: 450px) {
-    .inner-certificate .certificate1 {
-      width: 350px;
-    }
-    .inner-certificate h1{
-      font-size: 1.3rem;
-    }
+  .inner-certificate .certificate1 {
+    width: 350px;
   }
-  
-  /* Adjustments for mobile screens */
-  @media (max-width: 390px) {
-    .inner-certificate .certificate1 {
-      width: 340px;
-    }
+  .inner-certificate h1 {
+    font-size: 1.3rem;
   }
-  
-  /* Adjustments for very small screens */
-  @media (max-width: 385px) {
-    .inner-certificate .certificate1 {
-      width: 300px;
-    }
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 390px) {
+  .inner-certificate {
+    gap: 6px; /* Reduce spacing further */
   }
-  
+  .inner-certificate .certificate1 {
+    width: 340px;
+  }
+}
+
+/* Adjustments for very small screens */
+@media (max-width: 385px) {
+  .inner-certificate {
+    gap: 4px; /* Minimize spacing on very small screens */
+  }
+  .inner-certificate .certificate1 {
+    width: 300px;
+  }
+}
