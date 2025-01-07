@@ -54,14 +54,14 @@
   /* Adjustments for mobile screens */
   @media (max-width: 390px) {
     .inner-certificate .certificate1 {
-      width: 100%;
+      width: 340px;
     }
   }
   
   /* Adjustments for very small screens */
-  @media (max-width: 420px) {
+  @media (max-width: 385px) {
     .inner-certificate .certificate1 {
-   
+      width: 300px;
     }
   }
   
