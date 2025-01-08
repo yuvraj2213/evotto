@@ -1,71 +1,73 @@
-.feedback-heading{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 22px;
+.feedback-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
 }
 
 .carousel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-  }
-  
-  .carousel-btn {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-  }
-  
-  .carousel-btn:first-child {
-    left: 0;
-  }
-  
-  .carousel-btn:last-child {
-    right: 0;
-  }
-  
-  .carousel-content {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .carousel-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-  }
-  
-  .feedback {
-    font-size: 1rem;
-    margin: 10px 0;
-  }
-  
-  .name {
-    color: #e71d36;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  .role {
-    font-size: 0.9rem;
-    color: gray;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.carousel-btn:first-child {
+  left: 0;
+}
+
+.carousel-btn:last-child {
+  right: 0;
+}
+
+.carousel-content {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+.carousel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-image: url("/images/blue5.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.feedback {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.name {
+  color: #e71d36;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.role {
+  font-size: 0.9rem;
+  color: gray;
+}

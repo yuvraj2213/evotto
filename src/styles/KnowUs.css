@@ -1,80 +1,80 @@
 /* Parent container for flex layout */
 .know-us-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px; /* Space between the two sections */
-    margin: 20px auto;
-    max-width: 1200px; /* Limit the maximum width */
-    flex-wrap: wrap; /* Allow wrapping */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* Space between the two sections */
+  margin: 20px auto;
+  max-width: 1200px; /* Limit the maximum width */
+  flex-wrap: wrap; /* Allow wrapping */
+}
+
+/* Styling for the image */
+.know-us-better-img {
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-image: url("/images/knowusbetter.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+  width: 450px; /* Default width for larger screens */
+  height: 410px; /* Fixed height */
+  flex: 1; /* Allow it to shrink/grow in the container */
+}
+
+/* Styling for the text content */
+.safety-for-all-container {
+  background-image: url("/images/blue5.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 30px; /* Spacing inside the box */
+  text-align: left;
+  flex: 1; /* Allow it to shrink/grow in the container */
+  max-width: 450px; /* Default width for larger screens */
+  margin: 0; /* Remove default margin to align better in flex layout */
+}
+
+/* Button styling */
+.know-more-button {
+  background-color: #e71d36;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.know-more-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.know-more-button:hover {
+  background-color: #e71d99;
+}
+
+/* Responsive layout: Flex-column for smaller devices */
+@media (max-width: 768px) {
+  .know-us-container {
+    flex-direction: column; /* Stack elements vertically */
   }
-  
-  /* Styling for the image */
+
   .know-us-better-img {
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    background-image: url("/images/knowusbetter.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 2px solid white;
-    width: 450px; /* Default width for larger screens */
-    height: 410px; /* Fixed height */
-    flex: 1; /* Allow it to shrink/grow in the container */
+    width: 100%; /* Full width for smaller screens */
+    margin: 10px 0; /* Add vertical spacing between elements */
   }
-  
-  /* Styling for the text content */
-  .safety-for-all-container {
-    background-color: #fff; /* White background */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 30px; /* Spacing inside the box */
-    text-align: left;
-    flex: 1; /* Allow it to shrink/grow in the container */
-    max-width: 450px; /* Default width for larger screens */
-    margin: 0; /* Remove default margin to align better in flex layout */
-  }
-  
-  /* Button styling */
-  .know-more-button {
-    background-color: #e71d36;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  .know-more-button a {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .know-more-button:hover {
-    background-color: #e71d99;
-  }
-  
-  /* Responsive layout: Flex-column for smaller devices */
-  @media (max-width: 768px) {
-    .know-us-container {
-      flex-direction: column; /* Stack elements vertically */
-    }
-  
-    .know-us-better-img{
-      width: 100%; /* Full width for smaller screens */ 
-      margin: 10px 0; /* Add vertical spacing between elements */
-    }
+}
 
-
+@media (max-width: 430px) {
+  .know-us-better-img {
+    width: 100vw;
+    height: 200px;
   }
-
-  @media(max-width:430px){
-    .know-us-better-img{
-      width: 100vw;
-      height: 200px;
-    }
-  }
-  
+}
