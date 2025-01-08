@@ -34,9 +34,9 @@ const Home = () => {
         <section className="services">
           <Services />
         </section>
-        {/* <section className="feedback-slideshow">
+        <section className="feedback-slideshow">
           <FeedbackSlideshow/>
-        </section> */}
+        </section>
         <section className="social-links">
           <SocialLinks />
         </section>
