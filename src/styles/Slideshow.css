@@ -24,7 +24,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   max-width: 450px; /* Slightly wider container */
   margin: 20px auto; /* Center align with some margin */
-  text-align: center;
+  text-align: left;
 }
 
 .slideshow-beside-container h2 {

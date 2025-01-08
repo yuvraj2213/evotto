@@ -6,7 +6,8 @@
   background-color: #fff; /* White background */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  text-align: center;
+  text-align: left;
+  padding: 30px;
   max-width: 450px;
   margin: 20px auto; /* Center align with some margin */
 }
@@ -24,7 +25,7 @@
   color: #333; /* Slightly lighter black text */
   line-height: 1.8; /* Increase readability with more line spacing */
   margin-bottom: 25px; /* Increased spacing below the paragraph */
-  text-align: center;
+  text-align: left;
 }
 
 .know-more-button {
@@ -36,7 +37,7 @@
   padding: 12px 24px; /* Increased button size */
   border-radius: 25px; /* Rounded edges */
   cursor: pointer; /* Pointer cursor on hover */
-  text-align: center; /* Center align the text */
+  text-align: left; /* Center align the text */
 }
 
 .safety-image {
@@ -73,7 +74,7 @@
 @media (max-width:430px){
   .safety-for-all-container {
     background-color: #fff; /* White background */
-    padding: 30px; /* Increased spacing around the content */
+    padding-left: 20px;
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     text-align: left; /* Align text to the left */
