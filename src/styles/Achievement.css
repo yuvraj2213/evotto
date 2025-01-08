@@ -48,10 +48,11 @@
 
   .inner-certificate {
     gap: 8px !important; /* Reduce spacing between elements */
+    height: fit-content;
   }
   .inner-certificate .certificate1 {
     width: 350px;
-    margin-top: -200px !important;
+    margin-top: -70px !important;
     padding: 0px !important;
   }
   .inner-certificate h1 {

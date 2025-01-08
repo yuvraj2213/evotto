@@ -5,7 +5,7 @@ const Achievement = () => {
   return (
     <>
       <div className="inner-certificate">
-        <h1>Our Achievments</h1>
+        <h1 className="certificate-header">Our Achievments</h1>
         <div className="certificate1"></div>
       </div>
     </>
