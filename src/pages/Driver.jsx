@@ -2,17 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import SocialLinks from "../components/SocialLinks";
 import Footer from "../components/Footer";
+import DriverForm from "../components/DriverForm";
 
 const Driver = () => {
   return (
     <>
       <Navbar />
-      <div className="comingsoon-heading">
-        <h2>Drivers Section Will Be Available Soon</h2>
-        <h3>Stay Tuned</h3>
-      </div>
 
-      <div className="second-hand-comingsoon"></div>
+      <DriverForm/>
 
       <section className="social-links">
         <SocialLinks />

@@ -2,17 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import SocialLinks from "../components/SocialLinks";
 import Footer from "../components/Footer";
+import ServicingForm from "../components/ServicingForm";
 
 const Servicing = () => {
   return (
     <>
       <Navbar />
-      <div className="comingsoon-heading">
-        <h2>Servicing Section Will Be Available Soon</h2>
-        <h3>Stay Tuned</h3>
-      </div>
 
-      <div className="second-hand-comingsoon"></div>
+      <ServicingForm/>
 
       <section className="social-links">
         <SocialLinks />

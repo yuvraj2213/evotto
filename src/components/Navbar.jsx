@@ -7,28 +7,25 @@ import { useAuth } from "../store/auth";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false); // state for dropdown visibility
+  const [showDropdown, setShowDropdown] = useState(false); 
 
   const { LogoutUser, isLoggedIn } = useAuth();
 
   useEffect(() => {
-    // Function to close the menu on scroll
+
     const handleScroll = () => {
       if (showMenu) {
         setShowMenu(false);
       }
     };
 
-    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [showMenu]);
 
-  // Toggle dropdown for services on mobile
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
