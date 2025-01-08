@@ -67,10 +67,6 @@ const FeedbackSlideshow = () => {
       </div>
 
       <div className="carousel-container">
-        {/* Previous Button */}
-        <button onClick={handlePrev} className="carousel-btn">
-          {"<"}
-        </button>
 
         <div className="carousel-content">
           {feedbacks.length > 0 && (
@@ -97,10 +93,6 @@ const FeedbackSlideshow = () => {
           )}
         </div>
 
-        {/* Next Button */}
-        <button onClick={handleNext} className="carousel-btn">
-          {">"}
-        </button>
       </div>
     </>
   );

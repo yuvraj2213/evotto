@@ -1,3 +1,4 @@
+/* Existing styles */
 .feedback-heading {
   display: flex;
   align-items: center;
@@ -38,7 +39,9 @@
   display: flex;
   gap: 20px;
   width: 100%;
+  max-width: 100%; /* Ensure carousel-content does not expand beyond container */
   justify-content: center;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .carousel-card {
@@ -53,7 +56,8 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: calc(50% - 10px); /* Ensure each card takes up half of the carousel-content width, accounting for gap */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .feedback {
@@ -70,4 +74,17 @@
 .role {
   font-size: 0.9rem;
   color: gray;
+}
+
+/* Media query for phone-width devices */
+@media (max-width: 600px) {
+  .carousel-content {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .carousel-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
