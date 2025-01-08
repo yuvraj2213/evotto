@@ -48,7 +48,7 @@
 
   .inner-certificate {
     gap: 8px !important; /* Reduce spacing between elements */
-    height: 200px;
+    height: 320px;
   }
   .inner-certificate .certificate1 {
     width: 350px;
