@@ -5,7 +5,7 @@ const DriverForm = () => {
   const [formData, setFormData] = useState({
     date: "",
     time: "",
-    vehicleType: "",
+    location: "",
   });
 
   const handleChange = (e) => {
@@ -58,17 +58,14 @@ const DriverForm = () => {
           />
         </div>
         <div className="form-group">
-          <label>Type of Vehicle:</label>
-          <select
-            name="vehicleType"
-            value={formData.vehicleType}
+          <label>Location:</label>
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
             onChange={handleChange}
             required
-          >
-            <option value="">--Select--</option>
-            <option value="bike">Bike</option>
-            <option value="car">Car</option>
-          </select>
+          />
         </div>
         <button type="submit" className="submit-button">
           Book Driver
