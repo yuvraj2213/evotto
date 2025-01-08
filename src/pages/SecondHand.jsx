@@ -47,14 +47,14 @@ const SecondHand = () => {
   return (
     <div className="page-container">
       <Navbar />
-      <div className="comingsoon-heading">
+      {/* <div className="comingsoon-heading">
         <h2>Second Hand Cars Section Will Be Available Soon</h2>
         <h3>Stay Tuned</h3>
-      </div>
+      </div> */}
 
-      <div className="second-hand-comingsoon"></div>
+      {/* <div className="second-hand-comingsoon"></div> */}
 
-      {/* <div className="content">
+      <div className="content">
         <div className="header">
           <h2>I WANT TO</h2>
         </div>
@@ -78,7 +78,7 @@ const SecondHand = () => {
         <div ref={carBuyingFormRef}>
           <CarBuying />
         </div>
-      )} */}
+      )}
 
       <section className="social-links">
         <SocialLinks />
