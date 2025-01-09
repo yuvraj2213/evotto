@@ -76,7 +76,7 @@ const FeedbackSlideshow = () => {
           <div className="carousel-card">
             <p className="feedback">{feedbacks[currentIndex].feedback}</p>
             <h4 className="name">{feedbacks[currentIndex].name}</h4>
-            <p className="role">{feedbacks[currentIndex].role}</p>
+            <p className="role">{feedbacks[currentIndex].email}</p>
           </div>
           <div className="carousel-card">
             <p className="feedback">
