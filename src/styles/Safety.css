@@ -43,11 +43,10 @@
 .safety-image {
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  background-image: url("/images/safetyforall3.jpg");
+  background-image: url("/images/safety2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: 2px solid white;
   width: 430px;
   height: 410px;
   padding: 30px; /* Increased spacing around the content */
@@ -67,6 +66,15 @@
 
 @media (max-width: 768px){
   .safety-for-all-container{
+    width: 80%;
+  }
+}
+
+@media(max-width:570px){
+  .safety-image{
+    background-size: contain;
+    /* width: 350px; */
+    /* height: 350px; */
     width: 80%;
   }
 }
@@ -97,6 +105,8 @@
   }
 
   .safety-image{
-    width:100vw;
+    width:70%;
+    height: 290px;
+    padding-top: 0px;
   }
 }
