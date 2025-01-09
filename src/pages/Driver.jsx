@@ -16,7 +16,7 @@ const Driver = () => {
         <SocialLinks />
       </section>
 
-      <UploadImage/>
+      {/* <UploadImage/> */}
 
       <Footer />
       <></>
