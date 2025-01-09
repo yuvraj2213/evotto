@@ -47,6 +47,8 @@ const ServicingForm = () => {
         body: formDataObj,
       });
 
+      console.log(`${baseURL}/api/data/servicingForm`)
+
       if (response.ok) {
         alert("Appointment booked successfully!");
       } else {
@@ -100,7 +102,7 @@ const ServicingForm = () => {
               <input
                 type="radio"
                 name="serviceType"
-                value="repairing"
+                value="PPF"
                 onChange={handleChange}
                 required
               />
@@ -110,7 +112,7 @@ const ServicingForm = () => {
               <input
                 type="radio"
                 name="serviceType"
-                value="fullBodyService"
+                value="Polishing"
                 onChange={handleChange}
               />
               Polishing
@@ -119,7 +121,7 @@ const ServicingForm = () => {
               <input
                 type="radio"
                 name="serviceType"
-                value="fullBodyService"
+                value="Ceramic"
                 onChange={handleChange}
               />
               Ceramic

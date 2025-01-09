@@ -43,7 +43,7 @@ const Chatbox = () => {
         {
           sender: "bot",
           text: "Email us:",
-          link: "mailto:evotto.info@gmail.com",
+          link: "mailto:evotto.service@gmail.com",
           icon: <SiGmail style={{ color: "red" }} />,
         },
       ]);
