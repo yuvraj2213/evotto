@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "../styles/ServicingForm.css";
 import { useAuth } from "../store/auth";
 
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+const baseURL =
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const ServicingForm = () => {
-
-  const {user}=useAuth()
-  const userEmail=user.userData.email;
+  const { user } = useAuth();
+  const userEmail = user?.userData?.email;
   console.log(userEmail)
 
   const [formData, setFormData] = useState({
