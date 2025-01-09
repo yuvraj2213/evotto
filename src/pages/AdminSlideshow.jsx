@@ -105,6 +105,7 @@ const AdminSlideshow = () => {
     <>
       <Toaster />
       <div className="admin-ss-block">
+        {console.log(images)}
         {images.map((image, index) => (
           <div
             className="admin-table-container"
@@ -113,7 +114,7 @@ const AdminSlideshow = () => {
             <div>
               <img
                 className="admin-slideshow"
-                src={image.url}
+                src={`${baseURL}${image.url}`}
                 alt={image.altText}
               />
             </div>

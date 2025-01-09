@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-import "../styles/ServicingForm.css"; 
+import "../styles/ServicingForm.css";
+import { useAuth } from "../store/auth";
+
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const ServicingForm = () => {
+
+  const {user}=useAuth()
+  const userEmail=user.userData.email;
+  console.log(userEmail)
+
   const [formData, setFormData] = useState({
     vehicleType: "",
     vehicleName: "",
@@ -20,10 +28,33 @@ const ServicingForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    alert("Appointment booked successfully!");
+
+    const formDataObj = new FormData();
+    formDataObj.append("vehicleType", formData.vehicleType);
+    formDataObj.append("vehicleName", formData.vehicleName);
+    formDataObj.append("vehicleImage", formData.vehicleImage);
+    formDataObj.append("serviceType", formData.serviceType);
+    formDataObj.append("requirements", formData.requirements);
+    formDataObj.append("date", formData.date);
+    formDataObj.append("time", formData.time);
+    formDataObj.append("userEmail", `${userEmail}`); // Replace with user's email input
+
+    try {
+      const response = await fetch(`${baseURL}/api/data/servicingForm`, {
+        method: "POST",
+        body: formDataObj,
+      });
+
+      if (response.ok) {
+        alert("Appointment booked successfully!");
+      } else {
+        alert("Failed to book appointment");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
@@ -73,7 +104,7 @@ const ServicingForm = () => {
                 onChange={handleChange}
                 required
               />
-              Repairing
+              PPF
             </label>
             <label>
               <input
@@ -82,7 +113,16 @@ const ServicingForm = () => {
                 value="fullBodyService"
                 onChange={handleChange}
               />
-              Full Body Service
+              Polishing
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="serviceType"
+                value="fullBodyService"
+                onChange={handleChange}
+              />
+              Ceramic
             </label>
           </div>
         </div>
