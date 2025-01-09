@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/FeedbackSlideshow.css";
+import { LuUser } from "react-icons/lu";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -75,7 +76,10 @@ const FeedbackSlideshow = () => {
         <div className="carousel-content">
           <div className="carousel-card">
             <p className="feedback">{feedbacks[currentIndex].feedback}</p>
-            <h4 className="name">{feedbacks[currentIndex].name}</h4>
+            <h4 className="name">
+              <LuUser />
+              {feedbacks[currentIndex].name}
+            </h4>
             <p className="role">{feedbacks[currentIndex].email}</p>
           </div>
           <div className="carousel-card">
@@ -83,6 +87,7 @@ const FeedbackSlideshow = () => {
               {feedbacks[(currentIndex + 1) % feedbacks.length].feedback}
             </p>
             <h4 className="name">
+              <LuUser />
               {feedbacks[(currentIndex + 1) % feedbacks.length].name}
             </h4>
             <p className="role">

@@ -38,8 +38,7 @@
 .carousel-content {
   display: flex;
   gap: 20px;
-  width: 100%;
-  max-width: 100%; /* Ensure carousel-content does not expand beyond container */
+  max-width: 70%; /* Ensure carousel-content does not expand beyond container */
   justify-content: center;
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
@@ -73,7 +72,7 @@
 
 .role {
   font-size: 0.9rem;
-  color: gray;
+  color: royalblue;
 }
 
 /* Media query for phone-width devices */
@@ -86,5 +85,11 @@
   .carousel-card {
     width: 100%;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width:480px){
+  .carousel-content {
+    max-width:90%;
   }
 }
