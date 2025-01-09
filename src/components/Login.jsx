@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../store/auth";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+const baseURL =
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const Login = ({ check, setCheck }) => {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ const Login = ({ check, setCheck }) => {
       storeTokenInLS(data.token);
 
       setFormData({ email: "", password: "" });
-      navigate("/"); 
+      navigate("/");
     } catch (error) {
       console.error("Error:", error);
       toast.error("Something went wrong!");
@@ -91,6 +92,11 @@ const Login = ({ check, setCheck }) => {
             >
               {passwordVisible ? "Hide Password" : "Show Password"}
             </button>
+          </div>
+          <div className="form-links">
+            <Link to="/forgot-password" className="forgot-password-link">
+              Forgot Password?
+            </Link>
           </div>
           <div className="user-check">
             <button type="button" onClick={() => setCheck(!check)}>

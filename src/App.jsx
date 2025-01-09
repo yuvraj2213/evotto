@@ -22,6 +22,7 @@ import Gears from "./pages/Gears";
 import AdminRentalLocations from "./pages/AdminRentalLocations";
 import AboutUs from "./pages/AboutUs";
 import AdminRentalVehicles from "./pages/AdminRentalVehicles";
+import ForgotPassword from "./components/ForgotPassword";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -57,6 +58,7 @@ const App = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="rentalBooking" element={<RentalBooking/>}/>
             <Route path="/gears" element={<Gears/>}/>
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="*" element={<Error/>}/>
             <Route path="/admin" element={<Admin/>}>
               <Route path="users" element={<AdminUsers/>}/>
