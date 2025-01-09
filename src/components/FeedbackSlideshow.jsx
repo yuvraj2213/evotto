@@ -10,13 +10,17 @@ const FeedbackSlideshow = () => {
   const [loading, setLoading] = useState(true);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 2) % feedbacks.length);
+    if (feedbacks.length > 0) {
+      setCurrentIndex((prevIndex) => (prevIndex + 2) % feedbacks.length);
+    }
   };
 
   const handlePrev = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 2 + feedbacks.length) % feedbacks.length
-    );
+    if (feedbacks.length > 0) {
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 2 + feedbacks.length) % feedbacks.length
+      );
+    }
   };
 
   const getFeedbacks = async () => {
@@ -28,25 +32,26 @@ const FeedbackSlideshow = () => {
       if (response.ok) {
         const data = await response.json();
         setFeedback(data);
-        setLoading(false);
       } else {
         console.error("Failed to fetch feedbacks");
       }
     } catch (error) {
       console.error("Error fetching feedbacks data:", error);
+    } finally {
+      setLoading(false); // Stop the loading spinner regardless of success or error
     }
   };
+
+  useEffect(() => {
+    getFeedbacks();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(handleNext, 3000); // Auto-scroll every 3 seconds
     return () => clearInterval(interval); // Cleanup on component unmount
   }, [feedbacks]); // Only re-run when feedbacks array changes
 
-  useEffect(() => {
-    getFeedbacks();
-  }, []);
-
-  if (loading) {
+  if (loading || feedbacks.length === 0) {
     return <p>Loading feedbacks...</p>;
   }
 
@@ -67,32 +72,28 @@ const FeedbackSlideshow = () => {
       </div>
 
       <div className="carousel-container">
-
         <div className="carousel-content">
-          {feedbacks.length > 0 && (
-            <>
-              <div className="carousel-card">
-                <p className="feedback">{feedbacks[currentIndex].feedback}</p>
-                <h4 className="name">{feedbacks[currentIndex].name}</h4>
-                <p className="role">{feedbacks[currentIndex].role}</p>
-              </div>
-              <div className="carousel-card">
-                <p className="feedback">
-                  {
-                    feedbacks[(currentIndex + 1) % feedbacks.length].feedback
-                  }
-                </p>
-                <h4 className="name">
-                  {feedbacks[(currentIndex + 1) % feedbacks.length].name}
-                </h4>
-                <p className="role">
-                  {feedbacks[(currentIndex + 1) % feedbacks.length].role}
-                </p>
-              </div>
-            </>
-          )}
+          <div className="carousel-card">
+            <p className="feedback">{feedbacks[currentIndex].feedback}</p>
+            <h4 className="name">{feedbacks[currentIndex].name}</h4>
+            <p className="role">{feedbacks[currentIndex].role}</p>
+          </div>
+          <div className="carousel-card">
+            <p className="feedback">
+              {feedbacks[(currentIndex + 1) % feedbacks.length].feedback}
+            </p>
+            <h4 className="name">
+              {feedbacks[(currentIndex + 1) % feedbacks.length].name}
+            </h4>
+            <p className="role">
+              {feedbacks[(currentIndex + 1) % feedbacks.length].email}
+            </p>
+          </div>
         </div>
-
+        <div className="carousel-controls">
+          <button onClick={handlePrev}>Previous</button>
+          <button onClick={handleNext}>Next</button>
+        </div>
       </div>
     </>
   );
