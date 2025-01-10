@@ -8,7 +8,6 @@ const baseURL =
 const ServicingForm = () => {
   const { user } = useAuth();
   const userEmail = user?.userData?.email;
-  console.log(userEmail)
 
   const [formData, setFormData] = useState({
     vehicleType: "",
@@ -39,15 +38,13 @@ const ServicingForm = () => {
     formDataObj.append("requirements", formData.requirements);
     formDataObj.append("date", formData.date);
     formDataObj.append("time", formData.time);
-    formDataObj.append("userEmail", `${userEmail}`); // Replace with user's email input
+    formDataObj.append("userEmail", `${userEmail}`);
 
     try {
       const response = await fetch(`${baseURL}/api/data/servicingForm`, {
         method: "POST",
         body: formDataObj,
       });
-
-      console.log(`${baseURL}/api/data/servicingForm`)
 
       if (response.ok) {
         alert("Appointment booked successfully!");
@@ -57,6 +54,14 @@ const ServicingForm = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
     }
+  };
+
+  // Calculate tomorrow's date in YYYY-MM-DD format
+  const getTomorrowDate = () => {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1); // Add 1 day to today
+    return tomorrow.toISOString().split("T")[0]; // Convert to YYYY-MM-DD format
   };
 
   return (
@@ -144,6 +149,7 @@ const ServicingForm = () => {
             type="date"
             name="date"
             value={formData.date}
+            min={getTomorrowDate()} // Set minimum date to tomorrow
             onChange={handleChange}
             required
           />
