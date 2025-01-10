@@ -14,8 +14,16 @@ const AdminRentalVehicles = () => {
   const { authorizationToken } = useAuth();
   const [vehicleId, setVehicleId] = useState();
   const [showForm, setShowForm] = useState(false);
-
-  const [vehicles,setVehicles]=useState([])
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [vehicles, setVehicles] = useState([]);
+  const [newVehicle, setNewVehicle] = useState({
+    name: "",
+    image: "",
+    weekdayPrice: "",
+    weekendPrice: "",
+    isAvailable: true,
+  });
+  const [imageFile, setImageFile] = useState(null); // State to store the uploaded image file
 
   const getAllVehiclesData = async () => {
     try {
@@ -39,9 +47,10 @@ const AdminRentalVehicles = () => {
   };
 
   const deleteVehicle = async (id) => {
+
     try {
       const response = await fetch(
-        `${baseURL}/api/admin/rentalVehicles/delete/${id}`,
+        `${baseURL}/api/admin/deleteRentalVehicle/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -62,11 +71,66 @@ const AdminRentalVehicles = () => {
     }
   };
 
-  const handleOnClick=(id)=>{
-    setVehicleId(id)
+  const handleOnClick = (id) => {
+    setVehicleId(id);
     setShowForm(true);
-    console.log(id)
-  }
+    console.log(id);
+  };
+
+  const handleAddVehicleToggle = () => {
+    setShowAddForm(!showAddForm);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewVehicle({ ...newVehicle, [name]: value });
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
+  };
+
+  const handleSubmitAddVehicle = async (e) => {
+    e.preventDefault();
+
+    // Create FormData to send image and vehicle data
+    const formData = new FormData();
+    formData.append("name", newVehicle.name);
+    formData.append("image", imageFile); // Append the image file
+    formData.append("weekdayPrice", newVehicle.weekdayPrice);
+    formData.append("weekendPrice", newVehicle.weekendPrice);
+    formData.append("isAvailable", newVehicle.isAvailable);
+
+    try {
+      const response = await fetch(`${baseURL}/api/admin/addRentalVehicle`, {
+        method: "POST",
+        headers: {
+          Authorization: authorizationToken,
+        },
+        body: formData, // Send the form data with the image
+      });
+
+      if (response.ok) {
+        toast.success("Vehicle Added Successfully");
+        getAllVehiclesData();
+        setShowAddForm(false); // Close the add form
+        setNewVehicle({
+          name: "",
+          image: "",
+          weekdayPrice: "",
+          weekendPrice: "",
+          isAvailable: true,
+        });
+        setImageFile(null); // Reset the image file state
+      } else {
+        toast.error("Failed to add the vehicle.");
+      }
+    } catch (e) {
+      console.log(e);
+      toast.error("An error occurred while adding the vehicle.");
+    }
+  };
 
   useEffect(() => {
     getAllVehiclesData();
@@ -78,7 +142,81 @@ const AdminRentalVehicles = () => {
       <section className="admin-rental-vehicles-section">
         <div className="container">
           <h1>Admin Rental Vehicles Data</h1>
+          <button
+            onClick={handleAddVehicleToggle}
+            style={{
+              marginBottom: "20px",
+              backgroundColor: "#4CAF50",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "5px",
+            }}
+          >
+            {showAddForm ? "Cancel" : "Add New Vehicle"}
+          </button>
         </div>
+
+        {/* Add Vehicle Form */}
+        {showAddForm && (
+          <form onSubmit={handleSubmitAddVehicle} className="add-vehicle-form">
+            <div>
+              <label>Name:</label>
+              <input
+                type="text"
+                name="name"
+                value={newVehicle.name}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Image:</label>
+              <input
+                type="file"
+                name="image"
+                onChange={handleImageChange}
+                accept="image/*"
+                required
+              />
+            </div>
+            <div>
+              <label>Weekday Price:</label>
+              <input
+                type="number"
+                name="weekdayPrice"
+                value={newVehicle.weekdayPrice}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Weekend Price:</label>
+              <input
+                type="number"
+                name="weekendPrice"
+                value={newVehicle.weekendPrice}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Available:</label>
+              <select
+                name="isAvailable"
+                value={newVehicle.isAvailable}
+                onChange={handleInputChange}
+                required
+              >
+                <option value={true}>Yes</option>
+                <option value={false}>No</option>
+              </select>
+            </div>
+            <button type="submit" style={{ marginTop: "20px" }}>
+              Add Vehicle
+            </button>
+          </form>
+        )}
+
         <div className="admin-rental-vehicles">
           <table>
             <thead>
@@ -137,7 +275,7 @@ const AdminRentalVehicles = () => {
           </table>
         </div>
 
-        {showForm && <VehicleUpdateForm setShowForm={setShowForm} vehicleId={vehicleId}/>}
+        {showForm && <VehicleUpdateForm setShowForm={setShowForm} vehicleId={vehicleId} />}
       </section>
       <Footer />
     </>
