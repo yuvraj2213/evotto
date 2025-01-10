@@ -95,6 +95,7 @@ const AdminSlideshow = () => {
     <>
       <Toaster />
       <div className="admin-ss-block">
+
         {images.map((image, index) => (
           <div
             className="admin-table-container"

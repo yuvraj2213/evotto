@@ -73,7 +73,7 @@ const Slideshow = () => {
             return (
               <img
                 key={index}
-                src={`${baseURL}${image.url}`}
+                src={`${image.url}`}
                 alt={image.altText || `Slide ${index}`}
                 className={`slide ${
                   isCurrent
