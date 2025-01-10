@@ -2,15 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
 import "../styles/AdminSlideshow.css";
 import toast, { Toaster } from "react-hot-toast";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+
+const baseURL = process.env.REACT_APP_BASE_URL || "https://your-backend-url.com";
 
 const AdminSlideshow = () => {
   const { authorizationToken } = useAuth();
 
   const [images, setImages] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null); // State to manage selected file
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  // Fetch images for slideshow
   const fetchImages = async () => {
     try {
       const response = await fetch(`${baseURL}/api/data/slideshow`, {
@@ -19,15 +20,9 @@ const AdminSlideshow = () => {
           Authorization: authorizationToken,
         },
       });
-      if (!response.ok) {
-        throw new Error("Failed to fetch slideshow images");
-      }
+      if (!response.ok) throw new Error("Failed to fetch slideshow images");
       const data = await response.json();
-      if (data) {
-        setImages(data);
-      } else {
-        console.error("No images found in API response");
-      }
+      setImages(data);
     } catch (error) {
       console.error("Error fetching slideshow images:", error);
     }
@@ -37,7 +32,6 @@ const AdminSlideshow = () => {
     fetchImages();
   }, []);
 
-  // Handle image deletion
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
@@ -52,52 +46,48 @@ const AdminSlideshow = () => {
 
       if (response.ok) {
         toast.success("Image Deleted Successfully");
-        fetchImages(); // Refresh the image list after deletion
+        fetchImages();
       }
-
-      const data = await response.json();
-      console.log(data);
     } catch (e) {
-      console.log(e);
+      console.error("Error deleting image:", e);
+      toast.error("Failed to delete image");
     }
   };
 
-  // Handle file selection change
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]); // Set selected file
+    setSelectedFile(e.target.files[0]);
   };
 
-  // Handle image upload
   const handleUpload = async () => {
     if (!selectedFile) {
       toast.error("Please select a file to upload");
       return;
     }
+    setLoading(true);
 
     const formData = new FormData();
     formData.append("image", selectedFile);
-    formData.append("altText", "Slideshow Image"); 
+    formData.append("altText", "Slideshow Image");
 
     try {
-      const response = await fetch(
-        `${baseURL}/api/admin/slideshow/upload`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: authorizationToken,
-          },
-          body: formData,
-        }
-      );
+      const response = await fetch(`${baseURL}/api/admin/slideshow/upload`, {
+        method: "POST",
+        headers: {
+          Authorization: authorizationToken,
+        },
+        body: formData,
+      });
 
       if (!response.ok) throw new Error("Failed to upload image");
       const data = await response.json();
       toast.success("Image uploaded successfully");
-      setSelectedFile(null); // Clear selected file after successful upload
-      fetchImages(); // Refresh the image list
+      setSelectedFile(null);
+      fetchImages();
     } catch (error) {
       console.error("Error uploading image:", error);
       toast.error("Error uploading image");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -105,20 +95,18 @@ const AdminSlideshow = () => {
     <>
       <Toaster />
       <div className="admin-ss-block">
-        {console.log(images)}
         {images.map((image, index) => (
           <div
             className="admin-table-container"
-            key={image.id || `${image.url}-${index}`} // Fallback to a combination of properties
+            key={image._id || `${image.url}-${index}`}
           >
             <div>
               <img
                 className="admin-slideshow"
-                src={`${baseURL}${image.url}`}
+                src={image.url}
                 alt={image.altText}
               />
             </div>
-
             <div>
               <button
                 onClick={() => handleDelete(image._id)}
@@ -149,9 +137,9 @@ const AdminSlideshow = () => {
         <button
           className="admin-upload-img-btn"
           onClick={handleUpload}
-          disabled={!selectedFile}
+          disabled={!selectedFile || loading}
         >
-          Upload
+          {loading ? "Uploading..." : "Upload"}
         </button>
       </div>
     </>
