@@ -9,8 +9,7 @@
   text-align: left;
   padding: 30px;
   max-width: 450px;
-  margin: 20px auto; /* Center align with some margin */
-  /* margin-left: 55px !important; */
+  /* margin: 20px auto; Center align with some margin */
 }
 
 .safety-for-all-container h2 {
@@ -48,6 +47,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: 2px solid white;
   width: 430px;
   height: 410px;
   padding: 30px; /* Increased spacing around the content */
@@ -68,47 +68,42 @@
 @media (max-width: 768px){
   .safety-for-all-container{
     width: 80%;
-    /* margin-left: 0px; */
-  }
-}
-
-@media(max-width:570px){
-  .safety-image{
-    background-size: contain;
-    /* width: 350px; */
-    /* height: 350px; */
-    width: 80%;
   }
 }
 
 @media (max-width:430px){
   .safety-for-all-container {
-    background-color: #fff; /* White background */
+    background-color: #fff; 
     padding-left: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    text-align: left; /* Align text to the left */
-    width: 100vw;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    text-align: left; 
+    width: 50vw;
+    height: 180px !important;
+    padding: 0px !important;
   }
 
   .safety-for-all-container h2 {
-    font-size: 24px; /* Larger headline */
+    font-size: 12px; /* Larger headline */
     font-weight: 700; /* Make the text bold */
     color: #000; /* Black text */
-    margin-bottom: 15px; /* Increased spacing below the heading */
+    margin-bottom: 10px; /* Increased spacing below the heading */
   }
 
   .safety-for-all-container p {
-    font-size: 14px; /* Larger paragraph font size */
+    font-size: 6px; /* Larger paragraph font size */
     font-weight: 400; /* Normal weight */
     color: #333; /* Slightly lighter black text */
-    line-height: 1.8; /* Increase readability with more line spacing */
-    margin-bottom: 25px; /* Increased spacing below the paragraph */
+    margin-bottom: 15px; /* Increased spacing below the paragraph */
   }
 
   .safety-image{
-    width:70%;
-    height: 290px;
-    padding-top: 0px;
+    width: 130px;
+    height: 110px;
+  }
+
+  .know-more-button{
+    font-size: 12px !important;
+    padding: 6px !important;
   }
 }
