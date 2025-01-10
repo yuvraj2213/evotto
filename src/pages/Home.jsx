@@ -22,9 +22,9 @@ const Home = () => {
         <header className="hero-section">
           <HeroSection />
         </header>
-        <section className="slideshow">
+        {/* <section className="slideshow">
           <Slideshow />
-        </section>
+        </section> */}
         <section className="safety-for-all-home">
           <Safety/>
         </section>
