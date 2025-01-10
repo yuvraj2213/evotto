@@ -3,7 +3,8 @@ import { useAuth } from "../store/auth";
 import "../styles/AdminSlideshow.css";
 import toast, { Toaster } from "react-hot-toast";
 
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+const baseURL =
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminSlideshow = () => {
   const { authorizationToken } = useAuth();
@@ -33,6 +34,7 @@ const AdminSlideshow = () => {
   }, []);
 
   const handleDelete = async (id) => {
+    console.log("Deleting image with ID:", id);
     try {
       const response = await fetch(
         `${baseURL}/api/admin/slideshow/delete/${id}`,
@@ -95,36 +97,38 @@ const AdminSlideshow = () => {
     <>
       <Toaster />
       <div className="admin-ss-block">
-
-        {images.map((image, index) => (
-          <div
-            className="admin-table-container"
-            key={image._id || `${image.url}-${index}`}
-          >
-            <div>
-              <img
-                className="admin-slideshow"
-                src={image.url}
-                alt={image.altText}
-              />
+        {images.map((image, index) => {
+          console.log("Image object:", image); 
+          return (
+            <div
+              className="admin-table-container"
+              key={image._id || `${image.url}-${index}`}
+            >
+              <div>
+                <img
+                  className="admin-slideshow"
+                  src={image.url}
+                  alt={image.altText}
+                />
+              </div>
+              <div>
+                <button
+                  onClick={() => handleDelete(image.id)} // Make sure _id is being passed correctly
+                  style={{
+                    padding: "10px 20px",
+                    backgroundColor: "#ff4d4d",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
-            <div>
-              <button
-                onClick={() => handleDelete(image._id)}
-                style={{
-                  padding: "10px 20px",
-                  backgroundColor: "#ff4d4d",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                }}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="admin-upload">
