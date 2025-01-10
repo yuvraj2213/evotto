@@ -29,6 +29,13 @@ const DriverForm = () => {
 
     alert("Driver booked successfully!");
   };
+  
+  const getTomorrowDate = () => {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1); // Add 1 day to today
+    return tomorrow.toISOString().split("T")[0]; // Convert to YYYY-MM-DD format
+  };
 
   return (
     <div className="form-container">
@@ -43,6 +50,7 @@ const DriverForm = () => {
             type="date"
             name="date"
             value={formData.date}
+            min={getTomorrowDate()}
             onChange={handleChange}
             required
           />
