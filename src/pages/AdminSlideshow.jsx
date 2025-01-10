@@ -3,7 +3,7 @@ import { useAuth } from "../store/auth";
 import "../styles/AdminSlideshow.css";
 import toast, { Toaster } from "react-hot-toast";
 
-const baseURL = process.env.REACT_APP_BASE_URL || "https://your-backend-url.com";
+const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const AdminSlideshow = () => {
   const { authorizationToken } = useAuth();

@@ -19,7 +19,7 @@ const ImageUploader = () => {
     formData.append('image', image);
 
     try {
-      const response = await fetch('http://localhost:2213/upload', {
+      const response = await fetch('https://evotto-backend.vercel.app/upload', {
         method: 'POST',
         body: formData,
       });
