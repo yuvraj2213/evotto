@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/ServicingForm.css";
 import { useAuth } from "../store/auth";
+import toast, { Toaster } from "react-hot-toast";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -8,6 +9,7 @@ const baseURL =
 const ServicingForm = () => {
   const { user } = useAuth();
   const userEmail = user?.userData?.email;
+    const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     vehicleType: "",
@@ -30,6 +32,8 @@ const ServicingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setLoading(true)
+
     const formDataObj = new FormData();
     formDataObj.append("vehicleType", formData.vehicleType);
     formDataObj.append("vehicleName", formData.vehicleName);
@@ -47,12 +51,14 @@ const ServicingForm = () => {
       });
 
       if (response.ok) {
-        alert("Appointment booked successfully!");
+        toast.success("Appointment booked successfully!");
       } else {
-        alert("Failed to book appointment");
+        toast.error("Failed to book appointment");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -65,6 +71,8 @@ const ServicingForm = () => {
   };
 
   return (
+    <>
+    <Toaster/>
     <div className="form-container">
       <h2 className="form-title">Book a Servicing Appointment</h2>
       <form className="appointment-form" onSubmit={handleSubmit}>
@@ -165,10 +173,11 @@ const ServicingForm = () => {
           />
         </div>
         <button type="submit" className="submit-button">
-          Book Appointment
+        {loading?"Booking":"Book Appointment"}
         </button>
       </form>
     </div>
+    </>
   );
 };
 

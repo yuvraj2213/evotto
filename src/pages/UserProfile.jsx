@@ -9,7 +9,7 @@ const UserProfile = () => {
     return <div>Loading...</div>; 
   }
 
-  const User = user.userData;
+  const User = user?.userData;
 
   const handleEditProfile = () => {
     alert("Profile editing feature coming soon!");

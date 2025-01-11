@@ -88,6 +88,11 @@ const FeedbackPage = () => {
       <Toaster />
       <Navbar />
 
+      <div className="feedback-form-img">
+      <div className="feedback-beside-img">
+        <img src="/images/feedbackBeside.png" alt="Feedback" />
+      </div>
+
       <div className="feedback-container">
         <h1>We Value Your Feedback</h1>
         <p>Please let us know how we can improve our services.</p>
@@ -143,6 +148,7 @@ const FeedbackPage = () => {
             </p>
           </div>
         )}
+      </div>
       </div>
 
       <section className="social-links">
