@@ -22,6 +22,7 @@ const CarCard = ({
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
   const [loading, setLoading] = useState(true);
   const { isLoggedIn } = useAuth();
+  const [selectedCar,setSelectedCar]=useState({})
 
   const fetchCars = async () => {
     try {
@@ -56,7 +57,6 @@ const CarCard = ({
       return;
     }
 
-    // Combine pickUpDate and pickUpTime into a Date object
     const selectedDateTime = new Date(`${pickUpDate}T${pickUpTime}`);
     const currentDateTime = new Date();
 
@@ -76,8 +76,10 @@ const CarCard = ({
         icon: "⚠️",
       });
     } else {
+      setSelectedCar(car)
       setShowTermsModal(true);
     }
+
   };
 
   const handleSubmitTerms = (car) => {
@@ -167,6 +169,7 @@ const CarCard = ({
                 </div>
                 <div className="car-info">
                   <button
+                  
                     className="rentnow-btn"
                     onClick={() => handleRentClick(car)}
                   >
@@ -183,7 +186,6 @@ const CarCard = ({
         </div>
       </div>
 
-      {/* Terms and Conditions Modal */}
       {showTermsModal && (
         <Termsandcond
           handleSubmitTerms={handleSubmitTerms}
@@ -191,6 +193,7 @@ const CarCard = ({
           setIsTermsAccepted={setIsTermsAccepted}
           setShowTermsModal={setShowTermsModal}
           filteredCars={filteredCars}
+          selectedCar={selectedCar}
         />
       )}
     </>

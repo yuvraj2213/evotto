@@ -5,7 +5,8 @@ const Termsandcond = ({
   isTermsAccepted,
   setIsTermsAccepted,
   filteredCars,
-  setShowTermsModal
+  setShowTermsModal,
+  selectedCar
 }) => {
   return (
     <>
@@ -146,7 +147,7 @@ const Termsandcond = ({
           </div>
           <button
             className="submit-terms-btn"
-            onClick={() => handleSubmitTerms(filteredCars[0])}
+            onClick={() => handleSubmitTerms(selectedCar)}
           >
             Submit and Proceed
           </button>
