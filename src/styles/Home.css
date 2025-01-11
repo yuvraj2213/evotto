@@ -9,7 +9,7 @@
 
 .hero-content {
   text-align: center;
-  color: white;
+  color: black;
   font-family: "Poppins", serif;
   font-weight: 800;
   display: flex;
@@ -51,7 +51,7 @@
 }
 
 .social span {
-  color: whitesmoke;
+  color: black;
   font-size: larger;
 }
 
@@ -291,7 +291,7 @@
   .safety-for-all-home {
     display: flex;
     flex-direction: row;
-    background-color: #16abcc;
+    /* background-color: #16abcc; */
     gap: 0px;
     align-items: center;
     justify-content: center;
@@ -304,7 +304,7 @@
   .know-us-better-home {
     display: flex;
     flex-direction: row;
-    background-color: #16abcc;
+    /* background-color: #16abcc; */
     gap: 0px;
     align-items: center;
     justify-content: center;

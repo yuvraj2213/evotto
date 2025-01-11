@@ -34,7 +34,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logo-img">
         <img src="/images/logo2.png" width={50} alt="Logo" />
-        <div className="logo">Evotto</div>
+        <div className="logo" style={{color:"black"}}>Evotto</div>
       </div>
 
       <ul className={showMenu ? "menu-nav-links" : "nav-links"}>
@@ -78,7 +78,7 @@ const Navbar = () => {
           <li
             className={`logout-button ${showMenu ? "menu-nav-item" : "nav-item"}`}
             onClick={LogoutUser}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer" ,color:"black"}}
           >
             Logout
           </li>
