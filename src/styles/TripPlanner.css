@@ -24,10 +24,6 @@
   border: none;
   border-radius: 10px;
   background-color: #e71d36;
-  /* background-image: url("/images/vg1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
   color: aliceblue;
 }
 
@@ -86,7 +82,7 @@
     padding: 20px;
     border: none;
     border-radius: 10px;
-    background-color: #235789;
+    background-color: #e71d36;
     color: aliceblue;
   }
 }
@@ -109,7 +105,7 @@
     padding: 20px;
     border: none;
     border-radius: 10px;
-    background-color: #235789;
+    background-color: #e71d36;
     color: aliceblue;
   }
 
@@ -132,4 +128,5 @@
 
     font-size: smaller;
   }
+
 }
