@@ -7,11 +7,11 @@
   gap: 40px;
 }
 
-.trip-planner h2{
+.trip-planner h2 {
   color: whitesmoke;
 }
 
-.trip-planner-form{
+.trip-planner-form {
   display: flex;
   gap: 30px;
   margin-bottom: 40px;
@@ -23,7 +23,11 @@
   padding: 20px;
   border: none;
   border-radius: 10px;
-  background-color: #235789;
+  background-color: #e71d36;
+  /* background-image: url("/images/vg1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
   color: aliceblue;
 }
 
@@ -62,8 +66,7 @@
   border-radius: 7px;
 }
 
-@media (max-width: 800px){
-
+@media (max-width: 800px) {
   .trip-planner {
     display: flex;
     flex-direction: column;
@@ -71,7 +74,7 @@
     gap: 40px;
   }
 
-  .trip-planner-form{
+  .trip-planner-form {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -86,8 +89,7 @@
     background-color: #235789;
     color: aliceblue;
   }
-
- }
+}
 
 @media (max-width: 500px) {
   body {
