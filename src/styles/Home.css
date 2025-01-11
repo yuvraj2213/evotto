@@ -78,6 +78,7 @@
   align-items: center;
   justify-content: center;
   gap: 25px;
+  margin-top: 70px;
 }
 
 .know-us-better-home {
@@ -291,7 +292,7 @@
   .safety-for-all-home {
     display: flex;
     flex-direction: row;
-    /* background-color: #16abcc; */
+    margin-top: 45px !important;
     gap: 0px;
     align-items: center;
     justify-content: center;
