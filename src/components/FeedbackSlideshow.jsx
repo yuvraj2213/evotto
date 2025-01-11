@@ -80,7 +80,6 @@ const FeedbackSlideshow = () => {
               <LuUser />
               {feedbacks[currentIndex].name}
             </h4>
-            <p className="role">{feedbacks[currentIndex].email}</p>
           </div>
           <div className="carousel-card">
             <p className="feedback">
@@ -90,9 +89,6 @@ const FeedbackSlideshow = () => {
               <LuUser />
               {feedbacks[(currentIndex + 1) % feedbacks.length].name}
             </h4>
-            <p className="role">
-              {feedbacks[(currentIndex + 1) % feedbacks.length].email}
-            </p>
           </div>
         </div>
       </div>
