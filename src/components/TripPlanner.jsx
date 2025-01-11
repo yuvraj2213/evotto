@@ -86,7 +86,7 @@ const TripPlanner = ({
 
   return (
     <div className="trip-planner">
-      <h2>Select Pick-Up and Drop-Off Information below : </h2>
+      <h2 style={{color:"black"}}>Select Pick-Up and Drop-Off Information below : </h2>
       <form onSubmit={handleSubmit} className="trip-planner-form">
         <div className="trip-section">
           <div className="section-header">
