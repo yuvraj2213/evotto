@@ -48,7 +48,6 @@ const Navbar = () => {
           onClick={toggleDropdown} // Toggle on click for mobile
         >
           <Link>Services</Link>
-          {/* Dropdown for mobile */}
           {showDropdown && (
             <ul className="dropdown">
               <li>
@@ -78,7 +77,7 @@ const Navbar = () => {
           <li
             className={`logout-button ${showMenu ? "menu-nav-item" : "nav-item"}`}
             onClick={LogoutUser}
-            style={{ cursor: "pointer" ,color:"black"}}
+            // style={{ cursor: "pointer"}}
           >
             Logout
           </li>

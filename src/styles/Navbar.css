@@ -45,6 +45,17 @@
   margin: 0; /* Remove margin from the span element */
 }
 
+.logout-button {
+  color: black; /* Black color for larger screens */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* Hover effect for larger screens */
+.logout-button:hover {
+  color: #ff9f00; /* Optional: Add a hover effect */
+}
+
 .dropdown {
   display: none;
   position: absolute;
@@ -149,6 +160,15 @@
   .menu-nav-links a:hover {
     color: #ff9f00;
   }
+
+  .logout-button {
+    color: white; /* White color for smaller screens */
+  }
+
+  .logout-button:hover {
+    color: #ff9f00; /* Optional: Maintain hover effect for consistency */
+  }
+  
   .dropdown {
     display: flex;
     background-image: url("/images/nav_background3.avif");
