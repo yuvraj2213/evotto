@@ -99,6 +99,7 @@
   @media screen and (max-width: 480px) {
     .form-container {
       padding: 10px;
+      width: 100%;
     }
   
     .form-title {
