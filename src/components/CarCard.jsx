@@ -4,9 +4,11 @@ import { toast, Toaster } from "react-hot-toast";
 import Termsandcond from "./Termsandcond";
 import { useAuth } from "../store/auth";
 import CarCardSU from "./ShimmerUi/CarCardSU";
+import { useNavigate } from "react-router-dom";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+
 
 const CarCard = ({
   searchQuery,
@@ -22,7 +24,8 @@ const CarCard = ({
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
   const [loading, setLoading] = useState(true);
   const { isLoggedIn } = useAuth();
-  const [selectedCar,setSelectedCar]=useState({})
+  const [selectedCar, setSelectedCar] = useState({});
+  const navigate = useNavigate();
 
   const fetchCars = async () => {
     try {
@@ -41,6 +44,7 @@ const CarCard = ({
   };
 
   const handleRentClick = (car) => {
+    
     if (
       !pickUpLocation ||
       !pickUpDate ||
@@ -78,8 +82,24 @@ const CarCard = ({
     } else {
       setSelectedCar(car)
       setShowTermsModal(true);
-    }
 
+      // Current Work
+
+      // console.log(selectedCar)
+
+      // navigate("/rentalBooking", {
+      //   state: {
+      //     car,
+      //     pickUpLocation,
+      //     pickUpDate,
+      //     pickUpTime,
+      //     dropOffLocation,
+      //     dropOffDuration,
+      //   },
+      // });
+
+      // End of current work
+    }
   };
 
   const handleSubmitTerms = (car) => {
@@ -169,7 +189,6 @@ const CarCard = ({
                 </div>
                 <div className="car-info">
                   <button
-                  
                     className="rentnow-btn"
                     onClick={() => handleRentClick(car)}
                   >

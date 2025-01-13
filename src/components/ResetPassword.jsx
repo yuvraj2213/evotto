@@ -12,10 +12,9 @@ const ResetPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = async (event) => {
-      event.preventDefault();
-      console.log('token from url : ',token)
+    event.preventDefault();
 
-    // Use state variables for the input values
+    // Check if passwords match
     if (newPassword !== confirmPassword) {
       toast.error("Passwords do not match");
       return;
@@ -30,14 +29,19 @@ const ResetPassword = () => {
         body: JSON.stringify({ password: newPassword }), // Send newPassword
       });
 
+      const data = await response.json();
+      
+      // Debugging the response data and status for more clarity
+      console.log("Response status:", response.status);
+      console.log("Response data:", data);
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Password reset failed");
+        toast.error(data.message || "Password reset failed");
+        return;
       }
 
-      const data = await response.json();
       toast.success(data.message || "Password reset successful");
-    //   navigate("/login"); // Redirect to login page or desired route
+      navigate("/login"); // Redirect to login page after successful reset
     } catch (err) {
       console.error("Error resetting password:", err);
       toast.error(err.message || "Something went wrong");

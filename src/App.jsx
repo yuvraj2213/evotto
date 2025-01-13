@@ -57,7 +57,7 @@ const App = () => {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="rentalBooking" element={<RentalBooking/>}/>
+            <Route path="/rentalBooking" element={<RentalBooking/>}/>
             <Route path="/gears" element={<Gears/>}/>
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />

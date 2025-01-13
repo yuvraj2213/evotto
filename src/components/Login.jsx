@@ -93,11 +93,11 @@ const Login = ({ check, setCheck }) => {
               {passwordVisible ? "Hide Password" : "Show Password"}
             </button>
           </div>
-          <div className="form-links">
+          {/* <div className="form-links">
             <Link to="/forgot-password" className="forgot-password-link">
               Forgot Password?
             </Link>
-          </div>
+          </div> */}
           <div className="user-check">
             <button type="button" onClick={() => setCheck(!check)}>
               New here

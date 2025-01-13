@@ -1,96 +1,124 @@
-/* Existing styles */
-.feedback-heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 22px;
+.feedback-slideshow {
+  margin-top: 70px;
+  margin-bottom: 200px;
+}
+
+.feedback-slideshow .feedback-heading {
+  text-align: center;
+  color: #e71d36;
 }
 
 .carousel-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
   position: relative;
-  width: 90%;
-  margin: auto;
-  overflow: hidden;
-}
-
-.carousel-btn {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.carousel-btn:first-child {
-  left: 0;
-}
-
-.carousel-btn:last-child {
-  right: 0;
-}
-
-.carousel-content {
-  display: flex;
-  gap: 20px;
-  max-width: 70%; /* Ensure carousel-content does not expand beyond container */
-  justify-content: center;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .carousel-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  /* background-image: url("/images/blue5.jpg"); */
-  background-color: #fff;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  flex: 1;
+  max-width: 400px;
+  padding: 1.5rem;
+  margin: 0 1rem;
   border-radius: 10px;
-  padding: 20px;
+  background-color: #f9f9f9;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: calc(50% - 10px); /* Ensure each card takes up half of the carousel-content width, accounting for gap */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  transition: transform 0.3s, opacity 0.3s;
+  position: relative;
+  overflow: visible; /* Allow overflow for profile circle */
+}
+
+/* Active feedback card (will be shown on all screen sizes) */
+.carousel-card.active {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Faded feedback card (will be hidden on phone size devices) */
+.carousel-card.faded {
+  transform: scale(0.7);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  /* Hide previous and next feedbacks on small screens */
+  .carousel-card.faded {
+    display: none; /* Hide previous and next cards on mobile */
+  }
+
+  /* Ensure the active card is centered and visible */
+  .carousel-card.active {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 2;
+  }
+
+  /* Adjust margins and padding for mobile view */
+  .carousel-container {
+    flex-direction: column;
+  }
 }
 
 .feedback {
-  font-size: 1rem;
-  margin: 10px 0;
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 1.6rem;
+}
+
+.user-info {
+  position: absolute;
+  bottom: -35px; 
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.profile-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.user-icon {
+  font-size: 2.1rem;
+  color: #007bff;
 }
 
 .name {
-  color: #e71d36;
+  position: absolute;
+  bottom: -75px; 
+  font-size: 1rem;
   font-weight: bold;
-  font-size: 1.2rem;
+  color: #333;
+  width: 100%;
+  text-align: center;
 }
 
-.role {
-  font-size: 0.9rem;
-  color: royalblue;
+.carousel-controls {
+  margin-top: 1.5rem;
 }
 
-/* Media query for phone-width devices */
-@media (max-width: 600px) {
-  .carousel-content {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .carousel-card {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+.carousel-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-@media (max-width:480px){
-  .carousel-content {
-    max-width:90%;
-  }
+.carousel-btn:hover {
+  background-color: #0056b3;
 }

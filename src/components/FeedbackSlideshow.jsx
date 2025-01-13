@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "../styles/FeedbackSlideshow.css";
-import { LuUser } from "react-icons/lu";
+import { LuUser } from "react-icons/lu"; // Using React Icon
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const FeedbackSlideshow = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [feedbacks, setFeedback] = useState([]);
+  const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const handleNext = () => {
     if (feedbacks.length > 0) {
-      setCurrentIndex((prevIndex) => (prevIndex + 2) % feedbacks.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbacks.length);
     }
   };
 
   const handlePrev = () => {
     if (feedbacks.length > 0) {
       setCurrentIndex(
-        (prevIndex) => (prevIndex - 2 + feedbacks.length) % feedbacks.length
+        (prevIndex) => (prevIndex - 1 + feedbacks.length) % feedbacks.length
       );
     }
   };
@@ -32,14 +32,14 @@ const FeedbackSlideshow = () => {
 
       if (response.ok) {
         const data = await response.json();
-        setFeedback(data);
+        setFeedbacks(data);
       } else {
         console.error("Failed to fetch feedbacks");
       }
     } catch (error) {
       console.error("Error fetching feedbacks data:", error);
     } finally {
-      setLoading(false); // Stop the loading spinner regardless of success or error
+      setLoading(false);
     }
   };
 
@@ -48,51 +48,60 @@ const FeedbackSlideshow = () => {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(handleNext, 3000); // Auto-scroll every 3 seconds
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, [feedbacks]); // Only re-run when feedbacks array changes
+    const interval = setInterval(handleNext, 5000); // Auto-scroll every 5 seconds
+    return () => clearInterval(interval);
+  }, [feedbacks]);
 
-  if (loading || feedbacks.length === 0) {
+  if (loading) {
     return <p>Loading feedbacks...</p>;
   }
 
+  if (feedbacks.length === 0) {
+    return <p>No feedbacks available at the moment.</p>;
+  }
+
+  const prevIndex = (currentIndex - 1 + feedbacks.length) % feedbacks.length;
+  const nextIndex = (currentIndex + 1) % feedbacks.length;
+
   return (
-    <>
-      <div className="feedback-heading">
-        <h2
-          style={{
-            textAlign: "center",
-            backgroundColor: "white",
-            color: "#e71d36",
-            padding: "10px",
-            borderRadius: "22px",
-          }}
-        >
-          Straight from Customer's Heart
-        </h2>
-      </div>
+    <div className="feedback-slideshow">
+      <h2 className="feedback-heading">Straight from the Customer's heart</h2>
 
       <div className="carousel-container">
-        <div className="carousel-content">
-          <div className="carousel-card">
-            <p className="feedback">{feedbacks[currentIndex].feedback}</p>
-            <h4 className="name">
-              <LuUser />
-              {feedbacks[currentIndex].name}
-            </h4>
+        {/* Previous Feedback */}
+        <div className="carousel-card faded">
+          <p className="feedback">{feedbacks[prevIndex]?.feedback}</p>
+          <div className="user-info">
+            <div className="profile-circle">
+              <LuUser className="user-icon" />
+              <h4 className="name">{feedbacks[prevIndex]?.name}</h4>
+            </div>
           </div>
-          <div className="carousel-card">
-            <p className="feedback">
-              {feedbacks[(currentIndex + 1) % feedbacks.length].feedback}
-            </p>
-            <h4 className="name">
-              <LuUser />
-              {feedbacks[(currentIndex + 1) % feedbacks.length].name}
-            </h4>
+        </div>
+
+        {/* Current Feedback */}
+        <div className="carousel-card active">
+          <p className="feedback">{feedbacks[currentIndex]?.feedback}</p>
+          <div className="user-info">
+            <div className="profile-circle">
+              <LuUser className="user-icon" />
+              <h4 className="name">{feedbacks[currentIndex]?.name}</h4>
+            </div>
+          </div>
+        </div>
+
+        {/* Next Feedback */}
+        <div className="carousel-card faded">
+          <p className="feedback">{feedbacks[nextIndex]?.feedback}</p>
+          <div className="user-info">
+            <div className="profile-circle">
+              <LuUser className="user-icon" />
+              <h4 className="name">{feedbacks[nextIndex]?.name}</h4>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

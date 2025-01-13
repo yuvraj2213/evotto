@@ -3,12 +3,23 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SocialLinks from "../components/SocialLinks";
 import { useLocation } from "react-router-dom";
+const baseURL =
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 import "../styles/RentalBooking.css";
 
 const RentalBooking = () => {
   const location = useLocation();
-  const vehicleId = location.state?.rentalId;
+  const {
+    car,
+    pickUpLocation,
+    pickUpDate,
+    pickUpTime,
+    dropOffLocation,
+    dropOffDuration,
+  } = location.state || {};
+
+  const vehicleId = location.state?.car._id;
   console.log(vehicleId);
 
   const [vehicle, setVehicle] = useState([]);
@@ -16,7 +27,7 @@ const RentalBooking = () => {
   const getVehicle = async () => {
     try {
       const response = await fetch(
-        `https://evotto-backend.onrender.com/api/data/vehicle/${vehicleId}`,
+        `${baseURL}/api/data/vehicle/${vehicleId}`,
         { method: "GET" }
       );
       const data = await response.json();
