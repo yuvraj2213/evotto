@@ -1,19 +1,95 @@
 .footer {
-    font-family: "Poppins", serif;
-    font-weight: 800;
-    font-style: normal;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 50px;
-  }
+  background-color: #212121;
+  color: #ffffff;
+  padding: 0px 0px;
+  margin-top: 60px;
+  margin-left: -40px !important;
+  padding-left: 0px !important;
+  width: 100vw;
+}
 
-  .footer-line{
-    color:#e71d36;
-  }
-  
-  @media (max-width: 768px) {
-    .footer {
-      font-size: 0.8rem; 
-    }
-  }
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-left: -30px !important;
+}
+
+.footer-section {
+  margin: 20px;
+  max-width: 200px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #ffd700;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.footer-section ul a {
+  margin-bottom: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer-section ul a:hover {
+  margin-bottom: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  color: crimson;
+}
+
+.footer-section ul li:hover {
+  margin-bottom: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  color: crimson;
+}
+
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links button {
+  background: none;
+  border: none;
+  color: #ffd700;
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.footer-links button:hover {
+  text-decoration: underline;
+}
+
+.footer-payment-icons img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.footer-payment-icons img:last-child {
+  margin-right: 0;
+}
