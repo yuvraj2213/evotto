@@ -3,7 +3,7 @@
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
-  background-image: url("/images/form11.webp");
+  background-image: url("/images/feedbackbg1.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -14,12 +14,13 @@
 .feedback-container h1 {
   font-size: 24px;
   margin-bottom: 10px;
+  color:#e71d36;
 }
 
 .feedback-container p {
   font-size: 16px;
   margin-bottom: 20px;
-  color: #555;
+  color: #fff;
 }
 
 .feedback-form {
@@ -34,7 +35,7 @@
 
 .feedback-container .form-group label {
   font-size: 14px;
-  color: black !important;
+  color: #e71d36 !important;
   margin-bottom: 5px;
 }
 
