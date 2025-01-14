@@ -42,6 +42,10 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
 
+        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
+          <Link to="/about">About Us</Link>
+        </li>
+
         {/* Services Dropdown */}
         <li
           className={showMenu ? "menu-nav-item" : "nav-item services"}
@@ -67,8 +71,13 @@ const Navbar = () => {
         </li>
 
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
-          <Link to="/about">About Us</Link>
+          <Link to="/blogs">Blogs</Link>
         </li>
+
+        <li className={showMenu ? "menu-nav-item" : "nav-item"}>
+          <Link to="/contact">Contact Us</Link>
+        </li>
+
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
           <Link to="/feedback">Feedback</Link>
         </li>

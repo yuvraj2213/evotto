@@ -1,31 +1,40 @@
+/* Footer styles */
 .footer {
   background-color: #212121;
   color: #ffffff;
-  padding: 0px 0px;
+  padding: 0;
   margin-top: 60px;
-  margin-left: -40px !important;
-  padding-left: 0px !important;
-  width: 100vw;
+  margin-left: -40px; /* Negate body margin */
+  margin-right: -40px; /* Negate body margin */
+  width: calc(100% + 80px); /* Add back the width lost due to body margins */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  position: relative; /* Ensure proper layout alignment */
 }
 
+/* Footer container */
 .footer-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-left: -30px !important;
+  width: 100%; /* Ensure the container spans full width */
+  padding: 0 10px; /* Add some inner spacing */
+  margin: 0; /* Remove unintended outer margins */
 }
 
+/* Footer section styles */
 .footer-section {
   margin: 20px;
   max-width: 200px;
 }
 
+/* Footer section headings */
 .footer-section h4 {
   margin-bottom: 10px;
   font-size: 16px;
   color: #ffd700;
 }
 
+/* Footer section lists */
 .footer-section ul {
   list-style-type: none;
   padding: 0;
@@ -35,43 +44,33 @@
   margin-bottom: 8px;
   font-size: 12px;
   cursor: pointer;
-}
-
-.footer-section ul a {
-  margin-bottom: 8px;
-  font-size: 12px;
-  cursor: pointer;
-  text-decoration: none;
   color: #ffffff;
 }
 
-.footer-section ul a:hover {
-  margin-bottom: 8px;
+.footer-section ul a {
+  text-decoration: none;
+  color: #ffffff;
   font-size: 12px;
-  cursor: pointer;
-  color: crimson;
 }
 
+.footer-section ul a:hover,
 .footer-section ul li:hover {
-  margin-bottom: 8px;
-  font-size: 12px;
-  cursor: pointer;
   color: crimson;
 }
 
-
+/* Footer bottom section */
 .footer-bottom {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 0 20px;
+  padding: 20px 10px; /* Adjust padding for consistency */
   border-top: 1px solid #444;
-  padding-top: 20px;
   flex-wrap: wrap;
 }
 
+/* Footer links button */
 .footer-links button {
   background: none;
   border: none;
@@ -85,6 +84,7 @@
   text-decoration: underline;
 }
 
+/* Footer payment icons */
 .footer-payment-icons img {
   height: 20px;
   margin-right: 10px;
@@ -92,4 +92,18 @@
 
 .footer-payment-icons img:last-child {
   margin-right: 0;
+}
+
+/* Responsive design for smaller devices */
+@media (max-width: 530px) {
+  .footer-container {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center;
+    padding: 0; /* Remove extra padding */
+  }
+
+  .footer-section {
+    margin: 10px 0;
+    text-align: center; /* Center align content */
+  }
 }

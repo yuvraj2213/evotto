@@ -24,6 +24,9 @@ import AboutUs from "./pages/AboutUs";
 import AdminRentalVehicles from "./pages/AdminRentalVehicles";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
+import ContactUs from "./pages/ContactUs";
+import Blogs from "./pages/Blogs";
+import ConsumerPolicy from "./pages/ConsumerPolicy";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -55,10 +58,13 @@ const App = () => {
             <Route path="/service" element={<Servicing />} />
             <Route path="/drivers" element={<Driver/>} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/rentalBooking" element={<RentalBooking/>}/>
             <Route path="/gears" element={<Gears/>}/>
+            <Route path="/blogs" element={<Blogs/>}/>
+            <Route path="/consumer-policy" element={<ConsumerPolicy/>}/>
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path="*" element={<Error/>}/>
