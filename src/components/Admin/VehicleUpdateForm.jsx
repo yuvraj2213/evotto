@@ -9,8 +9,9 @@ const VehicleUpdateForm = ({ setShowForm, vehicleId }) => {
   const [formData, setFormData] = useState({
     name: "",
     image: "",
-    weekdayPrice: "",
-    weekendPrice: "",
+    sixhrPrice: "",
+    twelvehrPrice: "",
+    twentyfourhrPrice: "",
     isAvailable: false,
   });
 
@@ -80,8 +81,9 @@ const VehicleUpdateForm = ({ setShowForm, vehicleId }) => {
       setFormData({
         name: vehicle.name || "",
         image: vehicle.image || "",
-        weekdayPrice: vehicle.weekdayPrice || "",
-        weekendPrice: vehicle.weekendPrice || "",
+        sixhrPrice: vehicle.sixhrPrice || "",
+        twelvehrPrice: vehicle.twelvehrPrice || "",
+        twentyfourhrPrice: vehicle.twentyfourhrPrice || "",
         isAvailable: vehicle.isAvailable || false, // Ensure boolean value
       });
     }
@@ -116,24 +118,36 @@ const VehicleUpdateForm = ({ setShowForm, vehicleId }) => {
       </div>
 
       <div className="vehicle-update-form-in">
-        <label htmlFor="weekdayPrice">Weekday Price:</label>
+        <label htmlFor="weekdayPrice">Six Hr. Price:</label>
         <input
           type="text"
-          id="weekdayPrice"
-          name="weekdayPrice"
-          value={formData.weekdayPrice}
+          id="sixhrPrice"
+          name="sixhrPrice"
+          value={formData.sixhrPrice}
           onChange={handleChange}
           required
         />
       </div>
 
       <div className="vehicle-update-form-in">
-        <label htmlFor="weekendPrice">Weekend Price:</label>
+        <label htmlFor="weekendPrice">Twelve Hr. Price:</label>
         <input
           type="text"
-          id="weekendPrice"
-          name="weekendPrice"
-          value={formData.weekendPrice}
+          id="twelvehrPrice"
+          name="twelvehrPrice"
+          value={formData.twelvehrPrice}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="vehicle-update-form-in">
+        <label htmlFor="weekendPrice">Twenty Four Hr. Price:</label>
+        <input
+          type="text"
+          id="twentyfourhrPrice"
+          name="twentyfourhrPrice"
+          value={formData.twentyfourhrPrice}
           onChange={handleChange}
           required
         />

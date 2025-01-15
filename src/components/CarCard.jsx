@@ -80,23 +80,23 @@ const CarCard = ({
         icon: "⚠️",
       });
     } else {
-      setSelectedCar(car)
-      setShowTermsModal(true);
+      // setSelectedCar(car)
+      // setShowTermsModal(true);
 
       // Current Work
 
-      // console.log(selectedCar)
+      console.log(selectedCar)
 
-      // navigate("/rentalBooking", {
-      //   state: {
-      //     car,
-      //     pickUpLocation,
-      //     pickUpDate,
-      //     pickUpTime,
-      //     dropOffLocation,
-      //     dropOffDuration,
-      //   },
-      // });
+      navigate("/rentalBooking", {
+        state: {
+          car,
+          pickUpLocation,
+          pickUpDate,
+          pickUpTime,
+          dropOffLocation,
+          dropOffDuration,
+        },
+      });
 
       // End of current work
     }

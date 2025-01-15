@@ -19,13 +19,15 @@ const AdminRentalVehicles = () => {
   const [newVehicle, setNewVehicle] = useState({
     name: "",
     image: "",
-    weekdayPrice: "",
-    weekendPrice: "",
+    sixhrPrice: "",
+    twelvehrPrice: "",
+    twentyfourhrPrice: "",
     isAvailable: true,
   });
-  const [imageFile, setImageFile] = useState(null); // State to store the uploaded image file
+  const [imageFile, setImageFile] = useState(null); 
 
   const getAllVehiclesData = async () => {
+    {console.log(vehicles)}
     try {
       const response = await fetch(`${baseURL}/api/admin/rentalVehicle`, {
         method: "GET",
@@ -97,9 +99,10 @@ const AdminRentalVehicles = () => {
     // Create FormData to send image and vehicle data
     const formData = new FormData();
     formData.append("name", newVehicle.name);
-    formData.append("image", imageFile); // Append the image file
-    formData.append("weekdayPrice", newVehicle.weekdayPrice);
-    formData.append("weekendPrice", newVehicle.weekendPrice);
+    formData.append("image", imageFile); 
+    formData.append("sixhrPrice", newVehicle.sixhrPrice);
+    formData.append("twelvePrice", newVehicle.twelvehrPrice);
+    formData.append("twentyfourhrPrice", newVehicle.twentyfourhrPrice);
     formData.append("isAvailable", newVehicle.isAvailable);
 
     try {
@@ -118,8 +121,9 @@ const AdminRentalVehicles = () => {
         setNewVehicle({
           name: "",
           image: "",
-          weekdayPrice: "",
-          weekendPrice: "",
+          sixhrPrice: "",
+          twelvehrPrice: "",
+          twentyfourhrPrice: "",
           isAvailable: true,
         });
         setImageFile(null); // Reset the image file state
@@ -180,21 +184,31 @@ const AdminRentalVehicles = () => {
               />
             </div>
             <div>
-              <label>Weekday Price:</label>
+              <label>6hr Price:</label>
               <input
                 type="number"
                 name="weekdayPrice"
-                value={newVehicle.weekdayPrice}
+                value={newVehicle.sixhrPrice}
                 onChange={handleInputChange}
                 required
               />
             </div>
             <div>
-              <label>Weekend Price:</label>
+              <label>12hr Price:</label>
               <input
                 type="number"
                 name="weekendPrice"
-                value={newVehicle.weekendPrice}
+                value={newVehicle.twelvehrPrice}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label>24hr Price:</label>
+              <input
+                type="number"
+                name="weekendPrice"
+                value={newVehicle.twentyfourhrPrice}
                 onChange={handleInputChange}
                 required
               />
@@ -223,8 +237,9 @@ const AdminRentalVehicles = () => {
               <tr>
                 <th>Name</th>
                 <th>Image</th>
-                <th>Weekday Price</th>
-                <th>Weekend Price</th>
+                <th>6hr Price</th>
+                <th>12hr Price</th>
+                <th>24hr Price</th>
                 <th>Available</th>
                 <th>Update</th>
                 <th>Delete</th>
@@ -243,8 +258,9 @@ const AdminRentalVehicles = () => {
                       View Image
                     </a>
                   </td>
-                  <td>{vehicle.weekdayPrice}</td>
-                  <td>{vehicle.weekendPrice}</td>
+                  <td>{vehicle.sixhrPrice}</td>
+                  <td>{vehicle.twelvehrPrice}</td>
+                  <td>{vehicle.twentyfourhrPrice}</td>
                   <td>{vehicle.isAvailable ? "Yes" : "No"}</td>
                   <td className="admin-edit-vehicle-btn">
                     <button
@@ -277,7 +293,6 @@ const AdminRentalVehicles = () => {
 
         {showForm && <VehicleUpdateForm setShowForm={setShowForm} vehicleId={vehicleId} />}
       </section>
-      <Footer />
     </>
   );
 };

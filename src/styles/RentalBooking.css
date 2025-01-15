@@ -1,18 +1,53 @@
 .rental-booking-main{
-    width: 80vw;
+    width: 90vw;
     margin: 70px auto;
-    border: 2px solid firebrick;
+    /* border: 2px solid firebrick; */
     display: flex;
-
+    gap: 20px;
+    /* overflow: scroll; */
 }
 
 .rental-vehicle-img{
-    width: 60%;
+    width: 40%;
     height: 300px;
     background-color:orange;
 }
 
 .rental-vehicle-info{
-    width: 40%;
-    background-color: forestgreen;
+    padding: 20px;
+    width: 60%;
+    background-color: rgba(127,214,242,255);
+}
+
+.rental-total-cost{
+    color:#e71d36;
+    font-size: 30px;
+}
+
+.rental-car-name{
+    /* font-size: 40px; */
+    color: #e71d36;
+}
+
+.rental-pay-now-btn{
+    background-color: #e71d36;
+    border: none;
+    padding: 14px;
+    color: white;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.5s;
+    font-weight:bold;
+}
+
+.rental-pay-now-btn:hover{
+    background-color: #e25d36;
+}
+
+.rental-vehicle-description-heading{
+    color: #FDFDFF;
+}
+
+.rental-vehicle-description{
+    color: #62929E;
 }

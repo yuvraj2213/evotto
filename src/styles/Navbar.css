@@ -62,10 +62,7 @@
   list-style: none;
   top: 100%;
   right: -65px;
-  background-image: url("/images/blue5.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: rgba(127,214,242,255);
   width: 200px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   z-index: 1000;
@@ -171,7 +168,8 @@
   
   .dropdown {
     display: flex;
-    background-image: url("/images/nav_background3.avif");
+    /* background-image: url("/images/nav_background3.avif"); */
+    background-color: rgba(127,214,242,255);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -185,7 +183,6 @@
 @media (max-width: 480px) {
   .dropdown {
     display: flex;
-    background-image: url("/images/nav_background3.avif");
     border: 2px solid white;
     flex-direction: column;
     align-items: center;

@@ -3,10 +3,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SocialLinks from "../components/SocialLinks";
 import { useLocation } from "react-router-dom";
+import "../styles/RentalBooking.css";
+import RentalVehicleRating from "../components/RentalVehicleRating";
+
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
-
-import "../styles/RentalBooking.css";
 
 const RentalBooking = () => {
   const location = useLocation();
@@ -19,33 +20,87 @@ const RentalBooking = () => {
     dropOffDuration,
   } = location.state || {};
 
-  const vehicleId = location.state?.car._id;
-  console.log(vehicleId);
+  const vehicleId = car?._id || null;
+  console.log("Vehicle ID:", vehicleId);
 
   const [vehicle, setVehicle] = useState([]);
+  const [totalCost, setTotalCost] = useState(0); // Track total cost
+  const [pricePerHour, setPricePerHour] = useState(0); // Track price per hour
 
+  // Fetch vehicle details
   const getVehicle = async () => {
     try {
-      const response = await fetch(
-        `${baseURL}/api/data/vehicle/${vehicleId}`,
-        { method: "GET" }
-      );
+      const response = await fetch(`${baseURL}/api/data/vehicle/${vehicleId}`, {
+        method: "GET",
+      });
       const data = await response.json();
-
       setVehicle(data);
-      console.log("data", data);
-      console.log("vehicle data", vehicle);
+      console.log("Vehicle Data:", data);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 
+  // Calculate Price
   useEffect(() => {
-    getVehicle();
+    if (car && dropOffDuration) {
+      const perHourPrice = Math.ceil(Number(car?.sixhrPrice) / 6);
+      setPricePerHour(perHourPrice);
+
+      if (parseInt(dropOffDuration, 10) <= 5) {
+        const calculatedCost = perHourPrice * parseInt(dropOffDuration, 10);
+        setTotalCost(calculatedCost);
+      } else {
+        let duration = parseInt(dropOffDuration, 10);
+        if (duration == 6) {
+          setTotalCost(car.sixhrPrice);
+        } else if (duration == 12) {
+          setTotalCost(car.twelvehrPrice);
+        } else if (duration == 24) {
+          setTotalCost(car.twentyfourhrPrice);
+        }
+      }
+    }
+  }, [car, dropOffDuration]);
+
+  useEffect(() => {
+    if (vehicleId) {
+      getVehicle();
+    }
   }, [vehicleId]);
 
+  // Handle Payment with Razorpay
+  const handlePayment = async () => {
+    const options = {
+      key: "your_razorpay_key_id", // Replace with your Razorpay key
+      amount: totalCost * 100, // Razorpay accepts payment in paisa (₹1 = 100 paisa)
+      currency: "INR",
+      name: "Evotto Rentals",
+      description: "Vehicle Rental Payment",
+      image: "/images/logo.png", // Optional: Your logo
+      handler: function (response) {
+        alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+        console.log("Payment Response:", response);
+        // You can make a backend call here to confirm the payment
+      },
+      prefill: {
+        name: "John Doe", // Prefilled customer name
+        email: "johndoe@example.com", // Prefilled customer email
+        contact: "9876543210", // Prefilled customer phone number
+      },
+      notes: {
+        booking_id: vehicleId, // Optional: Add additional notes
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
+
   if (!vehicle) {
-    // Show a loading message or placeholder while vehicle data is being fetched
     return <div>Loading...</div>;
   }
 
@@ -63,9 +118,28 @@ const RentalBooking = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        >
+        ></div>
+        <div className="rental-vehicle-info">
+          <h3 className="rental-car-name">{car?.name || "Vehicle Name"}</h3>
+          <RentalVehicleRating />
+
+          {/* Pricing Calculation */}
+          <h2 className="rental-total-cost">
+            Total Cost: {totalCost > 0 ? `₹${totalCost}` : "Calculating..."}
+          </h2>
+          <button className="rental-pay-now-btn" onClick={handlePayment}>
+            Pay Now
+          </button>
+
+          <h3 className="rental-vehicle-description-heading">Description : </h3>
+          <p className="rental-vehicle-description">
+            The Bajaj Dominar 250 is powered by 248.8cc BS6 engine which
+            develops a power of 26.63 bhp and a torque of 23.5 Nm. With both
+            front and rear disc brakes, Bajaj Dominar 250 comes up with
+            anti-locking braking system. This Dominar 250 bike weighs 180 kg and
+            has a fuel tank capacity of 13 liters.
+          </p>
         </div>
-        <div className="rental-vehicle-info">Info</div>
       </div>
 
       <section className="social-links">

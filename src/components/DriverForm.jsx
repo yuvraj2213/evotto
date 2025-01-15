@@ -15,6 +15,7 @@ const DriverForm = () => {
     date: "",
     time: "",
     location: "",
+    duration: "1 day", // Default duration value
   });
 
   const handleChange = (e) => {
@@ -35,13 +36,14 @@ const DriverForm = () => {
 
     if (timeDiff < 1) {
       alert("Please book the driver at least 24 hours in advance.");
+      setLoading(false);
       return;
     }
 
     // Append user email to the form data
     const submissionData = {
       ...formData,
-      userEmail: userEmail, // Add email to the form data
+      userEmail: userEmail,
     };
 
     try {
@@ -76,53 +78,65 @@ const DriverForm = () => {
     <>
       <Toaster />
       <div className="driver-form-img">
-      <div className="book-driver-beside-img">
-        <img src="/images/driverBook.jpg" alt="Driver Booking" />
-      </div>
+        <div className="book-driver-beside-img">
+          <img src="/images/driverBook.jpg" alt="Driver Booking" />
+        </div>
 
-      <div className="form-container">
-        <h2 className="form-title">Book a Driver</h2>
-        <p className="form-note">
-          Note: Please book a driver at least 24 hours before your required
-          date.
-        </p>
-        <form className="driver-booking-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Date:</label>
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
-              min={getTomorrowDate()}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Time:</label>
-            <input
-              type="time"
-              name="time"
-              value={formData.time}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Location:</label>
-            <input
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button type="submit" className="submit-button">
-            {loading ? "Booking" : "Book Driver"}
-          </button>
-        </form>
-      </div>
+        <div className="form-container">
+          <h2 className="form-title">Book a Driver</h2>
+          <p className="form-note">
+            Note: Please book a driver at least 24 hours before your required
+            date.
+          </p>
+          <form className="driver-booking-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Date:</label>
+              <input
+                type="date"
+                name="date"
+                value={formData.date}
+                min={getTomorrowDate()}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>Time:</label>
+              <input
+                type="time"
+                name="time"
+                value={formData.time}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>Location:</label>
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>Duration:</label>
+              <select
+                name="duration"
+                value={formData.duration}
+                onChange={handleChange}
+                required
+              >
+                <option value="1 day">1 day</option>
+                <option value="30 days">30 days</option>
+              </select>
+            </div>
+            <button type="submit" className="submit-button">
+              {loading ? "Booking" : "Book Driver"}
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );

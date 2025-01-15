@@ -164,10 +164,14 @@ const TripPlanner = ({
                 required
               >
                 <option value="">Select Duration</option>
+                <option value="1 hr">1 hr</option>
+                <option value="2 hr">2 hr</option>
+                <option value="3 hr">3 hr</option>
+                <option value="4 hr">4 hr</option>
+                <option value="5 hr">5 hr</option>
                 <option value="6 hr">6 hr</option>
                 <option value="12 hr">12 hr</option>
                 <option value="24 hr">24 hr</option>
-                <option value="Others">Others</option>
               </select>
             </div>
           </div>
