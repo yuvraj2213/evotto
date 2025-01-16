@@ -68,13 +68,13 @@
 .rental-vehicle-info {
   padding: 20px;
   width: 60%;
-  height: 480px;
+  /* height: 480px; */
   background-image: url("/images/background3.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .rental-total-cost {
@@ -92,12 +92,13 @@
 .rental-pay-now-btn {
   background-color: #e71d36;
   border: none;
-  padding: 14px;
+  padding: 20px;
   color: white;
   border-radius: 22px;
   cursor: pointer;
   transition: background-color ease-in-out 0.5s;
   font-weight: bold;
+  width: 150px;
 }
 
 .rental-pay-now-btn:hover {
