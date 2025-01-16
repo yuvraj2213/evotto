@@ -1,7 +1,51 @@
+.rental-vehicle-heading {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.rental-vehicle-heading {
+  text-align: center;
+  padding: 20px 0;
+  /* background: linear-gradient(135deg, #ff7eb3, #ff758c); */
+  background-image: url("/images/background3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 22px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rental-heading-text {
+  font-family: "Pacifico", cursive;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+.rental-heading-text .evotto-highlight {
+  color: #ffe766;
+  font-size: 3rem;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .rental-heading-text {
+    font-size: 2rem;
+  }
+  .rental-heading-text .evotto-highlight {
+    font-size: 2.5rem;
+  }
+}
+
 .rental-booking-main {
   width: 90vw;
-  margin: 70px auto;
-  /* border: 2px solid firebrick; */
+  margin: 10px auto;
   display: flex;
   gap: 20px;
   background-image: url("/images/background3.png");
@@ -9,6 +53,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  border-radius: 22px;
+  padding: 20px;
   /* border-radius: 30px; */
   /* overflow: scroll; */
 }
@@ -22,11 +68,13 @@
 .rental-vehicle-info {
   padding: 20px;
   width: 60%;
+  height: 480px;
   background-image: url("/images/background3.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-y: scroll;
 }
 
 .rental-total-cost {
@@ -35,8 +83,10 @@
 }
 
 .rental-car-name {
-  /* font-size: 40px; */
-  color: #e71d36;
+  font-size: 40px;
+  margin: 0;
+  margin-bottom: 10px;
+  color: #ffffff;
 }
 
 .rental-pay-now-btn {
@@ -64,8 +114,10 @@
 
 .trip-planner-info {
   display: flex;
-  gap: 60px;
+  gap: 40px;
   margin-top: 25px;
+  margin-left: 15px;
+  margin-bottom: 10px;
 }
 
 .trip-planner-info .pickup-info {
@@ -88,4 +140,19 @@
   color: #fdfdff;
   padding: 13px;
   border-radius: 15px;
+}
+
+.rental-vehicle-description .rental-offer-list {
+  list-style: none;
+}
+
+.rental-offer-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+  margin-left: -40px;
+}
+
+.icon {
+  flex-shrink: 0; 
 }

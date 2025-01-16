@@ -5,6 +5,7 @@ import SocialLinks from "../components/SocialLinks";
 import { useLocation } from "react-router-dom";
 import "../styles/RentalBooking.css";
 import RentalVehicleRating from "../components/RentalVehicleRating";
+import { BiSolidOffer } from "react-icons/bi";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -110,17 +111,27 @@ const RentalBooking = () => {
     <>
       <Navbar />
       {console.log(pickUpDate)}
+      <div className="rental-vehicle-heading">
+        <h2 className="rental-heading-text">
+          Let's Ride With <span className="evotto-highlight">Evotto</span>
+        </h2>
+      </div>
+
       <div className="rental-booking-main">
-        <div
-          className="rental-vehicle-img"
-          style={{
-            backgroundImage: vehicle[0]?.image
-              ? `url(${vehicle[0].image})`
-              : "none",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></div>
+        <div className="rental-booking-img">
+          <img src={vehicle[0]?.image} alt="" width={500} />
+          <div className="trip-planner-info">
+            <div className="pickup-info">
+              <h4>PickUp Location : {pickUpLocation}</h4>
+              <h4>PickUp Date : {pickUpDate}</h4>
+              <h4>PickUp Time : {pickUpTime}</h4>
+            </div>
+            <div className="dropoff-info">
+              <h4>DropOff Location : {dropOffLocation}</h4>
+              <h4>DropOff Duration : {dropOffDuration}</h4>
+            </div>
+          </div>
+        </div>
         <div className="rental-vehicle-info">
           <h3 className="rental-car-name">{car?.name || "Vehicle Name"}</h3>
           <RentalVehicleRating />
@@ -133,21 +144,20 @@ const RentalBooking = () => {
             Pay Now
           </button>
 
-          <div className="trip-planner-info">
-            <div className="pickup-info">
-            <h4>PickUp Location : {pickUpLocation}</h4>
-            <h4>PickUp Date : {pickUpDate}</h4>
-            <h4>PickUp Time : {pickUpTime}</h4>
-            </div>
-            <div className="dropoff-info">
-              <h4>DropOff Location : {dropOffLocation}</h4>
-              <h4>DropOff Duration : {dropOffDuration}</h4>
-            </div>
-
-          </div>
+          <h3 className="rental-vehicle-description-heading">Available Offers : </h3>
+          <p className="rental-vehicle-description">
+            <ul className="rental-offer-list">
+              <li><BiSolidOffer color="#6CAE75" size={20}/>30 minutes extra ride time for students</li>
+              <li><BiSolidOffer color="#6CAE75" size={20}/>Bank Offers coming soon</li>
+            </ul>
+          </p>
 
           <h3 className="rental-vehicle-description-heading">Description : </h3>
           <p className="rental-vehicle-description">{car?.desc}</p>
+
+          <div className="rental-rating-review">
+          <h3 className="rental-vehicle-description-heading">Ratings and Reviews : </h3>
+          </div>
         </div>
       </div>
 
