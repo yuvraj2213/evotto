@@ -79,7 +79,9 @@ const RentalBooking = () => {
       description: "Vehicle Rental Payment",
       image: "/images/logo.png", // Optional: Your logo
       handler: function (response) {
-        alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+        alert(
+          `Payment successful! Payment ID: ${response.razorpay_payment_id}`
+        );
         console.log("Payment Response:", response);
         // You can make a backend call here to confirm the payment
       },
@@ -107,7 +109,7 @@ const RentalBooking = () => {
   return (
     <>
       <Navbar />
-
+      {console.log(pickUpDate)}
       <div className="rental-booking-main">
         <div
           className="rental-vehicle-img"
@@ -131,14 +133,21 @@ const RentalBooking = () => {
             Pay Now
           </button>
 
+          <div className="trip-planner-info">
+            <div className="pickup-info">
+            <h4>PickUp Location : {pickUpLocation}</h4>
+            <h4>PickUp Date : {pickUpDate}</h4>
+            <h4>PickUp Time : {pickUpTime}</h4>
+            </div>
+            <div className="dropoff-info">
+              <h4>DropOff Location : {dropOffLocation}</h4>
+              <h4>DropOff Duration : {dropOffDuration}</h4>
+            </div>
+
+          </div>
+
           <h3 className="rental-vehicle-description-heading">Description : </h3>
-          <p className="rental-vehicle-description">
-            The Bajaj Dominar 250 is powered by 248.8cc BS6 engine which
-            develops a power of 26.63 bhp and a torque of 23.5 Nm. With both
-            front and rear disc brakes, Bajaj Dominar 250 comes up with
-            anti-locking braking system. This Dominar 250 bike weighs 180 kg and
-            has a fuel tank capacity of 13 liters.
-          </p>
+          <p className="rental-vehicle-description">{car?.desc}</p>
         </div>
       </div>
 

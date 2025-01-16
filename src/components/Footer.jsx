@@ -11,6 +11,8 @@ const Footer = () => {
           <ul>
             <li><Link to='/contact'>Contact Us</Link></li>
             <li><Link to='/about'>About Us</Link></li>
+            <li><Link to='/privacy-policy'>Privacy Policy</Link></li>
+            <li><Link to='/return-policy'>Return Policy</Link></li>
           </ul>
         </div>
         <div className="footer-section">

@@ -27,6 +27,8 @@ import ResetPassword from "./components/ResetPassword";
 import ContactUs from "./pages/ContactUs";
 import Blogs from "./pages/Blogs";
 import ConsumerPolicy from "./pages/ConsumerPolicy";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import ReturnPolicyPage from "./pages/ReturnPolicyPage";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -65,6 +67,8 @@ const App = () => {
             <Route path="/gears" element={<Gears/>}/>
             <Route path="/blogs" element={<Blogs/>}/>
             <Route path="/consumer-policy" element={<ConsumerPolicy/>}/>
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
+            <Route path="/return-policy" element={<ReturnPolicyPage/>}/>
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path="*" element={<Error/>}/>
