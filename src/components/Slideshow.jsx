@@ -92,7 +92,7 @@ const Slideshow = () => {
           &#8250;
         </button> */}
       </div>
-      <div class="slideshow-beside-container">
+      {/* <div class="slideshow-beside-container">
         <h2>Your One-Stop Automobile Solution!</h2>
         <p>
           From scooters to cars, Bharat moves on wheels, and Evotto ensures
@@ -100,7 +100,7 @@ const Slideshow = () => {
           needs.
         </p>
         <button class="know-more-button"><Link to='/about'>Know More</Link></button>
-      </div>
+      </div> */}
     </>
   );
 };

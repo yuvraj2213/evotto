@@ -113,6 +113,23 @@
   color: #62929e;
 }
 
+.rental-vehicle-review-heading{
+  color: #fdfdff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rental-vehicle-review-heading button{
+  background-color:#e71d36 ;
+  padding: 7px;
+  border: none;
+  color: white;
+  height: 30px;
+  border-radius: 22px;
+  cursor: pointer;
+}
+
 .trip-planner-info {
   display: flex;
   gap: 40px;
@@ -156,4 +173,27 @@
 
 .icon {
   flex-shrink: 0; 
+}
+
+.rental-review-card{
+  width: 90%;
+  background-image: url("/images/yellowbg1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  padding: 15px;
+  padding-bottom: 2px;
+  padding-top: 5px;
+  border-radius: 5px;
+}
+
+.review-user-info{
+  color: #e71d36;
+}
+
+.rental-review-card-main{
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
 }

@@ -12,6 +12,7 @@ import Firework from "../components/Firework";
 import Safety from "../components/Safety";
 import KnowUs from "../components/KnowUs";
 import FeedbackSlideshow from "../components/FeedbackSlideshow";
+import RideOptions from "../components/RideOptions";
 
 const Home = () => {
 
@@ -31,6 +32,7 @@ const Home = () => {
         <section className="know-us-better-home">
           <KnowUs/>
         </section>
+        <RideOptions/>
         <section className="services">
           <Services />
         </section>
