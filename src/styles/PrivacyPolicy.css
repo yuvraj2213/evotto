@@ -13,12 +13,12 @@
   }
   
   .privacy-policy-header h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #333;
   }
   
   .privacy-policy-header p {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #555;
   }
   
@@ -28,7 +28,7 @@
   
   .privacy-policy-section h2 {
     font-size: 1.5rem;
-    color: #e71d36;
+    color: black;
     margin-bottom: 0.5rem;
   }
   
@@ -46,7 +46,7 @@
   
   .privacy-policy-section p {
     color: #555;
-    font-size: 1rem;
+    font-size: 0.7rem;
     line-height: 1.6;
   }
   
