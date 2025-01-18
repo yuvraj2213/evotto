@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px; /* Add padding for better spacing */
-  gap: 10px; /* Control spacing between children */
+  gap: 70px; /* Control spacing between children */
 }
 
 .inner-certificate h1 {
@@ -26,10 +26,24 @@
   background-repeat: no-repeat;
   border-radius: 12px;
 }
+.inner-certificate .certificate2 {
+  width: 800px;
+  height: 80vh;
+  background-image: url("/images/Certificate/Certificate_2.jpg");
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+}
 
 /* Adjustments for medium screens */
 @media (max-width: 850px) {
   .inner-certificate .certificate1 {
+    width: 600px;
+    height: 60vh;
+  }
+
+  .inner-certificate .certificate2 {
     width: 600px;
     height: 60vh;
   }
@@ -38,6 +52,11 @@
 /* Adjustments for smaller screens */
 @media (max-width: 640px) {
   .inner-certificate .certificate1 {
+    width: 400px;
+    height: 60vh;
+  }
+
+  .inner-certificate .certificate2 {
     width: 400px;
     height: 60vh;
   }
@@ -60,6 +79,11 @@
     margin-bottom: 10px !important;
     padding: 10px !important;
   }
+  .inner-certificate .certificate2 {
+    width: 350px;
+    margin-top: 30px !important;
+    padding: 0px !important;
+  }
 }
 
 /* Adjustments for mobile screens */
@@ -70,6 +94,9 @@
   .inner-certificate .certificate1 {
     width: 340px;
   }
+  .inner-certificate .certificate2 {
+    width: 340px;
+  }
 }
 
 /* Adjustments for very small screens */
@@ -78,6 +105,10 @@
     gap: 4px !important; /* Minimize spacing on very small screens */
   }
   .inner-certificate .certificate1 {
+    width: 300px;
+  }
+
+  .inner-certificate .certificate2 {
     width: 300px;
   }
 }

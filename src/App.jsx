@@ -26,9 +26,11 @@ import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import ContactUs from "./pages/ContactUs";
 import Blogs from "./pages/Blogs";
+import BlogDetailPage from "./pages/BlogDetailPage";
 import ConsumerPolicy from "./pages/ConsumerPolicy";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import ReturnPolicyPage from "./pages/ReturnPolicyPage";
+import AdminBlogs from "./pages/AdminBlogs";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -66,6 +68,7 @@ const App = () => {
             <Route path="/rentalBooking" element={<RentalBooking/>}/>
             <Route path="/gears" element={<Gears/>}/>
             <Route path="/blogs" element={<Blogs/>}/>
+            <Route path="/blog-detail" element={<BlogDetailPage/>}/>
             <Route path="/consumer-policy" element={<ConsumerPolicy/>}/>
             <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
             <Route path="/return-policy" element={<ReturnPolicyPage/>}/>
@@ -79,6 +82,7 @@ const App = () => {
               <Route path="slideshow" element={<AdminSlideshow/>}/>
               <Route path="rentalLocations" element={<AdminRentalLocations/>}/>
               <Route path="rentalVehicles" element={<AdminRentalVehicles/>}/>
+              <Route path="blogs" element={<AdminBlogs/>}/>
             </Route>
           </Routes>
         </Router>

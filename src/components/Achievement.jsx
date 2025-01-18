@@ -7,6 +7,7 @@ const Achievement = () => {
       <div className="inner-certificate">
         <h1 className="certificate-header">Our Achievments</h1>
         <div className="certificate1"></div>
+        <div className="certificate2"></div>
       </div>
     </>
   );

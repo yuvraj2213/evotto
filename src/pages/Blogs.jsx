@@ -2,17 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import SocialLinks from "../components/SocialLinks";
 import Footer from "../components/Footer";
+import BlogCardPage from "../components/BlogCardPage";
 
 const Blogs = () => {
   return (
     <>
-      <Navbar />
-      <div className="comingsoon-heading">
-        <h2 style={{color:'#e71d36'}}>Blogs Section Will Be Available Soon</h2>
-        <h3 style={{color:'#e95e36'}}>Stay Tuned</h3>
-      </div>
+      <Navbar />  
 
-      <div className="second-hand-comingsoon"></div>
+      <BlogCardPage/>
 
       <section className="social-links">
         <SocialLinks />
