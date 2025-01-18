@@ -1,14 +1,13 @@
+
+
+/* Rental Heading Section */
 .rental-vehicle-heading {
   display: flex;
   margin-top: 20px;
   align-items: center;
   justify-content: center;
-}
-
-.rental-vehicle-heading {
   text-align: center;
   padding: 20px 0;
-  /* background: linear-gradient(135deg, #ff7eb3, #ff758c); */
   background-image: url("/images/background3.png");
   background-size: cover;
   background-position: center;
@@ -34,6 +33,7 @@
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
+/* Media Query for Smaller Devices */
 @media (max-width: 768px) {
   .rental-heading-text {
     font-size: 2rem;
@@ -43,6 +43,11 @@
   }
 }
 
+.rental-booking-slideshow{
+  display: none;
+}
+
+/* Main Rental Booking Section */
 .rental-booking-main {
   width: 90vw;
   margin: 10px auto;
@@ -55,8 +60,6 @@
   background-attachment: fixed;
   border-radius: 22px;
   padding: 20px;
-  /* border-radius: 30px; */
-  /* overflow: scroll; */
 }
 
 .rental-vehicle-img {
@@ -68,15 +71,14 @@
 .rental-vehicle-info {
   padding: 20px;
   width: 60%;
-  /* height: 480px; */
   background-image: url("/images/background3.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* overflow-y: scroll; */
 }
 
+/* Total Cost and Payment Button */
 .rental-total-cost {
   color: #e71d36;
   font-size: 30px;
@@ -105,6 +107,7 @@
   background-color: #e25d36;
 }
 
+/* Description Section */
 .rental-vehicle-description-heading {
   color: #fdfdff;
 }
@@ -113,15 +116,15 @@
   color: #62929e;
 }
 
-.rental-vehicle-review-heading{
+.rental-vehicle-review-heading {
   color: #fdfdff;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.rental-vehicle-review-heading button{
-  background-color:#e71d36 ;
+.rental-vehicle-review-heading button {
+  background-color: #e71d36;
   padding: 7px;
   border: none;
   color: white;
@@ -130,6 +133,7 @@
   cursor: pointer;
 }
 
+/* Trip Planner Info */
 .trip-planner-info {
   display: flex;
   gap: 40px;
@@ -160,6 +164,7 @@
   border-radius: 15px;
 }
 
+/* Reviews and Rating Section */
 .rental-vehicle-description .rental-offer-list {
   list-style: none;
 }
@@ -167,33 +172,195 @@
 .rental-offer-list li {
   display: flex;
   align-items: center;
-  gap: 15px; 
+  gap: 15px;
   margin-left: -40px;
 }
 
 .icon {
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
 
-.rental-review-card{
+.rental-review-card {
   width: 90%;
   background-image: url("/images/yellowbg1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
   padding: 15px;
   padding-bottom: 2px;
   padding-top: 5px;
   border-radius: 5px;
 }
 
-.review-user-info{
-  color: #e71d36;
+.review-user-info {
+  color: #fff;
+  font-style: italic;
 }
 
-.rental-review-card-main{
-  display: flex;
-  flex-direction: column;
-  gap: 17px;
+/* Load More Button */
+/* button {
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  background-color: #e71d36;
+  color: white;
+  padding: 8px;
+  border-radius: 22px;
+}
+
+button:hover {
+  background-color: #e25d36;
+} */
+
+/* Slideshow Section */
+.slideshow-container {
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.slideshow-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .rental-booking-main {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .rental-vehicle-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .rental-vehicle-info {
+    width: 100%;
+  }
+
+  .rental-car-name {
+    font-size: 30px;
+  }
+
+  .rental-total-cost {
+    font-size: 25px;
+  }
+
+  .rental-pay-now-btn {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .rental-heading-text {
+    font-size: 1.8rem;
+  }
+
+  .rental-heading-text .evotto-highlight {
+    font-size: 2.2rem;
+  }
+
+  .trip-planner-info {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 20px;
+  }
+
+  .rental-review-card {
+    padding: 10px;
+  }
+
+  .rental-vehicle-description-heading {
+    font-size: 1.2rem;
+  }
+
+  .rental-vehicle-description {
+    font-size: 1rem;
+  }
+
+  .rental-vehicle-description .rental-offer-list li {
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .review-user-info {
+    font-size: 0.9rem;
+  }
+
+  /* button {
+    font-size: 1rem;
+  } */
+}
+
+/* For Very Small Devices (mobile-first) */
+@media (max-width: 480px) {
+
+  .rental-booking-img img{
+    width: 95%;
+    height: auto;
+  }
+
+  .rental-booking-main{
+    width: 100%;
+    margin-right: 10px;
+    border-radius: 0px;
+  }
+
+  .rental-heading-text {
+    font-size: 1.5rem;
+  }
+
+  .rental-vehicle-info{
+    padding: 0;
+    margin-left: -30px;
+    padding: 30px;
+  }
+
+  .rental-heading-text .evotto-highlight {
+    font-size: 2rem;
+  }
+
+  .rental-pay-now-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .rental-review-card {
+    padding: 8px;
+  }
+
+  .rental-vehicle-description-heading {
+    font-size: 1rem;
+  }
+
+  .rental-vehicle-description {
+    font-size: 0.9rem;
+  }
+
+  .trip-planner-info .pickup-info {
+  color: #fdfdff;
+  padding: 13px;
+  border-radius: 15px;
+  width: 40%;
+}
+.trip-planner-info{
+  margin-right: 20px;
+  flex-direction: row;
+}
+
+.rental-pay-now-btn{
+  width: 130px;
+}
+
+.rental-rating-review{
+  margin-right: 15px;
+}
+
+
+  /* button {
+    font-size: 0.9rem;
+  } */
 }

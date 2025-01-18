@@ -142,7 +142,9 @@ const RentalBooking = () => {
               <h4>DropOff Duration : {dropOffDuration}</h4>
             </div>
           </div>
-          <Slideshow/>
+          <div className="rental-booking-slideshow">
+            <Slideshow />
+          </div>
         </div>
         <div className="rental-vehicle-info">
           <h3 className="rental-car-name">{car?.name || "Vehicle Name"}</h3>
