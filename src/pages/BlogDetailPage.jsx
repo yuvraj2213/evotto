@@ -13,10 +13,10 @@ const BlogDetailPage = () => {
     <>
       <Navbar />
       <div className="blog-detail-main">
-        <img src={blog.url} alt="Blog Image" className="blog-detail-image" />
-        <h2>{blog.title}</h2>
+        <img src={blog?.url} alt="Blog Image" className="blog-detail-image" />
+        <h2>{blog?.title}</h2>
         <div className="blog-detail-content">
-          <p>{blog.content}</p>{" "}
+          <p>{blog?.content}</p>{" "}
         </div>
       </div>
       <section className="social-links">
