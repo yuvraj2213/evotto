@@ -1,8 +1,15 @@
 .blog-card-main {
   display: flex;
   gap: 50px;
+  flex-wrap: wrap; /* Allows the cards to wrap on smaller screens */
+  justify-content: center; /* Centers the cards horizontally */
 }
 
+.blog-heading{
+    text-align: center;
+}
+
+/* Styling for individual blog card */
 .blog-card {
   height: 350px;
   width: 300px;
@@ -12,6 +19,9 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Adds layered depth */
   transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
   cursor: pointer;
+  flex: 1 1 300px; /* Makes the card flexible, with a minimum width of 300px */
+  max-width: 300px; /* Prevents cards from growing too large */
+  margin-bottom: 20px; /* Adds spacing between rows */
 }
 
 /* Hover Effect for Interactivity */
@@ -20,15 +30,47 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
-.blog-card-title{
-    color: #e71d36;
+.blog-card-title {
+  color: #e71d36;
 }
 
-.blog-card-date{
-    color: #E8871E;
+.blog-card-date {
+  color: #E8871E;
 }
 
 .blog-card img {
-  width: 300px;
-  height: 200px;
+  width: 100%; /* Makes the image responsive */
+  height: 200px; /* Maintain aspect ratio */
+  border-radius: 5px; /* Optional: Adds smooth corners to images */
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  .blog-card-main {
+    gap: 20px; /* Reduces the gap between cards */
+    justify-content: space-around; /* Distribute the cards evenly */
+  }
+
+  .blog-card {
+    width: 100%; /* Cards take up full width on smaller screens */
+    max-width: 100%; /* Allow cards to stretch fully */
+    height: auto; /* Adjust height for better scaling */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blog-card-main {
+    gap: 10px; /* Further reduce gap for very small screens */
+  }
+
+  .blog-card {
+    width: 100%; /* Cards take up full width */
+    max-width: 100%; /* Allow cards to stretch fully */
+    height: auto; /* Adjust height for better scaling */
+  }
+
+  .blog-card img {
+    width: 100%; /* Ensure images take full width */
+    height: auto; /* Maintain aspect ratio on small screens */
+  }
 }

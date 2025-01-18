@@ -36,7 +36,7 @@ const BlogCardPage = () => {
 
   return (
     <>
-      <h2>Blogs</h2>
+      <h2 className="blog-heading">Blogs</h2>
       <div className="blog-card-main">
         {console.log(blogs)}
         {blogs?.map((curr, index) => (
