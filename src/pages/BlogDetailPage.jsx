@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 
 const BlogDetailPage = () => {
   const location = useLocation();
-  const { blog } = location.state;
+  const blog = location.state?.blog;
   return (
     <>
       <Navbar />

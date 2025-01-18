@@ -9,7 +9,7 @@
 
 .blog-detail-main .blog-detail-image {
   width: 700px;
-  height: 450px;
+  height: auto;
   object-fit: cover; /* Maintains image aspect ratio and covers the container */
 }
 
