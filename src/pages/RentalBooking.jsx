@@ -154,9 +154,9 @@ const RentalBooking = () => {
           <h2 className="rental-total-cost">
             Total Cost: {totalCost > 0 ? `₹${totalCost}` : "Calculating..."}
           </h2>
-          <button className="rental-pay-now-btn" onClick={handlePayment}>
+          <a className="rental-pay-now-btn" href="https://razorpay.me/@evottoprivatelimited" >
             Pay Now
-          </button>
+          </a>
 
           <h3 className="rental-vehicle-description-heading">
             Available Offers :
@@ -176,7 +176,7 @@ const RentalBooking = () => {
           <div className="rental-rating-review">
             <div className="rental-vehicle-review-heading">
               <h3>Ratings and Reviews : </h3>
-              <button onClick={() => setIsReviewFormOpen(!isReviewFormOpen)}>
+              <button onClick={() => setIsReviewFormOpen(!isReviewFormOpen)} className="rental-rate-btn">
                 {isReviewFormOpen ? "Close Form" : "Rate The Vehicle"}
               </button>
             </div>
