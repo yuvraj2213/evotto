@@ -2,25 +2,26 @@ import React, { useEffect, useState } from "react";
 import "../styles/UserProfile.css";
 import { useAuth } from "../store/auth";
 
-const UserProfile = () => {
+const UserProfile = ({ name, email, phone }) => {
   const { user } = useAuth();
   const [userDetails, setUserDetails] = useState(null);
 
-  useEffect(() => {
-    if (user && user.userData) {
-      setUserDetails(user.userData);
-    }
-  }, [user]);
+  // const [loading,setLoading]=useState(true)
 
-  useEffect(() => {
-    if (userDetails) {
-      console.log("Updated user details:", userDetails);
-    }
-  }, [userDetails]);
+  // useEffect(() => {
+  //   if (user && user.userData) {
+  //     setUserDetails(user.userData);
+  //   }
+  // }, [user]);
 
-  if (!userDetails) {
-    return <div>Loading..</div>; // Ensure no rendering happens until `userDetails` is ready
-  }
+  // useEffect(() => {
+  //   if (userDetails) {
+  //     console.log("Updated user details:", userDetails);
+  //   }
+
+  // }, [userDetails]);
+
+  console.log(name);
 
   const handleEditProfile = () => {
     alert("Profile editing feature coming soon!");
@@ -35,15 +36,15 @@ const UserProfile = () => {
         <div className="profile-info">
           <div className="profile-detail">
             <span className="label">Name:</span>
-            <span className="value">{userDetails.name || "Not Available"}</span>
+            <span className="value">{name || "Not Available"}</span>
           </div>
           <div className="profile-detail">
             <span className="label">Email:</span>
-            <span className="value">{userDetails.email || "Not Available"}</span>
+            <span className="value">{email || "Not Available"}</span>
           </div>
           <div className="profile-detail">
             <span className="label">Phone:</span>
-            <span className="value">{userDetails.phone || "Not Available"}</span>
+            <span className="value">{phone || "Not Available"}</span>
           </div>
         </div>
         <div className="profile-actions">

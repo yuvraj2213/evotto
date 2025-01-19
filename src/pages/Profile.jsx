@@ -52,7 +52,7 @@ const Profile = () => {
       <Navbar />
 
       {isLoggedIn ? (
-        <UserProfile />
+        <UserProfile name={userDetails.name} email={userDetails.email} phone={userDetails.phone}/>
       ) : (
         <>
           {check ? (
