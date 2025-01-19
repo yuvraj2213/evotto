@@ -28,10 +28,10 @@ const Profile = () => {
     }
   }, [userDetails]);
 
-  // Use an effect to simulate waiting for `user` data to load
+
   useEffect(() => {
     if (user) {
-      setLoading(false); // Stop loading when `user` is fetched
+      setLoading(false); 
     }
   }, [user]);
 
