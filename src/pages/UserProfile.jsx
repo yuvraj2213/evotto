@@ -4,7 +4,7 @@ import { useAuth } from "../store/auth";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const UserProfile = ({ name, email, phone }) => {
+const UserProfile = () => {
   const [loading, setLoading] = useState(true);
 
   const { user, isLoggedIn } = useAuth();

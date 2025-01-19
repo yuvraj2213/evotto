@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Signup from "../components/Signup";
 import Navbar from "../components/Navbar";
 import SocialLinks from "../components/SocialLinks";
@@ -7,52 +7,21 @@ import Login from "../components/Login";
 import UserProfile from "./UserProfile";
 import { useAuth } from "../store/auth";
 import { Link } from "react-router-dom";
-import "../styles/Profile.css";
+import '../styles/Profile.css'
 
 const Profile = () => {
   const [check, setCheck] = useState(false);
-  const [loading, setLoading] = useState(true); // Add a loading state
 
   const { user, isLoggedIn } = useAuth();
-  const [userDetails, setUserDetails] = useState();
-
-  useEffect(() => {
-    if (user && user.userData) {
-      setUserDetails(user.userData);
-    }
-  }, [user]);
-
-  useEffect(() => {
-    if (userDetails) {
-      console.log("Updated user details:", userDetails);
-    }
-  }, [userDetails]);
-
-
-  useEffect(() => {
-    if (user) {
-      setLoading(false); 
-    }
-  }, [user]);
-
-  if (loading) {
-    return (
-      <>
-        <Navbar />
-        <div className="loading-container">
-          <p>Loading..</p>
-        </div>
-        <Footer />
-      </>
-    );
-  }
+  const User = user?.userData;
 
   return (
     <>
       <Navbar />
+      {console.log("User", User)}
 
       {isLoggedIn ? (
-        <UserProfile name={userDetails.name} email={userDetails.email} phone={userDetails.phone}/>
+        <UserProfile />
       ) : (
         <>
           {check ? (
@@ -63,10 +32,12 @@ const Profile = () => {
         </>
       )}
 
-      {userDetails && userDetails.isAdmin && (
+      {User && User.isAdmin && (
         <div className="profile-admin-btn">
           <Link to="/admin">
-            <button>Open Admin Panel</button>
+            <button>
+              Open Admin Panel
+            </button>
           </Link>
         </div>
       )}
