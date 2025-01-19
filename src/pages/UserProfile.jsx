@@ -3,23 +3,6 @@ import "../styles/UserProfile.css";
 import { useAuth } from "../store/auth";
 
 const UserProfile = ({ name, email, phone }) => {
-  const { user } = useAuth();
-  const [userDetails, setUserDetails] = useState(null);
-
-  // const [loading,setLoading]=useState(true)
-
-  // useEffect(() => {
-  //   if (user && user.userData) {
-  //     setUserDetails(user.userData);
-  //   }
-  // }, [user]);
-
-  // useEffect(() => {
-  //   if (userDetails) {
-  //     console.log("Updated user details:", userDetails);
-  //   }
-
-  // }, [userDetails]);
 
   console.log(name);
 
