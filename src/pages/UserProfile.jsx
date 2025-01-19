@@ -1,19 +1,26 @@
-import React, { useEffect } from "react";
-import "../styles/UserProfile.css"; 
+import React, { useEffect, useState } from "react";
+import "../styles/UserProfile.css";
 import { useAuth } from "../store/auth";
 
 const UserProfile = () => {
   const { user } = useAuth();
+  const [userDetails, setUserDetails] = useState(null);
 
   useEffect(() => {
-    console.log("User data:", user);
+    if (user && user.userData) {
+      setUserDetails(user.userData);
+    }
   }, [user]);
 
-  if (!user || !user.userData) {
-    return <div>Loading...</div>; 
-  }
+  useEffect(() => {
+    if (userDetails) {
+      console.log("Updated user details:", userDetails);
+    }
+  }, [userDetails]);
 
-  const User = user?.userData;
+  if (!userDetails) {
+    return <div>Loading...</div>; // Ensure no rendering happens until `userDetails` is ready
+  }
 
   const handleEditProfile = () => {
     alert("Profile editing feature coming soon!");
@@ -28,15 +35,15 @@ const UserProfile = () => {
         <div className="profile-info">
           <div className="profile-detail">
             <span className="label">Name:</span>
-            <span className="value">{User?.name || "Not Available"}</span>
+            <span className="value">{userDetails.name || "Not Available"}</span>
           </div>
           <div className="profile-detail">
             <span className="label">Email:</span>
-            <span className="value">{User?.email || "Not Available"}</span>
+            <span className="value">{userDetails.email || "Not Available"}</span>
           </div>
           <div className="profile-detail">
             <span className="label">Phone:</span>
-            <span className="value">{User?.phone || "Not Available"}</span>
+            <span className="value">{userDetails.phone || "Not Available"}</span>
           </div>
         </div>
         <div className="profile-actions">

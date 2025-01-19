@@ -14,7 +14,19 @@ const Profile = () => {
   const [loading, setLoading] = useState(true); // Add a loading state
 
   const { user, isLoggedIn } = useAuth();
-  const User = user?.userData;
+  const [userDetails, setUserDetails] = useState();
+
+  useEffect(() => {
+    if (user && user.userData) {
+      setUserDetails(user.userData);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (userDetails) {
+      console.log("Updated user details:", userDetails);
+    }
+  }, [userDetails]);
 
   // Use an effect to simulate waiting for `user` data to load
   useEffect(() => {
@@ -38,7 +50,6 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      {console.log("User", User)}
 
       {isLoggedIn ? (
         <UserProfile />
@@ -52,7 +63,7 @@ const Profile = () => {
         </>
       )}
 
-      {User && User.isAdmin && (
+      {userDetails && userDetails.isAdmin && (
         <div className="profile-admin-btn">
           <Link to="/admin">
             <button>Open Admin Panel</button>
