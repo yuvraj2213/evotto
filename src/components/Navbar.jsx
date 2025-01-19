@@ -31,6 +31,8 @@ const Navbar = () => {
   };
 
   return (
+    <>
+    <div className="navbar-main">
     <nav className="navbar">
       <div className="logo-img">
         <img src="/images/logo2.png" width={50} alt="Logo" />
@@ -86,7 +88,7 @@ const Navbar = () => {
           <li
             className={`logout-button ${showMenu ? "menu-nav-item" : "nav-item"}`}
             onClick={LogoutUser}
-            // style={{ cursor: "pointer"}}
+            
           >
             Logout
           </li>
@@ -105,6 +107,8 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
+    </div>
+    </>
   );
 };
 

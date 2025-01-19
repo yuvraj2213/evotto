@@ -13,6 +13,7 @@ import Safety from "../components/Safety";
 import KnowUs from "../components/KnowUs";
 import FeedbackSlideshow from "../components/FeedbackSlideshow";
 import RideOptions from "../components/RideOptions";
+import FormSwitcher from "../components/FormSwitcher";
 
 const Home = () => {
 
@@ -23,9 +24,6 @@ const Home = () => {
         <header className="hero-section">
           <HeroSection />
         </header>
-        {/* <section className="slideshow">
-          <Slideshow />
-        </section> */}
         <section className="safety-for-all-home">
           <Safety/>
         </section>
@@ -39,6 +37,7 @@ const Home = () => {
         <section className="feedback-slideshow">
           <FeedbackSlideshow/>
         </section>
+        <FormSwitcher/>
         <section className="social-links">
           <SocialLinks />
         </section>

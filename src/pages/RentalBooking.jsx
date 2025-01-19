@@ -10,6 +10,9 @@ import RideOptions from "../components/RideOptions";
 import FeedbackSlideshow from "../components/FeedbackSlideshow";
 import RentalRatingForm from "../components/RentalRatingForm";
 import Slideshow from "../components/Slideshow";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
+import { useAuth } from "../store/auth";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -24,6 +27,118 @@ const RentalBooking = () => {
     dropOffLocation,
     dropOffDuration,
   } = location.state || {};
+
+  const { user } = useAuth();
+
+  const [userDetails, setUserDetails] = useState();
+
+  useEffect(() => {
+    if (user && user.userData) {
+      setUserDetails(user.userData);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (userDetails) {
+      console.log("Updated user details:", userDetails);
+    }
+  }, [userDetails]);
+
+  // const userName=user?.userData.name;
+  // const userEmail=user?.userData.email;
+  // const userPhone=user?.userData.phone;
+
+  // Generating Invoice
+
+  const generateInvoice = async () => {
+    const doc = new jsPDF();
+    const currentDate = new Date().toLocaleDateString();
+
+    // Set up invoice details
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.text("Evotto", 20, 20);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+    doc.text(`Invoice Date: ${currentDate}`, 20, 30);
+
+    const userName = `${userDetails.name}`;
+    const userEmail = `${userDetails.email}`;
+    const userPhone = `${userDetails.phone}`;
+
+    doc.setFontSize(12);
+    doc.text(`Customer Name: ${userName}`, 20, 40);
+    doc.text(`Email: ${userEmail}`, 20, 50);
+    doc.text(`Phone: ${userPhone}`, 20, 60);
+
+    doc.setFontSize(14);
+    doc.text("Rental Invoice", 20, 80);
+
+    const tableColumn = ["Details", "Values"];
+    const tableRows = [
+      ["Vehicle Name", car?.name || "N/A"],
+      ["Pick-Up Location", pickUpLocation || "N/A"],
+      ["Pick-Up Date", pickUpDate || "N/A"],
+      ["Pick-Up Time", pickUpTime || "N/A"],
+      ["Drop-Off Location", dropOffLocation || "N/A"],
+      ["Duration (hours)", dropOffDuration || "N/A"],
+      ["Total Cost", `${totalCost}`],
+    ];
+
+    const tableOptions = {
+      startY: 90, // Start table after user details
+      head: [tableColumn],
+      body: tableRows,
+    };
+    doc.autoTable(tableOptions);
+
+    const finalY = doc.autoTable.previous.finalY + 40;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+    doc.text(
+      `Note: You have to show this invoice along with your transaction id at the center`,
+      20,
+      finalY
+    );
+
+    // Convert the PDF to a Blob object
+    const pdfBlob = doc.output("blob");
+
+    // Trigger the automatic download of the invoice
+    doc.save("Invoice.pdf");
+
+    // Create FormData to send the Blob as part of a POST request
+    const formData = new FormData();
+    formData.append("invoicePdf", pdfBlob, "Invoice.pdf");
+
+    // Other email details
+    const emailDetails = {
+      toEmail: "evotto.service@gmail.com", 
+      subject: "Invoice for your recent booking",
+      text: `Please find attached the invoice for recent booking of ${car?.name}`,
+    };
+
+    // Append email details to FormData
+    formData.append("emailDetails", JSON.stringify(emailDetails));
+
+    // Call the backend to send email with invoice attached
+    try {
+      const response = await fetch(`${baseURL}/api/send-invoice`, {
+        method: "POST",
+        body: formData, // Send FormData with the PDF and other details
+      });
+
+      if (response.ok) {
+        alert("Invoice sent successfully to your email!");
+      } else {
+        alert("Failed to send invoice.");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("Something went wrong while sending the invoice.");
+    }
+  };
 
   const vehicleId = car?._id || null;
 
@@ -79,36 +194,36 @@ const RentalBooking = () => {
   }, [vehicleId]);
 
   // Handle Payment with Razorpay
-  const handlePayment = async () => {
-    const options = {
-      key: "your_razorpay_key_id", // Replace with your Razorpay key
-      amount: totalCost * 100, // Razorpay accepts payment in paisa (₹1 = 100 paisa)
-      currency: "INR",
-      name: "Evotto Rentals",
-      description: "Vehicle Rental Payment",
-      image: "/images/logo.png", // Optional: Your logo
-      handler: function (response) {
-        alert(
-          `Payment successful! Payment ID: ${response.razorpay_payment_id}`
-        );
-        console.log("Payment Response:", response);
-      },
-      prefill: {
-        name: "John Doe", // Prefilled customer name
-        email: "johndoe@example.com", // Prefilled customer email
-        contact: "9876543210", // Prefilled customer phone number
-      },
-      notes: {
-        booking_id: vehicleId, // Optional: Add additional notes
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
+  // const handlePayment = async () => {
+  //   const options = {
+  //     key: "your_razorpay_key_id", // Replace with your Razorpay key
+  //     amount: totalCost * 100, // Razorpay accepts payment in paisa (₹1 = 100 paisa)
+  //     currency: "INR",
+  //     name: "Evotto Rentals",
+  //     description: "Vehicle Rental Payment",
+  //     image: "/images/logo.png", // Optional: Your logo
+  //     handler: function (response) {
+  //       alert(
+  //         `Payment successful! Payment ID: ${response.razorpay_payment_id}`
+  //       );
+  //       console.log("Payment Response:", response);
+  //     },
+  //     prefill: {
+  //       name: "John Doe", // Prefilled customer name
+  //       email: "johndoe@example.com", // Prefilled customer email
+  //       contact: "9876543210", // Prefilled customer phone number
+  //     },
+  //     notes: {
+  //       booking_id: vehicleId, // Optional: Add additional notes
+  //     },
+  //     theme: {
+  //       color: "#3399cc",
+  //     },
+  //   };
 
-    const rzp = new window.Razorpay(options);
-    rzp.open();
-  };
+  //   const rzp = new window.Razorpay(options);
+  //   rzp.open();
+  // };
 
   // Load More Reviews
   const loadMoreReviews = () => {
@@ -154,9 +269,23 @@ const RentalBooking = () => {
           <h2 className="rental-total-cost">
             Total Cost: {totalCost > 0 ? `₹${totalCost}` : "Calculating..."}
           </h2>
-          <a className="rental-pay-now-btn" href="https://razorpay.me/@evottoprivatelimited" >
+          {/* <a
+            className="rental-pay-now-btn"
+            href="https://razorpay.me/@evottoprivatelimited"
+          >
             Pay Now
-          </a>
+          </a> */}
+
+          <button
+            className="rental-pay-now-btn"
+            onClick={() => {
+              generateInvoice(), // Call the function to generate the invoice
+                (window.location.href =
+                  "https://razorpay.me/@evottoprivatelimited"); // Redirect to Razorpay link
+            }}
+          >
+            Pay Now
+          </button>
 
           <h3 className="rental-vehicle-description-heading">
             Available Offers :
@@ -176,7 +305,10 @@ const RentalBooking = () => {
           <div className="rental-rating-review">
             <div className="rental-vehicle-review-heading">
               <h3>Ratings and Reviews : </h3>
-              <button onClick={() => setIsReviewFormOpen(!isReviewFormOpen)} className="rental-rate-btn">
+              <button
+                onClick={() => setIsReviewFormOpen(!isReviewFormOpen)}
+                className="rental-rate-btn"
+              >
                 {isReviewFormOpen ? "Close Form" : "Rate The Vehicle"}
               </button>
             </div>
