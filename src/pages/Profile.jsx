@@ -40,7 +40,7 @@ const Profile = () => {
       <>
         <Navbar />
         <div className="loading-container">
-          <p>Loading...</p>
+          <p>Loading..</p>
         </div>
         <Footer />
       </>

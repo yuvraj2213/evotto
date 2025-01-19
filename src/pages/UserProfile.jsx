@@ -24,7 +24,7 @@ const UserProfile = ({ name, email, phone }) => {
 
   useEffect(() => {
     if (user) {
-      setLoading(false); // Stop loading when `user` is fetched
+      setLoading(false); 
     }
   }, [user]);
 
