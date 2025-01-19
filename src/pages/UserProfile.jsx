@@ -19,7 +19,7 @@ const UserProfile = () => {
   }, [userDetails]);
 
   if (!userDetails) {
-    return <div>Loading...</div>; // Ensure no rendering happens until `userDetails` is ready
+    return <div>Loading..</div>; // Ensure no rendering happens until `userDetails` is ready
   }
 
   const handleEditProfile = () => {
