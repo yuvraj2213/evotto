@@ -54,90 +54,111 @@ const RentalBooking = () => {
     const doc = new jsPDF();
     const currentDate = new Date().toLocaleDateString();
 
-    // Set up invoice details
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(18);
-    doc.text("Evotto", 20, 20);
+    // Add company logo at the top center
+    const logoUrl = "/images/logo2.png";
+    const logoX = (doc.internal.pageSize.width - 50) / 2; // Center horizontally
+    const logoY = 10; // Top padding
+    const logoWidth = 23; // Width of the logo
+    const logoHeight = 23; // Height of the logo
 
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(12);
-    doc.text(`Invoice Date: ${currentDate}`, 20, 30);
+    // Load the logo image
+    const img = new Image();
+    img.src = logoUrl;
 
-    const userName = `${userDetails.name}`;
-    const userEmail = `${userDetails.email}`;
-    const userPhone = `${userDetails.phone}`;
+    img.onload = async () => {
+      doc.addImage(img, "PNG", logoX, logoY, logoWidth, logoHeight);
 
-    doc.setFontSize(12);
-    doc.text(`Customer Name: ${userName}`, 20, 40);
-    doc.text(`Email: ${userEmail}`, 20, 50);
-    doc.text(`Phone: ${userPhone}`, 20, 60);
+      // Set up invoice details
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(18);
+      doc.text("Evotto", 20, 40);
 
-    doc.setFontSize(14);
-    doc.text("Rental Invoice", 20, 80);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(12);
+      doc.text(`Invoice Date: ${currentDate}`, 20, 50);
 
-    const tableColumn = ["Details", "Values"];
-    const tableRows = [
-      ["Vehicle Name", car?.name || "N/A"],
-      ["Pick-Up Location", pickUpLocation || "N/A"],
-      ["Pick-Up Date", pickUpDate || "N/A"],
-      ["Pick-Up Time", pickUpTime || "N/A"],
-      ["Drop-Off Location", dropOffLocation || "N/A"],
-      ["Duration (hours)", dropOffDuration || "N/A"],
-      ["Total Cost", `${totalCost}`],
-    ];
+      const userName = `${userDetails.name}`;
+      const userEmail = `${userDetails.email}`;
+      const userPhone = `${userDetails.phone}`;
 
-    const tableOptions = {
-      startY: 90, // Start table after user details
-      head: [tableColumn],
-      body: tableRows,
+      doc.setFontSize(12);
+      doc.text(`Customer Name: ${userName}`, 20, 60);
+      doc.text(`Email: ${userEmail}`, 20, 70);
+      doc.text(`Phone: ${userPhone}`, 20, 80);
+
+      doc.setFontSize(14);
+      doc.text("Rental Invoice", 20, 100);
+
+      const tableColumn = ["Details", "Values"];
+      const tableRows = [
+        ["Vehicle Name", car?.name || "N/A"],
+        ["Pick-Up Location", pickUpLocation || "N/A"],
+        ["Pick-Up Date", pickUpDate || "N/A"],
+        ["Pick-Up Time", pickUpTime || "N/A"],
+        ["Drop-Off Location", dropOffLocation || "N/A"],
+        ["Duration (hours)", dropOffDuration || "N/A"],
+        ["Total Cost", `${totalCost}`],
+      ];
+
+      const tableOptions = {
+        startY: 110, // Start table after user details
+        head: [tableColumn],
+        body: tableRows,
+      };
+      doc.autoTable(tableOptions);
+
+      const finalY = doc.autoTable.previous.finalY + 40;
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(12);
+      doc.text(
+        `Note: You have to show this invoice along with your transaction id at the center`,
+        20,
+        finalY
+      );
+
+      const finalYContact = doc.autoTable.previous.finalY + 80;
+      doc.setFontSize(12);
+      doc.text(`Contact Details`, 20, finalYContact);
+      doc.text(`Email: evotto.service@gmail.com`, 20, finalYContact + 10);
+      doc.text(`Phone: +91 7077829595`, 20, finalYContact + 20);
+
+      // Convert the PDF to a Blob object
+      const pdfBlob = doc.output("blob");
+
+      // Trigger the automatic download of the invoice
+      doc.save("Invoice.pdf");
+
+      // Create FormData to send the Blob as part of a POST request
+      // const formData = new FormData();
+      // formData.append("invoicePdf", pdfBlob, "Invoice.pdf");
+
+      // // Other email details
+      // const emailDetails = {
+      //     toEmail: "evotto.service@gmail.com",
+      //     subject: "Invoice for your recent booking",
+      //     text: `Please find attached the invoice for recent booking of ${car?.name}`,
+      // };
+
+      // // Append email details to FormData
+      // formData.append("emailDetails", JSON.stringify(emailDetails));
+
+      // // Call the backend to send email with invoice attached
+      // try {
+      //     const response = await fetch(`${baseURL}/api/send-invoice`, {
+      //         method: "POST",
+      //         body: formData,
+      //     });
+
+      //     if (response.ok) {
+      //         alert("Invoice sent successfully to your email!");
+      //     } else {
+      //         alert("Failed to send invoice.");
+      //     }
+      // } catch (error) {
+      //     console.error("Error sending email:", error);
+      //     alert("Something went wrong while sending the invoice.");
+      // }
     };
-    doc.autoTable(tableOptions);
-
-    const finalY = doc.autoTable.previous.finalY + 40;
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(12);
-    doc.text(
-      `Note: You have to show this invoice along with your transaction id at the center`,
-      20,
-      finalY
-    );
-
-    // Convert the PDF to a Blob object
-    const pdfBlob = doc.output("blob");
-
-    // Trigger the automatic download of the invoice
-    doc.save("Invoice.pdf");
-
-    // Create FormData to send the Blob as part of a POST request
-    const formData = new FormData();
-    formData.append("invoicePdf", pdfBlob, "Invoice.pdf");
-
-    // Other email details
-    const emailDetails = {
-      toEmail: "evotto.service@gmail.com", 
-      subject: "Invoice for your recent booking",
-      text: `Please find attached the invoice for recent booking of ${car?.name}`,
-    };
-
-    // Append email details to FormData
-    formData.append("emailDetails", JSON.stringify(emailDetails));
-
-    // Call the backend to send email with invoice attached
-    try {
-      const response = await fetch(`${baseURL}/api/send-invoice`, {
-        method: "POST",
-        body: formData, // Send FormData with the PDF and other details
-      });
-
-      if (response.ok) {
-        alert("Invoice sent successfully to your email!");
-      } else {
-        alert("Failed to send invoice.");
-      }
-    } catch (error) {
-      console.error("Error sending email:", error);
-      alert("Something went wrong while sending the invoice.");
-    }
   };
 
   const vehicleId = car?._id || null;
