@@ -44,10 +44,6 @@ const RentalBooking = () => {
     }
   }, [userDetails]);
 
-  // const userName=user?.userData.name;
-  // const userEmail=user?.userData.email;
-  // const userPhone=user?.userData.phone;
-
   // Generating Invoice
 
   const generateInvoice = async () => {
@@ -129,35 +125,35 @@ const RentalBooking = () => {
       doc.save("Invoice.pdf");
 
       // Create FormData to send the Blob as part of a POST request
-      // const formData = new FormData();
-      // formData.append("invoicePdf", pdfBlob, "Invoice.pdf");
+      const formData = new FormData();
+      formData.append("invoicePdf", pdfBlob, "Invoice.pdf");
 
-      // // Other email details
-      // const emailDetails = {
-      //     toEmail: "evotto.service@gmail.com",
-      //     subject: "Invoice for your recent booking",
-      //     text: `Please find attached the invoice for recent booking of ${car?.name}`,
-      // };
+      // Other email details
+      const emailDetails = {
+        toEmail: "evotto.service@gmail.com",
+        subject: "Invoice for your recent booking",
+        text: `Please find attached the invoice for recent booking of ${car?.name}`,
+      };
 
-      // // Append email details to FormData
-      // formData.append("emailDetails", JSON.stringify(emailDetails));
+      // Append email details to FormData
+      formData.append("emailDetails", JSON.stringify(emailDetails));
 
-      // // Call the backend to send email with invoice attached
-      // try {
-      //     const response = await fetch(`${baseURL}/api/send-invoice`, {
-      //         method: "POST",
-      //         body: formData,
-      //     });
+      // Call the backend to send email with invoice attached
+      try {
+        const response = await fetch(`${baseURL}/api/send-invoice`, {
+          method: "POST",
+          body: formData,
+        });
 
-      //     if (response.ok) {
-      //         alert("Invoice sent successfully to your email!");
-      //     } else {
-      //         alert("Failed to send invoice.");
-      //     }
-      // } catch (error) {
-      //     console.error("Error sending email:", error);
-      //     alert("Something went wrong while sending the invoice.");
-      // }
+        if (response.ok) {
+          alert("Invoice sent successfully to your email!");
+        } else {
+          alert("Failed to send invoice.");
+        }
+      } catch (error) {
+        console.error("Error sending email:", error);
+        alert("Something went wrong while sending the invoice.");
+      }
     };
   };
 
@@ -284,29 +280,28 @@ const RentalBooking = () => {
         </div>
         <div className="rental-vehicle-info">
           <h3 className="rental-car-name">{car?.name || "Vehicle Name"}</h3>
+          {console.log(car?.isAvailable)}
           <RentalVehicleRating />
 
           {/* Pricing Calculation */}
           <h2 className="rental-total-cost">
             Total Cost: {totalCost > 0 ? `₹${totalCost}` : "Calculating..."}
           </h2>
-          {/* <a
-            className="rental-pay-now-btn"
-            href="https://razorpay.me/@evottoprivatelimited"
-          >
-            Pay Now
-          </a> */}
 
-          <button
-            className="rental-pay-now-btn"
-            onClick={() => {
-              generateInvoice(), // Call the function to generate the invoice
-                (window.location.href =
-                  "https://razorpay.me/@evottoprivatelimited"); // Redirect to Razorpay link
-            }}
-          >
-            Pay Now
-          </button>
+          {car?.isAvailable ? (
+            <button
+              className="rental-pay-now-btn"
+              onClick={() => {
+                generateInvoice(); // Call the function to generate the invoice
+                window.location.href =
+                  "https://razorpay.me/@evottoprivatelimited"; // Redirect to Razorpay link
+              }}
+            >
+              Pay Now
+            </button>
+          ) : (
+            <div className="rental-not-available">Vehicle Currently Not Available</div>
+          )}
 
           <h3 className="rental-vehicle-description-heading">
             Available Offers :

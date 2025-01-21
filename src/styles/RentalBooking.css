@@ -229,6 +229,14 @@ button:hover {
   border-radius: 15px;
 }
 
+.rental-not-available{
+  color: #ffffff;
+  background-color: #e25d36;
+  border-radius: 22px;
+  padding: 10px;
+  max-width: fit-content;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .rental-booking-main {

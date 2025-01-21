@@ -8,15 +8,15 @@ import Services from "../components/Services";
 import Chatbox from "../components/Chatbox";
 import SocialLinks from "../components/SocialLinks";
 import Slideshow from "../components/Slideshow";
-import Firework from "../components/Firework"; 
+import Firework from "../components/Firework";
 import Safety from "../components/Safety";
 import KnowUs from "../components/KnowUs";
 import FeedbackSlideshow from "../components/FeedbackSlideshow";
 import RideOptions from "../components/RideOptions";
 import FormSwitcher from "../components/FormSwitcher";
+import ImpactSection from "../components/ImpactSection";
 
 const Home = () => {
-
   return (
     <>
       <Navbar />
@@ -25,19 +25,24 @@ const Home = () => {
           <HeroSection />
         </header>
         <section className="safety-for-all-home">
-          <Safety/>
+          <Safety />
         </section>
+
+        <RideOptions />
         <section className="know-us-better-home">
-          <KnowUs/>
+          <KnowUs />
         </section>
-        <RideOptions/>
+        <section className="home-impact-section">
+          <ImpactSection />
+        </section>
+
         <section className="services">
           <Services />
         </section>
         <section className="feedback-slideshow">
-          <FeedbackSlideshow/>
+          <FeedbackSlideshow />
         </section>
-        <FormSwitcher/>
+        <FormSwitcher />
         <section className="social-links">
           <SocialLinks />
         </section>

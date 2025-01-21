@@ -6,7 +6,7 @@ const KnowUs = () => {
   return (
     <>
       <div className="know-us-better-img"></div>
-      <div class="safety-for-all-container">
+      <div class="know-us-better-container">
         <h2>Know Us Better</h2>
         <p>
           Evotto is more than just a rental service; it's your trusted partner

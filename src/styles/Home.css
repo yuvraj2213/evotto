@@ -77,7 +77,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
   margin-top: 70px;
 }
 
@@ -86,11 +85,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
 }
 
 .service-card h3 {
   color: #e71d36;
+}
+
+.home-impact-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 950px) {

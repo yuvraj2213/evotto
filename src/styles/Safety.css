@@ -3,29 +3,33 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #fff; /* White background */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; 
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   text-align: left;
-  padding: 30px;
+  padding: 0px;
   max-width: 450px;
-  /* margin: 20px auto; Center align with some margin */
+  height: 410px;
 }
 
 .safety-for-all-container h2 {
-  font-size: 28px; /* Larger headline */
+  font-size: 24px; /* Larger headline */
   font-weight: 700; /* Make the text bold */
   color: #000; /* Black text */
   margin-bottom: 15px; /* Increased spacing below the heading */
 }
 
 .safety-for-all-container p {
-  font-size: 18px; /* Larger paragraph font size */
+  font-size: 16px; /* Larger paragraph font size */
   font-weight: 400; /* Normal weight */
   color: #333; /* Slightly lighter black text */
   line-height: 1.8; /* Increase readability with more line spacing */
   margin-bottom: 25px; /* Increased spacing below the paragraph */
   text-align: left;
+  padding: 10px;
 }
 
 .know-more-button {
@@ -41,7 +45,8 @@
 }
 
 .safety-image {
-  border-radius: 10px; /* Rounded corners */
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   background-image: url("/images/safety2.png");
   background-size: cover;
@@ -50,10 +55,10 @@
   border: 2px solid white;
   width: 430px;
   height: 410px;
-  padding: 30px; /* Increased spacing around the content */
+  padding: 0px; /* Increased spacing around the content */
   text-align: left; /* Align text to the left */
   max-width: 450px; /* Slightly wider container */
-  margin: 20px auto; /* Center align with some margin */
+  margin: 0px;
 }
 
 .know-more-button a {
