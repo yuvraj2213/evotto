@@ -187,7 +187,7 @@ const AdminRentalVehicles = () => {
               <label>6hr Price:</label>
               <input
                 type="number"
-                name="weekdayPrice"
+                name="sixhrPrice"
                 value={newVehicle.sixhrPrice}
                 onChange={handleInputChange}
                 required
@@ -197,7 +197,7 @@ const AdminRentalVehicles = () => {
               <label>12hr Price:</label>
               <input
                 type="number"
-                name="weekendPrice"
+                name="twelvehrPrice"
                 value={newVehicle.twelvehrPrice}
                 onChange={handleInputChange}
                 required
@@ -207,7 +207,7 @@ const AdminRentalVehicles = () => {
               <label>24hr Price:</label>
               <input
                 type="number"
-                name="weekendPrice"
+                name="twentyfourhrPrice"
                 value={newVehicle.twentyfourhrPrice}
                 onChange={handleInputChange}
                 required
