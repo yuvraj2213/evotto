@@ -12,17 +12,17 @@ const ImpactSection = () => {
         </p>
         <div className="impact-stats">
           <div className="stat-item">
-            <img src="/icons/captains.png" alt="Captains" />
+            {/* <img src="/icons/captains.png" alt="Captains" /> */}
             <h3>50+ </h3>
             <p>Masters</p>
           </div>
           <div className="stat-item">
-            <img src="/icons/customers.png" alt="Customers" />
+            {/* <img src="/icons/customers.png" alt="Customers" /> */}
             <h3>100+ </h3>
             <p>Customers</p>
           </div>
           <div className="stat-item">
-            <img src="/icons/downloads.png" alt="Downloads" />
+            {/* <img src="/icons/downloads.png" alt="Downloads" /> */}
             <h3>500+ hours ride</h3>
             <p>Downloads</p>
           </div>
