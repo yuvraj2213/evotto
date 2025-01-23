@@ -3,6 +3,8 @@ import "../styles/UserProfile.css";
 import { useAuth } from "../store/auth";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+const baseURL =
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 const UserProfile = () => {
   const [loading, setLoading] = useState(true);
@@ -10,6 +12,9 @@ const UserProfile = () => {
   const [userDetails, setUserDetails] = useState();
   const [selectedFile, setSelectedFile] = useState(null); // State for the selected file
   const [uploadStatus, setUploadStatus] = useState(""); // Status message for upload
+  const [image,setImage]=useState(null);
+
+  const {authorizationToken}=useAuth();
 
   useEffect(() => {
     if (user && user.userData) {
@@ -44,45 +49,41 @@ const UserProfile = () => {
   // Handle file selection
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
+    setImage(e.target.files[0])
   };
 
   // Handle file upload
-  const handleFileUpload = async () => {
-    if (!selectedFile) {
-      setUploadStatus("Please select a file first.");
-      return;
-    }
+
+  const handleFileUpload=async(e)=>{
+    e.preventDefault();
 
     const formData = new FormData();
-    formData.append("license", selectedFile);
-    formData.append("user", JSON.stringify(user)); // Attach user object to the request
+
+    if (image) {
+      formData.append("image", image); 
+    }
 
     try {
-      const response = await fetch("http://localhost:2213/api/data/upload-dl", {
+
+      const response = await fetch(`${baseURL}/api/doc/upload-dl`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${user.token}`, 
+          Authorization: authorizationToken, 
         },
-        body: formData,
+        body: formData, 
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to upload file");
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log('Liscense uploaded successfully')
+      } else {
+        console.log("Backend error response:", result); // Debug backend error message
       }
-
-      const data = await response.json();
-
-      setUserDetails((prev) => ({
-        ...prev,
-        dl: data.url,
-      }));
-
-      setUploadStatus("File uploaded successfully.");
     } catch (error) {
-      console.error("Error uploading file:", error);
-      setUploadStatus("File upload failed. Please try again.");
+      console.error("Error in fetch:", error); // Debug fetch errors
     }
-  };
+  }
 
   return (
     <div className="profile-container">
@@ -126,12 +127,12 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="profile-actions">
-          <label htmlFor="dl-upload" className="file-label">
+          <label htmlFor="image" className="file-label">
             Upload Driver's License:
           </label>
           <input
             type="file"
-            id="dl-upload"
+            id="image"
             className="file-input"
             onChange={handleFileChange}
           />
@@ -141,6 +142,7 @@ const UserProfile = () => {
           {uploadStatus && <p className="upload-status">{uploadStatus}</p>}
         </div>
       </div>
+
     </div>
   );
 };

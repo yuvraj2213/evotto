@@ -7,8 +7,6 @@ const ImpactSection = () => {
       <div className="impact-background">
         <h2 className="impact-title">Our Impact</h2>
         <p className="impact-description">
-          Our presence in the country has changed the concept of intra-city
-          travel and made last-mile connectivity affordable for all.
         </p>
         <div className="impact-stats">
           <div className="stat-item">
@@ -23,8 +21,8 @@ const ImpactSection = () => {
           </div>
           <div className="stat-item">
             {/* <img src="/icons/downloads.png" alt="Downloads" /> */}
-            <h3>500+ hours ride</h3>
-            <p>Downloads</p>
+            <h3>500+ hours</h3>
+            <p>Ride</p>
           </div>
         </div>
       </div>
