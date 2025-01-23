@@ -85,13 +85,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 70px;
 }
 
 .service-card h3 {
   color: #e71d36;
 }
 
-.home-impact-section{
+.home-impact-section {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,14 +267,14 @@
     width: 100vw !important;
   }
 
-  .services{
+  .services {
     width: 100%;
     margin: 0;
     margin-top: 48px;
     padding: 0;
   }
 
-  .service-cards{
+  .service-cards {
     width: 100%;
     border-radius: 0px;
   }
@@ -320,7 +321,7 @@
     overflow-x: hidden;
   }
 
-  .feedback-slideshow{
+  .feedback-slideshow {
     margin-top: 45px !important;
   }
 }
