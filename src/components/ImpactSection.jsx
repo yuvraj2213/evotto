@@ -7,6 +7,7 @@ const ImpactSection = () => {
       <div className="impact-background">
         <h2 className="impact-title">Our Impact</h2>
         <p className="impact-description">
+        Simplifying your journey, solving everyday automobile hassles with innovation and care
         </p>
         <div className="impact-stats">
           <div className="stat-item">
