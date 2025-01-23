@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Home.css";
+import "../styles/ContactUs.css"
 import "../styles/Fireworks.css"; // Import Fireworks CSS
 import HeroSection from "../components/HeroSection";
 import Navbar from "../components/Navbar";

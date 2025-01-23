@@ -1,27 +1,14 @@
 import React, { useState } from "react";
 import "../styles/FormSwitcher.css"; // Custom CSS for styling
+import FeedbackPage from "../pages/Feedback";
 
 const FormSwitcher = () => {
-  const [selectedForm, setSelectedForm] = useState("contact");
+  const [selectedForm, setSelectedForm] = useState("feedback");
 
   return (
     <div className="form-switcher-container">
       <h2>Choose a Form</h2>
       <div className="radio-buttons">
-        <label
-          className={`radio-label ${
-            selectedForm === "contact" ? "active" : ""
-          }`}
-        >
-          <input
-            type="radio"
-            name="formType"
-            value="contact"
-            checked={selectedForm === "contact"}
-            onChange={() => setSelectedForm("contact")}
-          />
-          Contact Us
-        </label>
         <label
           className={`radio-label ${
             selectedForm === "feedback" ? "active" : ""
@@ -36,11 +23,25 @@ const FormSwitcher = () => {
           />
           Feedback
         </label>
+        <label
+          className={`radio-label ${
+            selectedForm === "contact" ? "active" : ""
+          }`}
+        >
+          <input
+            type="radio"
+            name="formType"
+            value="contact"
+            checked={selectedForm === "contact"}
+            onChange={() => setSelectedForm("contact")}
+          />
+          Contact Us
+        </label>
       </div>
       <div className="form-container">
         {selectedForm === "contact" && (
           <div className="contact-form">
-            <h3>Contact Us Form</h3>
+            <h3 className="contact-form-heading">Contact Us Form</h3>
 
             <form className="contact-form">
               <div className="form-group">
@@ -91,15 +92,16 @@ const FormSwitcher = () => {
           </div>
         )}
         {selectedForm === "feedback" && (
-          <div className="feedback-form">
-            <h3>Feedback Form</h3>
+          // <div className="feedback-form">
+          //   <h3>Feedback Form</h3>
 
-            <form>
-              <label>Feedback:</label>
-              <textarea placeholder="Enter your feedback"></textarea>
-              <button type="submit">Submit</button>
-            </form>
-          </div>
+          //   <form>
+          //     <label>Feedback:</label>
+          //     <textarea placeholder="Enter your feedback"></textarea>
+          //     <button type="submit">Submit</button>
+          //   </form>
+          // </div>
+          <FeedbackPage />
         )}
       </div>
     </div>

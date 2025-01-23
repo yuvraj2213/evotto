@@ -4,6 +4,15 @@
   gap: 30px;
 }
 
+.contact-form{
+  background-color: #e71d36 !important;
+}
+
+.contact-form-heading{
+  color: #ddd !important;
+  text-align: center !important;
+}
+
 .contact-container {
   max-width: 800px;
   margin: 50px auto;
