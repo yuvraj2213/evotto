@@ -17,48 +17,38 @@
   margin: 0; /* Remove any default margin */
 }
 
-.inner-certificate .certificate1 {
+.inner-certificate .certificate1 img{
   width: 800px;
-  height: 80vh;
-  background-image: url("/images/Certificate/Cerificate_1.jpg");
-  background-size: contain; /* Maintain aspect ratio */
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 12px;
+  height: 500px;
 }
-.inner-certificate .certificate2 {
+.inner-certificate .certificate2 img{
   width: 800px;
-  height: 80vh;
-  background-image: url("/images/Certificate/Certificate_2.jpg");
-  background-size: contain; 
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 12px;
+  height: 500px;
 }
 
 /* Adjustments for medium screens */
 @media (max-width: 850px) {
-  .inner-certificate .certificate1 {
+  .inner-certificate .certificate1 img{
     width: 600px;
-    height: 60vh;
+    height: 400px;
   }
 
-  .inner-certificate .certificate2 {
+  .inner-certificate .certificate2 img{
     width: 600px;
-    height: 60vh;
+    height: 400px;
   }
 }
 
 /* Adjustments for smaller screens */
 @media (max-width: 640px) {
-  .inner-certificate .certificate1 {
-    width: 400px;
-    height: 60vh;
+  .inner-certificate .certificate1 img{
+    width: 450px;
+    height: 300px;
   }
 
-  .inner-certificate .certificate2 {
-    width: 400px;
-    height: 60vh;
+  .inner-certificate .certificate2 img{
+    width: 450px;
+    height: 300px;
   }
 }
 
@@ -66,23 +56,19 @@
 @media (max-width: 450px) {
 
   .inner-certificate {
-    gap: 8px !important; /* Reduce spacing between elements */
-    height: 320px;
+    gap: 6px !important; /* Reduce spacing further */
   }
-  .inner-certificate .certificate1 {
-    width: 350px;
-    margin-top: 30px !important;
-    padding: 0px !important;
+  .inner-certificate .certificate1 img{
+    width: 400px;
+    height: 270px;
   }
   .inner-certificate h1 {
     font-size: 1.3rem;
-    margin-bottom: 10px !important;
-    padding: 10px !important;
+
   }
-  .inner-certificate .certificate2 {
-    width: 350px;
-    margin-top: 30px !important;
-    padding: 0px !important;
+  .inner-certificate .certificate2 img{
+    width: 400px;
+    height: 270px;
   }
 }
 
@@ -91,10 +77,10 @@
   .inner-certificate {
     gap: 6px !important; /* Reduce spacing further */
   }
-  .inner-certificate .certificate1 {
+  .inner-certificate .certificate1 img{
     width: 340px;
   }
-  .inner-certificate .certificate2 {
+  .inner-certificate .certificate2 img{
     width: 340px;
   }
 }
@@ -104,11 +90,11 @@
   .inner-certificate {
     gap: 4px !important; /* Minimize spacing on very small screens */
   }
-  .inner-certificate .certificate1 {
+  .inner-certificate .certificate1 img{
     width: 300px;
   }
 
-  .inner-certificate .certificate2 {
+  .inner-certificate .certificate2 img{
     width: 300px;
   }
 }
