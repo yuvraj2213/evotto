@@ -66,6 +66,7 @@ const AdminUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
+              <th>DL</th>
               <th>Update</th>
               <th>Delete</th>
             </tr>
@@ -76,6 +77,10 @@ const AdminUsers = () => {
                   <td>{curr.name}</td>
                   <td>{curr.email}</td>
                   <td>{curr.phone}</td>
+                  {curr.dl?(<td><a href={curr.dl}>View Image</a></td>):(
+                    <p>N/A</p>
+                  )}
+                  
                   <td className="admin-edit-users-btn"><Link to={`/admin/users/${curr._id}/edit`}>Edit</Link></td>
                   <td>
                     <button className="admin-del-btn" onClick={()=>deleteUser(curr._id)}>Delete</button>

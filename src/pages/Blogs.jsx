@@ -16,7 +16,7 @@ const Blogs = () => {
       </section>
 
       <Footer />
-      <></>
+      
     </>
   );
 };
