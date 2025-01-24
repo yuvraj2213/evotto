@@ -77,7 +77,7 @@ const AdminUsers = () => {
                   <td>{curr.name}</td>
                   <td>{curr.email}</td>
                   <td>{curr.phone}</td>
-                  {curr.dl?(<td><a href={curr.dl}>View Image</a></td>):(
+                  {curr.dl?(<td><a  href={curr.dl}>View Image</a></td>):(
                     <p>N/A</p>
                   )}
                   
