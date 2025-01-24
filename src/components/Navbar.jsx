@@ -68,6 +68,9 @@ const Navbar = () => {
               <li>
                 <Link to="/drivers">Drivers</Link>
               </li>
+              <li>
+                <Link to="/express">Evotto Express</Link>
+              </li>
             </ul>
           )}
         </li>

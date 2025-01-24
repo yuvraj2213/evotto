@@ -31,6 +31,7 @@ import ConsumerPolicy from "./pages/ConsumerPolicy";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import ReturnPolicyPage from "./pages/ReturnPolicyPage";
 import AdminBlogs from "./pages/AdminBlogs";
+import Express from "./pages/Express";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -67,6 +68,7 @@ const App = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/rentalBooking" element={<RentalBooking/>}/>
             <Route path="/gears" element={<Gears/>}/>
+            <Route path="/express" element={<Express/>}/>
             <Route path="/blogs" element={<Blogs/>}/>
             <Route path="/blog-detail" element={<BlogDetailPage/>}/>
             <Route path="/consumer-policy" element={<ConsumerPolicy/>}/>

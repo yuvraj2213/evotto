@@ -49,6 +49,7 @@ const TripPlanner = ({
   const minDate = getFormattedDate(currentDateTime);
   const minTime =
     pickUpDate === minDate ? getFormattedTime(currentDateTime) : "00:00";
+  const maxTime = pickUpDate === minDate ? "22:00" : "22:00"; // Enforcing 10 PM as max time
 
   const handleLocationChange = (location) => {
     setPickUpLocation(location);
@@ -60,6 +61,10 @@ const TripPlanner = ({
   };
 
   const handleTimeChange = (time) => {
+    if (time > "22:00") {
+      alert("Pick-up time cannot be later than 10 PM.");
+      return;
+    }
     setPickUpTime(time);
   };
 
@@ -82,11 +87,11 @@ const TripPlanner = ({
 
   useEffect(() => {
     getLocations();
-  });
+  }, []);
 
   return (
     <div className="trip-planner">
-      <h2 style={{color:"black"}}>Select Pick-Up and Drop-Off Information below : </h2>
+      <h2 style={{ color: "black" }}>Select Pick-Up and Drop-Off Information below:</h2>
       <form onSubmit={handleSubmit} className="trip-planner-form">
         <div className="trip-section">
           <div className="section-header">
@@ -131,6 +136,7 @@ const TripPlanner = ({
                 id="pickUpTime"
                 value={pickUpTime}
                 min={minTime}
+                max={maxTime}
                 onChange={(e) => handleTimeChange(e.target.value)}
                 required
               />
@@ -151,7 +157,7 @@ const TripPlanner = ({
                 className="input-style"
                 id="dropOffLocation"
                 value={dropOffLocation}
-                readOnly // Prevent changes to drop-off location
+                readOnly 
               />
             </div>
             <div className="field">
