@@ -23,11 +23,11 @@ const AdminRentalVehicles = () => {
     twelvehrPrice: "",
     twentyfourhrPrice: "",
     isAvailable: true,
+    location: [],
   });
-  const [imageFile, setImageFile] = useState(null); 
+  const [imageFile, setImageFile] = useState(null);
 
   const getAllVehiclesData = async () => {
-    {console.log(vehicles)}
     try {
       const response = await fetch(`${baseURL}/api/admin/rentalVehicle`, {
         method: "GET",
@@ -49,7 +49,6 @@ const AdminRentalVehicles = () => {
   };
 
   const deleteVehicle = async (id) => {
-
     try {
       const response = await fetch(
         `${baseURL}/api/admin/deleteRentalVehicle/${id}`,
@@ -76,7 +75,6 @@ const AdminRentalVehicles = () => {
   const handleOnClick = (id) => {
     setVehicleId(id);
     setShowForm(true);
-    console.log(id);
   };
 
   const handleAddVehicleToggle = () => {
@@ -93,17 +91,23 @@ const AdminRentalVehicles = () => {
     setImageFile(file);
   };
 
+  const handleLocationsChange = (e) => {
+    const value = e.target.value.split(","); // Split locations by commas
+    setNewVehicle({ ...newVehicle, locations: value });
+  };
+
   const handleSubmitAddVehicle = async (e) => {
     e.preventDefault();
 
     // Create FormData to send image and vehicle data
     const formData = new FormData();
     formData.append("name", newVehicle.name);
-    formData.append("image", imageFile); 
+    formData.append("image", imageFile);
     formData.append("sixhrPrice", newVehicle.sixhrPrice);
     formData.append("twelvePrice", newVehicle.twelvehrPrice);
     formData.append("twentyfourhrPrice", newVehicle.twentyfourhrPrice);
     formData.append("isAvailable", newVehicle.isAvailable);
+    formData.append("location", JSON.stringify(newVehicle.location));
 
     try {
       const response = await fetch(`${baseURL}/api/admin/addRentalVehicle`, {
@@ -111,7 +115,7 @@ const AdminRentalVehicles = () => {
         headers: {
           Authorization: authorizationToken,
         },
-        body: formData, // Send the form data with the image
+        body: formData,
       });
 
       if (response.ok) {
@@ -125,6 +129,7 @@ const AdminRentalVehicles = () => {
           twelvehrPrice: "",
           twentyfourhrPrice: "",
           isAvailable: true,
+          location: [],
         });
         setImageFile(null); // Reset the image file state
       } else {
@@ -225,6 +230,16 @@ const AdminRentalVehicles = () => {
                 <option value={false}>No</option>
               </select>
             </div>
+            <div>
+              <label>Locations:</label>
+              <input
+                type="text"
+                name="locations"
+                placeholder="Enter locations separated by commas"
+                onChange={handleLocationsChange}
+                required
+              />
+            </div>
             <button type="submit" style={{ marginTop: "20px" }}>
               Add Vehicle
             </button>
@@ -241,6 +256,7 @@ const AdminRentalVehicles = () => {
                 <th>12hr Price</th>
                 <th>24hr Price</th>
                 <th>Available</th>
+                <th>Locations</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -262,6 +278,7 @@ const AdminRentalVehicles = () => {
                   <td>{vehicle.twelvehrPrice}</td>
                   <td>{vehicle.twentyfourhrPrice}</td>
                   <td>{vehicle.isAvailable ? "Yes" : "No"}</td>
+                  <td>{vehicle.location?.join(", ") || "N/A"}</td>
                   <td className="admin-edit-vehicle-btn">
                     <button
                       onClick={() => handleOnClick(vehicle._id)}

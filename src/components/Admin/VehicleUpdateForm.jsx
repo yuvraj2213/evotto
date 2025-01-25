@@ -13,6 +13,7 @@ const VehicleUpdateForm = ({ setShowForm, vehicleId }) => {
     twelvehrPrice: "",
     twentyfourhrPrice: "",
     isAvailable: false,
+    location:[],
   });
 
   const [vehicle, setVehicle] = useState(null); // Initially null
@@ -84,7 +85,8 @@ const VehicleUpdateForm = ({ setShowForm, vehicleId }) => {
         sixhrPrice: vehicle.sixhrPrice || "",
         twelvehrPrice: vehicle.twelvehrPrice || "",
         twentyfourhrPrice: vehicle.twentyfourhrPrice || "",
-        isAvailable: vehicle.isAvailable || false, // Ensure boolean value
+        isAvailable: vehicle.isAvailable || false, 
+        location:vehicle.location?.join(", ")||[],
       });
     }
   }, [vehicle]); // Update formData when vehicle changes
@@ -148,6 +150,18 @@ const VehicleUpdateForm = ({ setShowForm, vehicleId }) => {
           id="twentyfourhrPrice"
           name="twentyfourhrPrice"
           value={formData.twentyfourhrPrice}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="vehicle-update-form-in">
+        <label htmlFor="location">Locations</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          value={formData.location}
           onChange={handleChange}
           required
         />
