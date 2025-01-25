@@ -80,7 +80,7 @@
     border-radius: 0px !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
-    width: 50vw;
+    width: 50%;
     height: 170px !important;
     padding: 5px !important;
   }
@@ -100,8 +100,8 @@
   }
 
   .know-us-better-img {
-    width: 130px;
-    height: 110px;
+    width: 190px;
+    height: 175px;
     border-radius: 0px;
   }
 
