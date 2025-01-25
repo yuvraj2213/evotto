@@ -162,7 +162,7 @@ const CarCard = ({
       <Toaster />
       <div className="car-container">
         {searchQuery === "" ? (
-          <h2>Popular Vehicles</h2>
+          <h2 style={{color:"red"}}>Popular Vehicles</h2>
         ) : (
           <h2>Your Search Results</h2>
         )}
