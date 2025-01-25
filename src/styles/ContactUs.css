@@ -5,7 +5,11 @@
 }
 
 .contact-form{
-  background-color: #e71d36 !important;
+  background-image: url('/images/ss1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
 }
 
 .contact-form-heading{
