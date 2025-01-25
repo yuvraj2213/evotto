@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
-
 const CarCard = ({
   searchQuery,
   pickUpLocation,
@@ -44,7 +43,6 @@ const CarCard = ({
   };
 
   const handleRentClick = (car) => {
-    
     if (
       !pickUpLocation ||
       !pickUpDate ||
@@ -85,7 +83,7 @@ const CarCard = ({
 
       // Current Work
 
-      console.log(selectedCar)
+      console.log(selectedCar);
 
       navigate("/rentalBooking", {
         state: {
@@ -146,7 +144,13 @@ const CarCard = ({
     const matchesSearchQuery = car.name
       .toLowerCase()
       .startsWith(searchQuery.toLowerCase());
-    return matchesSearchQuery;
+
+    // Only filter cars based on pickup location if a location is selected
+    const matchesPickUpLocation = pickUpLocation
+      ? car.location?.includes(pickUpLocation)
+      : true;
+
+    return matchesSearchQuery && matchesPickUpLocation;
   });
 
   if (loading) {

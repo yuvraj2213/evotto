@@ -4,7 +4,7 @@
   width: 80vw;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 .trip-planner h2 {
@@ -60,6 +60,17 @@
   border: none;
   height: 25px;
   border-radius: 7px;
+}
+
+.note-trip-planner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rental-car-card-note{
+  color: #007bff;
 }
 
 @media (max-width: 800px) {

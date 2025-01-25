@@ -91,7 +91,9 @@ const TripPlanner = ({
 
   return (
     <div className="trip-planner">
-      <h2 style={{ color: "black" }}>Select Pick-Up and Drop-Off Information below:</h2>
+      <h2 style={{ color: "black" }}>
+        Select Pick-Up and Drop-Off Information below:
+      </h2>
       <form onSubmit={handleSubmit} className="trip-planner-form">
         <div className="trip-section">
           <div className="section-header">
@@ -157,7 +159,7 @@ const TripPlanner = ({
                 className="input-style"
                 id="dropOffLocation"
                 value={dropOffLocation}
-                readOnly 
+                readOnly
               />
             </div>
             <div className="field">
@@ -183,6 +185,15 @@ const TripPlanner = ({
           </div>
         </div>
       </form>
+      <div className="note-trip-planner">
+        <p className="rental-car-card-note">
+          Note: Once you select your Pick-Up location, vehicles will get
+          filtered out according to its availability on that location
+        </p>
+        <p className="rental-car-card-note">
+          So, it is advised to select Pick-Up location first
+        </p>
+      </div>
     </div>
   );
 };
