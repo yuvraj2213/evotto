@@ -35,7 +35,7 @@ const Navbar = () => {
     <div className="navbar-main">
     <nav className="navbar">
       <div className="logo-img">
-        <img src="/images/logo2.png" width={50} alt="Logo" />
+        <img src="/images/logo5_2.png" width={50} alt="Logo"/>
         <div className="logo" style={{color:"black"}}>Evotto</div>
       </div>
 
