@@ -5,7 +5,7 @@ const SplashScreen = () => {
   return (
     <div className="splash-screen">
       <div className="logo-container">
-        {/* <img src="/images/logo.jpg" alt="Logo" className="logo" /> */}
+        <img src="/images/logo.jpg" alt="Logo" className="logo" />
       </div>
     </div>
   );

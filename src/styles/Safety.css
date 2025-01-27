@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #fff; 
+  background-color:#fff; 
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   border-top-right-radius: 0px;
@@ -54,7 +54,7 @@
   background-repeat: no-repeat;
   border: 2px solid white;
   width: 430px;
-  height: 410px;
+  height: 406px;
   padding: 0px; /* Increased spacing around the content */
   text-align: left; /* Align text to the left */
   max-width: 450px; /* Slightly wider container */
