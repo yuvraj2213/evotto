@@ -1,7 +1,7 @@
 .ride-options-container {
     text-align: center;
     padding: 20px;
-    margin-top: 110px;
+    margin-top: 50px;
   }
   
   .ride-title {
@@ -25,6 +25,10 @@
     width: 300px;
     padding: 20px;
     text-align: left;
+  }
+
+  .ride-card img{
+    width:300px;
   }
   
   .ride-card h3 {
@@ -54,5 +58,43 @@
   
   #duration-img {
     background-image: url('path-to-duration-image.png'); /* Replace with actual path */
+  }
+  
+  @media (max-width: 768px) {
+
+    .ride-card {
+      width: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+    }
+  
+    .ride-title {
+      font-size: 1.5rem;
+    }
+  
+    .ride-card img {
+      width: 250px;
+      height: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+  
+    .ride-card {
+      width: 250px;
+    }
+  
+    .ride-title {
+      font-size: 1.2rem;
+    }
+  
+    .ride-image {
+      width: 250px;
+      height: 80px;
+    }
   }
   

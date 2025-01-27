@@ -23,7 +23,6 @@
   /* background-color: white;  */
   background: linear-gradient(to right, #60a5fa, #a5d8ff, #dbeafe);
 
-
   margin-bottom: 300px;
 }
 
@@ -135,7 +134,6 @@
   .hamburger-menu {
     display: block;
   }
-
   .ham-btn {
     display: block;
     font-size: 20px;

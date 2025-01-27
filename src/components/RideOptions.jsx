@@ -8,7 +8,7 @@ const RideOptions = () => {
       <div className="ride-cards">
         {/* Card 1 */}
         <div className="ride-card">
-          <img src="/images/ride1.png" alt="" width={300}/>
+          <img src="/images/ride1.png" alt="" />
           <h3>For any budget</h3>
           <p>
             From <strong>Scooties</strong> and <strong>Bike</strong> to{" "}
