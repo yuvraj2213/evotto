@@ -6,7 +6,8 @@
   justify-content: center;
   text-align: center;
   padding: 20px 0;
-  background-image: url("/images/background3.png");
+  /* background-image: url("/images/background3.png"); */
+  background: linear-gradient(to right, #0d1b2a, #1f3a5b, #2e5c7e);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -50,7 +51,8 @@
   margin: 10px auto;
   display: flex;
   gap: 20px;
-  background-image: url("/images/background3.png");
+  /* background-image: url("/images/background3.png"); */
+  background: linear-gradient(to right, #0d1b2a, #1f3a5b, #2e5c7e);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -68,7 +70,8 @@
 .rental-vehicle-info {
   padding: 20px;
   width: 60%;
-  background-image: url("/images/background3.png");
+  /* background-image: url("/images/background3.png"); */
+  background: linear-gradient(to right, #0d1b2a, #1f3a5b, #2e5c7e);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
