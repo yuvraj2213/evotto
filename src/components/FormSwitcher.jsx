@@ -7,7 +7,6 @@ const FormSwitcher = () => {
 
   return (
     <div className="form-switcher-container">
-      <h2>Choose a Form</h2>
       <div className="radio-buttons">
         <label
           className={`radio-label ${
@@ -38,7 +37,7 @@ const FormSwitcher = () => {
           Contact Us
         </label>
       </div>
-      <div className="form-container">
+      <div className="form-switcher-container">
         {selectedForm === "contact" && (
           <div className="contact-form">
             <h3 className="contact-form-heading">Contact Us Form</h3>
