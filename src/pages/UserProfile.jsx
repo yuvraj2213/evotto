@@ -91,7 +91,6 @@ const UserProfile = () => {
     <>
       <Toaster />
       <div className="profile-container">
-        <Navbar />
         <div className="profile-card">
           <div className="profile-header">
             <h2>User Profile</h2>
