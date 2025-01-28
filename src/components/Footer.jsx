@@ -24,7 +24,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-section">
-          <h4>Services</h4>
+          <h4>SERVICES</h4>
           <ul>
             <li>
               <Link to="/rental">Rental</Link>
@@ -63,7 +63,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-section-address">
-          <h4>Registered Office Address</h4>
+          <h4>REGISTERED OFFICE ADDRESS</h4>
           <ul>
             <li>
               <p>Evotto Private Limited,</p>
