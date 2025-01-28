@@ -90,7 +90,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <div>© 2025 Evotto. All rights reserved.</div>
+        <div>© 2024-2025 Evotto. All rights reserved.</div>
       </div>
     </footer>
   );
