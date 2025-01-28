@@ -62,7 +62,7 @@ const Login = ({ check, setCheck }) => {
     <>
       <Toaster />
       <div className="signup-container">
-        <h1>Login</h1>
+        <h1 className="signup-heading-color">Login</h1>
         <form onSubmit={handleSubmit} className="signup-form">
           <div className="form-group">
             <label htmlFor="email">Email:</label>

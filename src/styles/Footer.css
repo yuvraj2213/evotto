@@ -28,10 +28,21 @@
   max-width: 200px;
 }
 
+.footer-section-address{
+  margin: 20px;
+  max-width: 200px;
+}
+
 /* Footer section headings */
 .footer-section h4 {
   margin-bottom: 10px;
   font-size: 16px;
+  color: #ffd700;
+}
+
+.footer-section-address h4 {
+  margin-bottom: 10px;
+  font-size: 14px;
   color: #ffd700;
 }
 
@@ -40,11 +51,21 @@
   list-style-type: none;
   padding: 0;
 }
+.footer-section-address ul {
+  list-style-type: none;
+  padding: 0;
+}
 
 .footer-section ul li {
   margin-bottom: 8px;
   font-size: 12px;
   cursor: pointer;
+  color: #ffffff;
+}
+
+.footer-section-address ul li {
+  margin-bottom: 8px;
+  font-size: 10px;
   color: #ffffff;
 }
 

@@ -71,7 +71,7 @@ const Signup = ({ check, setCheck }) => {
     <>
       <Toaster />
       <div className="signup-container">
-        <h1>Sign Up</h1>
+        <h1 className="signup-heading-color">Sign Up</h1>
         <form onSubmit={handleSubmit} className="signup-form">
           <div className="form-group">
             <label htmlFor="name">Name:</label>

@@ -42,6 +42,18 @@ const Profile = () => {
         </div>
       )}
 
+      {User && User.isDriver && (
+        <div className="profile-admin-btn">
+          <Link to="/driver">
+            <button>
+              Open Driver Panel
+            </button>
+          </Link>
+        </div>
+      )}
+
+
+
       <section className="social-links">
         <SocialLinks />
       </section>

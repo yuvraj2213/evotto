@@ -6,7 +6,13 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-image: url('/images/form11.webp');
+    background: linear-gradient(to right, #001f3f, #005f99, #00aaff, #66ccff);
+
+
+}
+
+.signup-heading-color{
+    color:#fff;
 }
 
 .signup-container h1 {
@@ -21,7 +27,7 @@
 .signup-form .form-group label {
     display: block;
     margin-bottom: 5px;
-    color: black;
+    color: #fff;
     font-weight: bold;
 }
 

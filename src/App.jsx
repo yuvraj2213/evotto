@@ -32,6 +32,8 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import ReturnPolicyPage from "./pages/ReturnPolicyPage";
 import AdminBlogs from "./pages/AdminBlogs";
 import Express from "./pages/Express";
+import AdminDrivers from "./pages/AdminDrivers";
+import DriverBooking from "./pages/DriverBooking";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -61,7 +63,7 @@ const App = () => {
             <Route path="/rental" element={<Rental />} />
             <Route path="/cars" element={<SecondHand />} />
             <Route path="/service" element={<Servicing />} />
-            <Route path="/drivers" element={<Driver/>} />
+            <Route path="/drivers" element={<DriverBooking/>} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/feedback" element={<Feedback />} />
@@ -84,7 +86,10 @@ const App = () => {
               <Route path="slideshow" element={<AdminSlideshow/>}/>
               <Route path="rentalLocations" element={<AdminRentalLocations/>}/>
               <Route path="rentalVehicles" element={<AdminRentalVehicles/>}/>
+              <Route path="drivers" element={<AdminDrivers/>}/>
               <Route path="blogs" element={<AdminBlogs/>}/>
+            </Route>
+            <Route path="/driver" element={<Driver/>}>
             </Route>
           </Routes>
         </Router>

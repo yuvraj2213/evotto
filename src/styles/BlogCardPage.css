@@ -13,7 +13,7 @@
 .blog-card {
   height: 350px;
   width: 300px;
-  background-color: #ffffff;
+  background: linear-gradient(to right, #001f3f, #005f99, #00aaff, #66ccff);
   padding: 10px;
   border-radius: 10px; /* Optional: Adds smooth corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Adds layered depth */

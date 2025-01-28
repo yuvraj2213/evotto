@@ -9,8 +9,6 @@ const AdminFeedbacks = () => {
 
   const [feedback, setFeedback] = useState([]);
 
-  const params=useParams()
-
   const getFeedbacks = async () => {
     const response = await fetch(`${baseURL}/api/admin/feedbacks`, {
       method: "GET",
