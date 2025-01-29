@@ -3,10 +3,15 @@ import { Link, NavLink } from "react-router-dom";
 import "../styles/AdminNavbar.css";
 
 const AdminNavbar = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdownRental, setShowDropdownRental] = useState(false);
+  const [showDropdownDrivers, setShowDropdownDrivers] = useState(false);
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
+  const toggleDropdownRental = () => {
+    setShowDropdownRental(!showDropdownRental);
+  };
+
+  const toggleDropdownDrivers = () => {
+    setShowDropdownDrivers(!showDropdownDrivers);
   };
   return (
     <>
@@ -25,9 +30,9 @@ const AdminNavbar = () => {
           <li>
             <NavLink to="/admin/slideshow">Slideshow</NavLink>
           </li>
-          <li onClick={toggleDropdown}>
+          <li onClick={toggleDropdownRental}>
             <Link>Rentals</Link>
-            {showDropdown && (
+            {showDropdownRental && (
               <ul className="admin-navbar-dropdown">
                 <li>
                   <NavLink to="/admin/rentalLocations">
@@ -40,8 +45,20 @@ const AdminNavbar = () => {
               </ul>
             )}
           </li>
-          <li>
-            <NavLink to="/admin/drivers">Drivers</NavLink>
+          <li onClick={toggleDropdownDrivers}>
+            <Link>Drivers</Link>
+            {showDropdownDrivers && (
+              <ul className="admin-navbar-dropdown">
+                <li>
+                  <NavLink to="/admin/drivers">
+                    Drivers List
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/driverOrders">Orders</NavLink>
+                </li>
+              </ul>
+            )}
           </li>
           <li>
             <NavLink to="/admin/blogs">Blogs</NavLink>

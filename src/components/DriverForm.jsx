@@ -35,15 +35,30 @@ const DriverForm = () => {
     const timeDiff = (bookingDate - currentDate) / (1000 * 60 * 60 * 24);
 
     if (timeDiff < 1) {
-      alert("Please book the driver at least 24 hours in advance.");
+      toast.error("Please book the driver at least 24 hours in advance.");
       setLoading(false);
       return;
     }
 
-    // Append user email to the form data
+    // Extract user details from auth context
+    const userName = user?.userData?.name;
+    const userPhone = user?.userData?.phone;
+
+    if (!userName || !userEmail || !userPhone) {
+      toast.error("User details are missing. Please log in again.");
+      setLoading(false);
+      return;
+    }
+
+    // Prepare the form data with user details
     const submissionData = {
-      ...formData,
-      userEmail: userEmail,
+      name: userName,
+      email: userEmail,
+      phone: userPhone,
+      date: formData.date,
+      time: formData.time,
+      location: formData.location,
+      duration: formData.duration,
     };
 
     try {
@@ -57,11 +72,18 @@ const DriverForm = () => {
 
       if (response.ok) {
         toast.success("Driver booked successfully!");
+        setFormData({
+          date: "",
+          time: "",
+          location: "",
+          duration: "1 day",
+        });
       } else {
-        toast.error("Failed to book driver");
+        toast.error("Failed to book driver.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      toast.error("Something went wrong.");
     } finally {
       setLoading(false);
     }
