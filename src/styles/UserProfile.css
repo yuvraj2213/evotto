@@ -4,7 +4,7 @@
   max-width: 1200px;
   height: auto;
   padding: 20px;
-  background-image: url('/images/profilebg2.jpg');
+  background: linear-gradient(to right, #000000, #141414, #282828);
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px;
@@ -23,7 +23,7 @@
   border-radius: 10px;
   width: 100%;
   max-width: 600px;
-  background-image: url("/images/profilebg1.jpg");
+   background: linear-gradient(to right, #0d1b2a, #1f3a5b, #2e5c7e);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
