@@ -119,12 +119,16 @@
 
 .footer-heading{
   display:flex;
-  gap: 5px;
+  gap: 7px;
 }
 
 .footer-heading img{
   position: relative;
-  top: 15px;
+  top: 20px;
+}
+
+.footer-section-address .footer-heading img{
+  right: 22px;
 }
 
 /* Responsive design for smaller devices */

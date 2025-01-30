@@ -9,12 +9,7 @@ const Footer = () => {
         <div className="footer-section">
           <div className="footer-heading">
             <h4>ABOUT</h4>
-            <img
-              src="/images/about_icon.png"
-              alt=""
-              width={30}
-              height={30}
-            />
+            <img src="/images/about_icon.png" alt="" width={30} height={30} />
           </div>
           <ul>
             <li>
@@ -62,15 +57,20 @@ const Footer = () => {
             <h4>HELP</h4>
             <img src="/images/help_logo.png" alt="" width={30} height={30} />
           </div>
-          <ul>  
+          <ul>
             <li>Payments</li>
             <li>Cancellation & Returns</li>
           </ul>
         </div>
         <div className="footer-section">
-        <div className="footer-heading">
+          <div className="footer-heading">
             <h4>CONSUMER POLICY</h4>
-            <img src="/images/consumer_icon.png" alt="" width={30} height={30} />
+            <img
+              src="/images/consumer_icon.png"
+              alt=""
+              width={30}
+              height={30}
+            />
           </div>
           <ul>
             <li>
@@ -85,7 +85,16 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-section-address">
-          <h4>REGISTERED OFFICE ADDRESS</h4>
+          <div className="footer-heading">
+            <h4>REGISTERED OFFICE ADDRESS</h4>
+            <img
+              src="/images/address_logo.png"
+              alt=""
+              width={30}
+              height={30}
+            />
+          </div>
+
           <ul>
             <li>
               <p>Evotto Private Limited,</p>
