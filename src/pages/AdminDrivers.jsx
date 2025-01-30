@@ -44,7 +44,7 @@ const AdminDrivers = () => {
                   <tr key={index}>
                     <td>{curr.name}</td>
                     <td>{curr.email}</td>
-                    <td>Yes</td>
+                    <td>{curr.isDriverOnline?'Yes':'No'}</td>
                   </tr>
                 );
               })}

@@ -117,6 +117,16 @@
   margin-right: 0;
 }
 
+.footer-heading{
+  display:flex;
+  gap: 5px;
+}
+
+.footer-heading img{
+  position: relative;
+  top: 15px;
+}
+
 /* Responsive design for smaller devices */
 @media (max-width: 530px) {
   .footer-container {

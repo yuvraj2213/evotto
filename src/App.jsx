@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './App.css';
+import "./App.css";
 import Home from "./pages/Home";
 import Rental from "./pages/Rental";
 import SecondHand from "./pages/SecondHand";
@@ -35,19 +35,20 @@ import Express from "./pages/Express";
 import AdminDrivers from "./pages/AdminDrivers";
 import DriverBooking from "./pages/DriverBooking";
 import AdminDriverOrders from "./pages/AdminDriverOrders";
+import DriverBookings from "./pages/DriverBookings";
+import DriverMyBookings from "./pages/DriverMyBookings";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
 
   useEffect(() => {
-
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
       setShowSplash(true);
       const timer = setTimeout(() => {
         setShowSplash(false);
-      }, 3000); 
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -64,34 +65,39 @@ const App = () => {
             <Route path="/rental" element={<Rental />} />
             <Route path="/cars" element={<SecondHand />} />
             <Route path="/service" element={<Servicing />} />
-            <Route path="/drivers" element={<DriverBooking/>} />
+            <Route path="/drivers" element={<DriverBooking />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/rentalBooking" element={<RentalBooking/>}/>
-            <Route path="/gears" element={<Gears/>}/>
-            <Route path="/express" element={<Express/>}/>
-            <Route path="/blogs" element={<Blogs/>}/>
-            <Route path="/blog-detail" element={<BlogDetailPage/>}/>
-            <Route path="/consumer-policy" element={<ConsumerPolicy/>}/>
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
-            <Route path="/return-policy" element={<ReturnPolicyPage/>}/>
+            <Route path="/rentalBooking" element={<RentalBooking />} />
+            <Route path="/gears" element={<Gears />} />
+            <Route path="/express" element={<Express />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blog-detail" element={<BlogDetailPage />} />
+            <Route path="/consumer-policy" element={<ConsumerPolicy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/return-policy" element={<ReturnPolicyPage />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
-            <Route path="*" element={<Error/>}/>
-            <Route path="/admin" element={<Admin/>}>
-              <Route path="users" element={<AdminUsers/>}/>
-              <Route path="users/:id/edit" element={<AdminUpdate/>}/>
-              <Route path="feedbacks" element={<AdminFeedbacks/>}/>
-              <Route path="slideshow" element={<AdminSlideshow/>}/>
-              <Route path="rentalLocations" element={<AdminRentalLocations/>}/>
-              <Route path="rentalVehicles" element={<AdminRentalVehicles/>}/>
-              <Route path="drivers" element={<AdminDrivers/>}/>
-              <Route path="driverOrders" element={<AdminDriverOrders/>}/>
-              <Route path="blogs" element={<AdminBlogs/>}/>
+            <Route path="*" element={<Error />} />
+            <Route path="/admin" element={<Admin />}>
+              <Route path="users" element={<AdminUsers />} />
+              <Route path="users/:id/edit" element={<AdminUpdate />} />
+              <Route path="feedbacks" element={<AdminFeedbacks />} />
+              <Route path="slideshow" element={<AdminSlideshow />} />
+              <Route
+                path="rentalLocations"
+                element={<AdminRentalLocations />}
+              />
+              <Route path="rentalVehicles" element={<AdminRentalVehicles />} />
+              <Route path="drivers" element={<AdminDrivers />} />
+              <Route path="driverOrders" element={<AdminDriverOrders />} />
+              <Route path="blogs" element={<AdminBlogs />} />
             </Route>
-            <Route path="/driver" element={<Driver/>}>
+            <Route path="/driver" element={<Driver />}>
+              <Route path="bookings" element={<DriverBookings />} />
+              <Route path="myBookings" element={<DriverMyBookings />} />
             </Route>
           </Routes>
         </Router>

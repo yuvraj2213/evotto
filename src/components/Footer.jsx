@@ -7,7 +7,15 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h4>ABOUT</h4>
+          <div className="footer-heading">
+            <h4>ABOUT</h4>
+            <img
+              src="/images/about_icon.png"
+              alt=""
+              width={30}
+              height={30}
+            />
+          </div>
           <ul>
             <li>
               <Link to="/contact">Contact Us</Link>
@@ -24,7 +32,15 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-section">
-          <h4>SERVICES</h4>
+          <div className="footer-heading">
+            <h4>SERVICES</h4>
+            <img
+              src="/images/services_icon.png"
+              alt=""
+              width={30}
+              height={30}
+            />
+          </div>
           <ul>
             <li>
               <Link to="/rental">Rental</Link>
@@ -42,14 +58,20 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-section">
-          <h4>HELP</h4>
-          <ul>
+          <div className="footer-heading">
+            <h4>HELP</h4>
+            <img src="/images/help_logo.png" alt="" width={30} height={30} />
+          </div>
+          <ul>  
             <li>Payments</li>
             <li>Cancellation & Returns</li>
           </ul>
         </div>
         <div className="footer-section">
-          <h4>CONSUMER POLICY</h4>
+        <div className="footer-heading">
+            <h4>CONSUMER POLICY</h4>
+            <img src="/images/consumer_icon.png" alt="" width={30} height={30} />
+          </div>
           <ul>
             <li>
               <Link to="/consumer-policy">Cancellation & Returns</Link>

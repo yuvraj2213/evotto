@@ -14,10 +14,13 @@ const DriverNavbar = () => {
         <ul>
           <li className="heading">Driver Panel</li>
           <li>
-            <NavLink to="/admin">Driver Home</NavLink>
+            <NavLink to="/driver">Driver Home</NavLink>
           </li>
           <li>
-            <NavLink to="/admin/users">Bookings</NavLink>
+            <NavLink to="/driver/bookings">Orders</NavLink>
+          </li>
+          <li>
+            <NavLink to="/driver/myBookings">My Bookings</NavLink>
           </li>
         </ul>
       </div>
