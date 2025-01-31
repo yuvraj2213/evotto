@@ -240,6 +240,39 @@ button:hover {
   max-width: fit-content;
 }
 
+.rental-booking-couponcode input{
+  width: 200px;
+  height: 35px;
+  border: none;
+  margin-top: 10px;
+  padding: 2px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.rental-booking-couponcode button{
+  border: none;
+  background-color: #e71d36;
+  color: #fdfdff;
+  padding: 9px;
+  cursor: pointer;
+  border-radius: 0px ;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  transition: background-color ease-in-out 0.3s;
+  margin-top: 18px;
+  height: 40px;
+  
+}
+
+.rental-booking-couponcode button:hover{
+  background-color: #e25d36;
+}
+
+.rental-coupon-activate{
+  color: #ffe766;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .rental-booking-main {

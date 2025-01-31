@@ -63,6 +63,9 @@ const AdminNavbar = () => {
           <li>
             <NavLink to="/admin/blogs">Blogs</NavLink>
           </li>
+          <li>
+            <NavLink to="/admin/coupons">Coupons</NavLink>
+          </li>
         </ul>
       </div>
     </>

@@ -165,6 +165,10 @@ const RentalBooking = () => {
   const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [visibleReviews, setVisibleReviews] = useState(3); // For pagination
+  const [coupon, setCoupon] = useState([]);
+  const [userCode, setUserCode] = useState("");
+  const [message, setMessage] = useState("");
+  const [isCouponApplied, setIsCouponApplied] = useState(false);
 
   // Fetch vehicle details
   const getVehicle = async () => {
@@ -178,6 +182,43 @@ const RentalBooking = () => {
     } catch (e) {
       console.error(e);
     }
+  };
+
+  // Fetching coupons
+  const getCoupons = async () => {
+    try {
+      const response = await fetch(`${baseURL}/api/data/getAllCoupons`, {
+        method: "GET",
+      });
+      const data = await response.json();
+      setCoupon(data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleCouponSubmit = (e) => {
+    e.preventDefault();
+
+    // Check if any coupon code matches the user input
+    const matchingCoupon = coupon.find((coupon) => coupon.code === userCode);
+
+    if (matchingCoupon) {
+      setMessage(
+        `Coupon code activated! Discount: ${matchingCoupon.discount}%`
+      );
+
+      const discount = parseFloat(matchingCoupon.discount);
+      const discountCost = totalCost - (discount / 100) * totalCost;
+      setTotalCost(Math.ceil(discountCost));
+
+      // Mark coupon as applied
+      setIsCouponApplied(true);
+    } else {
+      setMessage("Invalid coupon code.");
+    }
+
+    setUserCode("");
   };
 
   // Calculate Price
@@ -209,6 +250,10 @@ const RentalBooking = () => {
       console.error("Vehicle ID is missing.");
     }
   }, [vehicleId]);
+
+  useEffect(() => {
+    getCoupons();
+  }, []);
 
   // Handle Payment with Razorpay
   // const handlePayment = async () => {
@@ -274,9 +319,10 @@ const RentalBooking = () => {
               <h4>DropOff Duration : {dropOffDuration}</h4>
             </div>
           </div>
-          <div className="rental-booking-slideshow">
+          {console.log(coupon)}
+          {/* <div className="rental-booking-slideshow">
             <Slideshow />
-          </div>
+          </div> */}
         </div>
         <div className="rental-vehicle-info">
           <h3 className="rental-car-name">{car?.name || "Vehicle Name"}</h3>
@@ -289,18 +335,41 @@ const RentalBooking = () => {
           </h2>
 
           {car?.isAvailable ? (
-            <button
-              className="rental-pay-now-btn"
-              onClick={() => {
-                generateInvoice(); // Call the function to generate the invoice
-                window.location.href =
-                  "https://razorpay.me/@evottoprivatelimited"; // Redirect to Razorpay link
-              }}
-            >
-              Pay Now
-            </button>
+            <>
+              <button
+                className="rental-pay-now-btn"
+                onClick={() => {
+                  generateInvoice(); // Call the function to generate the invoice
+                  window.location.href =
+                    "https://razorpay.me/@evottoprivatelimited"; // Redirect to Razorpay link
+                }}
+              >
+                Pay Now
+              </button>
+              <form
+                className="rental-booking-couponcode"
+                onSubmit={handleCouponSubmit}
+              >
+                <label htmlFor="coupon-code">
+                  <input
+                    type="text"
+                    placeholder="Have a coupon code?"
+                    value={userCode}
+                    onChange={(e) => setUserCode(e.target.value)}
+                    disabled={isCouponApplied}
+                  />
+                </label>
+                <button type="submit" disabled={isCouponApplied}>
+                  Apply Coupon
+                </button>
+              </form>
+
+              {message && <p className="rental-coupon-activate">{message}</p>}
+            </>
           ) : (
-            <div className="rental-not-available">Vehicle Currently Not Available</div>
+            <div className="rental-not-available">
+              Vehicle Currently Not Available
+            </div>
           )}
 
           <h3 className="rental-vehicle-description-heading">
