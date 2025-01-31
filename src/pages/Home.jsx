@@ -43,7 +43,7 @@ const Home = () => {
         <section className="feedback-slideshow">
           <FeedbackSlideshow />
         </section>
-        <FormSwitcher />
+        {/* <FormSwitcher /> */}
         <section className="social-links">
           <SocialLinks />
         </section>
