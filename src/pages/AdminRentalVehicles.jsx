@@ -104,7 +104,7 @@ const AdminRentalVehicles = () => {
     formData.append("name", newVehicle.name);
     formData.append("image", imageFile);
     formData.append("sixhrPrice", newVehicle.sixhrPrice);
-    formData.append("twelvePrice", newVehicle.twelvehrPrice);
+    formData.append("twelvehrPrice", newVehicle.twelvehrPrice);
     formData.append("twentyfourhrPrice", newVehicle.twentyfourhrPrice);
     formData.append("isAvailable", newVehicle.isAvailable);
     formData.append("location", JSON.stringify(newVehicle.location));

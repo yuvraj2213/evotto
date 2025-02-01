@@ -52,6 +52,16 @@ const Profile = () => {
         </div>
       )}
 
+      {User && User.role=='vendor' && (
+        <div className="profile-admin-btn">
+          <Link to="/driver">
+            <button>
+              Open Vendor Panel
+            </button>
+          </Link>
+        </div>
+      )}
+
 
 
       <section className="social-links">

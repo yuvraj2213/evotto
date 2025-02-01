@@ -95,7 +95,7 @@ const Footer = () => {
             />
           </div>
 
-          <ul>
+          <ul className="footer-company-address">
             <li>
               <p>Evotto Private Limited,</p>
             </li>

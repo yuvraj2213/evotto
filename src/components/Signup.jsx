@@ -1,8 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-const baseURL = process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
+const baseURL =
+  process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
 import "../styles/Signup.css";
 
@@ -15,10 +16,12 @@ const Signup = ({ check, setCheck }) => {
     phone: "",
     password: "",
     confirmPassword: "",
+    role: "user", // Default role is "user"
+    companyName: "", // Required only for vendors
   });
 
-  const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
-  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false); // State to toggle confirm password visibility
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
   const { storeTokenInLS } = useAuth();
 
@@ -35,6 +38,11 @@ const Signup = ({ check, setCheck }) => {
       return;
     }
 
+    if (formData.role === "vendor" && !formData.companyName.trim()) {
+      toast.error("Company name is required for vendors.");
+      return;
+    }
+
     try {
       const response = await fetch(`${baseURL}/api/auth/register`, {
         method: "POST",
@@ -44,16 +52,16 @@ const Signup = ({ check, setCheck }) => {
         body: JSON.stringify(formData),
       });
 
+      const responseData = await response.json();
+      console.log("Response from backend:", responseData); // Debugging log
+
       if (!response.ok) {
-        const errorData = await response.json();
-        toast.error(errorData.message || "Registration failed!");
+        toast.error(responseData.message || "Registration failed!");
         return;
       }
 
-      const data = await response.json();
       toast.success("Registration successful!");
-
-      storeTokenInLS(data.token);
+      storeTokenInLS(responseData.token);
 
       setFormData({
         name: "",
@@ -61,11 +69,17 @@ const Signup = ({ check, setCheck }) => {
         phone: "",
         password: "",
         confirmPassword: "",
+        role: "user",
+        companyName: "",
       });
     } catch (e) {
-      console.log(e);
+      console.log("Error:", e);
     }
   };
+
+  useEffect(()=>{
+    console.log(formData)
+  },[formData])
 
   return (
     <>
@@ -107,10 +121,37 @@ const Signup = ({ check, setCheck }) => {
               required
             />
           </div>
+          {/* Role Selection */}
+          <div className="form-group">
+            <label htmlFor="role">Register as:</label>
+            <select
+              id="role"
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+            >
+              <option value="user">User</option>
+              <option value="vendor">Vendor</option>
+            </select>
+          </div>
+          {/* Company Name (Only Visible for Vendors) */}
+          {formData.role === "vendor" && (
+            <div className="form-group">
+              <label htmlFor="companyName">Company Name:</label>
+              <input
+                type="text"
+                id="companyName"
+                name="companyName"
+                value={formData.companyName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          )}
           <div className="form-group">
             <label htmlFor="password">Password:</label>
             <input
-              type={passwordVisible ? "text" : "password"} // Toggle password visibility
+              type={passwordVisible ? "text" : "password"}
               id="password"
               name="password"
               value={formData.password}
@@ -120,7 +161,7 @@ const Signup = ({ check, setCheck }) => {
             <button
               type="button"
               className="show-password-btn"
-              onClick={() => setPasswordVisible(!passwordVisible)} // Toggle password visibility
+              onClick={() => setPasswordVisible(!passwordVisible)}
             >
               {passwordVisible ? "Hide Password" : "Show Password"}
             </button>
@@ -128,7 +169,7 @@ const Signup = ({ check, setCheck }) => {
           <div className="form-group">
             <label htmlFor="confirmPassword">Confirm Password:</label>
             <input
-              type={confirmPasswordVisible ? "text" : "password"} // Toggle confirm password visibility
+              type={confirmPasswordVisible ? "text" : "password"}
               id="confirmPassword"
               name="confirmPassword"
               value={formData.confirmPassword}
@@ -138,7 +179,7 @@ const Signup = ({ check, setCheck }) => {
             <button
               type="button"
               className="show-password-btn"
-              onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)} 
+              onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
             >
               {confirmPasswordVisible ? "Hide Password" : "Show Password"}
             </button>

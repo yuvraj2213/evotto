@@ -14,6 +14,7 @@ const UserProfile = () => {
   const [selectedFile, setSelectedFile] = useState(null); // State for the selected file
   const [uploadStatus, setUploadStatus] = useState(""); // Status message for upload
   const [image, setImage] = useState(null);
+  const [loading2, setLoading2] = useState(false);
 
   const { authorizationToken } = useAuth();
 
@@ -58,6 +59,8 @@ const UserProfile = () => {
   const handleFileUpload = async (e) => {
     e.preventDefault();
 
+    setLoading2(true);
+
     const formData = new FormData();
 
     if (image) {
@@ -78,6 +81,7 @@ const UserProfile = () => {
       if (response.ok) {
         console.log("Liscense uploaded successfully");
         toast.success("Liscense Uploaded successfully!");
+        setLoading2(false);
         window.location.reload();
       } else {
         console.log("Backend error response:", result); // Debug backend error message
@@ -143,7 +147,7 @@ const UserProfile = () => {
                 onChange={handleFileChange}
               />
               <button className="upload-btn" onClick={handleFileUpload}>
-                Upload DL
+                {loading2 ? "Uploading..." : "Upload DL"}
               </button>
               {uploadStatus && <p className="upload-status">{uploadStatus}</p>}
             </div>
