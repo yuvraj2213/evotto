@@ -54,7 +54,7 @@ const Profile = () => {
 
       {User && User.role=='vendor' && (
         <div className="profile-admin-btn">
-          <Link to="/driver">
+          <Link to="/vendor">
             <button>
               Open Vendor Panel
             </button>

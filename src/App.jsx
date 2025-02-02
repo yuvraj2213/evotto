@@ -38,6 +38,8 @@ import AdminDriverOrders from "./pages/AdminDriverOrders";
 import DriverBookings from "./pages/DriverBookings";
 import DriverMyBookings from "./pages/DriverMyBookings";
 import AdminCoupons from "./pages/AdminCoupons";
+import Vendor from "./pages/Vendor/Vendor";
+import VendorManagement from "./pages/Vendor/VendorManagement";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -100,6 +102,9 @@ const App = () => {
             <Route path="/driver" element={<Driver />}>
               <Route path="bookings" element={<DriverBookings />} />
               <Route path="myBookings" element={<DriverMyBookings />} />
+            </Route>
+            <Route path="/vendor" element={<Vendor />}>
+              <Route path="vendorManagement" element={<VendorManagement />} />
             </Route>
           </Routes>
         </Router>
