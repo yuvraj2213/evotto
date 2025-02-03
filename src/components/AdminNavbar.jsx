@@ -35,6 +35,11 @@ const AdminNavbar = () => {
             {showDropdownRental && (
               <ul className="admin-navbar-dropdown">
                 <li>
+                  <NavLink to="/admin/rentalOrders">
+                    Rental Orders
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/admin/rentalLocations">
                     Rental Locations
                   </NavLink>

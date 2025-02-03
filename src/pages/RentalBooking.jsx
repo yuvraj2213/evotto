@@ -31,7 +31,7 @@ const RentalBooking = () => {
   const { user } = useAuth();
 
   const [userDetails, setUserDetails] = useState();
-  const [station,setStation]=useState('');
+  const [station, setStation] = useState("");
 
   useEffect(() => {
     if (user && user.userData) {
@@ -223,6 +223,44 @@ const RentalBooking = () => {
     setUserCode("");
   };
 
+  const handlePayNow = async () => {
+    try {
+      const response = await fetch(`${baseURL}/api/orders/addOrder`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          type:"rental",
+          userName:userDetails.name,
+          userId:userDetails._id,
+          vehicle:car.name,
+          vendor: car.vendor, 
+          vendorId: car.vendorId,
+          amount: totalCost, 
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Step 2: Generate the invoice (You need to define this function)
+        generateInvoice(data.order);
+
+        // Step 3: Redirect to Razorpay payment page
+        window.location.href = "https://razorpay.me/@evottoprivatelimited";
+      } else {
+        alert(data.error);
+      }
+    } catch (error) {
+      console.error("Error creating order:", error);
+      alert("Failed to create order.");
+    }
+  };
+
+  {console.log('ye aya',car)}
+
+
   // Calculate Price
   useEffect(() => {
     if (car && dropOffDuration) {
@@ -255,10 +293,14 @@ const RentalBooking = () => {
 
   useEffect(() => {
     getCoupons();
-    if(pickUpLocation=='KIIT')
-      setStation('https://www.google.com/maps/place/THE+BIKER+LANE+%7C+BIKE+RENTALS/@20.3631819,85.8302744,19.11z/data=!4m6!3m5!1s0x3a19a762d2f8df83:0xe0af579a4d135a8a!8m2!3d20.3632039!4d85.8306415!16s%2Fg%2F11l6gz4nrh?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D')
+    if (pickUpLocation == "KIIT")
+      setStation(
+        "https://www.google.com/maps/place/THE+BIKER+LANE+%7C+BIKE+RENTALS/@20.3631819,85.8302744,19.11z/data=!4m6!3m5!1s0x3a19a762d2f8df83:0xe0af579a4d135a8a!8m2!3d20.3632039!4d85.8306415!16s%2Fg%2F11l6gz4nrh?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D"
+      );
     else
-      setStation('https://www.google.com/maps/search/chai+lover+iter/@20.2510375,85.8000228,18.55z?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D')
+      setStation(
+        "https://www.google.com/maps/search/chai+lover+iter/@20.2510375,85.8000228,18.55z?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D"
+      );
   }, []);
 
   // Handle Payment with Razorpay
@@ -344,11 +386,7 @@ const RentalBooking = () => {
             <>
               <button
                 className="rental-pay-now-btn"
-                onClick={() => {
-                  generateInvoice(); // Call the function to generate the invoice
-                  window.location.href =
-                    "https://razorpay.me/@evottoprivatelimited"; // Redirect to Razorpay link
-                }}
+                onClick={()=>handlePayNow()}
               >
                 Pay Now
               </button>

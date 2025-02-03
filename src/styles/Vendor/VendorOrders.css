@@ -1,0 +1,142 @@
+/* Container styles */
+.vendor-orders-container {
+  width: 1100px; /* Increased width for larger screens */
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff, #f3f4f6);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  margin-top: -80px;
+}
+
+/* Title */
+.vendor-orders-container h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #007bff, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Table styling */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table header */
+.orders-table th {
+  padding: 14px;
+  text-align: left;
+  background: linear-gradient(135deg, #007bff, #0047ab);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Table rows */
+.orders-table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Alternating row colors */
+.orders-table tr:nth-child(even) {
+  background: rgba(235, 235, 255, 0.5);
+}
+
+/* Hover effect */
+.orders-table tr:hover {
+  background: linear-gradient(135deg, #e0f7fa, #d1c4e9);
+  transition: all 0.3s ease;
+}
+
+/* Status column styling */
+.status-completed {
+  color: green;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* No orders message */
+.no-orders {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  background: linear-gradient(to right, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Button styling for the new columns */
+.orders-table button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* background: linear-gradient(135deg, #007bff, #0047ab); */
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Completed button */
+.orders-table button:hover {
+  background-color: #4caf50; /* Green on hover */
+  color: white;
+}
+
+.orders-table button:active {
+  background-color: #388e3c; /* Darker green on click */
+}
+
+/* Cancelled button */
+.orders-table button.rental-cancel-btn:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.orders-table button.rental-cancel-btn:active {
+  background-color: #d32f2f;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .vendor-orders-container {
+    padding: 15px;
+  }
+
+  .orders-table {
+    font-size: 14px;
+  }
+
+  .orders-table th,
+  .orders-table td {
+    padding: 10px;
+  }
+
+  /* Buttons inside table cells for smaller screens */
+  .orders-table button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
