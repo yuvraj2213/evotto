@@ -13,6 +13,7 @@ import Slideshow from "../components/Slideshow";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import { useAuth } from "../store/auth";
+import toast, { Toaster } from "react-hot-toast";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -223,43 +224,49 @@ const RentalBooking = () => {
     setUserCode("");
   };
 
+  console.log(userDetails?.dl);
+
   const handlePayNow = async () => {
-    try {
-      const response = await fetch(`${baseURL}/api/orders/addOrder`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          type:"rental",
-          userName:userDetails.name,
-          userId:userDetails._id,
-          vehicle:car.name,
-          vendor: car.vendor, 
-          vendorId: car.vendorId,
-          amount: totalCost, 
-        }),
-      });
+    if (!userDetails.dl || userDetails.dl == "")
+      toast.error(
+        "You need to upload your DL in the profile section before proceeding further"
+      );
+    else {
+      try {
+        const response = await fetch(`${baseURL}/api/orders/addOrder`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            type: "rental",
+            userName: userDetails.name,
+            userId: userDetails._id,
+            vehicle: car.name,
+            vendor: car.vendor,
+            vendorId: car.vendorId,
+            amount: totalCost,
+            userDocument: userDetails.dl,
+          }),
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (response.ok) {
-        // Step 2: Generate the invoice (You need to define this function)
-        generateInvoice(data.order);
+        if (response.ok) {
+          // Step 2: Generate the invoice (You need to define this function)
+          generateInvoice(data.order);
 
-        // Step 3: Redirect to Razorpay payment page
-        window.location.href = "https://razorpay.me/@evottoprivatelimited";
-      } else {
-        alert(data.error);
+          // Step 3: Redirect to Razorpay payment page
+          window.location.href = "https://razorpay.me/@evottoprivatelimited";
+        } else {
+          alert(data.error);
+        }
+      } catch (error) {
+        console.error("Error creating order:", error);
+        alert("Failed to create order.");
       }
-    } catch (error) {
-      console.error("Error creating order:", error);
-      alert("Failed to create order.");
     }
   };
-
-  {console.log('ye aya',car)}
-
 
   // Calculate Price
   useEffect(() => {
@@ -346,6 +353,7 @@ const RentalBooking = () => {
 
   return (
     <>
+      <Toaster />
       <Navbar />
       <div className="rental-vehicle-heading">
         <h2 className="rental-heading-text">
@@ -386,7 +394,7 @@ const RentalBooking = () => {
             <>
               <button
                 className="rental-pay-now-btn"
-                onClick={()=>handlePayNow()}
+                onClick={() => handlePayNow()}
               >
                 Pay Now
               </button>

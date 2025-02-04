@@ -42,6 +42,7 @@ import Vendor from "./pages/Vendor/Vendor";
 import VendorManagement from "./pages/Vendor/VendorManagement";
 import AdminRentalOrders from "./pages/AdminRentalOrders";
 import VendorOrders from "./pages/Vendor/VendorOrders";
+import VendorRevenue from "./pages/Vendor/VendorRevenue";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -109,6 +110,7 @@ const App = () => {
             <Route path="/vendor" element={<Vendor />}>
               <Route path="vendorManagement" element={<VendorManagement />} />
               <Route path="vendorOrders" element={<VendorOrders />} />
+              <Route path="revenue" element={<VendorRevenue />} />
             </Route>
           </Routes>
         </Router>

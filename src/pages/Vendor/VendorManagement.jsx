@@ -11,8 +11,6 @@ const VendorManagement = () => {
 
   const [vehicle, setVehicle] = useState([]);
 
-  console.log("ye aya", userId);
-
   const getVehicles = async () => {
     try {
       const response = await fetch(

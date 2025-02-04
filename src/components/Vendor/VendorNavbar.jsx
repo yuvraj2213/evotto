@@ -45,7 +45,7 @@ const VendorNavbar = () => {
         </li>
 
         <li className={showMenu ? "menu-nav-item" : "nav-item"}>
-          <Link to="/revenue">Revenue</Link>
+          <Link to="/vendor/revenue">Revenue</Link>
         </li>
 
         {/* Services Dropdown */}

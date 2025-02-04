@@ -73,17 +73,12 @@ const CarCard = ({
       return;
     }
 
+
     if (!isLoggedIn) {
       toast("You need to login first", {
         icon: "⚠️",
       });
     } else {
-      // setSelectedCar(car)
-      // setShowTermsModal(true);
-
-      // Current Work
-
-      console.log(selectedCar);
 
       navigate("/rentalBooking", {
         state: {

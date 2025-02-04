@@ -1,0 +1,83 @@
+.vendor-revenue-container {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    /* font-family: "Arial", sans-serif; */
+    margin-top: -130px;
+}
+
+/* Title Styling */
+.vendor-revenue-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+/* Total Revenue Card */
+.total-revenue-card {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #64748b);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 320px;
+    margin: 0 auto 20px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.total-revenue-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.total-revenue-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.total-revenue-card p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Revenue Cards Grid */
+.revenue-cards-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Individual Revenue Cards */
+.revenue-card {
+    background: linear-gradient(135deg, #1e3a8a, #6366f1, #a5b4fc);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.revenue-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.revenue-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.revenue-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Add Glow Effect on Hover */
+.revenue-card:hover,
+.total-revenue-card:hover {
+    box-shadow: 0px 0px 20px rgba(99, 102, 241, 0.8);
+}
