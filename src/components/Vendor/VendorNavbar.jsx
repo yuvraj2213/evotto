@@ -60,7 +60,7 @@ const VendorNavbar = () => {
                 <Link to="/vendor/vendorManagement">Management</Link>
               </li>
               <li>
-                <Link to="/cars">Status</Link>
+                <Link to="/vendor/vendorListing">Listing</Link>
               </li>
             </ul>
           )}

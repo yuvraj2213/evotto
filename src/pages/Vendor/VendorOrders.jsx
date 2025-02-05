@@ -117,7 +117,6 @@ const VendorOrders = () => {
                       })
                     : "No Date Available"}
                 </td>
-
                 <td>
                   {order.isCompleted
                     ? "Completed"
