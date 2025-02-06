@@ -44,7 +44,7 @@ const Navbar = () => {
             <li className={showMenu ? "menu-nav-item" : "nav-item"}>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className={showMenu ? "menu-nav-item" : "nav-item"}>
               <Link to="/rental">Rental</Link>
             </li>
 
