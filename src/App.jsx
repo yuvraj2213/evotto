@@ -44,6 +44,7 @@ import AdminRentalOrders from "./pages/AdminRentalOrders";
 import VendorOrders from "./pages/Vendor/VendorOrders";
 import VendorRevenue from "./pages/Vendor/VendorRevenue";
 import VendorManagement from "./pages/Vendor/VendorManagement";
+import Quiz from "./pages/Quiz";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -85,6 +86,7 @@ const App = () => {
             <Route path="/consumer-policy" element={<ConsumerPolicy />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/return-policy" element={<ReturnPolicyPage />} />
+            <Route path="/quiz" element={<Quiz />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path="*" element={<Error />} />
