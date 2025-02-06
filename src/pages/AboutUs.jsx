@@ -42,7 +42,7 @@ const AboutUs = () => {
             <div className="feature-card">
               <h3>🚘 Second-Hand Car Booking</h3>
               <p>
-                Find your perfect pre-owned vehicle with a transparent and
+                Find your perfect pre-owned vehicle with transparent and
                 stress-free process.
               </p>
             </div>
