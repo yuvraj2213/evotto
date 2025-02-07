@@ -114,6 +114,15 @@
     cursor: pointer;
 }
 
+.pending-accept-btn{
+    border: none;
+    background-color: #4CAF50;
+    padding: 13px;
+    color: #ffffff;
+    border-radius: 13px;
+    cursor: pointer;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .admin-rental-vehicles-section table th,
