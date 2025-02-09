@@ -47,12 +47,6 @@ const SecondHand = () => {
   return (
     <div className="page-container">
       <Navbar />
-      {/* <div className="comingsoon-heading">
-        <h2>Second Hand Cars Section Will Be Available Soon</h2>
-        <h3>Stay Tuned</h3>
-      </div> */}
-
-      {/* <div className="second-hand-comingsoon"></div> */}
 
       <div className="content">
         <div className="header">

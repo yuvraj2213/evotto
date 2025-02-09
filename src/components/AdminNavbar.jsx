@@ -72,6 +72,9 @@ const AdminNavbar = () => {
             <NavLink to="/admin/blogs">Blogs</NavLink>
           </li>
           <li>
+            <NavLink to="/admin/secondHandCars">Second Hand Cars</NavLink>
+          </li>
+          <li>
             <NavLink to="/admin/coupons">Coupons</NavLink>
           </li>
         </ul>

@@ -18,7 +18,6 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      {console.log("User", User)}
 
       {isLoggedIn ? (
         <UserProfile />

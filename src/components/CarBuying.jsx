@@ -7,6 +7,8 @@ import SecondHandCarCard from "./SecondHandCarCard";
 
 const CarBuying = () => {
 
+  
+
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchChange = (e) => {
