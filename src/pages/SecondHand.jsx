@@ -12,23 +12,6 @@ const SecondHand = () => {
   const carSellingFormRef = useRef(null);
   const carBuyingFormRef = useRef(null);
 
-  // useEffect(() => {
-  //   if (isSell && carSellingFormRef.current) {
-  //     carSellingFormRef.current.scrollIntoView({
-  //       behavior: "smooth",
-  //       block: "start",
-  //     });
-  //   }
-  // }, [isSell]);
-
-  // useEffect(() => {
-  //   if (isBuy && carBuyingFormRef.current) {
-  //     carBuyingFormRef.current.scrollIntoView({
-  //       behavior: "smooth",
-  //       block: "start",
-  //     });
-  //   }
-  // }, [isBuy]);
 
   const handleSellClick = () => {
     setIsSell(!isSell);

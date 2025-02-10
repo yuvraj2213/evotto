@@ -107,6 +107,8 @@ const Login = ({ check, setCheck }) => {
             Login
           </button>
         </form>
+
+        <Link to='/loginwithotp'>Login With OTP</Link>
       </div>
     </>
   );

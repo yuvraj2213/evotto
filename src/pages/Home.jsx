@@ -16,8 +16,10 @@ import FeedbackSlideshow from "../components/FeedbackSlideshow";
 import RideOptions from "../components/RideOptions";
 import FormSwitcher from "../components/FormSwitcher";
 import ImpactSection from "../components/ImpactSection";
+import { useAuth } from "../store/auth";
 
 const Home = () => {
+  
 
   return (
     <>

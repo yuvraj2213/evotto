@@ -47,6 +47,7 @@ import VendorManagement from "./pages/Vendor/VendorManagement";
 import Quiz from "./pages/Quiz";
 import AdminPendingVehicles from "./pages/AdminPendingVehicles";
 import AdminSecondHandCars from "./pages/AdminSecondHandCars";
+import LoginWithOTP from "./pages/LoginWithOTP";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -89,6 +90,7 @@ const App = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/return-policy" element={<ReturnPolicyPage />} />
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="/loginwithotp" element={<LoginWithOTP />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path="*" element={<Error />} />

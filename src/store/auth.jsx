@@ -15,7 +15,10 @@ export const AuthProvider = ({ children }) => {
   const storeTokenInLS = (serverToken) => {
     localStorage.setItem("token", serverToken);
     setToken(serverToken);
+    setIsLoggedIn(true);
   };
+  
+  
 
   const LogoutUser = () => {
     setToken(""); // Clear the token state
@@ -33,6 +36,7 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
     }
   }, [token]);
+
 
   const userAuthentication = async () => {
     if (!token) {
