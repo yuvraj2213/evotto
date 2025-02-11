@@ -48,6 +48,7 @@ import Quiz from "./pages/Quiz";
 import AdminPendingVehicles from "./pages/AdminPendingVehicles";
 import AdminSecondHandCars from "./pages/AdminSecondHandCars";
 import LoginWithOTP from "./pages/LoginWithOTP";
+import AdminStation from "./pages/AdminStation";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -111,6 +112,7 @@ const App = () => {
               <Route path="blogs" element={<AdminBlogs />} />
               <Route path="coupons" element={<AdminCoupons />} />
               <Route path="secondHandCars" element={<AdminSecondHandCars />}/>
+              <Route path="station" element={<AdminStation />}/>
             </Route>
             <Route path="/driver" element={<Driver />}>
               <Route path="bookings" element={<DriverBookings />} />

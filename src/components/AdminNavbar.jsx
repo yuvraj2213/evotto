@@ -69,6 +69,9 @@ const AdminNavbar = () => {
             )}
           </li>
           <li>
+            <NavLink to="/admin/station">Stations</NavLink>
+          </li>
+          <li>
             <NavLink to="/admin/blogs">Blogs</NavLink>
           </li>
           <li>

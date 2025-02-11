@@ -108,7 +108,38 @@ const Login = ({ check, setCheck }) => {
           </button>
         </form>
 
-        <Link to='/loginwithotp'>Login With OTP</Link>
+          <h3 style={{textAlign:'center',color:'white'}}>OR</h3>
+
+        <Link
+          className="login-with-otp-btn"
+          to="/loginwithotp"
+          style={{
+            display: "block",
+            width: "200px",
+            padding: "12px",
+            margin: "20px auto",
+            textAlign: "center",
+            backgroundColor: "#3b82f6", // Blue background
+            color: "white",
+            fontSize: "16px",
+            fontWeight: "bold",
+            borderRadius: "8px",
+            textDecoration: "none",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Soft shadow
+            transition:
+              "background-color 0.3s ease-in-out, transform 0.2s ease-in-out",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "#2563eb"; // Darker blue on hover
+            e.target.style.transform = "scale(1.05)"; // Slight zoom on hover
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = "#3b82f6"; // Revert to original color
+            e.target.style.transform = "scale(1)"; // Revert to normal size
+          }}
+        >
+          Login With OTP
+        </Link>
       </div>
     </>
   );

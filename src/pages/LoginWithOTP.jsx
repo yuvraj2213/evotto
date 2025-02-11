@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/LoginWithOTP.css"; // Import the CSS file
+import "../styles/LoginWithOTP.css"; // Import CSS file
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import SocialLinks from "../components/SocialLinks";
@@ -15,7 +15,7 @@ const LoginWithOTP = () => {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();   
+  const navigate = useNavigate();
 
   const { storeTokenInLS } = useAuth();
 
@@ -76,38 +76,50 @@ const LoginWithOTP = () => {
   return (
     <>
       <Navbar />
-      <div className="login-container">
-        <h2>Login with OTP</h2>
+      <div className="login-with-otp-main">
+        <div className="login-card">
+          <h2 className="login-title">Login with OTP</h2>
 
-        {step === 1 ? (
-          <>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button className="send-otp-btn" onClick={requestOTP} disabled={loading}>
-              {loading ? "Sending..." : "Send OTP"}
-            </button>
-          </>
-        ) : (
-          <>
-            <input
-              type="text"
-              placeholder="Enter OTP"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-            />
-            <button className="verify-otp-btn" onClick={verifyOTP} disabled={loading}>
-              {loading ? "Verifying..." : "Verify OTP"}
-            </button>
-          </>
-        )}
+          {step === 1 ? (
+            <>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="input-field"
+              />
+              <button
+                className="primary-btn"
+                onClick={requestOTP}
+                disabled={loading}
+              >
+                {loading ? "Sending..." : "Send OTP"}
+              </button>
+            </>
+          ) : (
+            <>
+              <input
+                type="text"
+                placeholder="Enter OTP"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                className="input-field"
+              />
+              <button
+                className="primary-btn"
+                onClick={verifyOTP}
+                disabled={loading}
+              >
+                {loading ? "Verifying..." : "Verify OTP"}
+              </button>
+            </>
+          )}
 
-        {message && <p className="message">{message}</p>}
+          {message && <p className="status-message">{message}</p>}
+        </div>
       </div>
-      <section className="social-links">
+      <section className="social-links-container">
         <SocialLinks />
       </section>
       <Footer />

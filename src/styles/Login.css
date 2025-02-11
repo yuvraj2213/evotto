@@ -111,6 +111,11 @@
     }
 }
 
+.login-with-otp-btn{
+    font-size: 14px;
+    width: 90%;
+}
+
 @media screen and (max-width: 430px){
     .signup-container{
         width: 100%;

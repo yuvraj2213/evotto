@@ -49,3 +49,115 @@
   background: linear-gradient(135deg, #2a5298, #1e3c72);
   transform: scale(1.05);
 }
+
+/* General Styling */
+.vendor-vehicles-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 90%;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.orders-table th, 
+.orders-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.orders-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.orders-table td a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.orders-table td button {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.available-mark-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.unavailable-mark-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.edit-location-btn {
+  background-color: #ffc107;
+  color: black;
+  font-weight: bold;
+}
+
+/* 🔹 MODAL STYLES */
+.edit-location-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  width: 40%;
+  max-width: 500px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1001;
+  text-align: center;
+}
+
+/* Overlay Background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Form Inputs */
+.edit-location-modal input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.edit-location-modal button {
+  margin: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.edit-location-modal button:first-of-type {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-location-modal button:last-of-type {
+  background-color: #dc3545;
+  color: white;
+}

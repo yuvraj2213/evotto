@@ -11,6 +11,8 @@ const VendorManagement = () => {
   const userId = user?.userData?._id;
   const [vehicle, setVehicle] = useState([]);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [editingVehicle, setEditingVehicle] = useState(null);
+  const [newLocation, setNewLocation] = useState("");
 
   const getVehicles = async () => {
     try {
@@ -48,6 +50,41 @@ const VendorManagement = () => {
     }
   };
 
+  const startEditingLocation = (vehicle) => {
+    setEditingVehicle(vehicle);
+    setNewLocation(vehicle.location?.join(", ") || "");
+  };
+
+  const handleLocationUpdate = async () => {
+    if (!editingVehicle) return;
+
+    try {
+      const response = await fetch(
+        `${baseURL}/api/vendor/rentalVehicle/${editingVehicle._id}/update`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            location: newLocation.split(",").map((l) => l.trim()),
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setVehicle((prev) =>
+          prev.map((v) =>
+            v._id === editingVehicle._id
+              ? { ...v, location: newLocation.split(",").map((l) => l.trim()) }
+              : v
+          )
+        );
+        setEditingVehicle(null);
+      }
+    } catch (error) {
+      console.error("Error updating location:", error);
+    }
+  };
+
   useEffect(() => {
     getVehicles();
   }, []);
@@ -60,7 +97,6 @@ const VendorManagement = () => {
       >
         {showAddForm ? "Hide Form" : "Add New Vehicle"}
       </button>
-      {console.log('ye aya ',vehicle)}
 
       {showAddForm && <VendorAddVehicle />}
 
@@ -75,6 +111,8 @@ const VendorManagement = () => {
                 <th>Image</th>
                 <th>Availability</th>
                 <th>Action</th>
+                <th>Locations</th>
+                <th>Edit Location</th>
               </tr>
             </thead>
             <tbody>
@@ -105,6 +143,15 @@ const VendorManagement = () => {
                       {curr.isAvailable ? "Mark Unavailable" : "Mark Available"}
                     </button>
                   </td>
+                  <td>{curr.location?.join(", ") || "N/A"}</td>
+                  <td>
+                    <button
+                      className="edit-location-btn"
+                      onClick={() => startEditingLocation(curr)}
+                    >
+                      Edit Location
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -113,6 +160,26 @@ const VendorManagement = () => {
           <p className="no-orders">No vehicles found.</p>
         )}
       </div>
+
+      {editingVehicle && (
+        <>
+          <div
+            className="modal-overlay"
+            onClick={() => setEditingVehicle(null)}
+          ></div>
+          <div className="edit-location-modal">
+            <h3>Update Location for {editingVehicle.name}</h3>
+            <input
+              type="text"
+              value={newLocation}
+              onChange={(e) => setNewLocation(e.target.value)}
+              placeholder="Enter new location(s), separated by commas"
+            />
+            <button onClick={handleLocationUpdate}>Update Location</button>
+            <button onClick={() => setEditingVehicle(null)}>Cancel</button>
+          </div>
+        </>
+      )}
     </>
   );
 };
