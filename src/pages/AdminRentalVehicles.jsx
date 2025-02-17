@@ -92,14 +92,13 @@ const AdminRentalVehicles = () => {
   };
 
   const handleLocationsChange = (e) => {
-    const value = e.target.value.split(","); // Split locations by commas
+    const value = e.target.value.split(","); 
     setNewVehicle({ ...newVehicle, locations: value });
   };
 
   const handleSubmitAddVehicle = async (e) => {
     e.preventDefault();
 
-    // Create FormData to send image and vehicle data
     const formData = new FormData();
     formData.append("name", newVehicle.name);
     formData.append("image", imageFile);

@@ -271,21 +271,30 @@ const RentalBooking = () => {
   // Calculate Price
   useEffect(() => {
     if (car && dropOffDuration) {
-      const perHourPrice = Math.ceil(Number(car?.sixhrPrice) / 6);
-      setPricePerHour(perHourPrice);
+      if (car.vehicleType === "Petrol") {
+        // Existing calculation for Petrol vehicles
+        const perHourPrice = Math.ceil(Number(car?.sixhrPrice) / 6);
+        setPricePerHour(perHourPrice);
 
-      if (parseInt(dropOffDuration, 10) <= 5) {
-        const calculatedCost = perHourPrice * parseInt(dropOffDuration, 10);
-        setTotalCost(calculatedCost);
-      } else {
-        let duration = parseInt(dropOffDuration, 10);
-        if (duration === 6) {
-          setTotalCost(car.sixhrPrice);
-        } else if (duration === 12) {
-          setTotalCost(car.twelvehrPrice);
-        } else if (duration === 24) {
-          setTotalCost(car.twentyfourhrPrice);
+        if (parseInt(dropOffDuration, 10) <= 5) {
+          const calculatedCost = perHourPrice * parseInt(dropOffDuration, 10);
+          setTotalCost(calculatedCost);
+        } else {
+          let duration = parseInt(dropOffDuration, 10);
+          if (duration === 6) {
+            setTotalCost(car.sixhrPrice);
+          } else if (duration === 12) {
+            setTotalCost(car.twelvehrPrice);
+          } else if (duration === 24) {
+            setTotalCost(car.twentyfourhrPrice);
+          }
         }
+      } else {
+        // New price calculation for non-Petrol vehicles
+        const durationInMinutes = parseInt(dropOffDuration, 10) * 60; 
+        const perMinPrice = car.perMinPrice || 0.85; 
+        const calculatedCost = 35 + durationInMinutes * perMinPrice; 
+        setTotalCost(calculatedCost);
       }
     }
   }, [car, dropOffDuration]);

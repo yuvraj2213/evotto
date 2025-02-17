@@ -19,7 +19,6 @@ const LoginWithOTP = () => {
 
   const { storeTokenInLS } = useAuth();
 
-  // Handle OTP request
   const requestOTP = async () => {
     setLoading(true);
     setMessage("");
@@ -61,8 +60,8 @@ const LoginWithOTP = () => {
 
       if (response.ok) {
         setMessage("Login successful!");
-        storeTokenInLS(data.token); // ✅ Store token and trigger authentication
-        navigate("/"); // Redirect after login
+        storeTokenInLS(data.token); 
+        navigate("/"); 
       } else {
         setMessage(data.message || "Invalid OTP");
       }

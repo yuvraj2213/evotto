@@ -6,7 +6,7 @@ const HeroSection = () => {
         <p>Your one-stop solution for rental, purchase, and servicing needs.</p>
       </div>
       <img
-        src="/images/banner.webp"
+        src="/images/banner2.jpg"
         alt="Hero Banner"
         className="hero-image"
       />

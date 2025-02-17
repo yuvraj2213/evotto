@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "../styles/CarCard.css";
 import { toast, Toaster } from "react-hot-toast";
 import Termsandcond from "./Termsandcond";
@@ -26,13 +26,6 @@ const CarCard = ({
   const [selectedCar, setSelectedCar] = useState({});
   const navigate = useNavigate();
 
-  // New state for vehicle type selection
-  const [selectedVehicleType, setSelectedVehicleType] = useState("All");
-
-  useEffect(() => {
-    fetchCars();
-  }, []);
-
   const fetchCars = async () => {
     try {
       const response = await fetch(`${baseURL}/api/data/rentalVehicles`, {
@@ -59,7 +52,9 @@ const CarCard = ({
     ) {
       toast(
         "Please select all required details (Pick-Up and Drop-Off locations, Date, Time, and Duration) before proceeding!",
-        { icon: "⚠️" }
+        {
+          icon: "⚠️",
+        }
       );
       return;
     }
@@ -67,6 +62,7 @@ const CarCard = ({
     const selectedDateTime = new Date(`${pickUpDate}T${pickUpTime}`);
     const currentDateTime = new Date();
 
+    // Check if the selected date/time is in the past
     if (selectedDateTime < currentDateTime) {
       toast(
         "The selected Pick-Up Date and Time is in the past. Please select a valid date and time.",
@@ -77,9 +73,13 @@ const CarCard = ({
       return;
     }
 
+
     if (!isLoggedIn) {
-      toast("You need to login first", { icon: "⚠️" });
+      toast("You need to login first", {
+        icon: "⚠️",
+      });
     } else {
+
       navigate("/rentalBooking", {
         state: {
           car,
@@ -90,6 +90,7 @@ const CarCard = ({
           dropOffDuration,
         },
       });
+
     }
   };
 
@@ -122,31 +123,28 @@ const CarCard = ({
   };
 
   const toggleFavorite = (carName) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.includes(carName)
-        ? prevFavorites.filter((name) => name !== carName)
-        : [...prevFavorites, carName]
-    );
+    if (favorites.includes(carName)) {
+      setFavorites(favorites.filter((name) => name !== carName));
+    } else {
+      setFavorites([...favorites, carName]);
+    }
   };
 
-  const handleVehicleTypeChange = (e) => {
-    setSelectedVehicleType(e.target.value);
-  };
+  useEffect(() => {
+    fetchCars();
+  }, []);
 
-  // Updated filtering logic with vehicle type
   const filteredCars = cars.filter((car) => {
     const matchesSearchQuery = car.name
       .toLowerCase()
       .startsWith(searchQuery.toLowerCase());
 
+    // Only filter cars based on pickup location if a location is selected
     const matchesPickUpLocation = pickUpLocation
       ? car.location?.includes(pickUpLocation)
       : true;
 
-    const matchesVehicleType =
-      selectedVehicleType === "All" || car.vehicleType === selectedVehicleType;
-
-    return matchesSearchQuery && matchesPickUpLocation && matchesVehicleType;
+    return matchesSearchQuery && matchesPickUpLocation;
   });
 
   if (loading) {
@@ -158,55 +156,10 @@ const CarCard = ({
       <Toaster />
       <div className="car-container">
         {searchQuery === "" ? (
-          <h2 style={{ color: "red" }}>Popular Vehicles</h2>
+          <h2 style={{color:"red"}}>Popular Vehicles</h2>
         ) : (
           <h2>Your Search Results</h2>
         )}
-
-        {/* Dropdown for Vehicle Type Selection */}
-        <div
-          className="filter-container"
-          style={{ marginBottom: "20px", textAlign: "center" }}
-        >
-          <label
-            htmlFor="vehicleType"
-            style={{
-              fontSize: "16px",
-              fontWeight: "bold",
-              marginRight: "10px",
-              color: "#333",
-            }}
-          >
-            Select Vehicle Type:
-          </label>
-          <select
-            id="vehicleType"
-            value={selectedVehicleType}
-            onChange={handleVehicleTypeChange}
-            style={{
-              padding: "10px",
-              borderRadius: "8px",
-              border: "2px solid #007BFF",
-              backgroundColor: "#f8f9fa",
-              fontSize: "14px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              color: "#007BFF",
-              outline: "none",
-              transition: "all 0.3s ease",
-              boxShadow: "0px 4px 6px rgba(0, 123, 255, 0.1)",
-            }}
-          >
-            <option value="All">All</option>
-            <option value="EV" style={{ color: "green", fontWeight: "bold" }}>
-              EV
-            </option>
-            <option value="Petrol" style={{ color: "red", fontWeight: "bold" }}>
-              Petrol
-            </option>
-          </select>
-        </div>
-
         <div className="car-cards">
           {filteredCars.length > 0 ? (
             filteredCars.map((car) => (

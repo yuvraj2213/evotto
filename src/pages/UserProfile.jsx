@@ -4,6 +4,7 @@ import "../styles/UserProfile.css";
 import { useAuth } from "../store/auth";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
 
@@ -116,6 +117,12 @@ const UserProfile = () => {
               <span className="label">Phone:</span>
               <span className="value">
                 {userDetails.phone || "Not Available"}
+              </span>
+            </div>
+            <div className="profile-detail">
+              <span className="label">Orders</span>
+              <span className="value user-orders-btn">
+                <Link to='/userOrders' className="user-orders-btn">My Orders</Link>
               </span>
             </div>
             <div className="profile-detail">

@@ -49,6 +49,8 @@ import AdminPendingVehicles from "./pages/AdminPendingVehicles";
 import AdminSecondHandCars from "./pages/AdminSecondHandCars";
 import LoginWithOTP from "./pages/LoginWithOTP";
 import AdminStation from "./pages/AdminStation";
+import UserOrders from "./pages/UserOrders";
+import EVRental from "./pages/EVRental";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -75,6 +77,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/rental" element={<Rental />} />
+            {/* <Route path="/EVrental" element={<EVRental />} /> */}
             <Route path="/cars" element={<SecondHand />} />
             <Route path="/service" element={<Servicing />} />
             <Route path="/drivers" element={<DriverBooking />} />
@@ -91,6 +94,7 @@ const App = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/return-policy" element={<ReturnPolicyPage />} />
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="/userOrders" element={<UserOrders />} />
             <Route path="/loginwithotp" element={<LoginWithOTP />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />

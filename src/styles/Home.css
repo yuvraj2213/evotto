@@ -22,10 +22,9 @@
 }
 
 .hero img {
-  width: 80vw;
-  max-width: 100%;
-  height: 600px;
-  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* This ensures the full image is displayed without cropping */
 }
 
 .know-us-better-home {

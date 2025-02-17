@@ -14,7 +14,7 @@ const Login = ({ check, setCheck }) => {
     password: "",
   });
 
-  const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const { storeTokenInLS } = useAuth();
 

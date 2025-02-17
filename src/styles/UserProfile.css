@@ -127,3 +127,11 @@
     padding: 8px 15px;
   }
 }
+
+.user-orders-btn a{
+  /* background-color:#FB3640; */
+  /* padding: 5px; */
+  color:#A7C957;
+  /* border-radius: 15px; */
+  /* border: none; */
+}
