@@ -51,6 +51,7 @@ import LoginWithOTP from "./pages/LoginWithOTP";
 import AdminStation from "./pages/AdminStation";
 import UserOrders from "./pages/UserOrders";
 import EVRental from "./pages/EVRental";
+import ServicingRoyalEnfield from "./pages/ServicingRoyalEnfield";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -80,6 +81,7 @@ const App = () => {
             {/* <Route path="/EVrental" element={<EVRental />} /> */}
             <Route path="/cars" element={<SecondHand />} />
             <Route path="/service" element={<Servicing />} />
+            <Route path="/servicingRoyalEnfield" element={<ServicingRoyalEnfield />} />
             <Route path="/drivers" element={<DriverBooking />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />

@@ -1,0 +1,88 @@
+.re-banner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Banner Heading */
+.re-banner-heading {
+  position: absolute;
+  top: 10%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.re-banner-heading h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff4b2b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 10px rgba(255, 75, 43, 0.7);
+}
+
+/* Banner Image */
+.re-banner-image {
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+  margin-top: 120px;
+  margin-bottom: 100px;
+}
+
+
+.re-services-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #1e1e1e, #333);
+  color: white;
+  margin-bottom: 100px;
+}
+
+.re-section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.re-services-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Royal Enfield Service Card Styling */
+.re-service-card {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  color: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(255, 65, 108, 0.5);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.re-service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.re-service-card p {
+  font-size: 1rem;
+}
+
+.re-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 20px rgba(255, 65, 108, 0.7);
+}
+

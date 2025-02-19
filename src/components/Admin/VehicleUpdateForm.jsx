@@ -12,6 +12,7 @@ const VehicleUpdateForm = ({ setShowForm, vehicleId }) => {
     sixhrPrice: "",
     twelvehrPrice: "",
     twentyfourhrPrice: "",
+    perMinPrice:"",
     isAvailable: false,
     location: [],
   });
@@ -92,6 +93,7 @@ const VehicleUpdateForm = ({ setShowForm, vehicleId }) => {
         sixhrPrice: vehicle.sixhrPrice || "",
         twelvehrPrice: vehicle.twelvehrPrice || "",
         twentyfourhrPrice: vehicle.twentyfourhrPrice || "",
+        perMinPrice: vehicle.perMinPrice || "",
         isAvailable: vehicle.isAvailable || false,
         location: vehicle.location || [],
       });
@@ -157,6 +159,18 @@ const VehicleUpdateForm = ({ setShowForm, vehicleId }) => {
             id="twentyfourhrPrice"
             name="twentyfourhrPrice"
             value={formData.twentyfourhrPrice}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="vehicle-update-form-in">
+          <label htmlFor="twentyfourhrPrice">Per Min. Price:</label>
+          <input
+            type="text"
+            id="perMinPrice"
+            name="perMinPrice"
+            value={formData.perMinPrice}
             onChange={handleChange}
             required
           />

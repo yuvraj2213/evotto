@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/ServicingForm.css";
 import { useAuth } from "../store/auth";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -73,6 +74,7 @@ const ServicingForm = () => {
   return (
     <>
     <Toaster/>
+
     <div className="form-container">
       <h2 className="form-title">Book a Servicing Appointment</h2>
       <form className="appointment-form" onSubmit={handleSubmit}>

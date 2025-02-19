@@ -22,6 +22,8 @@ const AdminRentalVehicles = () => {
     sixhrPrice: "",
     twelvehrPrice: "",
     twentyfourhrPrice: "",
+    perMinPrice: "",
+    vehicleType: "",
     isAvailable: true,
     location: [],
   });
@@ -105,6 +107,8 @@ const AdminRentalVehicles = () => {
     formData.append("sixhrPrice", newVehicle.sixhrPrice);
     formData.append("twelvehrPrice", newVehicle.twelvehrPrice);
     formData.append("twentyfourhrPrice", newVehicle.twentyfourhrPrice);
+    formData.append("perMinPrice", newVehicle.perMinPrice);
+    formData.append("vehicleType", newVehicle.vehicleType);
     formData.append("isAvailable", newVehicle.isAvailable);
     formData.append("location", JSON.stringify(newVehicle.location));
 
@@ -120,13 +124,15 @@ const AdminRentalVehicles = () => {
       if (response.ok) {
         toast.success("Vehicle Added Successfully");
         getAllVehiclesData();
-        setShowAddForm(false); // Close the add form
+        setShowAddForm(false); 
         setNewVehicle({
           name: "",
           image: "",
           sixhrPrice: "",
           twelvehrPrice: "",
           twentyfourhrPrice: "",
+          perMinPrice: "",
+          vehicleType: "",
           isAvailable: true,
           location: [],
         });
@@ -190,7 +196,7 @@ const AdminRentalVehicles = () => {
             <div>
               <label>6hr Price:</label>
               <input
-                type="number"
+                type="text"
                 name="sixhrPrice"
                 value={newVehicle.sixhrPrice}
                 onChange={handleInputChange}
@@ -200,7 +206,7 @@ const AdminRentalVehicles = () => {
             <div>
               <label>12hr Price:</label>
               <input
-                type="number"
+                type="text"
                 name="twelvehrPrice"
                 value={newVehicle.twelvehrPrice}
                 onChange={handleInputChange}
@@ -210,10 +216,31 @@ const AdminRentalVehicles = () => {
             <div>
               <label>24hr Price:</label>
               <input
-                type="number"
+                type="text"
                 name="twentyfourhrPrice"
                 value={newVehicle.twentyfourhrPrice}
                 onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Per Min. Price:</label>
+              <input
+                type="text"
+                name="perMinPrice"
+                value={newVehicle.perMinPrice}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Vehicle Type</label>
+              <input
+                type="text"
+                name="vehicleType"
+                value={newVehicle.vehicleType}
+                onChange={handleInputChange}
+                placeholder=" 'Petrol' or 'EV' "
                 required
               />
             </div>
@@ -254,6 +281,7 @@ const AdminRentalVehicles = () => {
                 <th>6hr Price</th>
                 <th>12hr Price</th>
                 <th>24hr Price</th>
+                <th>1Min Price</th>
                 <th>Available</th>
                 <th>Locations</th>
                 <th>Update</th>
@@ -273,9 +301,10 @@ const AdminRentalVehicles = () => {
                       View Image
                     </a>
                   </td>
-                  <td>{vehicle.sixhrPrice}</td>
-                  <td>{vehicle.twelvehrPrice}</td>
-                  <td>{vehicle.twentyfourhrPrice}</td>
+                  <td>₹{vehicle.sixhrPrice}</td>
+                  <td>₹{vehicle.twelvehrPrice}</td>
+                  <td>₹{vehicle.twentyfourhrPrice}</td>
+                  <td>₹{vehicle.perMinPrice}</td>
                   <td>{vehicle.isAvailable ? "Yes" : "No"}</td>
                   <td>{vehicle.location?.join(", ") || "N/A"}</td>
                   <td className="admin-edit-vehicle-btn">
