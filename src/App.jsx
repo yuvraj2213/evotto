@@ -52,6 +52,7 @@ import AdminStation from "./pages/AdminStation";
 import UserOrders from "./pages/UserOrders";
 import EVRental from "./pages/EVRental";
 import ServicingRoyalEnfield from "./pages/ServicingRoyalEnfield";
+import AdminServicing from "./pages/AdminServicing";
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -118,6 +119,7 @@ const App = () => {
               <Route path="blogs" element={<AdminBlogs />} />
               <Route path="coupons" element={<AdminCoupons />} />
               <Route path="secondHandCars" element={<AdminSecondHandCars />}/>
+              <Route path="servicing" element={<AdminServicing />}/>
               <Route path="station" element={<AdminStation />}/>
             </Route>
             <Route path="/driver" element={<Driver />}>

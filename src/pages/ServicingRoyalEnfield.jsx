@@ -4,6 +4,7 @@ import SocialLinks from "../components/SocialLinks";
 import Footer from "../components/Footer";
 import "../styles/ServicingRoyalEnfield.css";
 import ServicingForm from "../components/ServicingForm";
+import ServicingFormRE from "../components/ServicingFormRE";
 
 const ServicingRoyalEnfield = () => {
   return (
@@ -22,7 +23,7 @@ const ServicingRoyalEnfield = () => {
         />
       </section>
 
-      <ServicingForm />
+      <ServicingFormRE />
 
       {/* Services Section */}
       <section className="re-services-section">
