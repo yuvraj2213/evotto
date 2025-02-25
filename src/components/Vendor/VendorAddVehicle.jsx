@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../styles/Vendor/VendorAddVehicle.css";
 
 import toast, { Toaster } from "react-hot-toast";
+import { useAuth } from "../../store/auth";
 
 const baseURL =
   process.env.REACT_APP_BASE_URL || "https://evotto-backend.vercel.app";
@@ -14,6 +15,9 @@ const VendorAddVehicle = () => {
     vehicleNumber: "",
     kmRunning: "",
   });
+  const { authorizationToken, user } = useAuth();
+
+  const userData = user?.userData;
   const [imageFile, setImageFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -26,13 +30,14 @@ const VendorAddVehicle = () => {
 
     setLoading(true);
 
-    // Create FormData to send image and vehicle data
     const formData = new FormData();
     formData.append("name", vehicle.name);
     formData.append("image", imageFile);
     formData.append("description", vehicle.description);
     formData.append("vehicleNumber", vehicle.vehicleNumber);
     formData.append("kmRunning", vehicle.kmRunning);
+    formData.append("vendor", userData.name);
+    formData.append("vendorId", userData._id);
 
     try {
       const response = await fetch(`${baseURL}/api/vendor/addRentalVehicle`, {
@@ -69,6 +74,7 @@ const VendorAddVehicle = () => {
 
   return (
     <>
+    {console.log(userData._id)}
       <Toaster />
       <div className="vendor-add-vehicle-container">
         <div className="form-wrapper">
@@ -118,7 +124,7 @@ const VendorAddVehicle = () => {
               required
             />
             <button type="submit" className="submit-button">
-                {!loading?'Add Vehicle':'Adding...'}
+              {!loading ? "Add Vehicle" : "Adding..."}
             </button>
           </form>
         </div>
